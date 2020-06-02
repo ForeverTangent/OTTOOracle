@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct GMATagBottonView: View {
+	var currentGMACard: GMACard
+
     var body: some View {
 		VStack {
 			HStack {
@@ -88,6 +90,6 @@ struct GMATagBottonView: View {
 
 struct GMATagBottonView_Previews: PreviewProvider {
     static var previews: some View {
-        GMATagBottonView()
+		return Text("FIX ME")
     }
 }

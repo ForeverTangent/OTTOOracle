@@ -10,21 +10,40 @@ import Foundation
 
 // MARK: - GMACardElement
 struct GMACard: Codable {
-	var cardFile: String
-	var difficulty: Int
-	var likelyOddsBad, likelyOddsEven, likelyOddsGood: LikelyOdds
-	var d4, d6, d8, d10: Int
-	var d12, d20, d10Tens, d10Ones: Int
-	var rune: String
-	var element: Element
-	var description1, description2, description3, sensorySound: String
-	var sensoryVisual, sensoryTouch, sensorySmell: String
-	var tagSymbol1, tagSymbol2, tagSymbol3: TagSymbol
-	var scatterSymbol: ScatterSymbol
-	var belongings, catalyst, location, name1: String
-	var name2, name3: String
-	var virtue: Virtue
-	var vice: Vice
+	var cardFile: String = "NONE"
+	var difficulty: Int = 0
+	var likelyOddsBad: LikelyOdds = .NONE
+	var likelyOddsEven: LikelyOdds = .NONE
+	var likelyOddsGood: LikelyOdds = .NONE
+	var d4: Int = 0
+	var d6: Int = 0
+	var d8: Int = 0
+	var d10: Int = 0
+	var d12: Int = 0
+	var d20: Int = 0
+	var d10Tens: Int = 0
+	var d10Ones: Int = 0
+	var rune: String = "NONE"
+	var element: Element = .NONE
+	var description1: String = "NONE"
+	var description2: String = "NONE"
+	var description3: String = "NONE"
+	var sensorySound: String = "NONE"
+	var sensoryVisual: String = "NONE"
+	var sensoryTouch: String = "NONE"
+	var sensorySmell: String = "NONE"
+	var tagSymbol1: TagSymbol = .NONE
+	var tagSymbol2: TagSymbol = .NONE
+	var tagSymbol3: TagSymbol = .NONE
+	var scatterSymbol: ScatterSymbol = .NONE
+	var belongings: String = "NONE"
+	var catalyst: String = "NONE"
+	var location: String = "NONE"
+	var name1: String = "NONE"
+	var name2: String = "NONE"
+	var name3: String = "NONE"
+	var virtue: Virtue = .NONE
+	var vice: Vice = .NONE
 
 	enum CodingKeys: String, CodingKey {
 		case cardFile = "CARD_FILE"
@@ -69,13 +88,15 @@ enum Element: String, Codable {
 	case earth = "Earth_\u{1f703}"
 	case fire = "Fire_\u{1f702}"
 	case water = "Water_\u{1f704}"
+	case NONE = "NONE"
 }
 
 enum LikelyOdds: String, Codable {
-	case likelyOddsNO = "NO!"
-	case likelyOddsYES = "YES!"
+	case likelyOddsNo = "NO!"
+	case likelyOddsYes = "YES!"
 	case no = "NO"
 	case yes = "YES"
+	case NONE = "NONE"
 }
 
 enum ScatterSymbol: String, Codable {
@@ -89,6 +110,7 @@ enum ScatterSymbol: String, Codable {
 	case southeast = "SOUTHEAST_↘︎"
 	case southwest = "SOUTHWEST_↙︎"
 	case west = "WEST_←"
+	case NONE = "NONE"
 }
 
 enum TagSymbol: String, Codable {
@@ -102,6 +124,7 @@ enum TagSymbol: String, Codable {
 	case target = "Target_\u{1f3af}"
 	case tower = "Tower_♖"
 	case wand = "Wand_\u{100c6}"
+	case NONE = "NONE"
 }
 
 enum Vice: String, Codable {
@@ -115,6 +138,7 @@ enum Vice: String, Codable {
 	case sloth = "Sloth"
 	case treachery = "Treachery"
 	case wrath = "Wrath"
+	case NONE = "NONE"
 }
 
 enum Virtue: String, Codable {
@@ -128,4 +152,5 @@ enum Virtue: String, Codable {
 	case loyalty = "Loyalty"
 	case mercy = "Mercy"
 	case temperance = "Temperance"
+	case NONE = "NONE"
 }

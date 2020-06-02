@@ -9,20 +9,16 @@
 import SwiftUI
 
 struct GMACardView: View {
-	@EnvironmentObject var ottoOracle: OTTOOracle
+
+	@ObservedObject var gmaCardViewModel = GMACardViewModel()
+
     var body: some View {
-		VStack {
-			GMATopView()
-				.padding(.top)
-			GMADescriptionsView()
-			GMATagBottonView()
-		}
-		.frame(width: 360.0, height: 500.0)
+		Text("Hello")
     }
 }
 
 struct GMACardView_Previews: PreviewProvider {
     static var previews: some View {
-        GMACardView()
+		return GMACardView()
     }
 }

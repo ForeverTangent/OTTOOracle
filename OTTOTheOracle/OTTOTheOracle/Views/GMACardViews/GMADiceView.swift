@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct GMADiceView: View {
+	var currentGMACard: GMACard
+	
 	var body: some View {
 		HStack(alignment: .center) {
 			VStack(alignment: .center) {
@@ -94,8 +96,7 @@ struct GMADiceView: View {
 
 struct GMADiceView_Previews: PreviewProvider {
 	static var previews: some View {
-		GMADiceView()
-			.previewLayout(.fixed(width: 70, height: 100))
+		return Text("FIX ME")
 	}
 
 }

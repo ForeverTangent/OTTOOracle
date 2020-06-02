@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct GMATopView: View {
+	var currentGMACard: GMACard
+	
     var body: some View {
 		HStack(alignment: .top) {
 			VStack {
 				Text("DIFFICULTY")
 					.font(.system(size:10))
 					.padding(.bottom, 5.0)
-				Text("#")
+				Text("\(currentGMACard.difficulty)")
 					.font(.system(size:14))
 			}
 			.padding(.leading)
@@ -53,7 +55,7 @@ struct GMATopView: View {
 				}
 			}
 			Spacer()
-			GMADiceView()
+			GMADiceView(currentGMACard: currentGMACard)
 				.frame(width: 100.0, height: 100.0)
 			Spacer()
 			VStack{
@@ -80,6 +82,6 @@ struct GMATopView: View {
 
 struct GMATopView_Previews: PreviewProvider {
     static var previews: some View {
-        GMATopView()
+		return Text("REPLACE ME.")
     }
 }

@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct GMADescriptionsView: View {
+	var currentGMACard: GMACard
+
     var body: some View {
 		VStack {
 			HStack {
@@ -66,6 +68,6 @@ struct GMADescriptionsView: View {
 
 struct GMADescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        GMADescriptionsView()
+		return Text("REPLACE ME.")
     }
 }

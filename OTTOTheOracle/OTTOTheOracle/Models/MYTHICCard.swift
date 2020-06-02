@@ -8,29 +8,54 @@
 
 import Foundation
 
-// MARK: - MYTHICCardElement
+// MARK: - MYTHICCardElementb
 struct MYTHICCard: Codable {
-	var cardFile: String
-	var forward: Bool
-	var yesSubject: String
-	var yesEventFocus: EventFocus
-	var yesAction: String
-	var yesExceptional: Bool
-	var yesRandomLow, yesRandomHigh: Int
-	var yesSceneSetupOption1_RangeLow, yesSceneSetupOption1_RangeHigh: Int
-	var yesSceneSetupOption1_Result: Result
-	var yesSceneSetupOption2_RangeLow, yesSceneSetupOption2_RangeHigh: Int
-	var yesSceneSetupOption2_Result: Result
-	var yesDescription1, yesDescription2, noSubject: String
-	var noEventFocus: EventFocus
-	var noAction: String
-	var noExceptional: Bool
-	var noRandomLow, noRandomHigh: Int
-	var noSceneSetupOption1_RangeLow, noSceneSetupOption1_RangeHigh: Int
-	var noSceneSetupOption1_Result: Result
-	var noSceneSetupOption2_RangeLow, noSceneSetupOption2_RangeHigh: Int
-	var noSceneSetupOption2_Result: Result
-	var noDescription1, noDescription2: String
+	var cardFile: String = "NONE"
+	var forward: Bool = false
+	private var yesSubject: String = "NONE"
+	private var yesEventFocus: EventFocus = .NONE
+	private var yesAction: String = "NONE"
+	private var yesExceptional: Bool = false
+	private var yesRandomLow: Int = 0
+	private var yesRandomHigh: Int = 0
+	private var yesSceneSetupOption1_RangeLow: Int = 0
+	private var yesSceneSetupOption1_RangeHigh: Int = 0
+	private var yesSceneSetupOption1_Result: Result = .NONE
+	private var yesSceneSetupOption2_RangeLow: Int = 0
+	private var yesSceneSetupOption2_RangeHigh: Int = 0
+	private var yesSceneSetupOption2_Result: Result = .NONE
+	private var yesDescription1: String = "NONE"
+	private var yesDescription2: String = "NONE"
+	private var noSubject: String = "NONE"
+	private var noEventFocus: EventFocus = .NONE
+	private var noAction: String = "NONE"
+	private var noExceptional: Bool = false
+	private var noRandomLow: Int = 0
+	private var noRandomHigh: Int = 0
+	private var noSceneSetupOption1_RangeLow: Int = 0
+	private var noSceneSetupOption1_RangeHigh: Int = 0
+	private var noSceneSetupOption1_Result: Result = .NONE
+	private var noSceneSetupOption2_RangeLow: Int = 0
+	private var noSceneSetupOption2_RangeHigh: Int = 0
+	private var noSceneSetupOption2_Result: Result = .NONE
+	private var noDescription1: String = "NONE"
+	private var noDescription2: String = "NONE"
+
+	var result: String { get { return forward ? "YES" : "NO" } }
+	var subject: String { get { return forward ? yesSubject : noSubject } }
+	var eventFocus: EventFocus { get { return forward ? yesEventFocus : noEventFocus } }
+	var action: String { get { return forward ? yesAction : noAction } }
+	var exceptional: Bool { get { return forward ? yesExceptional : noExceptional } }
+	var randomLow: Int { get { return forward ? yesRandomLow : noRandomLow } }
+	var randomHigh: Int { get { return forward ? yesRandomHigh : noRandomHigh } }
+	var sceneSetupOption1_RangeLow: Int { get { return forward ? yesSceneSetupOption1_RangeLow : noSceneSetupOption1_RangeLow } }
+	var sceneSetupOption1_RangeHigh: Int { get { return forward ? yesSceneSetupOption1_RangeHigh : noSceneSetupOption1_RangeHigh } }
+	var sceneSetupOption1_Result: Result { get { return forward ? yesSceneSetupOption1_Result : noSceneSetupOption1_Result } }
+	var sceneSetupOption2_RangeLow: Int { get { return forward ? yesSceneSetupOption2_RangeLow : noSceneSetupOption2_RangeLow } }
+	var sceneSetupOption2_RangeHigh: Int { get { return forward ? yesSceneSetupOption2_RangeHigh : noSceneSetupOption2_RangeHigh } }
+	var sceneSetupOption2_Result: Result { get { return forward ? yesSceneSetupOption2_Result : noSceneSetupOption2_Result } }
+	var description1: String { get { return forward ? yesDescription1 : noDescription1 } }
+	var description2: String { get { return forward ? yesDescription2 : noDescription2 } }
 
 	enum CodingKeys: String, CodingKey {
 		case cardFile = "CARD_FILE"
@@ -70,7 +95,7 @@ enum Result: String, Codable {
 	case altered = "ALTERED"
 	case expected = "EXPECTED"
 	case interrupt = "INTERRUPT"
-	case na = "NA"
+	case NONE = "NONE"
 }
 
 enum EventFocus: String, Codable {
@@ -85,4 +110,5 @@ enum EventFocus: String, Codable {
 	case pcNegative = "PC_NEGATIVE"
 	case pcPositive = "PC_POSITIVE"
 	case remoteEvent = "REMOTE_EVENT"
+	case NONE = "NONE"
 }

@@ -9,15 +9,17 @@
 import Foundation
 import os
 
-class OTTOKnowledge {
+/**
+The Maaster Model
+*/
+class OracleKnowledge {
 
 	// MARK: - Propeties
 
 	private static let subsystem = Bundle.main.bundleIdentifier!
-	private static let catagory = "OTTOOracle"
+	private static let catagory = "OracleKnowledge"
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
-
 
 	var mythicDeck: Deck<MYTHICCard>?
 	var gmaDeck: Deck<GMACard>?
