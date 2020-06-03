@@ -12,9 +12,9 @@ import Foundation
 struct GMACard: Codable {
 	var cardFile: String = "NONE"
 	var difficulty: Int = 0
-	var likelyOddsBad: LikelyOdds = .NONE
-	var likelyOddsEven: LikelyOdds = .NONE
-	var likelyOddsGood: LikelyOdds = .NONE
+	var likelyOddsBad: GMACard_LikelyOdds = .NONE
+	var likelyOddsEven: GMACard_LikelyOdds = .NONE
+	var likelyOddsGood: GMACard_LikelyOdds = .NONE
 	var d4: Int = 0
 	var d6: Int = 0
 	var d8: Int = 0
@@ -23,8 +23,8 @@ struct GMACard: Codable {
 	var d20: Int = 0
 	var d10Tens: Int = 0
 	var d10Ones: Int = 0
-	var rune: String = "NONE"
-	var element: Element = .NONE
+	var rune: GMACard_Rune = .NONE
+	var element: GMACard_Element = .NONE
 	var description1: String = "NONE"
 	var description2: String = "NONE"
 	var description3: String = "NONE"
@@ -32,18 +32,18 @@ struct GMACard: Codable {
 	var sensoryVisual: String = "NONE"
 	var sensoryTouch: String = "NONE"
 	var sensorySmell: String = "NONE"
-	var tagSymbol1: TagSymbol = .NONE
-	var tagSymbol2: TagSymbol = .NONE
-	var tagSymbol3: TagSymbol = .NONE
-	var scatterSymbol: ScatterSymbol = .NONE
+	var tagSymbol1: GMACard_TagSymbol = .NONE
+	var tagSymbol2: GMACard_TagSymbol = .NONE
+	var tagSymbol3: GMACard_TagSymbol = .NONE
+	var scatterSymbol: GMACard_ScatterSymbol = .NONE
 	var belongings: String = "NONE"
 	var catalyst: String = "NONE"
 	var location: String = "NONE"
 	var name1: String = "NONE"
 	var name2: String = "NONE"
 	var name3: String = "NONE"
-	var virtue: Virtue = .NONE
-	var vice: Vice = .NONE
+	var virtue: GMACard_Virtue = .NONE
+	var vice: GMACard_Vice = .NONE
 
 	enum CodingKeys: String, CodingKey {
 		case cardFile = "CARD_FILE"
@@ -83,7 +83,35 @@ struct GMACard: Codable {
 	}
 }
 
-enum Element: String, Codable {
+enum GMACard_Rune: String, Codable {
+	case Algiz_ᛉ = "Algiz_ᛉ"
+	case Ansuz_ᚨ = "Ansuz_ᚨ"
+	case Berkano_ᛒ = "Berkano_ᛒ"
+	case Dagaz_ᛞ = "Dagaz_ᛞ"
+	case Ehwaz_ᛖ = "Ehwaz_ᛖ"
+	case Eihwaz_ᛇ = "Eihwaz_ᛇ"
+	case Fehu_ᚠ = "Fehu_ᚠ"
+	case Gebo_ᚷ = "Gebo_ᚷ"
+	case Hagalaz_ᚺ = "Hagalaz_ᚺ"
+	case Ingwaz_ᛜ = "Ingwaz_ᛜ"
+	case Isaz_ᛁ = "Isaz_ᛁ"
+	case Jera_ᛃ = "Jera_ᛃ"
+	case Kenaz_ᚲ = "Kenaz_ᚲ"
+	case Lagiz_ᛚ = "Lagiz_ᛚ"
+	case Mannaz_ᛗ = "Mannaz_ᛗ"
+	case Naudiz_ᚾ = "Naudiz_ᚾ"
+	case Othala_ᛟ = "Othala_ᛟ"
+	case Perthro_ᛈ = "Perthro_ᛈ"
+	case Raido_ᚱ = "Raido_ᚱ"
+	case Sowlio_ᛋ = "Sowlio_ᛋ"
+	case Thurisaz_ᚦ = "Thurisaz_ᚦ"
+	case Tirwas_ᛏ = "Tirwas_ᛏ"
+	case Uruz_ᚢ = "Uruz_ᚢ"
+	case Wunjo_ᚹ = "Wunjo_ᚹ"
+	case NONE = "NONE"
+}
+
+enum GMACard_Element: String, Codable {
 	case air = "Air_\u{1f701}"
 	case earth = "Earth_\u{1f703}"
 	case fire = "Fire_\u{1f702}"
@@ -91,15 +119,15 @@ enum Element: String, Codable {
 	case NONE = "NONE"
 }
 
-enum LikelyOdds: String, Codable {
-	case likelyOddsNo = "NO!"
-	case likelyOddsYes = "YES!"
+enum GMACard_LikelyOdds: String, Codable {
+	case noBang = "NO!"
+	case yesBang = "YES!"
 	case no = "NO"
 	case yes = "YES"
 	case NONE = "NONE"
 }
 
-enum ScatterSymbol: String, Codable {
+enum GMACard_ScatterSymbol: String, Codable {
 	case east = "EAST_→"
 	case hit = "HIT_\u{1f4a5}"
 	case miss = "MISS_–"
@@ -113,8 +141,8 @@ enum ScatterSymbol: String, Codable {
 	case NONE = "NONE"
 }
 
-enum TagSymbol: String, Codable {
-	case crown = "Crown_♔"
+enum GMACard_TagSymbol: String, Codable {
+	case crown = "Crown_👑"
 	case heart = "Heart_ ♥︎"
 	case moon = "Moon_☽"
 	case shield = "Shield_\u{1f6e1}"
@@ -127,7 +155,7 @@ enum TagSymbol: String, Codable {
 	case NONE = "NONE"
 }
 
-enum Vice: String, Codable {
+enum GMACard_Vice: String, Codable {
 	case envy = "Envy"
 	case fear = "Fear"
 	case fraud = "Fraud"
@@ -141,7 +169,7 @@ enum Vice: String, Codable {
 	case NONE = "NONE"
 }
 
-enum Virtue: String, Codable {
+enum GMACard_Virtue: String, Codable {
 	case charity = "Charity"
 	case chastity = "Chastity"
 	case compassion = "Compassion"

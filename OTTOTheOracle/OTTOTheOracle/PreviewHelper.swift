@@ -10,10 +10,15 @@ import Foundation
 
 class PreviewHelper {
 
-	static func mockGMACardViewModel() -> GMACardViewModel {
-		let mockedGMACardViewModel = GMACardViewModel()
-		mockedGMACardViewModel.currentGMACard = mockGMACard()
-		return mockedGMACardViewModel
+	static func mockOracle() -> OracleViewModel {
+		return OracleViewModel()
+	}
+
+	static func mockOracleWithDeckAndDrawnCard() -> OracleViewModel {
+		let oracleViewModel = OracleViewModel()
+		oracleViewModel.drawGMACard()
+		oracleViewModel.drawMythicCard()
+		return oracleViewModel
 	}
 
 	static func mockGMACard() -> GMACard {

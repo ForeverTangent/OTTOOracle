@@ -9,16 +9,25 @@
 import SwiftUI
 
 struct GMACardView: View {
+	@EnvironmentObject var oracleViewModel: OracleViewModel
 
-	@ObservedObject var gmaCardViewModel = GMACardViewModel()
+//	var gmaCardViewModel: GMACardViewModel
 
     var body: some View {
-		Text("Hello")
+		VStack {
+			Text("GMACard")
+			Text("\(oracleViewModel.currentGMACardViewModel.cardFile)")
+				.padding(.all)
+			GMATopView().environmentObject(oracleViewModel)
+			GMADescriptionsView().environmentObject(oracleViewModel)
+			GMATagBottonView().environmentObject(oracleViewModel)
+
+		}
     }
 }
 
 struct GMACardView_Previews: PreviewProvider {
     static var previews: some View {
-		return GMACardView()
+		return GMACardView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

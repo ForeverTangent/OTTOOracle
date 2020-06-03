@@ -13,16 +13,19 @@
 		312F201D2481B3E2000CEB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 312F201C2481B3E2000CEB9C /* Assets.xcassets */; };
 		312F20202481B3E2000CEB9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 312F201F2481B3E2000CEB9C /* Preview Assets.xcassets */; };
 		312F20232481B3E2000CEB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 312F20212481B3E2000CEB9C /* LaunchScreen.storyboard */; };
-		3168E48E2482EE7800DCCC76 /* OracleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E48D2482EE7800DCCC76 /* OracleManager.swift */; };
+		3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */; };
 		3168E4912483117400DCCC76 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E4902483117400DCCC76 /* Base.swift */; };
 		3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E4922483335300DCCC76 /* GMADiceView.swift */; };
+		316D87012487D31D000E03E0 /* MythicCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D87002487D31D000E03E0 /* MythicCardView.swift */; };
+		316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D87022487D900000E03E0 /* GMACardViewModel.swift */; };
+		316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D87042487E91D000E03E0 /* MythicCardViewModel.swift */; };
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardView.swift */; };
-		31BE22932483DE8B00E21C00 /* MYTHICCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22922483DE8B00E21C00 /* MYTHICCard.swift */; };
+		31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22922483DE8B00E21C00 /* MythicCard.swift */; };
 		31BE22952483DEE400E21C00 /* GMACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22942483DEE400E21C00 /* GMACard.swift */; };
 		31BE22972483FF8B00E21C00 /* MYTHIC_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */; };
-		31BE22A124842C8400E21C00 /* OracleKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A024842C8400E21C00 /* OracleKnowledge.swift */; };
+		31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A024842C8400E21C00 /* OracleModel.swift */; };
 		31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A424843EE600E21C00 /* GMATopView.swift */; };
 		31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A624843F9300E21C00 /* GMADescriptionsView.swift */; };
 		31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A92484405300E21C00 /* GMATagBottonView.swift */; };
@@ -269,7 +272,6 @@
 		31D294E3248488C20024AC8F /* GMA Base VTT_Part81.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2946B248488C20024AC8F /* GMA Base VTT_Part81.jpg */; };
 		31D294E4248488C20024AC8F /* GMA Base VTT_Part46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2946C248488C20024AC8F /* GMA Base VTT_Part46.jpg */; };
 		31D294E5248488C20024AC8F /* GMA Base VTT_Part98.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2946D248488C20024AC8F /* GMA Base VTT_Part98.jpg */; };
-		31D29509248539650024AC8F /* GMACardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D29508248539650024AC8F /* GMACardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -281,16 +283,19 @@
 		312F201F2481B3E2000CEB9C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		312F20222481B3E2000CEB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		312F20242481B3E2000CEB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3168E48D2482EE7800DCCC76 /* OracleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleManager.swift; sourceTree = "<group>"; };
+		3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleViewModel.swift; sourceTree = "<group>"; };
 		3168E4902483117400DCCC76 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		3168E4922483335300DCCC76 /* GMADiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADiceView.swift; sourceTree = "<group>"; };
+		316D87002487D31D000E03E0 /* MythicCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCardView.swift; sourceTree = "<group>"; };
+		316D87022487D900000E03E0 /* GMACardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardViewModel.swift; sourceTree = "<group>"; };
+		316D87042487E91D000E03E0 /* MythicCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCardViewModel.swift; sourceTree = "<group>"; };
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardView.swift; sourceTree = "<group>"; };
-		31BE22922483DE8B00E21C00 /* MYTHICCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYTHICCard.swift; sourceTree = "<group>"; };
+		31BE22922483DE8B00E21C00 /* MythicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCard.swift; sourceTree = "<group>"; };
 		31BE22942483DEE400E21C00 /* GMACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACard.swift; sourceTree = "<group>"; };
 		31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MYTHIC_CARDS.json; sourceTree = "<group>"; };
-		31BE22A024842C8400E21C00 /* OracleKnowledge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleKnowledge.swift; sourceTree = "<group>"; };
+		31BE22A024842C8400E21C00 /* OracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleModel.swift; sourceTree = "<group>"; };
 		31BE22A424843EE600E21C00 /* GMATopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMATopView.swift; sourceTree = "<group>"; };
 		31BE22A624843F9300E21C00 /* GMADescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADescriptionsView.swift; sourceTree = "<group>"; };
 		31BE22A92484405300E21C00 /* GMATagBottonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMATagBottonView.swift; sourceTree = "<group>"; };
@@ -538,7 +543,6 @@
 		31D2946B248488C20024AC8F /* GMA Base VTT_Part81.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part81.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part81.jpg"; sourceTree = SOURCE_ROOT; };
 		31D2946C248488C20024AC8F /* GMA Base VTT_Part46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part46.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part46.jpg"; sourceTree = SOURCE_ROOT; };
 		31D2946D248488C20024AC8F /* GMA Base VTT_Part98.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part98.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part98.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29508248539650024AC8F /* GMACardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -598,10 +602,9 @@
 		3168E48F2483106700DCCC76 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3168E48D2482EE7800DCCC76 /* OracleManager.swift */,
-				31BE22A024842C8400E21C00 /* OracleKnowledge.swift */,
+				31BE22A024842C8400E21C00 /* OracleModel.swift */,
 				3168E4902483117400DCCC76 /* Base.swift */,
-				31BE22922483DE8B00E21C00 /* MYTHICCard.swift */,
+				31BE22922483DE8B00E21C00 /* MythicCard.swift */,
 				31BE22942483DEE400E21C00 /* GMACard.swift */,
 			);
 			path = Models;
@@ -889,7 +892,9 @@
 		31D295062485391C0024AC8F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				31D29508248539650024AC8F /* GMACardViewModel.swift */,
+				3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */,
+				316D87022487D900000E03E0 /* GMACardViewModel.swift */,
+				316D87042487E91D000E03E0 /* MythicCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -899,6 +904,7 @@
 			children = (
 				312F201A2481B3E1000CEB9C /* StartingView.swift */,
 				3188CB872481CD1F001F53B5 /* GMACardView.swift */,
+				316D87002487D31D000E03E0 /* MythicCardView.swift */,
 				31BE22A82484401800E21C00 /* GMACardViews */,
 			);
 			path = Views;
@@ -1225,14 +1231,16 @@
 				3168E4912483117400DCCC76 /* Base.swift in Sources */,
 				312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */,
 				3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */,
-				31BE22932483DE8B00E21C00 /* MYTHICCard.swift in Sources */,
+				31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */,
 				31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */,
 				31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */,
 				312F20192481B3E1000CEB9C /* SceneDelegate.swift in Sources */,
-				3168E48E2482EE7800DCCC76 /* OracleManager.swift in Sources */,
+				3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */,
 				3188CB882481CD1F001F53B5 /* GMACardView.swift in Sources */,
-				31D29509248539650024AC8F /* GMACardViewModel.swift in Sources */,
-				31BE22A124842C8400E21C00 /* OracleKnowledge.swift in Sources */,
+				316D87012487D31D000E03E0 /* MythicCardView.swift in Sources */,
+				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
+				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,
+				316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */,
 				312F201B2481B3E1000CEB9C /* StartingView.swift in Sources */,
 				31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ import os
 /**
 The Maaster Model
 */
-class OracleKnowledge {
+class OracleModel {
 
 	// MARK: - Propeties
 
@@ -21,14 +21,14 @@ class OracleKnowledge {
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
 
-	var mythicDeck: Deck<MYTHICCard>?
+	var mythicDeck: Deck<MythicCard>?
 	var gmaDeck: Deck<GMACard>?
 
 
 	// MARK: - Init
 
 	init() {
-		os_log(.default, log: logger, "Creating OTTOKnowledge")
+		os_log(.default, log: logger, "Creating OTTOKnowledge... Loading Cards")
 		mythicDeck = loadMYTHICDeck()
 		gmaDeck = loadGMADeck()
 	}
@@ -40,13 +40,13 @@ class OracleKnowledge {
 	Loads the MYTHIC JSON data.
 	- Returns: Deck<MYTHICCard>
 	*/
-	private func loadMYTHICDeck() -> Deck<MYTHICCard> {
+	private func loadMYTHICDeck() -> Deck<MythicCard> {
 		os_log(.default, log: logger, "loadMYTHICDeck()")
 		let decoder = JSONDecoder()
 		guard
 			let path = Bundle.main.path(forResource:"MYTHIC_CARDS", ofType: "json"),
 			let data = FileManager.default.contents(atPath: path),
-			let mythicCards = try? decoder.decode([MYTHICCard].self, from: data) else {
+			let mythicCards = try? decoder.decode([MythicCard].self, from: data) else {
 				fatalError("Can not get MYTHICCard json data")
 		}
 

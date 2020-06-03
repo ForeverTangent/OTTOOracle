@@ -9,24 +9,28 @@
 import SwiftUI
 
 struct GMADescriptionsView: View {
-	var currentGMACard: GMACard
+	@EnvironmentObject var oracleViewModel: OracleViewModel
+	
+//	var gmaCardViewModel: GMACardViewModel
 
     var body: some View {
 		VStack {
 			HStack {
-				Text("Description1")
-					.font(.system(size:14))
+				Spacer()
+				Text("\(oracleViewModel.currentGMACardViewModel.description1)")
+					.fontWeight(.bold)
 					.padding(.leading)
 				Spacer()
-				Text("Description2")
-					.font(.system(size:14))
+				Text("\(oracleViewModel.currentGMACardViewModel.description2)")
+					.fontWeight(.bold)
 					.padding(.horizontal, 5.0)
 				Spacer()
-				Text("Description3")
-					.font(.system(size:14))
+				Text("\(oracleViewModel.currentGMACardViewModel.description3)")
+					.fontWeight(.bold)
 					.padding(.trailing)
+				Spacer()
 			}
-			.padding([.top, .leading, .trailing], 5.0)
+			.frame(height: 30.0)
 			HStack() {
 				VStack(alignment: .leading) {
 					Text("Sound")
@@ -42,32 +46,36 @@ struct GMADescriptionsView: View {
 						.font(.subheadline)
 						.frame(height: 30.0)
 				}
-				.padding(.leading)
+				.padding(.leading, 5.0)
 				.frame(width: 70.0)
 				VStack(alignment: .leading) {
-					Text("Description")
-						.frame(height: 30.0)
-						.font(.system(size:14))
-					Text("Description")
-						.frame(height: 30.0)
-						.font(.system(size:14))
-					Text("Description")
-						.frame(height: 30.0)
-						.font(.system(size:14))
-					Text("Description")
-						.frame(height: 30.0)
-						.font(.system(size:14))
+					Text("\(oracleViewModel.currentGMACardViewModel.sensorySound)")
+						.fontWeight(.bold)
+						.multilineTextAlignment(.leading)
+						.frame(width: 250.0, height: 30.0)
+					Text("\(oracleViewModel.currentGMACardViewModel.sensoryVisual)")
+						.fontWeight(.bold)
+						.multilineTextAlignment(.leading)
+						.frame(width: 250.0, height: 30.0)
+					Text("\(oracleViewModel.currentGMACardViewModel.sensoryTouch)")
+						.fontWeight(.bold)
+						.multilineTextAlignment(.leading)
+						.frame(width: 250.0, height: 30.0)
+					Text("\(oracleViewModel.currentGMACardViewModel.sensorySmell)")
+						.fontWeight(.bold)
+						.multilineTextAlignment(.leading)
+						.frame(width: 250.0, height: 30.0)
 				}
-				.padding(.trailing)
-				.frame(width: 250.0)
+				.padding(.trailing, 5.0)
+				.frame(width: 250.0, height: 120.0)
 			}
-			.padding(.vertical, 5.0)
 		}
+		.frame(width: 360.0)
     }
 }
 
 struct GMADescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-		return Text("REPLACE ME.")
+		return GMADescriptionsView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }
