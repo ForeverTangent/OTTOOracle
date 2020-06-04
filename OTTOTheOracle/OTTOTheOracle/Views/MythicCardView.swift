@@ -11,12 +11,14 @@ import SwiftUI
 struct MythicCardView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
-//	var mythicCardViewModel: MythicCardViewModel
 	var body: some View {
 		VStack {
 			Text("MythicCard")
 			Text("\(oracleViewModel.currentMythicCardViewModel.cardFile)")
 			Text("\(String(oracleViewModel.currentMythicCardViewModel.forward))")
+			MythicTopView().environmentObject(oracleViewModel)
+			MythicMidView().environmentObject(oracleViewModel)
+			MythicBottomView().environmentObject(oracleViewModel)
 		}
 	}
 }

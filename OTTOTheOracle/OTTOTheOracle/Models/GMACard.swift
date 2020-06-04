@@ -112,10 +112,10 @@ enum GMACard_Rune: String, Codable {
 }
 
 enum GMACard_Element: String, Codable {
-	case air = "Air_\u{1f701}"
-	case earth = "Earth_\u{1f703}"
-	case fire = "Fire_\u{1f702}"
-	case water = "Water_\u{1f704}"
+	case air = "Air_💨"
+	case earth = "Earth_🏔"
+	case fire = "Fire_🔥"
+	case water = "Water_💧"
 	case NONE = "NONE"
 }
 
@@ -144,7 +144,7 @@ enum GMACard_ScatterSymbol: String, Codable {
 enum GMACard_TagSymbol: String, Codable {
 	case crown = "Crown_👑"
 	case heart = "Heart_ ♥︎"
-	case moon = "Moon_☽"
+	case moon = "Moon_🌙"
 	case shield = "Shield_\u{1f6e1}"
 	case skull = "Skull_\u{1f480}"
 	case sun = "Sun_☀️"

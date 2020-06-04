@@ -11,9 +11,6 @@ import SwiftUI
 struct GMATopView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
-	@State private var overText = false
-
-
     var body: some View {
 		HStack(alignment: .top) {
 			VStack {
@@ -21,12 +18,9 @@ struct GMATopView: View {
 					.font(.system(size:10))
 					.padding(.bottom, 5.0)
 				Text("\(oracleViewModel.currentGMACardViewModel.difficulty)")
-					.font(.system(size:16))
 					.fontWeight(.bold)
 
 			}
-			.padding(.leading)
-			Spacer()
 			VStack{
 				Text("ODDS")
 					.font(.system(size:10))
@@ -34,48 +28,46 @@ struct GMATopView: View {
 				HStack {
 					Text("Bad")
 						.font(.system(size:12))
-						.padding(.leading)
 					Spacer()
 					Text("\(oracleViewModel.currentGMACardViewModel.likelyOddsBad)")
 						.font(.system(size:14))
 						.fontWeight(.bold)
-						.multilineTextAlignment(.leading)
+						.multilineTextAlignment(.center)
 						.padding(.trailing)
 				}
+				.padding(.horizontal)
 				HStack {
 					Text("Even")
 						.font(.system(size:12))
-						.padding(.leading)
 					Spacer()
 					Text("\(oracleViewModel.currentGMACardViewModel.likelyOddsEven)")
 						.font(.system(size:14))
 						.fontWeight(.bold)
-						.multilineTextAlignment(.leading)
+						.multilineTextAlignment(.center)
 						.padding(.trailing)
 				}
+				.padding(.horizontal)
 				HStack {
 					Text("Good")
 						.font(.system(size:12))
-						.padding(.leading)
 					Spacer()
 					Text("\(oracleViewModel.currentGMACardViewModel.likelyOddsGood)")
 						.font(.system(size:14))
 						.fontWeight(.bold)
-						.multilineTextAlignment(.leading)
+						.multilineTextAlignment(.center)
 						.padding(.trailing)
 				}
+				.padding(.horizontal)
 			}
-			Spacer()
 			GMADiceView()
 				.frame(width: 100.0, height: 100.0)
-			Spacer()
 			VStack{
 				VStack {
 					Text("RUNE")
 						.font(.system(size:10))
 						.padding(.bottom, 5.0)
 					Text("\(oracleViewModel.currentGMACardViewModel.rune)")
-						.font(.system(size:16))
+						.font(.title)
 						.fontWeight(.bold)
 				}
 				.padding(.bottom)
@@ -84,11 +76,9 @@ struct GMATopView: View {
 						.font(.system(size:10))
 						.padding(.bottom, 5.0)
 					Text("\(oracleViewModel.currentGMACardViewModel.element)")
-						.font(.system(size:16))
 						.fontWeight(.bold)
 				}
 			}
-			.padding(.trailing)
 		}
 		.frame(width: 360.0)
     }

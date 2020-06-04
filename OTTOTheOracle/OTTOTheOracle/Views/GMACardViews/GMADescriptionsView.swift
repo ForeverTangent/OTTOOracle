@@ -33,16 +33,16 @@ struct GMADescriptionsView: View {
 			.frame(height: 30.0)
 			HStack() {
 				VStack(alignment: .leading) {
-					Text("Sound")
+					Text("SOUND")
 						.font(.subheadline)
 						.frame(height: 30.0)
-					Text("Sight")
+					Text("SIGHT")
 						.font(.subheadline)
 						.frame(height: 30.0)
-					Text("Touch")
+					Text("TOUCH")
 						.font(.subheadline)
 						.frame(height: 30.0)
-					Text("Smell")
+					Text("SMELL")
 						.font(.subheadline)
 						.frame(height: 30.0)
 				}

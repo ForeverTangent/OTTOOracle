@@ -11,12 +11,10 @@ import SwiftUI
 struct GMACardView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
-//	var gmaCardViewModel: GMACardViewModel
-
     var body: some View {
 		VStack {
-			Text("GMACard")
 			Text("\(oracleViewModel.currentGMACardViewModel.cardFile)")
+				.font(.subheadline)
 				.padding(.all)
 			GMATopView().environmentObject(oracleViewModel)
 			GMADescriptionsView().environmentObject(oracleViewModel)

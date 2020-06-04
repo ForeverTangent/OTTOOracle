@@ -19,7 +19,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d4)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
@@ -28,7 +27,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d10)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
@@ -37,7 +35,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d20)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
@@ -48,7 +45,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d6)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
@@ -63,7 +59,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d10Tens)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
@@ -74,7 +69,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d8)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
@@ -83,7 +77,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d12)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
@@ -92,7 +85,6 @@ struct GMADiceView: View {
 						.font(.system(size:12))
 						.fontWeight(.thin)
 					Text("\(oracleViewModel.currentGMACardViewModel.d10Ones)")
-						.font(.system(size:16))
 						.fontWeight(.regular)
 				}
 				.frame(width: 30.0, height: 30.0)
