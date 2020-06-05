@@ -22,6 +22,9 @@
 		316D870824886BB3000E03E0 /* MythicTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870724886BB3000E03E0 /* MythicTopView.swift */; };
 		316D870A24886E8A000E03E0 /* MythicMidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870924886E8A000E03E0 /* MythicMidView.swift */; };
 		316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870B24887188000E03E0 /* MythicBottomView.swift */; };
+		316D871024895889000E03E0 /* View+isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870F24895889000E03E0 /* View+isHidden.swift */; };
+		316D8714248AB6F4000E03E0 /* FateOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8713248AB6F4000E03E0 /* FateOracleModel.swift */; };
+		316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8715248AB756000E03E0 /* MythicOracleModel.swift */; };
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardView.swift */; };
@@ -32,249 +35,6 @@
 		31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A424843EE600E21C00 /* GMATopView.swift */; };
 		31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A624843F9300E21C00 /* GMADescriptionsView.swift */; };
 		31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A92484405300E21C00 /* GMATagBottonView.swift */; };
-		31D2937B248488B50024AC8F /* MythicDeck109.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29300248488A80024AC8F /* MythicDeck109.png */; };
-		31D2937C248488B50024AC8F /* MythicDeck72.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29301248488A80024AC8F /* MythicDeck72.png */; };
-		31D2937D248488B50024AC8F /* MythicDeck70.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29302248488A80024AC8F /* MythicDeck70.png */; };
-		31D2937E248488B50024AC8F /* MythicDeck24.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29303248488A80024AC8F /* MythicDeck24.png */; };
-		31D2937F248488B50024AC8F /* MythicDeck37.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29304248488A80024AC8F /* MythicDeck37.png */; };
-		31D29380248488B50024AC8F /* MythicDeck67.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29305248488A80024AC8F /* MythicDeck67.png */; };
-		31D29381248488B50024AC8F /* MythicDeck76.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29306248488A80024AC8F /* MythicDeck76.png */; };
-		31D29382248488B50024AC8F /* MythicDeck47.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29307248488A80024AC8F /* MythicDeck47.png */; };
-		31D29383248488B50024AC8F /* MythicDeck116.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29308248488A80024AC8F /* MythicDeck116.png */; };
-		31D29384248488B50024AC8F /* MythicDeck19.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29309248488A80024AC8F /* MythicDeck19.png */; };
-		31D29385248488B50024AC8F /* MythicDeck58.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2930A248488A90024AC8F /* MythicDeck58.png */; };
-		31D29386248488B50024AC8F /* MythicDeck53.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2930B248488A90024AC8F /* MythicDeck53.png */; };
-		31D29387248488B50024AC8F /* MythicDeck103.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2930C248488A90024AC8F /* MythicDeck103.png */; };
-		31D29388248488B50024AC8F /* MythicDeck36.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2930D248488A90024AC8F /* MythicDeck36.png */; };
-		31D29389248488B50024AC8F /* MythicDeck61.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2930E248488A90024AC8F /* MythicDeck61.png */; };
-		31D2938A248488B50024AC8F /* MythicDeck27.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2930F248488A90024AC8F /* MythicDeck27.png */; };
-		31D2938B248488B50024AC8F /* MythicDeck35.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29310248488A90024AC8F /* MythicDeck35.png */; };
-		31D2938C248488B50024AC8F /* MythicDeck102.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29311248488A90024AC8F /* MythicDeck102.png */; };
-		31D2938D248488B50024AC8F /* MythicDeck54.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29312248488A90024AC8F /* MythicDeck54.png */; };
-		31D2938E248488B50024AC8F /* MythicDeck11.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29313248488A90024AC8F /* MythicDeck11.png */; };
-		31D2938F248488B50024AC8F /* MythicDeck28.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29314248488A90024AC8F /* MythicDeck28.png */; };
-		31D29390248488B50024AC8F /* MythicDeck39.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29315248488A90024AC8F /* MythicDeck39.png */; };
-		31D29391248488B50024AC8F /* MythicDeck57.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29316248488A90024AC8F /* MythicDeck57.png */; };
-		31D29392248488B50024AC8F /* MythicDeck106.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29317248488A90024AC8F /* MythicDeck106.png */; };
-		31D29393248488B50024AC8F /* MythicDeck112.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29318248488A90024AC8F /* MythicDeck112.png */; };
-		31D29394248488B50024AC8F /* MythicDeck107.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29319248488AA0024AC8F /* MythicDeck107.png */; };
-		31D29395248488B50024AC8F /* MythicDeck71.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2931A248488AA0024AC8F /* MythicDeck71.png */; };
-		31D29396248488B50024AC8F /* MythicDeck25.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2931B248488AA0024AC8F /* MythicDeck25.png */; };
-		31D29397248488B50024AC8F /* MythicDeck13.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2931C248488AA0024AC8F /* MythicDeck13.png */; };
-		31D29398248488B50024AC8F /* MythicDeck20.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2931D248488AA0024AC8F /* MythicDeck20.png */; };
-		31D29399248488B50024AC8F /* MythicDeck56.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2931E248488AA0024AC8F /* MythicDeck56.png */; };
-		31D2939A248488B50024AC8F /* MythicDeck68.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2931F248488AA0024AC8F /* MythicDeck68.png */; };
-		31D2939B248488B50024AC8F /* MythicDeck96.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29320248488AA0024AC8F /* MythicDeck96.png */; };
-		31D2939C248488B50024AC8F /* MythicDeck113.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29321248488AA0024AC8F /* MythicDeck113.png */; };
-		31D2939D248488B50024AC8F /* MythicDeck90.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29322248488AA0024AC8F /* MythicDeck90.png */; };
-		31D2939E248488B50024AC8F /* MythicDeck44.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29323248488AA0024AC8F /* MythicDeck44.png */; };
-		31D2939F248488B50024AC8F /* MythicDeck29.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29324248488AA0024AC8F /* MythicDeck29.png */; };
-		31D293A0248488B50024AC8F /* MythicDeck34.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29325248488AA0024AC8F /* MythicDeck34.png */; };
-		31D293A1248488B50024AC8F /* MythicDeck99.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29326248488AA0024AC8F /* MythicDeck99.png */; };
-		31D293A2248488B50024AC8F /* MythicDeck75.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29327248488AA0024AC8F /* MythicDeck75.png */; };
-		31D293A3248488B50024AC8F /* MythicDeck38.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29328248488AB0024AC8F /* MythicDeck38.png */; };
-		31D293A4248488B50024AC8F /* MythicDeck100.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29329248488AB0024AC8F /* MythicDeck100.png */; };
-		31D293A5248488B50024AC8F /* MythicDeck59.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2932A248488AB0024AC8F /* MythicDeck59.png */; };
-		31D293A6248488B50024AC8F /* MythicDeck95.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2932B248488AB0024AC8F /* MythicDeck95.png */; };
-		31D293A7248488B50024AC8F /* MythicDeck92.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2932C248488AB0024AC8F /* MythicDeck92.png */; };
-		31D293A8248488B50024AC8F /* MythicDeck40.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2932D248488AB0024AC8F /* MythicDeck40.png */; };
-		31D293A9248488B50024AC8F /* MythicDeck48.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2932E248488AB0024AC8F /* MythicDeck48.png */; };
-		31D293AA248488B50024AC8F /* MythicDeck84.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2932F248488AB0024AC8F /* MythicDeck84.png */; };
-		31D293AB248488B50024AC8F /* MythicDeck30.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29330248488AB0024AC8F /* MythicDeck30.png */; };
-		31D293AC248488B50024AC8F /* MythicDeck77.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29331248488AB0024AC8F /* MythicDeck77.png */; };
-		31D293AD248488B50024AC8F /* MythicDeck51.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29332248488AB0024AC8F /* MythicDeck51.png */; };
-		31D293AE248488B50024AC8F /* MythicDeck5.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29333248488AB0024AC8F /* MythicDeck5.png */; };
-		31D293AF248488B50024AC8F /* MythicDeck97.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29334248488AB0024AC8F /* MythicDeck97.png */; };
-		31D293B0248488B50024AC8F /* MythicDeck117.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29335248488AC0024AC8F /* MythicDeck117.png */; };
-		31D293B1248488B50024AC8F /* MythicDeck50.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29336248488AC0024AC8F /* MythicDeck50.png */; };
-		31D293B2248488B50024AC8F /* MythicDeck15.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29337248488AF0024AC8F /* MythicDeck15.png */; };
-		31D293B3248488B50024AC8F /* MythicDeck31.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29338248488AF0024AC8F /* MythicDeck31.png */; };
-		31D293B4248488B50024AC8F /* MythicDeck91.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29339248488AF0024AC8F /* MythicDeck91.png */; };
-		31D293B5248488B50024AC8F /* MythicDeck41.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2933A248488B00024AC8F /* MythicDeck41.png */; };
-		31D293B6248488B50024AC8F /* MythicDeck85.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2933B248488B00024AC8F /* MythicDeck85.png */; };
-		31D293B7248488B50024AC8F /* MythicDeck1.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2933C248488B00024AC8F /* MythicDeck1.png */; };
-		31D293B8248488B50024AC8F /* MythicDeck78.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2933D248488B00024AC8F /* MythicDeck78.png */; };
-		31D293B9248488B50024AC8F /* MythicDeck108.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2933E248488B00024AC8F /* MythicDeck108.png */; };
-		31D293BA248488B50024AC8F /* MythicDeck94.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2933F248488B00024AC8F /* MythicDeck94.png */; };
-		31D293BB248488B50024AC8F /* MythicDeck89.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29340248488B00024AC8F /* MythicDeck89.png */; };
-		31D293BC248488B50024AC8F /* MythicDeck121.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29341248488B00024AC8F /* MythicDeck121.png */; };
-		31D293BD248488B50024AC8F /* MythicDeck8.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29342248488B00024AC8F /* MythicDeck8.png */; };
-		31D293BE248488B50024AC8F /* MythicDeck122.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29343248488B00024AC8F /* MythicDeck122.png */; };
-		31D293BF248488B50024AC8F /* MythicDeck81.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29344248488B00024AC8F /* MythicDeck81.png */; };
-		31D293C0248488B50024AC8F /* MythicDeck33.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29345248488B00024AC8F /* MythicDeck33.png */; };
-		31D293C1248488B50024AC8F /* MythicDeck104.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29346248488B10024AC8F /* MythicDeck104.png */; };
-		31D293C2248488B50024AC8F /* MythicDeck83.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29347248488B10024AC8F /* MythicDeck83.png */; };
-		31D293C3248488B50024AC8F /* MythicDeck16.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29348248488B10024AC8F /* MythicDeck16.png */; };
-		31D293C4248488B50024AC8F /* MythicDeck86.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29349248488B10024AC8F /* MythicDeck86.png */; };
-		31D293C5248488B50024AC8F /* MythicDeck42.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2934A248488B10024AC8F /* MythicDeck42.png */; };
-		31D293C6248488B50024AC8F /* MythicDeck88.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2934B248488B10024AC8F /* MythicDeck88.png */; };
-		31D293C7248488B50024AC8F /* MythicDeck118.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2934C248488B10024AC8F /* MythicDeck118.png */; };
-		31D293C8248488B50024AC8F /* MythicDeck79.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2934D248488B10024AC8F /* MythicDeck79.png */; };
-		31D293C9248488B50024AC8F /* MythicDeck60.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2934E248488B10024AC8F /* MythicDeck60.png */; };
-		31D293CA248488B50024AC8F /* MythicDeck105.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2934F248488B10024AC8F /* MythicDeck105.png */; };
-		31D293CB248488B50024AC8F /* MythicDeck55.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29350248488B10024AC8F /* MythicDeck55.png */; };
-		31D293CC248488B50024AC8F /* MythicDeck115.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29351248488B10024AC8F /* MythicDeck115.png */; };
-		31D293CD248488B50024AC8F /* MythicDeck3.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29352248488B10024AC8F /* MythicDeck3.png */; };
-		31D293CE248488B50024AC8F /* MythicDeck62.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29353248488B20024AC8F /* MythicDeck62.png */; };
-		31D293CF248488B50024AC8F /* MythicDeck23.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29354248488B20024AC8F /* MythicDeck23.png */; };
-		31D293D0248488B50024AC8F /* MythicDeck73.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29355248488B20024AC8F /* MythicDeck73.png */; };
-		31D293D1248488B50024AC8F /* MythicDeck45.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29356248488B20024AC8F /* MythicDeck45.png */; };
-		31D293D2248488B50024AC8F /* MythicDeck6.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29357248488B20024AC8F /* MythicDeck6.png */; };
-		31D293D3248488B50024AC8F /* MythicDeck101.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29358248488B20024AC8F /* MythicDeck101.png */; };
-		31D293D4248488B50024AC8F /* MythicDeck111.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29359248488B20024AC8F /* MythicDeck111.png */; };
-		31D293D5248488B50024AC8F /* MythicDeck120.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2935A248488B20024AC8F /* MythicDeck120.png */; };
-		31D293D6248488B50024AC8F /* MythicDeck82.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2935B248488B20024AC8F /* MythicDeck82.png */; };
-		31D293D7248488B50024AC8F /* MythicDeck74.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2935C248488B20024AC8F /* MythicDeck74.png */; };
-		31D293D8248488B50024AC8F /* MythicDeck114.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2935D248488B20024AC8F /* MythicDeck114.png */; };
-		31D293D9248488B50024AC8F /* MythicDeck123.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2935E248488B20024AC8F /* MythicDeck123.png */; };
-		31D293DA248488B50024AC8F /* MythicDeck93.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2935F248488B20024AC8F /* MythicDeck93.png */; };
-		31D293DB248488B50024AC8F /* MythicDeck18.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29360248488B20024AC8F /* MythicDeck18.png */; };
-		31D293DC248488B50024AC8F /* MythicDeck2.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29361248488B30024AC8F /* MythicDeck2.png */; };
-		31D293DD248488B50024AC8F /* MythicDeck10.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29362248488B30024AC8F /* MythicDeck10.png */; };
-		31D293DE248488B50024AC8F /* MythicDeck46.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29363248488B30024AC8F /* MythicDeck46.png */; };
-		31D293DF248488B50024AC8F /* MythicDeck66.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29364248488B30024AC8F /* MythicDeck66.png */; };
-		31D293E0248488B50024AC8F /* MythicDeck17.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29365248488B30024AC8F /* MythicDeck17.png */; };
-		31D293E1248488B50024AC8F /* MythicDeck7.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29366248488B30024AC8F /* MythicDeck7.png */; };
-		31D293E2248488B50024AC8F /* MythicDeck65.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29367248488B30024AC8F /* MythicDeck65.png */; };
-		31D293E3248488B50024AC8F /* MythicDeck21.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29368248488B30024AC8F /* MythicDeck21.png */; };
-		31D293E4248488B50024AC8F /* MythicDeck64.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29369248488B30024AC8F /* MythicDeck64.png */; };
-		31D293E5248488B50024AC8F /* MythicDeck98.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2936A248488B30024AC8F /* MythicDeck98.png */; };
-		31D293E6248488B50024AC8F /* MythicDeck9.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2936B248488B30024AC8F /* MythicDeck9.png */; };
-		31D293E7248488B50024AC8F /* MythicDeck110.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2936C248488B30024AC8F /* MythicDeck110.png */; };
-		31D293E8248488B50024AC8F /* MythicDeck14.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2936D248488B40024AC8F /* MythicDeck14.png */; };
-		31D293E9248488B50024AC8F /* MythicDeck12.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2936E248488B40024AC8F /* MythicDeck12.png */; };
-		31D293EA248488B50024AC8F /* MythicDeck69.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2936F248488B40024AC8F /* MythicDeck69.png */; };
-		31D293EB248488B50024AC8F /* MythicDeck87.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29370248488B40024AC8F /* MythicDeck87.png */; };
-		31D293EC248488B50024AC8F /* MythicDeck119.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29371248488B40024AC8F /* MythicDeck119.png */; };
-		31D293ED248488B50024AC8F /* MythicDeck52.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29372248488B40024AC8F /* MythicDeck52.png */; };
-		31D293EE248488B50024AC8F /* MythicDeck22.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29373248488B40024AC8F /* MythicDeck22.png */; };
-		31D293EF248488B50024AC8F /* MythicDeck4.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29374248488B40024AC8F /* MythicDeck4.png */; };
-		31D293F0248488B50024AC8F /* MythicDeck49.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29375248488B40024AC8F /* MythicDeck49.png */; };
-		31D293F1248488B50024AC8F /* MythicDeck26.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29376248488B40024AC8F /* MythicDeck26.png */; };
-		31D293F2248488B50024AC8F /* MythicDeck63.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29377248488B40024AC8F /* MythicDeck63.png */; };
-		31D293F3248488B50024AC8F /* MythicDeck43.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29378248488B50024AC8F /* MythicDeck43.png */; };
-		31D293F4248488B50024AC8F /* MythicDeck32.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D29379248488B50024AC8F /* MythicDeck32.png */; };
-		31D293F5248488B50024AC8F /* MythicDeck80.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D2937A248488B50024AC8F /* MythicDeck80.png */; };
-		31D2946E248488C20024AC8F /* GMA Base VTT_Part48.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293F6248488BA0024AC8F /* GMA Base VTT_Part48.jpg */; };
-		31D2946F248488C20024AC8F /* GMA Base VTT_Part51.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293F7248488BA0024AC8F /* GMA Base VTT_Part51.jpg */; };
-		31D29470248488C20024AC8F /* GMA Base VTT_Part7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293F8248488BA0024AC8F /* GMA Base VTT_Part7.jpg */; };
-		31D29471248488C20024AC8F /* GMA Base VTT_Part91.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293F9248488BA0024AC8F /* GMA Base VTT_Part91.jpg */; };
-		31D29472248488C20024AC8F /* GMA Base VTT_Part55.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293FA248488BA0024AC8F /* GMA Base VTT_Part55.jpg */; };
-		31D29473248488C20024AC8F /* GMA Base VTT_Part103.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293FB248488BA0024AC8F /* GMA Base VTT_Part103.jpg */; };
-		31D29474248488C20024AC8F /* GMA Base VTT_Part106.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293FC248488BA0024AC8F /* GMA Base VTT_Part106.jpg */; };
-		31D29475248488C20024AC8F /* GMA Base VTT_Part20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293FD248488BA0024AC8F /* GMA Base VTT_Part20.jpg */; };
-		31D29476248488C20024AC8F /* GMA Base VTT_Part71.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293FE248488BA0024AC8F /* GMA Base VTT_Part71.jpg */; };
-		31D29477248488C20024AC8F /* GMA Base VTT_Part87.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D293FF248488BA0024AC8F /* GMA Base VTT_Part87.jpg */; };
-		31D29478248488C20024AC8F /* GMA Base VTT_Part89.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29400248488BA0024AC8F /* GMA Base VTT_Part89.jpg */; };
-		31D29479248488C20024AC8F /* GMA Base VTT_Part11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29401248488BA0024AC8F /* GMA Base VTT_Part11.jpg */; };
-		31D2947A248488C20024AC8F /* GMA Base VTT_Part8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29402248488BA0024AC8F /* GMA Base VTT_Part8.jpg */; };
-		31D2947B248488C20024AC8F /* GMA Base VTT_Part28.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29403248488BB0024AC8F /* GMA Base VTT_Part28.jpg */; };
-		31D2947C248488C20024AC8F /* GMA Base VTT_Part35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29404248488BB0024AC8F /* GMA Base VTT_Part35.jpg */; };
-		31D2947D248488C20024AC8F /* GMA Base VTT_Part105.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29405248488BB0024AC8F /* GMA Base VTT_Part105.jpg */; };
-		31D2947E248488C20024AC8F /* GMA Base VTT_Part50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29406248488BB0024AC8F /* GMA Base VTT_Part50.jpg */; };
-		31D2947F248488C20024AC8F /* GMA Base VTT_Part104.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29407248488BB0024AC8F /* GMA Base VTT_Part104.jpg */; };
-		31D29480248488C20024AC8F /* GMA Base VTT_Part15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29408248488BB0024AC8F /* GMA Base VTT_Part15.jpg */; };
-		31D29481248488C20024AC8F /* GMA Base VTT_Part2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29409248488BB0024AC8F /* GMA Base VTT_Part2.jpg */; };
-		31D29482248488C20024AC8F /* GMA Base VTT_Part66.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2940A248488BB0024AC8F /* GMA Base VTT_Part66.jpg */; };
-		31D29483248488C20024AC8F /* GMA Base VTT_Part42.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2940B248488BB0024AC8F /* GMA Base VTT_Part42.jpg */; };
-		31D29484248488C20024AC8F /* GMA Base VTT_Part12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2940C248488BB0024AC8F /* GMA Base VTT_Part12.jpg */; };
-		31D29485248488C20024AC8F /* GMA Base VTT_Part77.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2940D248488BB0024AC8F /* GMA Base VTT_Part77.jpg */; };
-		31D29486248488C20024AC8F /* GMA Base VTT_Part26.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2940E248488BB0024AC8F /* GMA Base VTT_Part26.jpg */; };
-		31D29487248488C20024AC8F /* GMA Base VTT_Part63.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2940F248488BB0024AC8F /* GMA Base VTT_Part63.jpg */; };
-		31D29488248488C20024AC8F /* GMA Base VTT_Part16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29410248488BB0024AC8F /* GMA Base VTT_Part16.jpg */; };
-		31D29489248488C20024AC8F /* GMA Base VTT_Part33.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29411248488BC0024AC8F /* GMA Base VTT_Part33.jpg */; };
-		31D2948A248488C20024AC8F /* GMA Base VTT_Part32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29412248488BC0024AC8F /* GMA Base VTT_Part32.jpg */; };
-		31D2948B248488C20024AC8F /* GMA Base VTT_Part53.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29413248488BC0024AC8F /* GMA Base VTT_Part53.jpg */; };
-		31D2948C248488C20024AC8F /* GMA Base VTT_Part70.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29414248488BC0024AC8F /* GMA Base VTT_Part70.jpg */; };
-		31D2948D248488C20024AC8F /* GMA Base VTT_Part90.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29415248488BC0024AC8F /* GMA Base VTT_Part90.jpg */; };
-		31D2948E248488C20024AC8F /* GMA Base VTT_Part10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29416248488BC0024AC8F /* GMA Base VTT_Part10.jpg */; };
-		31D2948F248488C20024AC8F /* GMA Base VTT_Part80.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29417248488BC0024AC8F /* GMA Base VTT_Part80.jpg */; };
-		31D29490248488C20024AC8F /* GMA Base VTT_Part68.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29418248488BC0024AC8F /* GMA Base VTT_Part68.jpg */; };
-		31D29491248488C20024AC8F /* GMA Base VTT_Part39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29419248488BC0024AC8F /* GMA Base VTT_Part39.jpg */; };
-		31D29492248488C20024AC8F /* GMA Base VTT_Part40.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2941A248488BC0024AC8F /* GMA Base VTT_Part40.jpg */; };
-		31D29493248488C20024AC8F /* GMA Base VTT_Part69.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2941B248488BC0024AC8F /* GMA Base VTT_Part69.jpg */; };
-		31D29494248488C20024AC8F /* GMA Base VTT_Part43.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2941C248488BC0024AC8F /* GMA Base VTT_Part43.jpg */; };
-		31D29495248488C20024AC8F /* GMA Base VTT_Part113.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2941D248488BC0024AC8F /* GMA Base VTT_Part113.jpg */; };
-		31D29496248488C20024AC8F /* GMA Base VTT_Part75.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2941E248488BD0024AC8F /* GMA Base VTT_Part75.jpg */; };
-		31D29497248488C20024AC8F /* GMA Base VTT_Part114.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2941F248488BD0024AC8F /* GMA Base VTT_Part114.jpg */; };
-		31D29498248488C20024AC8F /* GMA Base VTT_Part112.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29420248488BD0024AC8F /* GMA Base VTT_Part112.jpg */; };
-		31D29499248488C20024AC8F /* GMA Base VTT_Part117.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29421248488BD0024AC8F /* GMA Base VTT_Part117.jpg */; };
-		31D2949A248488C20024AC8F /* GMA Base VTT_Part61.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29422248488BD0024AC8F /* GMA Base VTT_Part61.jpg */; };
-		31D2949B248488C20024AC8F /* GMA Base VTT_Part34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29423248488BD0024AC8F /* GMA Base VTT_Part34.jpg */; };
-		31D2949C248488C20024AC8F /* GMA Base VTT_Part111.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29424248488BD0024AC8F /* GMA Base VTT_Part111.jpg */; };
-		31D2949D248488C20024AC8F /* GMA Base VTT_Part3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29425248488BD0024AC8F /* GMA Base VTT_Part3.jpg */; };
-		31D2949E248488C20024AC8F /* GMA Base VTT_Part27.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29426248488BD0024AC8F /* GMA Base VTT_Part27.jpg */; };
-		31D2949F248488C20024AC8F /* GMA Base VTT_Part57.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29427248488BD0024AC8F /* GMA Base VTT_Part57.jpg */; };
-		31D294A0248488C20024AC8F /* GMA Base VTT_Part120.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29428248488BD0024AC8F /* GMA Base VTT_Part120.jpg */; };
-		31D294A1248488C20024AC8F /* GMA Base VTT_Part110.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29429248488BD0024AC8F /* GMA Base VTT_Part110.jpg */; };
-		31D294A2248488C20024AC8F /* GMA Base VTT_Part18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2942A248488BE0024AC8F /* GMA Base VTT_Part18.jpg */; };
-		31D294A3248488C20024AC8F /* GMA Base VTT_Part62.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2942B248488BE0024AC8F /* GMA Base VTT_Part62.jpg */; };
-		31D294A4248488C20024AC8F /* GMA Base VTT_Part95.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2942C248488BE0024AC8F /* GMA Base VTT_Part95.jpg */; };
-		31D294A5248488C20024AC8F /* GMA Base VTT_Part54.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2942D248488BE0024AC8F /* GMA Base VTT_Part54.jpg */; };
-		31D294A6248488C20024AC8F /* GMA Base VTT_Part74.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2942E248488BE0024AC8F /* GMA Base VTT_Part74.jpg */; };
-		31D294A7248488C20024AC8F /* GMA Base VTT_Part37.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2942F248488BE0024AC8F /* GMA Base VTT_Part37.jpg */; };
-		31D294A8248488C20024AC8F /* GMA Base VTT_Part21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29430248488BE0024AC8F /* GMA Base VTT_Part21.jpg */; };
-		31D294A9248488C20024AC8F /* GMA Base VTT_Part99.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29431248488BE0024AC8F /* GMA Base VTT_Part99.jpg */; };
-		31D294AA248488C20024AC8F /* GMA Base VTT_Part36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29432248488BE0024AC8F /* GMA Base VTT_Part36.jpg */; };
-		31D294AB248488C20024AC8F /* GMA Base VTT_Part72.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29433248488BE0024AC8F /* GMA Base VTT_Part72.jpg */; };
-		31D294AC248488C20024AC8F /* GMA Base VTT_Part96.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29434248488BE0024AC8F /* GMA Base VTT_Part96.jpg */; };
-		31D294AD248488C20024AC8F /* GMA Base VTT_Part84.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29435248488BE0024AC8F /* GMA Base VTT_Part84.jpg */; };
-		31D294AE248488C20024AC8F /* GMA Base VTT_Part101.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29436248488BE0024AC8F /* GMA Base VTT_Part101.jpg */; };
-		31D294AF248488C20024AC8F /* GMA Base VTT_Part83.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29437248488BF0024AC8F /* GMA Base VTT_Part83.jpg */; };
-		31D294B0248488C20024AC8F /* GMA Base VTT_Part107.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29438248488BF0024AC8F /* GMA Base VTT_Part107.jpg */; };
-		31D294B1248488C20024AC8F /* GMA Base VTT_Part13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29439248488BF0024AC8F /* GMA Base VTT_Part13.jpg */; };
-		31D294B2248488C20024AC8F /* GMA Base VTT_Part9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2943A248488BF0024AC8F /* GMA Base VTT_Part9.jpg */; };
-		31D294B3248488C20024AC8F /* GMA Base VTT_Part31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2943B248488BF0024AC8F /* GMA Base VTT_Part31.jpg */; };
-		31D294B4248488C20024AC8F /* GMA Base VTT_Part102.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2943C248488BF0024AC8F /* GMA Base VTT_Part102.jpg */; };
-		31D294B5248488C20024AC8F /* GMA Base VTT_Part24.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2943D248488BF0024AC8F /* GMA Base VTT_Part24.jpg */; };
-		31D294B6248488C20024AC8F /* GMA Base VTT_Part108.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2943E248488BF0024AC8F /* GMA Base VTT_Part108.jpg */; };
-		31D294B7248488C20024AC8F /* GMA Base VTT_Part115.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2943F248488BF0024AC8F /* GMA Base VTT_Part115.jpg */; };
-		31D294B8248488C20024AC8F /* GMA Base VTT_Part116.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29440248488BF0024AC8F /* GMA Base VTT_Part116.jpg */; };
-		31D294B9248488C20024AC8F /* GMA Base VTT_Part45.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29441248488BF0024AC8F /* GMA Base VTT_Part45.jpg */; };
-		31D294BA248488C20024AC8F /* GMA Base VTT_Part41.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29442248488BF0024AC8F /* GMA Base VTT_Part41.jpg */; };
-		31D294BB248488C20024AC8F /* GMA Base VTT_Part109.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29443248488BF0024AC8F /* GMA Base VTT_Part109.jpg */; };
-		31D294BC248488C20024AC8F /* GMA Base VTT_Part49.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29444248488C00024AC8F /* GMA Base VTT_Part49.jpg */; };
-		31D294BD248488C20024AC8F /* GMA Base VTT_Part97.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29445248488C00024AC8F /* GMA Base VTT_Part97.jpg */; };
-		31D294BE248488C20024AC8F /* GMA Base VTT_Part47.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29446248488C00024AC8F /* GMA Base VTT_Part47.jpg */; };
-		31D294BF248488C20024AC8F /* GMA Base VTT_Part19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29447248488C00024AC8F /* GMA Base VTT_Part19.jpg */; };
-		31D294C0248488C20024AC8F /* GMA Base VTT_Part93.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29448248488C00024AC8F /* GMA Base VTT_Part93.jpg */; };
-		31D294C1248488C20024AC8F /* GMA Base VTT_Part92.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29449248488C00024AC8F /* GMA Base VTT_Part92.jpg */; };
-		31D294C2248488C20024AC8F /* GMA Base VTT_Part30.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2944A248488C00024AC8F /* GMA Base VTT_Part30.jpg */; };
-		31D294C3248488C20024AC8F /* GMA Base VTT_Part6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2944B248488C00024AC8F /* GMA Base VTT_Part6.jpg */; };
-		31D294C4248488C20024AC8F /* GMA Base VTT_Part17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2944C248488C00024AC8F /* GMA Base VTT_Part17.jpg */; };
-		31D294C5248488C20024AC8F /* GMA Base VTT_Part25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2944D248488C00024AC8F /* GMA Base VTT_Part25.jpg */; };
-		31D294C6248488C20024AC8F /* GMA Base VTT_Part65.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2944E248488C10024AC8F /* GMA Base VTT_Part65.jpg */; };
-		31D294C7248488C20024AC8F /* GMA Base VTT_Part60.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2944F248488C10024AC8F /* GMA Base VTT_Part60.jpg */; };
-		31D294C8248488C20024AC8F /* GMA Base VTT_Part118.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29450248488C10024AC8F /* GMA Base VTT_Part118.jpg */; };
-		31D294C9248488C20024AC8F /* GMA Base VTT_Part73.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29451248488C10024AC8F /* GMA Base VTT_Part73.jpg */; };
-		31D294CA248488C20024AC8F /* GMA Base VTT_Part86.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29452248488C10024AC8F /* GMA Base VTT_Part86.jpg */; };
-		31D294CB248488C20024AC8F /* GMA Base VTT_Part23.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29453248488C10024AC8F /* GMA Base VTT_Part23.jpg */; };
-		31D294CC248488C20024AC8F /* GMA Base VTT_Part14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29454248488C10024AC8F /* GMA Base VTT_Part14.jpg */; };
-		31D294CD248488C20024AC8F /* GMA Base VTT_Part22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29455248488C10024AC8F /* GMA Base VTT_Part22.jpg */; };
-		31D294CE248488C20024AC8F /* GMA Base VTT_Part85.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29456248488C10024AC8F /* GMA Base VTT_Part85.jpg */; };
-		31D294CF248488C20024AC8F /* GMA Base VTT_Part94.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29457248488C10024AC8F /* GMA Base VTT_Part94.jpg */; };
-		31D294D0248488C20024AC8F /* GMA Base VTT_Part44.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29458248488C10024AC8F /* GMA Base VTT_Part44.jpg */; };
-		31D294D1248488C20024AC8F /* GMA Base VTT_Part1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29459248488C10024AC8F /* GMA Base VTT_Part1.jpg */; };
-		31D294D2248488C20024AC8F /* GMA Base VTT_Part82.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2945A248488C10024AC8F /* GMA Base VTT_Part82.jpg */; };
-		31D294D3248488C20024AC8F /* GMA Base VTT_Part79.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2945B248488C10024AC8F /* GMA Base VTT_Part79.jpg */; };
-		31D294D4248488C20024AC8F /* GMA Base VTT_Part64.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2945C248488C10024AC8F /* GMA Base VTT_Part64.jpg */; };
-		31D294D5248488C20024AC8F /* GMA Base VTT_Part78.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2945D248488C10024AC8F /* GMA Base VTT_Part78.jpg */; };
-		31D294D6248488C20024AC8F /* GMA Base VTT_Part76.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2945E248488C10024AC8F /* GMA Base VTT_Part76.jpg */; };
-		31D294D7248488C20024AC8F /* GMA Base VTT_Part52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2945F248488C20024AC8F /* GMA Base VTT_Part52.jpg */; };
-		31D294D8248488C20024AC8F /* GMA Base VTT_Part29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29460248488C20024AC8F /* GMA Base VTT_Part29.jpg */; };
-		31D294D9248488C20024AC8F /* GMA Base VTT_Part5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29461248488C20024AC8F /* GMA Base VTT_Part5.jpg */; };
-		31D294DA248488C20024AC8F /* GMA Base VTT_Part119.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29462248488C20024AC8F /* GMA Base VTT_Part119.jpg */; };
-		31D294DB248488C20024AC8F /* GMA Base VTT_Part100.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29463248488C20024AC8F /* GMA Base VTT_Part100.jpg */; };
-		31D294DC248488C20024AC8F /* GMA Base VTT_Part88.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29464248488C20024AC8F /* GMA Base VTT_Part88.jpg */; };
-		31D294DD248488C20024AC8F /* GMA Base VTT_Part56.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29465248488C20024AC8F /* GMA Base VTT_Part56.jpg */; };
-		31D294DE248488C20024AC8F /* GMA Base VTT_Part67.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29466248488C20024AC8F /* GMA Base VTT_Part67.jpg */; };
-		31D294DF248488C20024AC8F /* GMA Base VTT_Part58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29467248488C20024AC8F /* GMA Base VTT_Part58.jpg */; };
-		31D294E0248488C20024AC8F /* GMA Base VTT_Part4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29468248488C20024AC8F /* GMA Base VTT_Part4.jpg */; };
-		31D294E1248488C20024AC8F /* GMA Base VTT_Part59.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D29469248488C20024AC8F /* GMA Base VTT_Part59.jpg */; };
-		31D294E2248488C20024AC8F /* GMA Base VTT_Part38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2946A248488C20024AC8F /* GMA Base VTT_Part38.jpg */; };
-		31D294E3248488C20024AC8F /* GMA Base VTT_Part81.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2946B248488C20024AC8F /* GMA Base VTT_Part81.jpg */; };
-		31D294E4248488C20024AC8F /* GMA Base VTT_Part46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2946C248488C20024AC8F /* GMA Base VTT_Part46.jpg */; };
-		31D294E5248488C20024AC8F /* GMA Base VTT_Part98.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D2946D248488C20024AC8F /* GMA Base VTT_Part98.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -295,6 +55,9 @@
 		316D870724886BB3000E03E0 /* MythicTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicTopView.swift; sourceTree = "<group>"; };
 		316D870924886E8A000E03E0 /* MythicMidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicMidView.swift; sourceTree = "<group>"; };
 		316D870B24887188000E03E0 /* MythicBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicBottomView.swift; sourceTree = "<group>"; };
+		316D870F24895889000E03E0 /* View+isHidden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+isHidden.swift"; sourceTree = "<group>"; };
+		316D8713248AB6F4000E03E0 /* FateOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleModel.swift; sourceTree = "<group>"; };
+		316D8715248AB756000E03E0 /* MythicOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicOracleModel.swift; sourceTree = "<group>"; };
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardView.swift; sourceTree = "<group>"; };
@@ -306,249 +69,6 @@
 		31BE22A624843F9300E21C00 /* GMADescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADescriptionsView.swift; sourceTree = "<group>"; };
 		31BE22A92484405300E21C00 /* GMATagBottonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMATagBottonView.swift; sourceTree = "<group>"; };
 		31BE22AB24845F1F00E21C00 /* OTTOTheOracle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OTTOTheOracle.entitlements; sourceTree = "<group>"; };
-		31D29300248488A80024AC8F /* MythicDeck109.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck109.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck109.png; sourceTree = SOURCE_ROOT; };
-		31D29301248488A80024AC8F /* MythicDeck72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck72.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck72.png; sourceTree = SOURCE_ROOT; };
-		31D29302248488A80024AC8F /* MythicDeck70.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck70.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck70.png; sourceTree = SOURCE_ROOT; };
-		31D29303248488A80024AC8F /* MythicDeck24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck24.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck24.png; sourceTree = SOURCE_ROOT; };
-		31D29304248488A80024AC8F /* MythicDeck37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck37.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck37.png; sourceTree = SOURCE_ROOT; };
-		31D29305248488A80024AC8F /* MythicDeck67.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck67.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck67.png; sourceTree = SOURCE_ROOT; };
-		31D29306248488A80024AC8F /* MythicDeck76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck76.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck76.png; sourceTree = SOURCE_ROOT; };
-		31D29307248488A80024AC8F /* MythicDeck47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck47.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck47.png; sourceTree = SOURCE_ROOT; };
-		31D29308248488A80024AC8F /* MythicDeck116.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck116.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck116.png; sourceTree = SOURCE_ROOT; };
-		31D29309248488A80024AC8F /* MythicDeck19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck19.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck19.png; sourceTree = SOURCE_ROOT; };
-		31D2930A248488A90024AC8F /* MythicDeck58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck58.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck58.png; sourceTree = SOURCE_ROOT; };
-		31D2930B248488A90024AC8F /* MythicDeck53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck53.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck53.png; sourceTree = SOURCE_ROOT; };
-		31D2930C248488A90024AC8F /* MythicDeck103.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck103.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck103.png; sourceTree = SOURCE_ROOT; };
-		31D2930D248488A90024AC8F /* MythicDeck36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck36.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck36.png; sourceTree = SOURCE_ROOT; };
-		31D2930E248488A90024AC8F /* MythicDeck61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck61.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck61.png; sourceTree = SOURCE_ROOT; };
-		31D2930F248488A90024AC8F /* MythicDeck27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck27.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck27.png; sourceTree = SOURCE_ROOT; };
-		31D29310248488A90024AC8F /* MythicDeck35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck35.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck35.png; sourceTree = SOURCE_ROOT; };
-		31D29311248488A90024AC8F /* MythicDeck102.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck102.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck102.png; sourceTree = SOURCE_ROOT; };
-		31D29312248488A90024AC8F /* MythicDeck54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck54.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck54.png; sourceTree = SOURCE_ROOT; };
-		31D29313248488A90024AC8F /* MythicDeck11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck11.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck11.png; sourceTree = SOURCE_ROOT; };
-		31D29314248488A90024AC8F /* MythicDeck28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck28.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck28.png; sourceTree = SOURCE_ROOT; };
-		31D29315248488A90024AC8F /* MythicDeck39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck39.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck39.png; sourceTree = SOURCE_ROOT; };
-		31D29316248488A90024AC8F /* MythicDeck57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck57.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck57.png; sourceTree = SOURCE_ROOT; };
-		31D29317248488A90024AC8F /* MythicDeck106.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck106.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck106.png; sourceTree = SOURCE_ROOT; };
-		31D29318248488A90024AC8F /* MythicDeck112.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck112.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck112.png; sourceTree = SOURCE_ROOT; };
-		31D29319248488AA0024AC8F /* MythicDeck107.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck107.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck107.png; sourceTree = SOURCE_ROOT; };
-		31D2931A248488AA0024AC8F /* MythicDeck71.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck71.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck71.png; sourceTree = SOURCE_ROOT; };
-		31D2931B248488AA0024AC8F /* MythicDeck25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck25.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck25.png; sourceTree = SOURCE_ROOT; };
-		31D2931C248488AA0024AC8F /* MythicDeck13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck13.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck13.png; sourceTree = SOURCE_ROOT; };
-		31D2931D248488AA0024AC8F /* MythicDeck20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck20.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck20.png; sourceTree = SOURCE_ROOT; };
-		31D2931E248488AA0024AC8F /* MythicDeck56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck56.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck56.png; sourceTree = SOURCE_ROOT; };
-		31D2931F248488AA0024AC8F /* MythicDeck68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck68.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck68.png; sourceTree = SOURCE_ROOT; };
-		31D29320248488AA0024AC8F /* MythicDeck96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck96.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck96.png; sourceTree = SOURCE_ROOT; };
-		31D29321248488AA0024AC8F /* MythicDeck113.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck113.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck113.png; sourceTree = SOURCE_ROOT; };
-		31D29322248488AA0024AC8F /* MythicDeck90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck90.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck90.png; sourceTree = SOURCE_ROOT; };
-		31D29323248488AA0024AC8F /* MythicDeck44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck44.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck44.png; sourceTree = SOURCE_ROOT; };
-		31D29324248488AA0024AC8F /* MythicDeck29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck29.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck29.png; sourceTree = SOURCE_ROOT; };
-		31D29325248488AA0024AC8F /* MythicDeck34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck34.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck34.png; sourceTree = SOURCE_ROOT; };
-		31D29326248488AA0024AC8F /* MythicDeck99.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck99.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck99.png; sourceTree = SOURCE_ROOT; };
-		31D29327248488AA0024AC8F /* MythicDeck75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck75.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck75.png; sourceTree = SOURCE_ROOT; };
-		31D29328248488AB0024AC8F /* MythicDeck38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck38.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck38.png; sourceTree = SOURCE_ROOT; };
-		31D29329248488AB0024AC8F /* MythicDeck100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck100.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck100.png; sourceTree = SOURCE_ROOT; };
-		31D2932A248488AB0024AC8F /* MythicDeck59.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck59.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck59.png; sourceTree = SOURCE_ROOT; };
-		31D2932B248488AB0024AC8F /* MythicDeck95.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck95.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck95.png; sourceTree = SOURCE_ROOT; };
-		31D2932C248488AB0024AC8F /* MythicDeck92.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck92.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck92.png; sourceTree = SOURCE_ROOT; };
-		31D2932D248488AB0024AC8F /* MythicDeck40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck40.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck40.png; sourceTree = SOURCE_ROOT; };
-		31D2932E248488AB0024AC8F /* MythicDeck48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck48.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck48.png; sourceTree = SOURCE_ROOT; };
-		31D2932F248488AB0024AC8F /* MythicDeck84.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck84.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck84.png; sourceTree = SOURCE_ROOT; };
-		31D29330248488AB0024AC8F /* MythicDeck30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck30.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck30.png; sourceTree = SOURCE_ROOT; };
-		31D29331248488AB0024AC8F /* MythicDeck77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck77.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck77.png; sourceTree = SOURCE_ROOT; };
-		31D29332248488AB0024AC8F /* MythicDeck51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck51.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck51.png; sourceTree = SOURCE_ROOT; };
-		31D29333248488AB0024AC8F /* MythicDeck5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck5.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck5.png; sourceTree = SOURCE_ROOT; };
-		31D29334248488AB0024AC8F /* MythicDeck97.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck97.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck97.png; sourceTree = SOURCE_ROOT; };
-		31D29335248488AC0024AC8F /* MythicDeck117.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck117.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck117.png; sourceTree = SOURCE_ROOT; };
-		31D29336248488AC0024AC8F /* MythicDeck50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck50.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck50.png; sourceTree = SOURCE_ROOT; };
-		31D29337248488AF0024AC8F /* MythicDeck15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck15.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck15.png; sourceTree = SOURCE_ROOT; };
-		31D29338248488AF0024AC8F /* MythicDeck31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck31.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck31.png; sourceTree = SOURCE_ROOT; };
-		31D29339248488AF0024AC8F /* MythicDeck91.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck91.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck91.png; sourceTree = SOURCE_ROOT; };
-		31D2933A248488B00024AC8F /* MythicDeck41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck41.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck41.png; sourceTree = SOURCE_ROOT; };
-		31D2933B248488B00024AC8F /* MythicDeck85.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck85.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck85.png; sourceTree = SOURCE_ROOT; };
-		31D2933C248488B00024AC8F /* MythicDeck1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck1.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck1.png; sourceTree = SOURCE_ROOT; };
-		31D2933D248488B00024AC8F /* MythicDeck78.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck78.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck78.png; sourceTree = SOURCE_ROOT; };
-		31D2933E248488B00024AC8F /* MythicDeck108.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck108.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck108.png; sourceTree = SOURCE_ROOT; };
-		31D2933F248488B00024AC8F /* MythicDeck94.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck94.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck94.png; sourceTree = SOURCE_ROOT; };
-		31D29340248488B00024AC8F /* MythicDeck89.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck89.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck89.png; sourceTree = SOURCE_ROOT; };
-		31D29341248488B00024AC8F /* MythicDeck121.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck121.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck121.png; sourceTree = SOURCE_ROOT; };
-		31D29342248488B00024AC8F /* MythicDeck8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck8.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck8.png; sourceTree = SOURCE_ROOT; };
-		31D29343248488B00024AC8F /* MythicDeck122.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck122.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck122.png; sourceTree = SOURCE_ROOT; };
-		31D29344248488B00024AC8F /* MythicDeck81.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck81.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck81.png; sourceTree = SOURCE_ROOT; };
-		31D29345248488B00024AC8F /* MythicDeck33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck33.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck33.png; sourceTree = SOURCE_ROOT; };
-		31D29346248488B10024AC8F /* MythicDeck104.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck104.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck104.png; sourceTree = SOURCE_ROOT; };
-		31D29347248488B10024AC8F /* MythicDeck83.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck83.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck83.png; sourceTree = SOURCE_ROOT; };
-		31D29348248488B10024AC8F /* MythicDeck16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck16.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck16.png; sourceTree = SOURCE_ROOT; };
-		31D29349248488B10024AC8F /* MythicDeck86.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck86.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck86.png; sourceTree = SOURCE_ROOT; };
-		31D2934A248488B10024AC8F /* MythicDeck42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck42.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck42.png; sourceTree = SOURCE_ROOT; };
-		31D2934B248488B10024AC8F /* MythicDeck88.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck88.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck88.png; sourceTree = SOURCE_ROOT; };
-		31D2934C248488B10024AC8F /* MythicDeck118.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck118.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck118.png; sourceTree = SOURCE_ROOT; };
-		31D2934D248488B10024AC8F /* MythicDeck79.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck79.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck79.png; sourceTree = SOURCE_ROOT; };
-		31D2934E248488B10024AC8F /* MythicDeck60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck60.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck60.png; sourceTree = SOURCE_ROOT; };
-		31D2934F248488B10024AC8F /* MythicDeck105.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck105.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck105.png; sourceTree = SOURCE_ROOT; };
-		31D29350248488B10024AC8F /* MythicDeck55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck55.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck55.png; sourceTree = SOURCE_ROOT; };
-		31D29351248488B10024AC8F /* MythicDeck115.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck115.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck115.png; sourceTree = SOURCE_ROOT; };
-		31D29352248488B10024AC8F /* MythicDeck3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck3.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck3.png; sourceTree = SOURCE_ROOT; };
-		31D29353248488B20024AC8F /* MythicDeck62.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck62.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck62.png; sourceTree = SOURCE_ROOT; };
-		31D29354248488B20024AC8F /* MythicDeck23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck23.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck23.png; sourceTree = SOURCE_ROOT; };
-		31D29355248488B20024AC8F /* MythicDeck73.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck73.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck73.png; sourceTree = SOURCE_ROOT; };
-		31D29356248488B20024AC8F /* MythicDeck45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck45.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck45.png; sourceTree = SOURCE_ROOT; };
-		31D29357248488B20024AC8F /* MythicDeck6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck6.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck6.png; sourceTree = SOURCE_ROOT; };
-		31D29358248488B20024AC8F /* MythicDeck101.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck101.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck101.png; sourceTree = SOURCE_ROOT; };
-		31D29359248488B20024AC8F /* MythicDeck111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck111.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck111.png; sourceTree = SOURCE_ROOT; };
-		31D2935A248488B20024AC8F /* MythicDeck120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck120.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck120.png; sourceTree = SOURCE_ROOT; };
-		31D2935B248488B20024AC8F /* MythicDeck82.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck82.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck82.png; sourceTree = SOURCE_ROOT; };
-		31D2935C248488B20024AC8F /* MythicDeck74.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck74.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck74.png; sourceTree = SOURCE_ROOT; };
-		31D2935D248488B20024AC8F /* MythicDeck114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck114.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck114.png; sourceTree = SOURCE_ROOT; };
-		31D2935E248488B20024AC8F /* MythicDeck123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck123.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck123.png; sourceTree = SOURCE_ROOT; };
-		31D2935F248488B20024AC8F /* MythicDeck93.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck93.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck93.png; sourceTree = SOURCE_ROOT; };
-		31D29360248488B20024AC8F /* MythicDeck18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck18.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck18.png; sourceTree = SOURCE_ROOT; };
-		31D29361248488B30024AC8F /* MythicDeck2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck2.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck2.png; sourceTree = SOURCE_ROOT; };
-		31D29362248488B30024AC8F /* MythicDeck10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck10.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck10.png; sourceTree = SOURCE_ROOT; };
-		31D29363248488B30024AC8F /* MythicDeck46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck46.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck46.png; sourceTree = SOURCE_ROOT; };
-		31D29364248488B30024AC8F /* MythicDeck66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck66.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck66.png; sourceTree = SOURCE_ROOT; };
-		31D29365248488B30024AC8F /* MythicDeck17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck17.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck17.png; sourceTree = SOURCE_ROOT; };
-		31D29366248488B30024AC8F /* MythicDeck7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck7.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck7.png; sourceTree = SOURCE_ROOT; };
-		31D29367248488B30024AC8F /* MythicDeck65.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck65.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck65.png; sourceTree = SOURCE_ROOT; };
-		31D29368248488B30024AC8F /* MythicDeck21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck21.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck21.png; sourceTree = SOURCE_ROOT; };
-		31D29369248488B30024AC8F /* MythicDeck64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck64.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck64.png; sourceTree = SOURCE_ROOT; };
-		31D2936A248488B30024AC8F /* MythicDeck98.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck98.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck98.png; sourceTree = SOURCE_ROOT; };
-		31D2936B248488B30024AC8F /* MythicDeck9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck9.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck9.png; sourceTree = SOURCE_ROOT; };
-		31D2936C248488B30024AC8F /* MythicDeck110.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck110.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck110.png; sourceTree = SOURCE_ROOT; };
-		31D2936D248488B40024AC8F /* MythicDeck14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck14.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck14.png; sourceTree = SOURCE_ROOT; };
-		31D2936E248488B40024AC8F /* MythicDeck12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck12.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck12.png; sourceTree = SOURCE_ROOT; };
-		31D2936F248488B40024AC8F /* MythicDeck69.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck69.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck69.png; sourceTree = SOURCE_ROOT; };
-		31D29370248488B40024AC8F /* MythicDeck87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck87.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck87.png; sourceTree = SOURCE_ROOT; };
-		31D29371248488B40024AC8F /* MythicDeck119.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck119.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck119.png; sourceTree = SOURCE_ROOT; };
-		31D29372248488B40024AC8F /* MythicDeck52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck52.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck52.png; sourceTree = SOURCE_ROOT; };
-		31D29373248488B40024AC8F /* MythicDeck22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck22.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck22.png; sourceTree = SOURCE_ROOT; };
-		31D29374248488B40024AC8F /* MythicDeck4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck4.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck4.png; sourceTree = SOURCE_ROOT; };
-		31D29375248488B40024AC8F /* MythicDeck49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck49.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck49.png; sourceTree = SOURCE_ROOT; };
-		31D29376248488B40024AC8F /* MythicDeck26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck26.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck26.png; sourceTree = SOURCE_ROOT; };
-		31D29377248488B40024AC8F /* MythicDeck63.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck63.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck63.png; sourceTree = SOURCE_ROOT; };
-		31D29378248488B50024AC8F /* MythicDeck43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck43.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck43.png; sourceTree = SOURCE_ROOT; };
-		31D29379248488B50024AC8F /* MythicDeck32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck32.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck32.png; sourceTree = SOURCE_ROOT; };
-		31D2937A248488B50024AC8F /* MythicDeck80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MythicDeck80.png; path = OTTOTheOracle/Resources/IMAGES/MYTHIC_CARDS/MythicDeck80.png; sourceTree = SOURCE_ROOT; };
-		31D293F6248488BA0024AC8F /* GMA Base VTT_Part48.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part48.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part48.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293F7248488BA0024AC8F /* GMA Base VTT_Part51.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part51.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part51.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293F8248488BA0024AC8F /* GMA Base VTT_Part7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part7.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part7.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293F9248488BA0024AC8F /* GMA Base VTT_Part91.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part91.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part91.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293FA248488BA0024AC8F /* GMA Base VTT_Part55.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part55.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part55.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293FB248488BA0024AC8F /* GMA Base VTT_Part103.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part103.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part103.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293FC248488BA0024AC8F /* GMA Base VTT_Part106.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part106.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part106.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293FD248488BA0024AC8F /* GMA Base VTT_Part20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part20.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part20.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293FE248488BA0024AC8F /* GMA Base VTT_Part71.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part71.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part71.jpg"; sourceTree = SOURCE_ROOT; };
-		31D293FF248488BA0024AC8F /* GMA Base VTT_Part87.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part87.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part87.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29400248488BA0024AC8F /* GMA Base VTT_Part89.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part89.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part89.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29401248488BA0024AC8F /* GMA Base VTT_Part11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part11.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part11.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29402248488BA0024AC8F /* GMA Base VTT_Part8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part8.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part8.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29403248488BB0024AC8F /* GMA Base VTT_Part28.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part28.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part28.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29404248488BB0024AC8F /* GMA Base VTT_Part35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part35.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part35.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29405248488BB0024AC8F /* GMA Base VTT_Part105.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part105.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part105.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29406248488BB0024AC8F /* GMA Base VTT_Part50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part50.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part50.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29407248488BB0024AC8F /* GMA Base VTT_Part104.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part104.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part104.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29408248488BB0024AC8F /* GMA Base VTT_Part15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part15.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part15.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29409248488BB0024AC8F /* GMA Base VTT_Part2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part2.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part2.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2940A248488BB0024AC8F /* GMA Base VTT_Part66.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part66.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part66.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2940B248488BB0024AC8F /* GMA Base VTT_Part42.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part42.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part42.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2940C248488BB0024AC8F /* GMA Base VTT_Part12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part12.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part12.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2940D248488BB0024AC8F /* GMA Base VTT_Part77.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part77.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part77.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2940E248488BB0024AC8F /* GMA Base VTT_Part26.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part26.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part26.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2940F248488BB0024AC8F /* GMA Base VTT_Part63.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part63.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part63.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29410248488BB0024AC8F /* GMA Base VTT_Part16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part16.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part16.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29411248488BC0024AC8F /* GMA Base VTT_Part33.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part33.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part33.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29412248488BC0024AC8F /* GMA Base VTT_Part32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part32.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part32.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29413248488BC0024AC8F /* GMA Base VTT_Part53.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part53.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part53.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29414248488BC0024AC8F /* GMA Base VTT_Part70.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part70.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part70.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29415248488BC0024AC8F /* GMA Base VTT_Part90.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part90.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part90.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29416248488BC0024AC8F /* GMA Base VTT_Part10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part10.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part10.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29417248488BC0024AC8F /* GMA Base VTT_Part80.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part80.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part80.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29418248488BC0024AC8F /* GMA Base VTT_Part68.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part68.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part68.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29419248488BC0024AC8F /* GMA Base VTT_Part39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part39.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part39.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2941A248488BC0024AC8F /* GMA Base VTT_Part40.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part40.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part40.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2941B248488BC0024AC8F /* GMA Base VTT_Part69.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part69.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part69.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2941C248488BC0024AC8F /* GMA Base VTT_Part43.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part43.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part43.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2941D248488BC0024AC8F /* GMA Base VTT_Part113.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part113.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part113.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2941E248488BD0024AC8F /* GMA Base VTT_Part75.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part75.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part75.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2941F248488BD0024AC8F /* GMA Base VTT_Part114.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part114.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part114.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29420248488BD0024AC8F /* GMA Base VTT_Part112.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part112.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part112.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29421248488BD0024AC8F /* GMA Base VTT_Part117.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part117.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part117.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29422248488BD0024AC8F /* GMA Base VTT_Part61.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part61.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part61.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29423248488BD0024AC8F /* GMA Base VTT_Part34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part34.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part34.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29424248488BD0024AC8F /* GMA Base VTT_Part111.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part111.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part111.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29425248488BD0024AC8F /* GMA Base VTT_Part3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part3.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part3.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29426248488BD0024AC8F /* GMA Base VTT_Part27.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part27.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part27.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29427248488BD0024AC8F /* GMA Base VTT_Part57.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part57.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part57.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29428248488BD0024AC8F /* GMA Base VTT_Part120.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part120.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part120.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29429248488BD0024AC8F /* GMA Base VTT_Part110.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part110.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part110.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2942A248488BE0024AC8F /* GMA Base VTT_Part18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part18.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part18.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2942B248488BE0024AC8F /* GMA Base VTT_Part62.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part62.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part62.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2942C248488BE0024AC8F /* GMA Base VTT_Part95.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part95.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part95.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2942D248488BE0024AC8F /* GMA Base VTT_Part54.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part54.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part54.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2942E248488BE0024AC8F /* GMA Base VTT_Part74.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part74.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part74.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2942F248488BE0024AC8F /* GMA Base VTT_Part37.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part37.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part37.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29430248488BE0024AC8F /* GMA Base VTT_Part21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part21.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part21.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29431248488BE0024AC8F /* GMA Base VTT_Part99.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part99.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part99.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29432248488BE0024AC8F /* GMA Base VTT_Part36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part36.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part36.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29433248488BE0024AC8F /* GMA Base VTT_Part72.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part72.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part72.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29434248488BE0024AC8F /* GMA Base VTT_Part96.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part96.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part96.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29435248488BE0024AC8F /* GMA Base VTT_Part84.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part84.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part84.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29436248488BE0024AC8F /* GMA Base VTT_Part101.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part101.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part101.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29437248488BF0024AC8F /* GMA Base VTT_Part83.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part83.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part83.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29438248488BF0024AC8F /* GMA Base VTT_Part107.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part107.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part107.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29439248488BF0024AC8F /* GMA Base VTT_Part13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part13.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part13.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2943A248488BF0024AC8F /* GMA Base VTT_Part9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part9.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part9.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2943B248488BF0024AC8F /* GMA Base VTT_Part31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part31.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part31.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2943C248488BF0024AC8F /* GMA Base VTT_Part102.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part102.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part102.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2943D248488BF0024AC8F /* GMA Base VTT_Part24.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part24.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part24.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2943E248488BF0024AC8F /* GMA Base VTT_Part108.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part108.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part108.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2943F248488BF0024AC8F /* GMA Base VTT_Part115.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part115.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part115.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29440248488BF0024AC8F /* GMA Base VTT_Part116.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part116.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part116.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29441248488BF0024AC8F /* GMA Base VTT_Part45.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part45.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part45.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29442248488BF0024AC8F /* GMA Base VTT_Part41.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part41.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part41.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29443248488BF0024AC8F /* GMA Base VTT_Part109.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part109.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part109.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29444248488C00024AC8F /* GMA Base VTT_Part49.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part49.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part49.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29445248488C00024AC8F /* GMA Base VTT_Part97.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part97.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part97.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29446248488C00024AC8F /* GMA Base VTT_Part47.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part47.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part47.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29447248488C00024AC8F /* GMA Base VTT_Part19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part19.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part19.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29448248488C00024AC8F /* GMA Base VTT_Part93.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part93.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part93.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29449248488C00024AC8F /* GMA Base VTT_Part92.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part92.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part92.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2944A248488C00024AC8F /* GMA Base VTT_Part30.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part30.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part30.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2944B248488C00024AC8F /* GMA Base VTT_Part6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part6.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part6.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2944C248488C00024AC8F /* GMA Base VTT_Part17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part17.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part17.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2944D248488C00024AC8F /* GMA Base VTT_Part25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part25.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part25.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2944E248488C10024AC8F /* GMA Base VTT_Part65.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part65.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part65.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2944F248488C10024AC8F /* GMA Base VTT_Part60.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part60.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part60.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29450248488C10024AC8F /* GMA Base VTT_Part118.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part118.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part118.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29451248488C10024AC8F /* GMA Base VTT_Part73.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part73.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part73.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29452248488C10024AC8F /* GMA Base VTT_Part86.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part86.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part86.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29453248488C10024AC8F /* GMA Base VTT_Part23.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part23.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part23.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29454248488C10024AC8F /* GMA Base VTT_Part14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part14.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part14.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29455248488C10024AC8F /* GMA Base VTT_Part22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part22.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part22.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29456248488C10024AC8F /* GMA Base VTT_Part85.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part85.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part85.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29457248488C10024AC8F /* GMA Base VTT_Part94.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part94.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part94.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29458248488C10024AC8F /* GMA Base VTT_Part44.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part44.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part44.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29459248488C10024AC8F /* GMA Base VTT_Part1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part1.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part1.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2945A248488C10024AC8F /* GMA Base VTT_Part82.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part82.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part82.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2945B248488C10024AC8F /* GMA Base VTT_Part79.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part79.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part79.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2945C248488C10024AC8F /* GMA Base VTT_Part64.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part64.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part64.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2945D248488C10024AC8F /* GMA Base VTT_Part78.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part78.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part78.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2945E248488C10024AC8F /* GMA Base VTT_Part76.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part76.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part76.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2945F248488C20024AC8F /* GMA Base VTT_Part52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part52.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part52.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29460248488C20024AC8F /* GMA Base VTT_Part29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part29.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part29.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29461248488C20024AC8F /* GMA Base VTT_Part5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part5.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part5.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29462248488C20024AC8F /* GMA Base VTT_Part119.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part119.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part119.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29463248488C20024AC8F /* GMA Base VTT_Part100.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part100.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part100.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29464248488C20024AC8F /* GMA Base VTT_Part88.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part88.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part88.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29465248488C20024AC8F /* GMA Base VTT_Part56.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part56.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part56.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29466248488C20024AC8F /* GMA Base VTT_Part67.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part67.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part67.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29467248488C20024AC8F /* GMA Base VTT_Part58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part58.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part58.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29468248488C20024AC8F /* GMA Base VTT_Part4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part4.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part4.jpg"; sourceTree = SOURCE_ROOT; };
-		31D29469248488C20024AC8F /* GMA Base VTT_Part59.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part59.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part59.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2946A248488C20024AC8F /* GMA Base VTT_Part38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part38.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part38.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2946B248488C20024AC8F /* GMA Base VTT_Part81.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part81.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part81.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2946C248488C20024AC8F /* GMA Base VTT_Part46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part46.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part46.jpg"; sourceTree = SOURCE_ROOT; };
-		31D2946D248488C20024AC8F /* GMA Base VTT_Part98.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GMA Base VTT_Part98.jpg"; path = "OTTOTheOracle/Resources/IMAGES/GMA_CARDS/GMA Base VTT_Part98.jpg"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -584,6 +104,7 @@
 				31BE22AB24845F1F00E21C00 /* OTTOTheOracle.entitlements */,
 				312F20162481B3E1000CEB9C /* AppDelegate.swift */,
 				312F20182481B3E1000CEB9C /* SceneDelegate.swift */,
+				316D870F24895889000E03E0 /* View+isHidden.swift */,
 				3188CB842481C8C2001F53B5 /* Resources */,
 				3168E48F2483106700DCCC76 /* Models */,
 				31D295062485391C0024AC8F /* ViewModels */,
@@ -612,6 +133,8 @@
 				3168E4902483117400DCCC76 /* Base.swift */,
 				31BE22922483DE8B00E21C00 /* MythicCard.swift */,
 				31BE22942483DEE400E21C00 /* GMACard.swift */,
+				316D8715248AB756000E03E0 /* MythicOracleModel.swift */,
+				316D8713248AB6F4000E03E0 /* FateOracleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -629,269 +152,10 @@
 		3188CB842481C8C2001F53B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				31BE229F248401DB00E21C00 /* GMA_CARDS */,
-				31BE229E248401CF00E21C00 /* MYTHIC_CARDS */,
 				3188CB852481C8F0001F53B5 /* GMA_CARDS.json */,
 				31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		31BE229E248401CF00E21C00 /* MYTHIC_CARDS */ = {
-			isa = PBXGroup;
-			children = (
-				31D2933C248488B00024AC8F /* MythicDeck1.png */,
-				31D29361248488B30024AC8F /* MythicDeck2.png */,
-				31D29352248488B10024AC8F /* MythicDeck3.png */,
-				31D29374248488B40024AC8F /* MythicDeck4.png */,
-				31D29333248488AB0024AC8F /* MythicDeck5.png */,
-				31D29357248488B20024AC8F /* MythicDeck6.png */,
-				31D29366248488B30024AC8F /* MythicDeck7.png */,
-				31D29342248488B00024AC8F /* MythicDeck8.png */,
-				31D2936B248488B30024AC8F /* MythicDeck9.png */,
-				31D29362248488B30024AC8F /* MythicDeck10.png */,
-				31D29313248488A90024AC8F /* MythicDeck11.png */,
-				31D2936E248488B40024AC8F /* MythicDeck12.png */,
-				31D2931C248488AA0024AC8F /* MythicDeck13.png */,
-				31D2936D248488B40024AC8F /* MythicDeck14.png */,
-				31D29337248488AF0024AC8F /* MythicDeck15.png */,
-				31D29348248488B10024AC8F /* MythicDeck16.png */,
-				31D29365248488B30024AC8F /* MythicDeck17.png */,
-				31D29360248488B20024AC8F /* MythicDeck18.png */,
-				31D29309248488A80024AC8F /* MythicDeck19.png */,
-				31D2931D248488AA0024AC8F /* MythicDeck20.png */,
-				31D29368248488B30024AC8F /* MythicDeck21.png */,
-				31D29373248488B40024AC8F /* MythicDeck22.png */,
-				31D29354248488B20024AC8F /* MythicDeck23.png */,
-				31D29303248488A80024AC8F /* MythicDeck24.png */,
-				31D2931B248488AA0024AC8F /* MythicDeck25.png */,
-				31D29376248488B40024AC8F /* MythicDeck26.png */,
-				31D2930F248488A90024AC8F /* MythicDeck27.png */,
-				31D29314248488A90024AC8F /* MythicDeck28.png */,
-				31D29324248488AA0024AC8F /* MythicDeck29.png */,
-				31D29330248488AB0024AC8F /* MythicDeck30.png */,
-				31D29338248488AF0024AC8F /* MythicDeck31.png */,
-				31D29379248488B50024AC8F /* MythicDeck32.png */,
-				31D29345248488B00024AC8F /* MythicDeck33.png */,
-				31D29325248488AA0024AC8F /* MythicDeck34.png */,
-				31D29310248488A90024AC8F /* MythicDeck35.png */,
-				31D2930D248488A90024AC8F /* MythicDeck36.png */,
-				31D29304248488A80024AC8F /* MythicDeck37.png */,
-				31D29328248488AB0024AC8F /* MythicDeck38.png */,
-				31D29315248488A90024AC8F /* MythicDeck39.png */,
-				31D2932D248488AB0024AC8F /* MythicDeck40.png */,
-				31D2933A248488B00024AC8F /* MythicDeck41.png */,
-				31D2934A248488B10024AC8F /* MythicDeck42.png */,
-				31D29378248488B50024AC8F /* MythicDeck43.png */,
-				31D29323248488AA0024AC8F /* MythicDeck44.png */,
-				31D29356248488B20024AC8F /* MythicDeck45.png */,
-				31D29363248488B30024AC8F /* MythicDeck46.png */,
-				31D29307248488A80024AC8F /* MythicDeck47.png */,
-				31D2932E248488AB0024AC8F /* MythicDeck48.png */,
-				31D29375248488B40024AC8F /* MythicDeck49.png */,
-				31D29336248488AC0024AC8F /* MythicDeck50.png */,
-				31D29332248488AB0024AC8F /* MythicDeck51.png */,
-				31D29372248488B40024AC8F /* MythicDeck52.png */,
-				31D2930B248488A90024AC8F /* MythicDeck53.png */,
-				31D29312248488A90024AC8F /* MythicDeck54.png */,
-				31D29350248488B10024AC8F /* MythicDeck55.png */,
-				31D2931E248488AA0024AC8F /* MythicDeck56.png */,
-				31D29316248488A90024AC8F /* MythicDeck57.png */,
-				31D2930A248488A90024AC8F /* MythicDeck58.png */,
-				31D2932A248488AB0024AC8F /* MythicDeck59.png */,
-				31D2934E248488B10024AC8F /* MythicDeck60.png */,
-				31D2930E248488A90024AC8F /* MythicDeck61.png */,
-				31D29353248488B20024AC8F /* MythicDeck62.png */,
-				31D29377248488B40024AC8F /* MythicDeck63.png */,
-				31D29369248488B30024AC8F /* MythicDeck64.png */,
-				31D29367248488B30024AC8F /* MythicDeck65.png */,
-				31D29364248488B30024AC8F /* MythicDeck66.png */,
-				31D29305248488A80024AC8F /* MythicDeck67.png */,
-				31D2931F248488AA0024AC8F /* MythicDeck68.png */,
-				31D2936F248488B40024AC8F /* MythicDeck69.png */,
-				31D29302248488A80024AC8F /* MythicDeck70.png */,
-				31D2931A248488AA0024AC8F /* MythicDeck71.png */,
-				31D29301248488A80024AC8F /* MythicDeck72.png */,
-				31D29355248488B20024AC8F /* MythicDeck73.png */,
-				31D2935C248488B20024AC8F /* MythicDeck74.png */,
-				31D29327248488AA0024AC8F /* MythicDeck75.png */,
-				31D29306248488A80024AC8F /* MythicDeck76.png */,
-				31D29331248488AB0024AC8F /* MythicDeck77.png */,
-				31D2933D248488B00024AC8F /* MythicDeck78.png */,
-				31D2934D248488B10024AC8F /* MythicDeck79.png */,
-				31D2937A248488B50024AC8F /* MythicDeck80.png */,
-				31D29344248488B00024AC8F /* MythicDeck81.png */,
-				31D2935B248488B20024AC8F /* MythicDeck82.png */,
-				31D29347248488B10024AC8F /* MythicDeck83.png */,
-				31D2932F248488AB0024AC8F /* MythicDeck84.png */,
-				31D2933B248488B00024AC8F /* MythicDeck85.png */,
-				31D29349248488B10024AC8F /* MythicDeck86.png */,
-				31D29370248488B40024AC8F /* MythicDeck87.png */,
-				31D2934B248488B10024AC8F /* MythicDeck88.png */,
-				31D29340248488B00024AC8F /* MythicDeck89.png */,
-				31D29322248488AA0024AC8F /* MythicDeck90.png */,
-				31D29339248488AF0024AC8F /* MythicDeck91.png */,
-				31D2932C248488AB0024AC8F /* MythicDeck92.png */,
-				31D2935F248488B20024AC8F /* MythicDeck93.png */,
-				31D2933F248488B00024AC8F /* MythicDeck94.png */,
-				31D2932B248488AB0024AC8F /* MythicDeck95.png */,
-				31D29320248488AA0024AC8F /* MythicDeck96.png */,
-				31D29334248488AB0024AC8F /* MythicDeck97.png */,
-				31D2936A248488B30024AC8F /* MythicDeck98.png */,
-				31D29326248488AA0024AC8F /* MythicDeck99.png */,
-				31D29329248488AB0024AC8F /* MythicDeck100.png */,
-				31D29358248488B20024AC8F /* MythicDeck101.png */,
-				31D29311248488A90024AC8F /* MythicDeck102.png */,
-				31D2930C248488A90024AC8F /* MythicDeck103.png */,
-				31D29346248488B10024AC8F /* MythicDeck104.png */,
-				31D2934F248488B10024AC8F /* MythicDeck105.png */,
-				31D29317248488A90024AC8F /* MythicDeck106.png */,
-				31D29319248488AA0024AC8F /* MythicDeck107.png */,
-				31D2933E248488B00024AC8F /* MythicDeck108.png */,
-				31D29300248488A80024AC8F /* MythicDeck109.png */,
-				31D2936C248488B30024AC8F /* MythicDeck110.png */,
-				31D29359248488B20024AC8F /* MythicDeck111.png */,
-				31D29318248488A90024AC8F /* MythicDeck112.png */,
-				31D29321248488AA0024AC8F /* MythicDeck113.png */,
-				31D2935D248488B20024AC8F /* MythicDeck114.png */,
-				31D29351248488B10024AC8F /* MythicDeck115.png */,
-				31D29308248488A80024AC8F /* MythicDeck116.png */,
-				31D29335248488AC0024AC8F /* MythicDeck117.png */,
-				31D2934C248488B10024AC8F /* MythicDeck118.png */,
-				31D29371248488B40024AC8F /* MythicDeck119.png */,
-				31D2935A248488B20024AC8F /* MythicDeck120.png */,
-				31D29341248488B00024AC8F /* MythicDeck121.png */,
-				31D29343248488B00024AC8F /* MythicDeck122.png */,
-				31D2935E248488B20024AC8F /* MythicDeck123.png */,
-			);
-			path = MYTHIC_CARDS;
-			sourceTree = "<group>";
-		};
-		31BE229F248401DB00E21C00 /* GMA_CARDS */ = {
-			isa = PBXGroup;
-			children = (
-				31D29459248488C10024AC8F /* GMA Base VTT_Part1.jpg */,
-				31D29409248488BB0024AC8F /* GMA Base VTT_Part2.jpg */,
-				31D29425248488BD0024AC8F /* GMA Base VTT_Part3.jpg */,
-				31D29468248488C20024AC8F /* GMA Base VTT_Part4.jpg */,
-				31D29461248488C20024AC8F /* GMA Base VTT_Part5.jpg */,
-				31D2944B248488C00024AC8F /* GMA Base VTT_Part6.jpg */,
-				31D293F8248488BA0024AC8F /* GMA Base VTT_Part7.jpg */,
-				31D29402248488BA0024AC8F /* GMA Base VTT_Part8.jpg */,
-				31D2943A248488BF0024AC8F /* GMA Base VTT_Part9.jpg */,
-				31D29416248488BC0024AC8F /* GMA Base VTT_Part10.jpg */,
-				31D29401248488BA0024AC8F /* GMA Base VTT_Part11.jpg */,
-				31D2940C248488BB0024AC8F /* GMA Base VTT_Part12.jpg */,
-				31D29439248488BF0024AC8F /* GMA Base VTT_Part13.jpg */,
-				31D29454248488C10024AC8F /* GMA Base VTT_Part14.jpg */,
-				31D29408248488BB0024AC8F /* GMA Base VTT_Part15.jpg */,
-				31D29410248488BB0024AC8F /* GMA Base VTT_Part16.jpg */,
-				31D2944C248488C00024AC8F /* GMA Base VTT_Part17.jpg */,
-				31D2942A248488BE0024AC8F /* GMA Base VTT_Part18.jpg */,
-				31D29447248488C00024AC8F /* GMA Base VTT_Part19.jpg */,
-				31D293FD248488BA0024AC8F /* GMA Base VTT_Part20.jpg */,
-				31D29430248488BE0024AC8F /* GMA Base VTT_Part21.jpg */,
-				31D29455248488C10024AC8F /* GMA Base VTT_Part22.jpg */,
-				31D29453248488C10024AC8F /* GMA Base VTT_Part23.jpg */,
-				31D2943D248488BF0024AC8F /* GMA Base VTT_Part24.jpg */,
-				31D2944D248488C00024AC8F /* GMA Base VTT_Part25.jpg */,
-				31D2940E248488BB0024AC8F /* GMA Base VTT_Part26.jpg */,
-				31D29426248488BD0024AC8F /* GMA Base VTT_Part27.jpg */,
-				31D29403248488BB0024AC8F /* GMA Base VTT_Part28.jpg */,
-				31D29460248488C20024AC8F /* GMA Base VTT_Part29.jpg */,
-				31D2944A248488C00024AC8F /* GMA Base VTT_Part30.jpg */,
-				31D2943B248488BF0024AC8F /* GMA Base VTT_Part31.jpg */,
-				31D29412248488BC0024AC8F /* GMA Base VTT_Part32.jpg */,
-				31D29411248488BC0024AC8F /* GMA Base VTT_Part33.jpg */,
-				31D29423248488BD0024AC8F /* GMA Base VTT_Part34.jpg */,
-				31D29404248488BB0024AC8F /* GMA Base VTT_Part35.jpg */,
-				31D29432248488BE0024AC8F /* GMA Base VTT_Part36.jpg */,
-				31D2942F248488BE0024AC8F /* GMA Base VTT_Part37.jpg */,
-				31D2946A248488C20024AC8F /* GMA Base VTT_Part38.jpg */,
-				31D29419248488BC0024AC8F /* GMA Base VTT_Part39.jpg */,
-				31D2941A248488BC0024AC8F /* GMA Base VTT_Part40.jpg */,
-				31D29442248488BF0024AC8F /* GMA Base VTT_Part41.jpg */,
-				31D2940B248488BB0024AC8F /* GMA Base VTT_Part42.jpg */,
-				31D2941C248488BC0024AC8F /* GMA Base VTT_Part43.jpg */,
-				31D29458248488C10024AC8F /* GMA Base VTT_Part44.jpg */,
-				31D29441248488BF0024AC8F /* GMA Base VTT_Part45.jpg */,
-				31D2946C248488C20024AC8F /* GMA Base VTT_Part46.jpg */,
-				31D29446248488C00024AC8F /* GMA Base VTT_Part47.jpg */,
-				31D293F6248488BA0024AC8F /* GMA Base VTT_Part48.jpg */,
-				31D29444248488C00024AC8F /* GMA Base VTT_Part49.jpg */,
-				31D29406248488BB0024AC8F /* GMA Base VTT_Part50.jpg */,
-				31D293F7248488BA0024AC8F /* GMA Base VTT_Part51.jpg */,
-				31D2945F248488C20024AC8F /* GMA Base VTT_Part52.jpg */,
-				31D29413248488BC0024AC8F /* GMA Base VTT_Part53.jpg */,
-				31D2942D248488BE0024AC8F /* GMA Base VTT_Part54.jpg */,
-				31D293FA248488BA0024AC8F /* GMA Base VTT_Part55.jpg */,
-				31D29465248488C20024AC8F /* GMA Base VTT_Part56.jpg */,
-				31D29427248488BD0024AC8F /* GMA Base VTT_Part57.jpg */,
-				31D29467248488C20024AC8F /* GMA Base VTT_Part58.jpg */,
-				31D29469248488C20024AC8F /* GMA Base VTT_Part59.jpg */,
-				31D2944F248488C10024AC8F /* GMA Base VTT_Part60.jpg */,
-				31D29422248488BD0024AC8F /* GMA Base VTT_Part61.jpg */,
-				31D2942B248488BE0024AC8F /* GMA Base VTT_Part62.jpg */,
-				31D2940F248488BB0024AC8F /* GMA Base VTT_Part63.jpg */,
-				31D2945C248488C10024AC8F /* GMA Base VTT_Part64.jpg */,
-				31D2944E248488C10024AC8F /* GMA Base VTT_Part65.jpg */,
-				31D2940A248488BB0024AC8F /* GMA Base VTT_Part66.jpg */,
-				31D29466248488C20024AC8F /* GMA Base VTT_Part67.jpg */,
-				31D29418248488BC0024AC8F /* GMA Base VTT_Part68.jpg */,
-				31D2941B248488BC0024AC8F /* GMA Base VTT_Part69.jpg */,
-				31D29414248488BC0024AC8F /* GMA Base VTT_Part70.jpg */,
-				31D293FE248488BA0024AC8F /* GMA Base VTT_Part71.jpg */,
-				31D29433248488BE0024AC8F /* GMA Base VTT_Part72.jpg */,
-				31D29451248488C10024AC8F /* GMA Base VTT_Part73.jpg */,
-				31D2942E248488BE0024AC8F /* GMA Base VTT_Part74.jpg */,
-				31D2941E248488BD0024AC8F /* GMA Base VTT_Part75.jpg */,
-				31D2945E248488C10024AC8F /* GMA Base VTT_Part76.jpg */,
-				31D2940D248488BB0024AC8F /* GMA Base VTT_Part77.jpg */,
-				31D2945D248488C10024AC8F /* GMA Base VTT_Part78.jpg */,
-				31D2945B248488C10024AC8F /* GMA Base VTT_Part79.jpg */,
-				31D29417248488BC0024AC8F /* GMA Base VTT_Part80.jpg */,
-				31D2946B248488C20024AC8F /* GMA Base VTT_Part81.jpg */,
-				31D2945A248488C10024AC8F /* GMA Base VTT_Part82.jpg */,
-				31D29437248488BF0024AC8F /* GMA Base VTT_Part83.jpg */,
-				31D29435248488BE0024AC8F /* GMA Base VTT_Part84.jpg */,
-				31D29456248488C10024AC8F /* GMA Base VTT_Part85.jpg */,
-				31D29452248488C10024AC8F /* GMA Base VTT_Part86.jpg */,
-				31D293FF248488BA0024AC8F /* GMA Base VTT_Part87.jpg */,
-				31D29464248488C20024AC8F /* GMA Base VTT_Part88.jpg */,
-				31D29400248488BA0024AC8F /* GMA Base VTT_Part89.jpg */,
-				31D29415248488BC0024AC8F /* GMA Base VTT_Part90.jpg */,
-				31D293F9248488BA0024AC8F /* GMA Base VTT_Part91.jpg */,
-				31D29449248488C00024AC8F /* GMA Base VTT_Part92.jpg */,
-				31D29448248488C00024AC8F /* GMA Base VTT_Part93.jpg */,
-				31D29457248488C10024AC8F /* GMA Base VTT_Part94.jpg */,
-				31D2942C248488BE0024AC8F /* GMA Base VTT_Part95.jpg */,
-				31D29434248488BE0024AC8F /* GMA Base VTT_Part96.jpg */,
-				31D29445248488C00024AC8F /* GMA Base VTT_Part97.jpg */,
-				31D2946D248488C20024AC8F /* GMA Base VTT_Part98.jpg */,
-				31D29431248488BE0024AC8F /* GMA Base VTT_Part99.jpg */,
-				31D29463248488C20024AC8F /* GMA Base VTT_Part100.jpg */,
-				31D29436248488BE0024AC8F /* GMA Base VTT_Part101.jpg */,
-				31D2943C248488BF0024AC8F /* GMA Base VTT_Part102.jpg */,
-				31D293FB248488BA0024AC8F /* GMA Base VTT_Part103.jpg */,
-				31D29407248488BB0024AC8F /* GMA Base VTT_Part104.jpg */,
-				31D29405248488BB0024AC8F /* GMA Base VTT_Part105.jpg */,
-				31D293FC248488BA0024AC8F /* GMA Base VTT_Part106.jpg */,
-				31D29438248488BF0024AC8F /* GMA Base VTT_Part107.jpg */,
-				31D2943E248488BF0024AC8F /* GMA Base VTT_Part108.jpg */,
-				31D29443248488BF0024AC8F /* GMA Base VTT_Part109.jpg */,
-				31D29429248488BD0024AC8F /* GMA Base VTT_Part110.jpg */,
-				31D29424248488BD0024AC8F /* GMA Base VTT_Part111.jpg */,
-				31D29420248488BD0024AC8F /* GMA Base VTT_Part112.jpg */,
-				31D2941D248488BC0024AC8F /* GMA Base VTT_Part113.jpg */,
-				31D2941F248488BD0024AC8F /* GMA Base VTT_Part114.jpg */,
-				31D2943F248488BF0024AC8F /* GMA Base VTT_Part115.jpg */,
-				31D29440248488BF0024AC8F /* GMA Base VTT_Part116.jpg */,
-				31D29421248488BD0024AC8F /* GMA Base VTT_Part117.jpg */,
-				31D29450248488C10024AC8F /* GMA Base VTT_Part118.jpg */,
-				31D29462248488C20024AC8F /* GMA Base VTT_Part119.jpg */,
-				31D29428248488BD0024AC8F /* GMA Base VTT_Part120.jpg */,
-			);
-			path = GMA_CARDS;
 			sourceTree = "<group>";
 		};
 		31BE22A82484401800E21C00 /* GMACardViews */ = {
@@ -919,9 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				312F201A2481B3E1000CEB9C /* StartingView.swift */,
-				3188CB872481CD1F001F53B5 /* GMACardView.swift */,
 				316D87002487D31D000E03E0 /* MythicCardView.swift */,
 				316D870624886B87000E03E0 /* MythicCardViews */,
+				3188CB872481CD1F001F53B5 /* GMACardView.swift */,
 				31BE22A82484401800E21C00 /* GMACardViews */,
 			);
 			path = Views;
@@ -985,254 +249,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D29496248488C20024AC8F /* GMA Base VTT_Part75.jpg in Resources */,
-				31D293EA248488B50024AC8F /* MythicDeck69.png in Resources */,
-				31D2946E248488C20024AC8F /* GMA Base VTT_Part48.jpg in Resources */,
-				31D294A5248488C20024AC8F /* GMA Base VTT_Part54.jpg in Resources */,
-				31D293BA248488B50024AC8F /* MythicDeck94.png in Resources */,
-				31D294D8248488C20024AC8F /* GMA Base VTT_Part29.jpg in Resources */,
-				31D293A8248488B50024AC8F /* MythicDeck40.png in Resources */,
-				31D293A2248488B50024AC8F /* MythicDeck75.png in Resources */,
-				31D29384248488B50024AC8F /* MythicDeck19.png in Resources */,
-				31D294A8248488C20024AC8F /* GMA Base VTT_Part21.jpg in Resources */,
-				31D2937F248488B50024AC8F /* MythicDeck37.png in Resources */,
-				31D293E8248488B50024AC8F /* MythicDeck14.png in Resources */,
-				31D293BB248488B50024AC8F /* MythicDeck89.png in Resources */,
-				31D294A4248488C20024AC8F /* GMA Base VTT_Part95.jpg in Resources */,
-				31D2949F248488C20024AC8F /* GMA Base VTT_Part57.jpg in Resources */,
-				31D294CD248488C20024AC8F /* GMA Base VTT_Part22.jpg in Resources */,
-				31D2937E248488B50024AC8F /* MythicDeck24.png in Resources */,
-				31D294B8248488C20024AC8F /* GMA Base VTT_Part116.jpg in Resources */,
-				31D293E6248488B50024AC8F /* MythicDeck9.png in Resources */,
-				31D29477248488C20024AC8F /* GMA Base VTT_Part87.jpg in Resources */,
-				31D29497248488C20024AC8F /* GMA Base VTT_Part114.jpg in Resources */,
-				31D293C8248488B50024AC8F /* MythicDeck79.png in Resources */,
-				31D293D0248488B50024AC8F /* MythicDeck73.png in Resources */,
-				31D293E5248488B50024AC8F /* MythicDeck98.png in Resources */,
-				31D293DB248488B50024AC8F /* MythicDeck18.png in Resources */,
-				31D2939F248488B50024AC8F /* MythicDeck29.png in Resources */,
-				31D294A6248488C20024AC8F /* GMA Base VTT_Part74.jpg in Resources */,
-				31D293ED248488B50024AC8F /* MythicDeck52.png in Resources */,
-				31D294D4248488C20024AC8F /* GMA Base VTT_Part64.jpg in Resources */,
-				31D293CA248488B50024AC8F /* MythicDeck105.png in Resources */,
-				31D2937C248488B50024AC8F /* MythicDeck72.png in Resources */,
-				31D293A5248488B50024AC8F /* MythicDeck59.png in Resources */,
-				31D294DC248488C20024AC8F /* GMA Base VTT_Part88.jpg in Resources */,
 				312F20232481B3E2000CEB9C /* LaunchScreen.storyboard in Resources */,
-				31D293B4248488B50024AC8F /* MythicDeck91.png in Resources */,
-				31D2938E248488B50024AC8F /* MythicDeck11.png in Resources */,
-				31D293C2248488B50024AC8F /* MythicDeck83.png in Resources */,
-				31D29385248488B50024AC8F /* MythicDeck58.png in Resources */,
-				31D2949D248488C20024AC8F /* GMA Base VTT_Part3.jpg in Resources */,
-				31D293BC248488B50024AC8F /* MythicDeck121.png in Resources */,
-				31D293C0248488B50024AC8F /* MythicDeck33.png in Resources */,
-				31D293BE248488B50024AC8F /* MythicDeck122.png in Resources */,
-				31D294A1248488C20024AC8F /* GMA Base VTT_Part110.jpg in Resources */,
-				31D293C6248488B50024AC8F /* MythicDeck88.png in Resources */,
-				31D294BE248488C20024AC8F /* GMA Base VTT_Part47.jpg in Resources */,
-				31D293A0248488B50024AC8F /* MythicDeck34.png in Resources */,
-				31D293D9248488B50024AC8F /* MythicDeck123.png in Resources */,
-				31D293DD248488B50024AC8F /* MythicDeck10.png in Resources */,
-				31D294B2248488C20024AC8F /* GMA Base VTT_Part9.jpg in Resources */,
-				31D2947D248488C20024AC8F /* GMA Base VTT_Part105.jpg in Resources */,
-				31D293B5248488B50024AC8F /* MythicDeck41.png in Resources */,
-				31D294E4248488C20024AC8F /* GMA Base VTT_Part46.jpg in Resources */,
-				31D29474248488C20024AC8F /* GMA Base VTT_Part106.jpg in Resources */,
-				31D294C9248488C20024AC8F /* GMA Base VTT_Part73.jpg in Resources */,
-				31D29470248488C20024AC8F /* GMA Base VTT_Part7.jpg in Resources */,
-				31D294E2248488C20024AC8F /* GMA Base VTT_Part38.jpg in Resources */,
-				31D294A3248488C20024AC8F /* GMA Base VTT_Part62.jpg in Resources */,
-				31D2938B248488B50024AC8F /* MythicDeck35.png in Resources */,
-				31D294CF248488C20024AC8F /* GMA Base VTT_Part94.jpg in Resources */,
-				31D2947C248488C20024AC8F /* GMA Base VTT_Part35.jpg in Resources */,
-				31D294B3248488C20024AC8F /* GMA Base VTT_Part31.jpg in Resources */,
-				31D2948A248488C20024AC8F /* GMA Base VTT_Part32.jpg in Resources */,
-				31D29394248488B50024AC8F /* MythicDeck107.png in Resources */,
-				31D294CA248488C20024AC8F /* GMA Base VTT_Part86.jpg in Resources */,
-				31D294CC248488C20024AC8F /* GMA Base VTT_Part14.jpg in Resources */,
-				31D2937B248488B50024AC8F /* MythicDeck109.png in Resources */,
-				31D294C7248488C20024AC8F /* GMA Base VTT_Part60.jpg in Resources */,
-				31D294D3248488C20024AC8F /* GMA Base VTT_Part79.jpg in Resources */,
-				31D29387248488B50024AC8F /* MythicDeck103.png in Resources */,
-				31D294DE248488C20024AC8F /* GMA Base VTT_Part67.jpg in Resources */,
-				31D293E2248488B50024AC8F /* MythicDeck65.png in Resources */,
-				31D294C6248488C20024AC8F /* GMA Base VTT_Part65.jpg in Resources */,
-				31D293D5248488B50024AC8F /* MythicDeck120.png in Resources */,
-				31D294BC248488C20024AC8F /* GMA Base VTT_Part49.jpg in Resources */,
-				31D2949B248488C20024AC8F /* GMA Base VTT_Part34.jpg in Resources */,
-				31D29471248488C20024AC8F /* GMA Base VTT_Part91.jpg in Resources */,
-				31D2939B248488B50024AC8F /* MythicDeck96.png in Resources */,
-				31D294AE248488C20024AC8F /* GMA Base VTT_Part101.jpg in Resources */,
-				31D294C8248488C20024AC8F /* GMA Base VTT_Part118.jpg in Resources */,
-				31D2938D248488B50024AC8F /* MythicDeck54.png in Resources */,
-				31D294B7248488C20024AC8F /* GMA Base VTT_Part115.jpg in Resources */,
-				31D294CB248488C20024AC8F /* GMA Base VTT_Part23.jpg in Resources */,
-				31D29495248488C20024AC8F /* GMA Base VTT_Part113.jpg in Resources */,
-				31D294D6248488C20024AC8F /* GMA Base VTT_Part76.jpg in Resources */,
-				31D293CE248488B50024AC8F /* MythicDeck62.png in Resources */,
-				31D29492248488C20024AC8F /* GMA Base VTT_Part40.jpg in Resources */,
-				31D294AA248488C20024AC8F /* GMA Base VTT_Part36.jpg in Resources */,
-				31D294D2248488C20024AC8F /* GMA Base VTT_Part82.jpg in Resources */,
-				31D29397248488B50024AC8F /* MythicDeck13.png in Resources */,
 				312F20202481B3E2000CEB9C /* Preview Assets.xcassets in Resources */,
-				31D2948D248488C20024AC8F /* GMA Base VTT_Part90.jpg in Resources */,
 				3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */,
-				31D293BF248488B50024AC8F /* MythicDeck81.png in Resources */,
-				31D29483248488C20024AC8F /* GMA Base VTT_Part42.jpg in Resources */,
-				31D294AC248488C20024AC8F /* GMA Base VTT_Part96.jpg in Resources */,
-				31D29484248488C20024AC8F /* GMA Base VTT_Part12.jpg in Resources */,
-				31D294D7248488C20024AC8F /* GMA Base VTT_Part52.jpg in Resources */,
-				31D294BF248488C20024AC8F /* GMA Base VTT_Part19.jpg in Resources */,
-				31D2949E248488C20024AC8F /* GMA Base VTT_Part27.jpg in Resources */,
-				31D293C5248488B50024AC8F /* MythicDeck42.png in Resources */,
-				31D294B1248488C20024AC8F /* GMA Base VTT_Part13.jpg in Resources */,
-				31D2948B248488C20024AC8F /* GMA Base VTT_Part53.jpg in Resources */,
-				31D2949A248488C20024AC8F /* GMA Base VTT_Part61.jpg in Resources */,
-				31D29398248488B50024AC8F /* MythicDeck20.png in Resources */,
-				31D29485248488C20024AC8F /* GMA Base VTT_Part77.jpg in Resources */,
-				31D294B0248488C20024AC8F /* GMA Base VTT_Part107.jpg in Resources */,
 				31BE22972483FF8B00E21C00 /* MYTHIC_CARDS.json in Resources */,
-				31D29475248488C20024AC8F /* GMA Base VTT_Part20.jpg in Resources */,
-				31D294C2248488C20024AC8F /* GMA Base VTT_Part30.jpg in Resources */,
-				31D294C0248488C20024AC8F /* GMA Base VTT_Part93.jpg in Resources */,
-				31D293D2248488B50024AC8F /* MythicDeck6.png in Resources */,
-				31D29388248488B50024AC8F /* MythicDeck36.png in Resources */,
-				31D293F2248488B50024AC8F /* MythicDeck63.png in Resources */,
-				31D2948E248488C20024AC8F /* GMA Base VTT_Part10.jpg in Resources */,
-				31D2939A248488B50024AC8F /* MythicDeck68.png in Resources */,
-				31D293F0248488B50024AC8F /* MythicDeck49.png in Resources */,
-				31D293DE248488B50024AC8F /* MythicDeck46.png in Resources */,
-				31D29395248488B50024AC8F /* MythicDeck71.png in Resources */,
-				31D294DA248488C20024AC8F /* GMA Base VTT_Part119.jpg in Resources */,
-				31D293D4248488B50024AC8F /* MythicDeck111.png in Resources */,
-				31D293EC248488B50024AC8F /* MythicDeck119.png in Resources */,
-				31D294D5248488C20024AC8F /* GMA Base VTT_Part78.jpg in Resources */,
-				31D293DA248488B50024AC8F /* MythicDeck93.png in Resources */,
-				31D29480248488C20024AC8F /* GMA Base VTT_Part15.jpg in Resources */,
-				31D29481248488C20024AC8F /* GMA Base VTT_Part2.jpg in Resources */,
-				31D293A7248488B50024AC8F /* MythicDeck92.png in Resources */,
-				31D294DB248488C20024AC8F /* GMA Base VTT_Part100.jpg in Resources */,
-				31D293CB248488B50024AC8F /* MythicDeck55.png in Resources */,
-				31D29494248488C20024AC8F /* GMA Base VTT_Part43.jpg in Resources */,
-				31D29382248488B50024AC8F /* MythicDeck47.png in Resources */,
-				31D29391248488B50024AC8F /* MythicDeck57.png in Resources */,
-				31D29499248488C20024AC8F /* GMA Base VTT_Part117.jpg in Resources */,
-				31D29392248488B50024AC8F /* MythicDeck106.png in Resources */,
-				31D29472248488C20024AC8F /* GMA Base VTT_Part55.jpg in Resources */,
-				31D294E1248488C20024AC8F /* GMA Base VTT_Part59.jpg in Resources */,
-				31D29486248488C20024AC8F /* GMA Base VTT_Part26.jpg in Resources */,
-				31D2947B248488C20024AC8F /* GMA Base VTT_Part28.jpg in Resources */,
-				31D294C1248488C20024AC8F /* GMA Base VTT_Part92.jpg in Resources */,
-				31D293F3248488B50024AC8F /* MythicDeck43.png in Resources */,
-				31D29489248488C20024AC8F /* GMA Base VTT_Part33.jpg in Resources */,
-				31D294DF248488C20024AC8F /* GMA Base VTT_Part58.jpg in Resources */,
-				31D293CF248488B50024AC8F /* MythicDeck23.png in Resources */,
-				31D29476248488C20024AC8F /* GMA Base VTT_Part71.jpg in Resources */,
-				31D293F4248488B50024AC8F /* MythicDeck32.png in Resources */,
-				31D294C4248488C20024AC8F /* GMA Base VTT_Part17.jpg in Resources */,
-				31D29493248488C20024AC8F /* GMA Base VTT_Part69.jpg in Resources */,
-				31D293C9248488B50024AC8F /* MythicDeck60.png in Resources */,
-				31D2949C248488C20024AC8F /* GMA Base VTT_Part111.jpg in Resources */,
-				31D293D7248488B50024AC8F /* MythicDeck74.png in Resources */,
-				31D293D6248488B50024AC8F /* MythicDeck82.png in Resources */,
-				31D293DC248488B50024AC8F /* MythicDeck2.png in Resources */,
-				31D2948F248488C20024AC8F /* GMA Base VTT_Part80.jpg in Resources */,
-				31D294BD248488C20024AC8F /* GMA Base VTT_Part97.jpg in Resources */,
-				31D29490248488C20024AC8F /* GMA Base VTT_Part68.jpg in Resources */,
-				31D29383248488B50024AC8F /* MythicDeck116.png in Resources */,
-				31D2939D248488B50024AC8F /* MythicDeck90.png in Resources */,
-				31D293B9248488B50024AC8F /* MythicDeck108.png in Resources */,
-				31D2947A248488C20024AC8F /* GMA Base VTT_Part8.jpg in Resources */,
-				31D294A7248488C20024AC8F /* GMA Base VTT_Part37.jpg in Resources */,
-				31D294A0248488C20024AC8F /* GMA Base VTT_Part120.jpg in Resources */,
-				31D29488248488C20024AC8F /* GMA Base VTT_Part16.jpg in Resources */,
-				31D293EF248488B50024AC8F /* MythicDeck4.png in Resources */,
-				31D293B3248488B50024AC8F /* MythicDeck31.png in Resources */,
-				31D293A3248488B50024AC8F /* MythicDeck38.png in Resources */,
-				31D293A4248488B50024AC8F /* MythicDeck100.png in Resources */,
-				31D294CE248488C20024AC8F /* GMA Base VTT_Part85.jpg in Resources */,
 				312F201D2481B3E2000CEB9C /* Assets.xcassets in Resources */,
-				31D293AC248488B50024AC8F /* MythicDeck77.png in Resources */,
-				31D294E3248488C20024AC8F /* GMA Base VTT_Part81.jpg in Resources */,
-				31D293E9248488B50024AC8F /* MythicDeck12.png in Resources */,
-				31D293F5248488B50024AC8F /* MythicDeck80.png in Resources */,
-				31D29478248488C20024AC8F /* GMA Base VTT_Part89.jpg in Resources */,
-				31D29473248488C20024AC8F /* GMA Base VTT_Part103.jpg in Resources */,
-				31D29390248488B50024AC8F /* MythicDeck39.png in Resources */,
-				31D293A9248488B50024AC8F /* MythicDeck48.png in Resources */,
-				31D294D9248488C20024AC8F /* GMA Base VTT_Part5.jpg in Resources */,
-				31D293AE248488B50024AC8F /* MythicDeck5.png in Resources */,
-				31D294C3248488C20024AC8F /* GMA Base VTT_Part6.jpg in Resources */,
-				31D293AD248488B50024AC8F /* MythicDeck51.png in Resources */,
-				31D293C1248488B50024AC8F /* MythicDeck104.png in Resources */,
-				31D29479248488C20024AC8F /* GMA Base VTT_Part11.jpg in Resources */,
-				31D293BD248488B50024AC8F /* MythicDeck8.png in Resources */,
-				31D293A6248488B50024AC8F /* MythicDeck95.png in Resources */,
-				31D294AF248488C20024AC8F /* GMA Base VTT_Part83.jpg in Resources */,
-				31D2948C248488C20024AC8F /* GMA Base VTT_Part70.jpg in Resources */,
-				31D294A2248488C20024AC8F /* GMA Base VTT_Part18.jpg in Resources */,
-				31D293E3248488B50024AC8F /* MythicDeck21.png in Resources */,
-				31D294E5248488C20024AC8F /* GMA Base VTT_Part98.jpg in Resources */,
-				31D294DD248488C20024AC8F /* GMA Base VTT_Part56.jpg in Resources */,
-				31D293E1248488B50024AC8F /* MythicDeck7.png in Resources */,
-				31D294C5248488C20024AC8F /* GMA Base VTT_Part25.jpg in Resources */,
-				31D293B7248488B50024AC8F /* MythicDeck1.png in Resources */,
-				31D293CC248488B50024AC8F /* MythicDeck115.png in Resources */,
-				31D29491248488C20024AC8F /* GMA Base VTT_Part39.jpg in Resources */,
-				31D293F1248488B50024AC8F /* MythicDeck26.png in Resources */,
-				31D2938A248488B50024AC8F /* MythicDeck27.png in Resources */,
-				31D293B6248488B50024AC8F /* MythicDeck85.png in Resources */,
-				31D294AB248488C20024AC8F /* GMA Base VTT_Part72.jpg in Resources */,
-				31D294E0248488C20024AC8F /* GMA Base VTT_Part4.jpg in Resources */,
-				31D2939E248488B50024AC8F /* MythicDeck44.png in Resources */,
-				31D29396248488B50024AC8F /* MythicDeck25.png in Resources */,
-				31D293CD248488B50024AC8F /* MythicDeck3.png in Resources */,
-				31D294B5248488C20024AC8F /* GMA Base VTT_Part24.jpg in Resources */,
-				31D29399248488B50024AC8F /* MythicDeck56.png in Resources */,
-				31D293B1248488B50024AC8F /* MythicDeck50.png in Resources */,
-				31D293A1248488B50024AC8F /* MythicDeck99.png in Resources */,
-				31D29389248488B50024AC8F /* MythicDeck61.png in Resources */,
-				31D293C3248488B50024AC8F /* MythicDeck16.png in Resources */,
-				31D294D0248488C20024AC8F /* GMA Base VTT_Part44.jpg in Resources */,
-				31D2938C248488B50024AC8F /* MythicDeck102.png in Resources */,
-				31D293AB248488B50024AC8F /* MythicDeck30.png in Resources */,
-				31D294B6248488C20024AC8F /* GMA Base VTT_Part108.jpg in Resources */,
-				31D2946F248488C20024AC8F /* GMA Base VTT_Part51.jpg in Resources */,
-				31D293EE248488B50024AC8F /* MythicDeck22.png in Resources */,
-				31D294BA248488C20024AC8F /* GMA Base VTT_Part41.jpg in Resources */,
-				31D294A9248488C20024AC8F /* GMA Base VTT_Part99.jpg in Resources */,
-				31D294B4248488C20024AC8F /* GMA Base VTT_Part102.jpg in Resources */,
-				31D29482248488C20024AC8F /* GMA Base VTT_Part66.jpg in Resources */,
-				31D294BB248488C20024AC8F /* GMA Base VTT_Part109.jpg in Resources */,
-				31D293D1248488B50024AC8F /* MythicDeck45.png in Resources */,
-				31D293B0248488B50024AC8F /* MythicDeck117.png in Resources */,
-				31D29381248488B50024AC8F /* MythicDeck76.png in Resources */,
-				31D294D1248488C20024AC8F /* GMA Base VTT_Part1.jpg in Resources */,
-				31D29393248488B50024AC8F /* MythicDeck112.png in Resources */,
-				31D293C7248488B50024AC8F /* MythicDeck118.png in Resources */,
-				31D293EB248488B50024AC8F /* MythicDeck87.png in Resources */,
-				31D293B8248488B50024AC8F /* MythicDeck78.png in Resources */,
-				31D293AA248488B50024AC8F /* MythicDeck84.png in Resources */,
-				31D293AF248488B50024AC8F /* MythicDeck97.png in Resources */,
-				31D293C4248488B50024AC8F /* MythicDeck86.png in Resources */,
-				31D2947E248488C20024AC8F /* GMA Base VTT_Part50.jpg in Resources */,
-				31D293E0248488B50024AC8F /* MythicDeck17.png in Resources */,
-				31D2938F248488B50024AC8F /* MythicDeck28.png in Resources */,
-				31D293E4248488B50024AC8F /* MythicDeck64.png in Resources */,
-				31D29487248488C20024AC8F /* GMA Base VTT_Part63.jpg in Resources */,
-				31D29386248488B50024AC8F /* MythicDeck53.png in Resources */,
-				31D29380248488B50024AC8F /* MythicDeck67.png in Resources */,
-				31D294AD248488C20024AC8F /* GMA Base VTT_Part84.jpg in Resources */,
-				31D293D8248488B50024AC8F /* MythicDeck114.png in Resources */,
-				31D293B2248488B50024AC8F /* MythicDeck15.png in Resources */,
-				31D2947F248488C20024AC8F /* GMA Base VTT_Part104.jpg in Resources */,
-				31D293E7248488B50024AC8F /* MythicDeck110.png in Resources */,
-				31D293D3248488B50024AC8F /* MythicDeck101.png in Resources */,
-				31D294B9248488C20024AC8F /* GMA Base VTT_Part45.jpg in Resources */,
-				31D2939C248488B50024AC8F /* MythicDeck113.png in Resources */,
-				31D29498248488C20024AC8F /* GMA Base VTT_Part112.jpg in Resources */,
-				31D293DF248488B50024AC8F /* MythicDeck66.png in Resources */,
-				31D2937D248488B50024AC8F /* MythicDeck70.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1246,12 +267,15 @@
 				3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */,
 				31BE22952483DEE400E21C00 /* GMACard.swift in Sources */,
 				3168E4912483117400DCCC76 /* Base.swift in Sources */,
+				316D8714248AB6F4000E03E0 /* FateOracleModel.swift in Sources */,
+				316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */,
 				316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */,
 				312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */,
 				3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */,
 				31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */,
 				316D870A24886E8A000E03E0 /* MythicMidView.swift in Sources */,
 				31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */,
+				316D871024895889000E03E0 /* View+isHidden.swift in Sources */,
 				31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */,
 				312F20192481B3E1000CEB9C /* SceneDelegate.swift in Sources */,
 				3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */,
@@ -1410,7 +434,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Rosenbaum.OTTOTheOracle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1432,7 +456,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Rosenbaum.OTTOTheOracle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

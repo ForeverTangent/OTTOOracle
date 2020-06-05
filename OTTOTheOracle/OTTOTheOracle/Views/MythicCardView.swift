@@ -13,11 +13,10 @@ struct MythicCardView: View {
 
 	var body: some View {
 		VStack {
-			Text("MythicCard")
-			Text("\(oracleViewModel.currentMythicCardViewModel.cardFile)")
-			Text("\(String(oracleViewModel.currentMythicCardViewModel.forward))")
+//			Text("\(oracleViewModel.currentMythicCardViewModel.cardFile)")
+//				.padding(.vertical)
 			MythicTopView().environmentObject(oracleViewModel)
-			MythicMidView().environmentObject(oracleViewModel)
+			MythicMidView().padding(.vertical).environmentObject(oracleViewModel)
 			MythicBottomView().environmentObject(oracleViewModel)
 		}
 	}
@@ -25,6 +24,6 @@ struct MythicCardView: View {
 
 struct MythicCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MythicCardView().environmentObject(OracleViewModel())
+		MythicCardView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

@@ -12,26 +12,24 @@ struct StartingView: View {
 	@EnvironmentObject var oracleManager: OracleViewModel
 
 	var body: some View {
-		VStack {
-			ShowMythicCardButton().environmentObject(oracleManager)
-			Spacer()
-			ShowGMACardButton().environmentObject(oracleManager)
-		}.frame(height: 150.0)
-		
+		NavigationView {
+			VStack {
+				ShowMythicCardButton()
+					.navigationBarTitle("SOLO-RPG")
+				Spacer()
+				ShowGMACardButton().environmentObject(oracleManager)
+			}.frame(height: 150.0)
+		}.environmentObject(oracleManager)
 	}
 }
 
 
 struct ShowMythicCardButton: View {
-	@EnvironmentObject var oracleManager: OracleViewModel
+	@EnvironmentObject var oracleViewModel: OracleViewModel
 	@State private var showMythicModal = false
 
 	var body: some View {
-		Button(action: {
-			print("Showing Mything Model")
-			self.oracleManager.drawMythicCard()
-			self.showMythicModal = true
-		}, label: {
+		NavigationLink(destination: MythicMainView()) {
 			Text("Show Mythic Modal")
 				.foregroundColor(.blue)
 				.padding()
@@ -40,15 +38,12 @@ struct ShowMythicCardButton: View {
 						.stroke(Color.blue, lineWidth: 5)
 						.frame(width: 200.0, height: 50.0)
 			)
-		})
-			.sheet(isPresented: $showMythicModal,
-				   onDismiss: {
-					print("Dismissing Mthic Model")
-			},
-				   content: {
-					MythicModalView(mythicCardViewModel:
-						self.oracleManager.currentMythicCardViewModel).environmentObject(self.oracleManager)
-			})
+		}
+		.onAppear() {
+			print("Showing Mything Model")
+			self.oracleViewModel.drawMythicCard()
+		}
+
 	}
 }
 
@@ -57,11 +52,7 @@ struct ShowGMACardButton: View {
 	@State private var showGMAModal = false
 
 	var body: some View {
-		Button(action: {
-			print("Showing GMA Model")
-			self.oracleViewModel.drawGMACard()
-			self.showGMAModal = true
-		}, label: {
+		NavigationLink(destination: GMAMainView()) {
 			Text("Show GMA Modal")
 				.foregroundColor(.blue)
 				.padding()
@@ -70,51 +61,53 @@ struct ShowGMACardButton: View {
 						.stroke(Color.blue, lineWidth: 5)
 						.frame(width: 200.0, height: 50.0)
 			)
-		})
-			.sheet(isPresented: $showGMAModal,
-				   onDismiss: {
-					print("Dismissing GMA Model")
-			},
-				   content: {
-					GMAModalView(gmaCardViewModel: GMACardViewModel(gmaCard: GMACard()) ).environmentObject(self.oracleViewModel)
-			})
-	}
-}
-
-struct MythicModalView: View {
-	@EnvironmentObject var oracleManager: OracleViewModel
-	@Environment(\.presentationMode) var presentation
-
-	var mythicCardViewModel: MythicCardViewModel
-
-	var body: some View {
-		VStack {
-			MythicCardView().environmentObject(oracleManager)
-			Spacer()
-			Button("Dismiss") {
-				self.presentation.wrappedValue.dismiss()
-			}
 		}
-		.frame(height: 500.0)
+		.onAppear() {
+			print("Showing Mything Model")
+			self.oracleViewModel.drawGMACard()
+		}
+
 	}
 }
 
-struct GMAModalView: View {
+
+struct MythicMainView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 	@Environment(\.presentationMode) var presentation
 
-	var gmaCardViewModel: GMACardViewModel
-
 	var body: some View {
 		VStack {
-			Button("Dismiss") {
-				self.presentation.wrappedValue.dismiss()
-			}
+			MythicCardView().environmentObject(oracleViewModel)
 			Spacer()
-			GMACardView().environmentObject(oracleViewModel)
-
+			Button("Reload") {
+				self.oracleViewModel.drawMythicCard()
+			}
 		}
 		.frame(height: 500.0)
+	}
+}
+
+struct GMAMainView: View {
+	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@Environment(\.presentationMode) var presentation
+
+	var body: some View {
+		ScrollView {
+			VStack {
+				GMACardView().environmentObject(oracleViewModel)
+				Button("Reload") {
+					self.oracleViewModel.drawGMACard()
+				}
+				.foregroundColor(.blue)
+				.padding()
+				.overlay(
+					RoundedRectangle(cornerRadius: 20)
+						.stroke(Color.blue, lineWidth: 5)
+						.frame(width: 200.0, height: 50.0)
+				)
+			}
+		}
+
 	}
 }
 

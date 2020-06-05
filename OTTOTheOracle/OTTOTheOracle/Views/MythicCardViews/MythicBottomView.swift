@@ -14,24 +14,21 @@ struct MythicBottomView: View {
 	var body: some View {
 		VStack {
 			HStack {
-				Text("SCENE SETUP:")
-				.frame(width: 130.0)
-				Spacer()
-				Text("EVENT FOCUS")
-				Spacer()
-				Text("ACTION")
-				.frame(width: 100.0)
+				Text("SCENE SETUP")
+					.font(.subheadline)
+				Text("\(oracleViewModel.currentMythicCardViewModel.sceneSetup)")
+					.fontWeight(.bold)
 			}
-			.frame(width: 360.0)
+			.padding(.vertical, 5.0)
 			HStack {
-				Text("#")
-					.frame(width: 100.0)
-				Spacer()
-				Text("DESCRIPTION")
-				Spacer()
-				Text("#")
-					.frame(width: 100.0)
+				Text("\(oracleViewModel.currentMythicCardViewModel.description1)")
+					.fontWeight(.bold)
+				Text("DESCRIPTIONS")
+					.font(.subheadline)
+				Text("\(oracleViewModel.currentMythicCardViewModel.description2)")
+					.fontWeight(.bold)
 			}
+			.padding(.vertical, 5.0)
 			.frame(width: 360.0)
 		}
 
@@ -40,6 +37,6 @@ struct MythicBottomView: View {
 
 struct MythicBottomView_Previews: PreviewProvider {
     static var previews: some View {
-        MythicBottomView()
+		MythicBottomView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

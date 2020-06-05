@@ -69,6 +69,9 @@ struct GMATopView: View {
 					Text("\(oracleViewModel.currentGMACardViewModel.rune)")
 						.font(.title)
 						.fontWeight(.bold)
+						.contextMenu {
+							Text("Rune Description")
+					}
 				}
 				.padding(.bottom)
 				VStack {

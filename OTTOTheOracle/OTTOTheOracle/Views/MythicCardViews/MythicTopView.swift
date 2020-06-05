@@ -15,20 +15,28 @@ struct MythicTopView: View {
 		HStack {
 			VStack {
 				Text("SUBJECT")
-				Text("#")
+					.accessibility(hidden: true)
+				Text("\(oracleViewModel.currentMythicCardViewModel.subject)")
+					.fontWeight(.bold)
+					.frame(width: 120.0)
+					.accessibility(label: Text("Subject: \(oracleViewModel.currentMythicCardViewModel.subject)"))
 			}
-			.frame(width: 100.0)
 			Spacer()
 			VStack {
 				Text("EVENT FOCUS")
-				Text("#")
+					.accessibility(hidden: true)
+				Text("\(oracleViewModel.currentMythicCardViewModel.eventFocus)")
+					.fontWeight(.bold)
+					.multilineTextAlignment(.center)
+					.accessibility(label: Text("EVENT FOCUS: \(oracleViewModel.currentMythicCardViewModel.eventFocus)"))
 			}
 			Spacer()
 			VStack {
-				Text("ACTION")
-				Text("#")
+				Text("ACTION").accessibility(hidden: true)
+				Text("\(oracleViewModel.currentMythicCardViewModel.action)")
+					.fontWeight(.bold)
+					.frame(width: 120.0)
 			}
-			.frame(width: 100.0)
 		}
 		.frame(width: 360.0)
     }
@@ -36,6 +44,6 @@ struct MythicTopView: View {
 
 struct MythicTopView_Previews: PreviewProvider {
     static var previews: some View {
-        MythicTopView()
+		MythicTopView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

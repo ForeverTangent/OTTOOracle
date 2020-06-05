@@ -13,31 +13,31 @@ struct MythicCard: Codable {
 	var cardFile: String = "NONE"
 	var forward: Bool = false
 	var yesSubject: String = "NONE"
-	var yesEventFocus: EventFocus = .NONE
+	var yesEventFocus: MythicCard_EventFocus = .NONE
 	var yesAction: String = "NONE"
 	var yesExceptional: Bool = false
 	var yesRandomLow: Int = 0
 	var yesRandomHigh: Int = 0
 	var yesSceneSetupOption1_RangeLow: Int = 0
 	var yesSceneSetupOption1_RangeHigh: Int = 0
-	var yesSceneSetupOption1_Result: Result = .NONE
+	var yesSceneSetupOption1_Result: MythicCard_Result = .NONE
 	var yesSceneSetupOption2_RangeLow: Int = 0
 	var yesSceneSetupOption2_RangeHigh: Int = 0
-	var yesSceneSetupOption2_Result: Result = .NONE
+	var yesSceneSetupOption2_Result: MythicCard_Result = .NONE
 	var yesDescription1: String = "NONE"
 	var yesDescription2: String = "NONE"
 	var noSubject: String = "NONE"
-	var noEventFocus: EventFocus = .NONE
+	var noEventFocus: MythicCard_EventFocus = .NONE
 	var noAction: String = "NONE"
 	var noExceptional: Bool = false
 	var noRandomLow: Int = 0
 	var noRandomHigh: Int = 0
 	var noSceneSetupOption1_RangeLow: Int = 0
 	var noSceneSetupOption1_RangeHigh: Int = 0
-	var noSceneSetupOption1_Result: Result = .NONE
+	var noSceneSetupOption1_Result: MythicCard_Result = .NONE
 	var noSceneSetupOption2_RangeLow: Int = 0
 	var noSceneSetupOption2_RangeHigh: Int = 0
-	var noSceneSetupOption2_Result: Result = .NONE
+	var noSceneSetupOption2_Result: MythicCard_Result = .NONE
 	var noDescription1: String = "NONE"
 	var noDescription2: String = "NONE"
 
@@ -75,14 +75,14 @@ struct MythicCard: Codable {
 	}
 }
 
-enum Result: String, Codable {
+enum MythicCard_Result: String, Codable {
 	case altered = "ALTERED"
 	case expected = "EXPECTED"
 	case interrupt = "INTERRUPT"
 	case NONE = "NONE"
 }
 
-enum EventFocus: String, Codable {
+enum MythicCard_EventFocus: String, Codable {
 	case ambiguousEvent = "AMBIGUOUS_EVENT"
 	case closeAThread = "CLOSE_A_THREAD"
 	case introduceANewNPC = "INTRODUCE_A_NEW_NPC"

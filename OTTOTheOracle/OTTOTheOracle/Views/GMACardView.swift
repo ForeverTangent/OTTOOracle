@@ -13,9 +13,9 @@ struct GMACardView: View {
 
     var body: some View {
 		VStack {
-			Text("\(oracleViewModel.currentGMACardViewModel.cardFile)")
-				.font(.subheadline)
-				.padding(.all)
+//			Text("\(oracleViewModel.currentGMACardViewModel.cardFile)")
+//				.font(.subheadline)
+//				.padding(.bottom)
 			GMATopView().environmentObject(oracleViewModel)
 			GMADescriptionsView().environmentObject(oracleViewModel)
 			GMATagBottonView().environmentObject(oracleViewModel)

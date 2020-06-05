@@ -116,12 +116,13 @@ class Deck<T> {
 Protocol for building RPG_TABLEs
 */
 protocol RPG_TABLE: CaseIterable {
+	associatedtype Result
 	static var MIN: Int { get }
 	static var MAX: Int { get }
-	static func getElementByRange(value: Int) -> Self?
+	static func getElementBy(value: Int) -> Result
 	static func randomElement() -> Self
 	static func randomIntInRange() -> Int
-	static func randomWeightedElement() -> Self?
+	static func randomWeightedElement() -> Result?
 }
 
 /**
@@ -141,7 +142,7 @@ extension RPG_TABLE {
 
 	static func randomIntInRange() -> Int {
 		var SRNG = SystemRandomNumberGenerator()
-		return Int.random(in: MIN..<MAX, using: &SRNG)
+		return Int.random(in: MIN...MAX, using: &SRNG)
 	}
 
 	static func randomElement() -> Self {
@@ -149,9 +150,9 @@ extension RPG_TABLE {
 		return Self.allCases.randomElement(using: &SRNG)!
 	}
 
-	static func randomWeightedElement() -> Self? {
+	static func randomWeightedElement() -> Result? {
 		let index = randomIntInRange()
-		return getElementByRange(value: index)
+		return getElementBy(value: index)
 	}
 
 }
