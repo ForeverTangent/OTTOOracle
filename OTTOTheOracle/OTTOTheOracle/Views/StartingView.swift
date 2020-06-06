@@ -82,6 +82,13 @@ struct MythicMainView: View {
 			Button("Reload") {
 				self.oracleViewModel.drawMythicCard()
 			}
+			.foregroundColor(.blue)
+			.padding()
+			.overlay(
+				RoundedRectangle(cornerRadius: 20)
+					.stroke(Color.blue, lineWidth: 5)
+					.frame(width: 200.0, height: 50.0)
+			)
 		}
 		.frame(height: 500.0)
 	}

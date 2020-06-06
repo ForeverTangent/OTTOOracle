@@ -182,3 +182,6 @@ enum GMACard_Virtue: String, Codable {
 	case temperance = "Temperance"
 	case NONE = "NONE"
 }
+
+
+

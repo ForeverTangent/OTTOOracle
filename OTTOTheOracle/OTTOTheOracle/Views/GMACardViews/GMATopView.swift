@@ -10,6 +10,7 @@ import SwiftUI
 
 struct GMATopView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@State private var showPopover: Bool = false
 
     var body: some View {
 		HStack(alignment: .top) {
@@ -70,7 +71,7 @@ struct GMATopView: View {
 						.font(.title)
 						.fontWeight(.bold)
 						.contextMenu {
-							Text("Rune Description")
+							Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForRune())")
 					}
 				}
 				.padding(.bottom)

@@ -43,7 +43,7 @@ struct MythicMidView: View {
 					.accessibility(hidden: !oracleViewModel.currentMythicCardViewModel.hasCFRandomRange)
 			}
 			.frame(width: 100.0)
-			.isHidden(oracleViewModel.currentMythicCardViewModel.hasCFRandomRange)
+			.isHidden(!oracleViewModel.currentMythicCardViewModel.hasCFRandomRange)
 			Spacer()
 		}
 		.frame(width: 360.0, height: 120.0)
