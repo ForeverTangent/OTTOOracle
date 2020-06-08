@@ -26,9 +26,15 @@ class OracleViewModel: ObservableObject {
 	private var currentMythicCard = MythicCard()
 	private var currentGMACard = GMACard()
 
+	// Mythic
+	@Published var chaosFactor: Int = 5
+
+	// RPG-Solo, Fate
+	@Published var surpriseFactor: Int = 0
 
 	@Published var currentMythicCardViewModel = MythicCardViewModel(mythicCard: MythicCard())
 	@Published var currentGMACardViewModel = GMACardViewModel(gmaCard: GMACard())
+	
 
 	init() {
 		os_log(.default, log: logger, "Creating OTTOOracleManager")

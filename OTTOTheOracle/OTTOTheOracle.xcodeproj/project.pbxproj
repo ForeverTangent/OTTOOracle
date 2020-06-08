@@ -28,6 +28,8 @@
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardView.swift */; };
+		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */; };
+		31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */; };
 		31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22922483DE8B00E21C00 /* MythicCard.swift */; };
 		31BE22952483DEE400E21C00 /* GMACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22942483DEE400E21C00 /* GMACard.swift */; };
 		31BE22972483FF8B00E21C00 /* MYTHIC_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */; };
@@ -35,6 +37,11 @@
 		31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A424843EE600E21C00 /* GMATopView.swift */; };
 		31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A624843F9300E21C00 /* GMADescriptionsView.swift */; };
 		31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A92484405300E21C00 /* GMATagBottonView.swift */; };
+		31E9B9E9248BE655007B4463 /* RPGSoloOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9B9E8248BE655007B4463 /* RPGSoloOracleView.swift */; };
+		31E9B9EB248BE6BE007B4463 /* RPGSoloOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9B9EA248BE6BE007B4463 /* RPGSoloOracleModel.swift */; };
+		31E9B9EE248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */; };
+		31E9B9EF248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9ED248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json */; };
+		31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +68,8 @@
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardView.swift; sourceTree = "<group>"; };
+		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS.json; sourceTree = "<group>"; };
+		31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TAG_DESCRIPTIONS.json; sourceTree = "<group>"; };
 		31BE22922483DE8B00E21C00 /* MythicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCard.swift; sourceTree = "<group>"; };
 		31BE22942483DEE400E21C00 /* GMACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACard.swift; sourceTree = "<group>"; };
 		31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MYTHIC_CARDS.json; sourceTree = "<group>"; };
@@ -69,6 +78,11 @@
 		31BE22A624843F9300E21C00 /* GMADescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADescriptionsView.swift; sourceTree = "<group>"; };
 		31BE22A92484405300E21C00 /* GMATagBottonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMATagBottonView.swift; sourceTree = "<group>"; };
 		31BE22AB24845F1F00E21C00 /* OTTOTheOracle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OTTOTheOracle.entitlements; sourceTree = "<group>"; };
+		31E9B9E8248BE655007B4463 /* RPGSoloOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGSoloOracleView.swift; sourceTree = "<group>"; };
+		31E9B9EA248BE6BE007B4463 /* RPGSoloOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGSoloOracleModel.swift; sourceTree = "<group>"; };
+		31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PLOT_POINT_TO_DESCRIPTION.json; sourceTree = "<group>"; };
+		31E9B9ED248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = META_PLOT_POINT_TO_DESCRIPTION.json; sourceTree = "<group>"; };
+		31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RUNE_DESCRIPTIONS.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +149,7 @@
 				31BE22942483DEE400E21C00 /* GMACard.swift */,
 				316D8715248AB756000E03E0 /* MythicOracleModel.swift */,
 				316D8713248AB6F4000E03E0 /* FateOracleModel.swift */,
+				31E9B9EA248BE6BE007B4463 /* RPGSoloOracleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,8 +167,13 @@
 		3188CB842481C8C2001F53B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31E9B9ED248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json */,
+				31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */,
 				3188CB852481C8F0001F53B5 /* GMA_CARDS.json */,
 				31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */,
+				31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */,
+				31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */,
+				31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -183,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				312F201A2481B3E1000CEB9C /* StartingView.swift */,
+				31E9B9E8248BE655007B4463 /* RPGSoloOracleView.swift */,
 				316D87002487D31D000E03E0 /* MythicCardView.swift */,
 				316D870624886B87000E03E0 /* MythicCardViews */,
 				3188CB872481CD1F001F53B5 /* GMACardView.swift */,
@@ -250,10 +271,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				312F20232481B3E2000CEB9C /* LaunchScreen.storyboard in Resources */,
+				31E9B9EF248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json in Resources */,
+				31E9B9EE248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json in Resources */,
 				312F20202481B3E2000CEB9C /* Preview Assets.xcassets in Resources */,
 				3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */,
+				31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json in Resources */,
 				31BE22972483FF8B00E21C00 /* MYTHIC_CARDS.json in Resources */,
+				31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json in Resources */,
 				312F201D2481B3E2000CEB9C /* Assets.xcassets in Resources */,
+				31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */,
+				31E9B9EB248BE6BE007B4463 /* RPGSoloOracleModel.swift in Sources */,
 				31BE22952483DEE400E21C00 /* GMACard.swift in Sources */,
 				3168E4912483117400DCCC76 /* Base.swift in Sources */,
 				316D8714248AB6F4000E03E0 /* FateOracleModel.swift in Sources */,
@@ -281,6 +308,7 @@
 				3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */,
 				316D870824886BB3000E03E0 /* MythicTopView.swift in Sources */,
 				3188CB882481CD1F001F53B5 /* GMACardView.swift in Sources */,
+				31E9B9E9248BE655007B4463 /* RPGSoloOracleView.swift in Sources */,
 				316D87012487D31D000E03E0 /* MythicCardView.swift in Sources */,
 				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
 				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,

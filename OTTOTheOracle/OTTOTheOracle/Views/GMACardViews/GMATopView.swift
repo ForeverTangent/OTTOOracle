@@ -81,6 +81,11 @@ struct GMATopView: View {
 						.padding(.bottom, 5.0)
 					Text("\(oracleViewModel.currentGMACardViewModel.element)")
 						.fontWeight(.bold)
+						.font(.title)
+						.fontWeight(.bold)
+						.contextMenu {
+							Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForElement())")
+					}
 				}
 			}
 		}

@@ -14,6 +14,8 @@ struct StartingView: View {
 	var body: some View {
 		NavigationView {
 			VStack {
+				ShowRPGSoloOracle()
+				Spacer()
 				ShowMythicCardButton()
 					.navigationBarTitle("SOLO-RPG")
 				Spacer()
@@ -24,9 +26,31 @@ struct StartingView: View {
 }
 
 
+struct ShowRPGSoloOracle: View {
+	@EnvironmentObject var oracleViewModel: OracleViewModel
+
+	var body: some View {
+		NavigationLink(destination: RPGSoloOracleView()) {
+			Text("Show RPG Solo Oracle")
+				.foregroundColor(.blue)
+				.padding()
+				.overlay(
+					RoundedRectangle(cornerRadius: 20)
+						.stroke(Color.blue, lineWidth: 5)
+						.frame(width: 200.0, height: 50.0)
+			)
+		}
+		.onAppear() {
+			print("Showing RPG Solo Oracle")
+//			self.oracleViewModel.drawMythicCard()
+		}
+
+	}
+}
+
+
 struct ShowMythicCardButton: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
-	@State private var showMythicModal = false
 
 	var body: some View {
 		NavigationLink(destination: MythicMainView()) {

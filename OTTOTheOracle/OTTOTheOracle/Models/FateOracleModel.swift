@@ -158,8 +158,6 @@ enum FATE_ORACLE_POOR_ANSWER_TABLE: Int, RPG_TABLE {
 
 }
 
-
-
 enum FATE_ORACLE_EVEN_ANSWER_TABLE: Int, RPG_TABLE {
 
 	static var MIN: Int = -4

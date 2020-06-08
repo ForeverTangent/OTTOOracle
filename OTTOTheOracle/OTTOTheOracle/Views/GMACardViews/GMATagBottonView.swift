@@ -9,28 +9,37 @@
 import SwiftUI
 
 struct GMATagBottonView: View {
-	@EnvironmentObject var oracleManager: OracleViewModel
+	@EnvironmentObject var oracleViewModel: OracleViewModel
 
     var body: some View {
 		VStack {
 			HStack {
 				Spacer()
-				Text("\(oracleManager.currentGMACardViewModel.tagSymbol1)")
+				Text("\(oracleViewModel.currentGMACardViewModel.tagSymbol1)")
 					.font(.system(size:20))
 					.fontWeight(.bold)
 					.frame(width: 50.0)
+					.contextMenu {
+						Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForTag1())")
+				}
 				Spacer()
-				Text("\(oracleManager.currentGMACardViewModel.tagSymbol2)")
+				Text("\(oracleViewModel.currentGMACardViewModel.tagSymbol2)")
 					.font(.system(size:20))
 					.fontWeight(.bold)
 					.frame(width: 50.0)
+					.contextMenu {
+						Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForTag2())")
+				}
 				Spacer()
-				Text("\(oracleManager.currentGMACardViewModel.tagSymbol3)")
+				Text("\(oracleViewModel.currentGMACardViewModel.tagSymbol3)")
 					.font(.system(size:20))
 					.fontWeight(.bold)
 					.frame(width: 50.0)
+					.contextMenu {
+						Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForTag3())")
+				}
 				Spacer()
-				Text("\(oracleManager.currentGMACardViewModel.scatterSymbol)")
+				Text("\(oracleViewModel.currentGMACardViewModel.scatterSymbol)")
 					.font(.system(size:20))
 					.fontWeight(.bold)
 					.frame(width: 50.0)
@@ -44,19 +53,19 @@ struct GMATagBottonView: View {
 					Text("BELONGINGS")
 						.font(.subheadline)
 						.padding(.vertical, 5.0)
-					Text("\(oracleManager.currentGMACardViewModel.belongings)")
+					Text("\(oracleViewModel.currentGMACardViewModel.belongings)")
 						.fontWeight(.bold)
 						.frame(width: 150.0)
 					Text("CATALYST")
 						.font(.subheadline)
 						.padding(.vertical, 5.0)
-					Text("\(oracleManager.currentGMACardViewModel.catalyst)")
+					Text("\(oracleViewModel.currentGMACardViewModel.catalyst)")
 						.fontWeight(.bold)
 						.frame(width: 150.0)
 					Text("LOCATION")
 						.font(.subheadline)
 						.padding(.vertical, 5.0)
-					Text("\(oracleManager.currentGMACardViewModel.location)")
+					Text("\(oracleViewModel.currentGMACardViewModel.location)")
 						.fontWeight(.bold)
 						.frame(width: 150.0)
 				}
@@ -66,21 +75,21 @@ struct GMATagBottonView: View {
 					Text("NAMES")
 						.font(.subheadline)
 						.padding(.vertical, 5.0)
-					Text("\(oracleManager.currentGMACardViewModel.name1)")
+					Text("\(oracleViewModel.currentGMACardViewModel.name1)")
 						.fontWeight(.bold)
-					Text("\(oracleManager.currentGMACardViewModel.name2)")
+					Text("\(oracleViewModel.currentGMACardViewModel.name2)")
 						.fontWeight(.bold)
-					Text("\(oracleManager.currentGMACardViewModel.name3)")
+					Text("\(oracleViewModel.currentGMACardViewModel.name3)")
 						.fontWeight(.bold)
 					Text("VIRTUE")
 						.font(.subheadline)
 						.padding(.vertical, 5.0)
-					Text("\(oracleManager.currentGMACardViewModel.virtue)")
+					Text("\(oracleViewModel.currentGMACardViewModel.virtue)")
 						.fontWeight(.bold)
 					Text("VICE")
 						.font(.subheadline)
 						.padding(.vertical, 5.0)
-					Text("\(oracleManager.currentGMACardViewModel.vice)")
+					Text("\(oracleViewModel.currentGMACardViewModel.vice)")
 						.fontWeight(.bold)
 				}
 				.padding()
