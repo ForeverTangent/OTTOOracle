@@ -71,6 +71,25 @@ class OracleViewModel: ObservableObject {
 		currentGMACardViewModel = GMACardViewModel(gmaCard: currentGMACard)
 	}
 
+	func drawMythicCardIndex(_ index: Int, forward: Bool = true) {
+		guard
+			let theMythicDeck = oracleModel.mythicDeck,
+			index < theMythicDeck.cards.count else {
+				return
+		}
+		currentMythicCard = theMythicDeck.cards[index]
+		currentMythicCard.forward = forward
+		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
+	}
 
+	func drawGMACardIndex(_ index: Int) {
+		guard
+			let theGMADeck = oracleModel.gmaDeck,
+			index < theGMADeck.cards.count else {
+				return
+		}
+		currentGMACard = theGMADeck.cards[index]
+		currentGMACardViewModel = GMACardViewModel(gmaCard: currentGMACard)
+	}
 
 }

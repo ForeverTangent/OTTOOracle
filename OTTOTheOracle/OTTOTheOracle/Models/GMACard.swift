@@ -83,6 +83,13 @@ struct GMACard: Codable {
 	}
 }
 
+extension GMACard: Comparable {
+	static func < (lhs: GMACard, rhs: GMACard) -> Bool {
+		lhs.cardFile < rhs.cardFile
+	}
+}
+
+
 enum GMACard_Rune: String, RPG_TABLE, Codable {
 	typealias Result = GMACard_Rune
 

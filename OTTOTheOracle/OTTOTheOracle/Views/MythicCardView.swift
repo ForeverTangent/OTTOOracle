@@ -24,6 +24,6 @@ struct MythicCardView: View {
 
 struct MythicCardView_Previews: PreviewProvider {
     static var previews: some View {
-		MythicCardView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		MythicCardView().environmentObject(PreviewHelper.mockOracleWithSortedDeckUseCardIndex(0))
     }
 }

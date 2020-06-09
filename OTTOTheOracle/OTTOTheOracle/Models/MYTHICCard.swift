@@ -75,6 +75,13 @@ struct MythicCard: Codable {
 	}
 }
 
+extension MythicCard: Comparable {
+	static func < (lhs: MythicCard, rhs: MythicCard) -> Bool {
+		lhs.cardFile < rhs.cardFile
+	}
+}
+
+
 enum MythicCard_Result: String, Codable {
 	case altered = "ALTERED"
 	case expected = "EXPECTED"

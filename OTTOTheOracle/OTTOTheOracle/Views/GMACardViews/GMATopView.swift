@@ -107,8 +107,8 @@ struct GMATopView: View {
 		}
 
 	}
-
 }
+
 
 struct GMATopView_Previews: PreviewProvider {
     static var previews: some View {

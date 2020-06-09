@@ -78,7 +78,7 @@ class Card {
 /**
 Generic class for holding a deck of cards.
 */
-class Deck<T> {
+class Deck<T: Comparable> {
 
 	// MARK: - Properties
 
@@ -97,8 +97,15 @@ class Deck<T> {
 		self.cards = cards
 	}
 
-	// MARK: -Class Methods
+	// MARK: - Class Methods
 
+	/**
+	Draws X number of cards, after shuffling the deck Y times.
+
+	- Parameter number: Int (number of card drawn, default = 1)
+	- Parameter shuffled: Int (times deck is shuffled before draw, default = 7)
+	- Returns: T
+	*/
 	func draw(number: Int = 1, fromTimesShuffled shuffled: Int = 7) -> [T] {
 		let typeString = "\(T.self)"
 		os_log(.default, log: logger, "Drawing card of Deck of %s", typeString)
@@ -109,6 +116,15 @@ class Deck<T> {
 		let drawnCards = cards[0...number]
 		return Array(drawnCards)
 	}
+
+
+	/**
+	Sorts the deck.
+	*/
+	func sortDeck() {
+		cards.sort()
+	}
+
 }
 
 
