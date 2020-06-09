@@ -21,7 +21,6 @@ enum MYTHIC_ORACLE_ANSWER: Int, CaseIterable {
 	case YES_EXCEPTIONAL
 }
 
-
 struct MythicFateRankStat {
 	var title: String
 	var draw: Int

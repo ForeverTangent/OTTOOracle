@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TextPopUpView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+//	@EnvironmentObject var oracleViewModel: OracleViewModel
 	@Binding var showPopover: Bool
 	var displayedText: String
 	var popUpText: String
@@ -36,6 +36,6 @@ struct TextPopUpView_Previews: PreviewProvider {
 	static var previews: some View {
 		TextPopUpView(showPopover: .constant(true),
 					  displayedText: "1",
-					  popUpText: "Hello").environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+					  popUpText: "Preview").environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
 	}
 }

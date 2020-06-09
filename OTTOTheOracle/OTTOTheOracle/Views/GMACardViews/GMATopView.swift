@@ -67,6 +67,23 @@ struct GMATopView: View {
 					Text("RUNE")
 						.font(.system(size:10))
 						.padding(.bottom, 5.0)
+//					Text("\(oracleViewModel.currentGMACardViewModel.rune)")
+//						.font(.title)
+//						.fontWeight(.bold)
+//						.onLongPressGesture {
+//							self.showPopover = true
+//					}
+//					.popover(isPresented: $showPopover) {
+//						Text("\(self.oracleViewModel.currentGMACardViewModel.runeFull)")
+//						Text("\(self.oracleViewModel.currentGMACardViewModel.getDescriptionForRune())")
+//							.frame(width: 250.0)
+//							.onTapGesture {
+//								self.showPopover = false
+//						}
+//					}
+//					TextPopUpView(showPopover: $showPopover,
+//								  displayedText: oracleViewModel.currentGMACardViewModel.rune,
+//						popUpText: oracleViewModel.currentGMACardViewModel.getDescriptionForRune())
 					Text("\(oracleViewModel.currentGMACardViewModel.rune)")
 						.font(.title)
 						.fontWeight(.bold)
@@ -79,6 +96,23 @@ struct GMATopView: View {
 					Text("ELEMENT")
 						.font(.system(size:10))
 						.padding(.bottom, 5.0)
+//					Text("\(oracleViewModel.currentGMACardViewModel.element)")
+//						.font(.title)
+//						.fontWeight(.bold)
+//						.onLongPressGesture {
+//							self.showPopover = true
+//					}
+//					.popover(isPresented: $showPopover) {
+//						Text("\(self.oracleViewModel.currentGMACardViewModel.elementFull)")
+//						Text("\(self.oracleViewModel.currentGMACardViewModel.getDescriptionForElement())")
+//							.frame(width: 250.0)
+//							.onTapGesture {
+//								self.showPopover = false
+//						}
+//					}
+//					TextPopUpView(showPopover: $showPopover,
+//								  displayedText: oracleViewModel.currentGMACardViewModel.element,
+//								  popUpText: oracleViewModel.currentGMACardViewModel.getDescriptionForElement())
 					Text("\(oracleViewModel.currentGMACardViewModel.element)")
 						.fontWeight(.bold)
 						.font(.title)

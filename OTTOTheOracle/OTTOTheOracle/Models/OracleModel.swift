@@ -24,7 +24,6 @@ class OracleModel {
 	var mythicDeck: Deck<MythicCard>?
 	var gmaDeck: Deck<GMACard>?
 
-
 	// MARK: - Init
 
 	init() {

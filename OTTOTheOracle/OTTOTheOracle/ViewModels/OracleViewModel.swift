@@ -34,7 +34,9 @@ class OracleViewModel: ObservableObject {
 
 	@Published var currentMythicCardViewModel = MythicCardViewModel(mythicCard: MythicCard())
 	@Published var currentGMACardViewModel = GMACardViewModel(gmaCard: GMACard())
-	
+
+	@Published var fateDiceRoll: Int = 0
+
 
 	init() {
 		os_log(.default, log: logger, "Creating OTTOOracleManager")
@@ -42,6 +44,10 @@ class OracleViewModel: ObservableObject {
 	}
 
 	// MARK: - Class Methods
+
+	func rollFateDice() {
+		fateDiceRoll = FateDice.roll()
+	}
 
 	
 	func drawMythicCard() {
@@ -57,6 +63,7 @@ class OracleViewModel: ObservableObject {
 		print("Drew card: \(firstDrawnCard.cardFile)")
 		currentMythicCard = firstDrawnCard
 		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
+		rollFateDice()
 	}
 
 	func drawGMACard() {

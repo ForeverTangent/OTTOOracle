@@ -29,7 +29,9 @@ class GMACardViewModel {
 	var d10Tens: String { get { return "\(gmaCard.d10Tens)" } }
 	var d10Ones: String { get { return "\(gmaCard.d10Ones)" } }
 	var rune: String { get { return "\(getRune(gmaCard.rune))" } }
+	var runeFull: String { get { return "\(gmaCard.rune)" } }
 	var element: String { get { return "\(getElement(gmaCard.element))" } }
+	var elementFull: String { get { return "\(gmaCard.element)" } }
 	var description1: String { get { return "\(gmaCard.description1)" } }
 	var description2: String { get { return "\(gmaCard.description2)" } }
 	var description3: String { get { return "\(gmaCard.description3)" } }

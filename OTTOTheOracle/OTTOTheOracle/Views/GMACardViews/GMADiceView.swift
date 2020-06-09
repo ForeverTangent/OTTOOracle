@@ -61,10 +61,14 @@ struct GMADiceView: View {
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {
-					Text("🔷")
+					Text("F")
 						.font(.system(size:12))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
+					Text("\(oracleViewModel.fateDiceRoll)")
+						.fontWeight(.regular)
+						.accessibility(label: Text("Fate Dice"))
+						.accessibility(value: Text("\(oracleViewModel.fateDiceRoll)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {

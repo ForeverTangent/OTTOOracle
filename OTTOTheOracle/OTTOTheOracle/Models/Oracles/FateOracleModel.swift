@@ -14,7 +14,6 @@ struct FateOracleModel {
 	var surpriseFactor: FATE_SURPRISE_FACTOR
 }
 
-
 enum FATE_ORACLE_ANSWER_TITLE: String, CaseIterable {
 	case NO_MINUS_MINUS = "No--"
 	case NO_MINUS = "No-"
@@ -32,7 +31,6 @@ enum FATE_ORACLE_ANSWER: Int, CaseIterable {
 	case EITHER = 0
 	case YES = 1
 }
-
 
 enum FATE_SURPRISE_FACTOR: Int, CaseIterable {
 	case MINUS_2 = -2
@@ -114,7 +112,6 @@ enum FATE_ORACLE_TERRIBLE_ANSWER_TABLE: Int, RPG_TABLE {
 	}
 
 }
-
 
 enum FATE_ORACLE_POOR_ANSWER_TABLE: Int, RPG_TABLE {
 
