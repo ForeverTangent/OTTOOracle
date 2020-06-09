@@ -53,7 +53,7 @@ struct ShowMythicCardButton: View {
 
 	var body: some View {
 		NavigationLink(destination: MythicMainView()) {
-			Text("Show Mythic Modal")
+			Text("Show Mythic Card")
 				.foregroundColor(.blue)
 				.padding()
 				.overlay(
@@ -63,7 +63,7 @@ struct ShowMythicCardButton: View {
 			)
 		}
 		.onAppear() {
-			print("Showing Mything Model")
+			print("Showing Mythic Card")
 			self.oracleViewModel.drawMythicCard()
 		}
 
@@ -76,7 +76,7 @@ struct ShowGMACardButton: View {
 
 	var body: some View {
 		NavigationLink(destination: GMAMainView()) {
-			Text("Show GMA Modal")
+			Text("Show GMA Card")
 				.foregroundColor(.blue)
 				.padding()
 				.overlay(
@@ -86,7 +86,7 @@ struct ShowGMACardButton: View {
 			)
 		}
 		.onAppear() {
-			print("Showing Mything Model")
+			print("Showing Mything Card")
 			self.oracleViewModel.drawGMACard()
 		}
 
@@ -101,12 +101,11 @@ struct MythicMainView: View {
 	var body: some View {
 		VStack {
 			MythicCardView().environmentObject(oracleViewModel)
-			Spacer()
 			Button("Reload") {
 				self.oracleViewModel.drawMythicCard()
 			}
 			.foregroundColor(.blue)
-			.padding()
+			.padding(75.0)
 			.overlay(
 				RoundedRectangle(cornerRadius: 20)
 					.stroke(Color.blue, lineWidth: 5)
@@ -129,7 +128,7 @@ struct GMAMainView: View {
 					self.oracleViewModel.drawGMACard()
 				}
 				.foregroundColor(.blue)
-				.padding()
+				.padding(.top, 100.0)
 				.overlay(
 					RoundedRectangle(cornerRadius: 20)
 						.stroke(Color.blue, lineWidth: 5)
