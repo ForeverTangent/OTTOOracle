@@ -20,7 +20,7 @@ struct StartingView: View {
 					.navigationBarTitle("SOLO-RPG")
 				Spacer()
 				ShowGMACardButton().environmentObject(oracleManager)
-			}.frame(height: 150.0)
+			}.frame(height: 250.0)
 		}.environmentObject(oracleManager)
 	}
 }
@@ -42,7 +42,6 @@ struct ShowRPGSoloOracle: View {
 		}
 		.onAppear() {
 			print("Showing RPG Solo Oracle")
-//			self.oracleViewModel.drawMythicCard()
 		}
 
 	}
