@@ -15,17 +15,18 @@ struct GMAMainView: View {
 	var body: some View {
 		ScrollView {
 			VStack {
-				GMACardView().environmentObject(oracleViewModel)
-				Button("Reload") {
-					self.oracleViewModel.drawGMACard()
+				GMACardView().padding(.vertical, 25.0).environmentObject(oracleViewModel)
+				Group {
+					Button("Reload") {
+						self.oracleViewModel.drawGMACard()
+					}
+					.foregroundColor(.blue)
+					.overlay(
+						RoundedRectangle(cornerRadius: 20)
+							.stroke(Color.blue, lineWidth: 5)
+							.frame(width: 200.0, height: 50.0)
+					)
 				}
-				.foregroundColor(.blue)
-				.padding(.top, 100.0)
-				.overlay(
-					RoundedRectangle(cornerRadius: 20)
-						.stroke(Color.blue, lineWidth: 5)
-						.frame(width: 200.0, height: 50.0)
-				)
 			}
 		}
 

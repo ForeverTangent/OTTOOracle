@@ -13,13 +13,10 @@ struct StartingView: View {
 
 	var body: some View {
 		NavigationView {
-			VStack {
+			VStack(alignment: .center, spacing: 40.0) {
 				ShowRPGSoloOracleButton()
-				Spacer()
 				ShowMythicCardButton()
-
-				Spacer()
-				ShowGMACardButton().environmentObject(oracleManager)
+				ShowGMACardButton()
 			}.frame(height: 250.0)
 				.navigationBarTitle("SOLO-RPG", displayMode: .inline)
 		}.environmentObject(oracleManager)
@@ -51,7 +48,7 @@ struct ShowMythicCardButton: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
 	var body: some View {
-		NavigationLink(destination: MythicMainView()) {
+		NavigationLink(destination: MythicMainView().environmentObject(oracleViewModel)) {
 			Text("Show Mythic Card")
 				.foregroundColor(.blue)
 				.padding()
@@ -74,7 +71,7 @@ struct ShowGMACardButton: View {
 	@State private var showGMAModal = false
 
 	var body: some View {
-		NavigationLink(destination: GMAMainView()) {
+		NavigationLink(destination: GMAMainView().environmentObject(oracleViewModel)) {
 			Text("Show GMA Card")
 				.foregroundColor(.blue)
 				.padding()
