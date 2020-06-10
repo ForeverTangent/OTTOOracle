@@ -238,6 +238,8 @@
 		316D870624886B87000E03E0 /* MythicCardViews */ = {
 			isa = PBXGroup;
 			children = (
+				3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */,
+				31180520249150D700C3812C /* MythicAdvancedView.swift */,
 				316D87002487D31D000E03E0 /* MythicSimpleCardView.swift */,
 				316D870724886BB3000E03E0 /* MythicTopView.swift */,
 				316D870924886E8A000E03E0 /* MythicMidView.swift */,
@@ -276,6 +278,7 @@
 		31BE22A82484401800E21C00 /* GMACardViews */ = {
 			isa = PBXGroup;
 			children = (
+				3133B1CB24904871005FF8FD /* GMAMainView.swift */,
 				3188CB872481CD1F001F53B5 /* GMACardView.swift */,
 				31BE22A424843EE600E21C00 /* GMATopView.swift */,
 				3168E4922483335300DCCC76 /* GMADiceView.swift */,
@@ -304,9 +307,6 @@
 				3118052224915B2600C3812C /* AdvancedOraclesView.swift */,
 				3173EE5A24912CD300F646A3 /* OTTOButton.swift */,
 				31E9B9E8248BE655007B4463 /* RPGSoloOracleView.swift */,
-				3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */,
-				31180520249150D700C3812C /* MythicAdvancedView.swift */,
-				3133B1CB24904871005FF8FD /* GMAMainView.swift */,
 				3173EE69249143C900F646A3 /* QuickDiceView.swift */,
 				3173EE5E249135E700F646A3 /* Navigation_Buttons */,
 				316D870624886B87000E03E0 /* MythicCardViews */,

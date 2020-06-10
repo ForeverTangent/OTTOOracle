@@ -16,7 +16,7 @@ struct GMADiceView: View {
 			VStack(alignment: .center) {
 				VStack {
 					Text("D4")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d4)")
@@ -27,7 +27,7 @@ struct GMADiceView: View {
 				.frame(width: 30.0, height: 30.0)
 				VStack {
 					Text("D10")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d10)")
@@ -38,7 +38,7 @@ struct GMADiceView: View {
 				.frame(width: 30.0, height: 30.0)
 				VStack {
 					Text("D20")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d20)")
@@ -51,7 +51,7 @@ struct GMADiceView: View {
 			VStack(alignment: .center) {
 				VStack {
 					Text("D6")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d6)")
@@ -62,7 +62,7 @@ struct GMADiceView: View {
 				.frame(width: 30.0, height: 30.0)
 				VStack {
 					Text("F")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.fateDiceRoll)")
@@ -73,7 +73,7 @@ struct GMADiceView: View {
 				.frame(width: 30.0, height: 30.0)
 				VStack {
 					Text("10s")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d10Tens)")
@@ -86,7 +86,7 @@ struct GMADiceView: View {
 			VStack(alignment: .center) {
 				VStack {
 					Text("D8")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d8)")
@@ -97,7 +97,7 @@ struct GMADiceView: View {
 				.frame(width: 30.0, height: 30.0)
 				VStack {
 					Text("D12")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d12)")
@@ -108,7 +108,7 @@ struct GMADiceView: View {
 				.frame(width: 30.0, height: 30.0)
 				VStack {
 					Text("1s")
-						.font(.system(size:12))
+						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
 					Text("\(oracleViewModel.currentGMACardViewModel.d10Ones)")
