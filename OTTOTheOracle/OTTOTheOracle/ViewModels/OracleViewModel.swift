@@ -35,11 +35,13 @@ class OracleViewModel: ObservableObject {
 	// RPG-Solo, Fate
 	@Published var surpriseFactor: Int = 0
 
+	@Published var advancedMythicCardViewModel = MythicCardViewModel(mythicCard: MythicCard())
+
 	@Published var currentMythicCardViewModel = MythicCardViewModel(mythicCard: MythicCard())
 	@Published var currentGMACardViewModel = GMACardViewModel(gmaCard: GMACard())
 
-	@Published var fateDiceRoll: Int = 0
-
+	@Published var diceSquareViewModel = DiceSquareViewModel()
+	
 
 	init() {
 		os_log(.default, log: logger, "Creating OTTOOracleManager")
@@ -47,10 +49,6 @@ class OracleViewModel: ObservableObject {
 	}
 
 	// MARK: - Class Methods
-
-	func rollFateDice() {
-		fateDiceRoll = FateDice().roll()
-	}
 
 	
 	func drawMythicCard() {
@@ -66,8 +64,23 @@ class OracleViewModel: ObservableObject {
 		print("Drew card: \(firstDrawnCard.cardFile)")
 		currentMythicCard = firstDrawnCard
 		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
-		rollFateDice()
 	}
+
+	func drawMythicCardAndSetForward(_ forward: Bool) {
+		print("Drawing a Mythic card")
+		guard
+			let theMythicDeck = oracleModel.mythicDeck,
+			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
+				print("Returned")
+				return
+		}
+		print("Got a Mythic card")
+		firstDrawnCard.forward = forward
+		print("Drew card: \(firstDrawnCard.cardFile)")
+		currentMythicCard = firstDrawnCard
+		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
+	}
+
 
 	func drawGMACard() {
 		guard
@@ -79,6 +92,7 @@ class OracleViewModel: ObservableObject {
 		print("Drew card: \(firstDrawnCard.cardFile)")
 		currentGMACard = firstDrawnCard
 		currentGMACardViewModel = GMACardViewModel(gmaCard: currentGMACard)
+		getNewDiceSquareRoll()
 	}
 
 	func drawMythicCardIndex(_ index: Int, forward: Bool = true) {
@@ -100,6 +114,19 @@ class OracleViewModel: ObservableObject {
 		}
 		currentGMACard = theGMADeck.cards[index]
 		currentGMACardViewModel = GMACardViewModel(gmaCard: currentGMACard)
+	}
+
+	func getNewDiceSquareRoll() {
+		print("retrollling")
+		diceSquareViewModel.getNewRolls()
+	}
+
+	func getMythicOracleResult(difficulty: MYTHIC_FATE_RANK, chaosFactor: Int) {
+		print("Drawing advanced Mythic card")
+
+		let mythicOracleResult = oracleModel.getMythicOracleResultFor(difficulty, atChaosFactor: chaosFactor)
+		drawMythicCardAndSetForward(mythicOracleResult)
+
 	}
 
 }

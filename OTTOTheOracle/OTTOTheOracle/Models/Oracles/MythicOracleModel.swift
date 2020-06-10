@@ -7,11 +7,88 @@
 //
 
 import Foundation
+import os
+
+class MythicOracleModel {
+
+	private static let subsystem = Bundle.main.bundleIdentifier!
+	private static let catagory = "MythicOracleModel"
+	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
+	private let logger = OSLog(subsystem: subsystem, category: catagory)
+
+	var currentMythicChaosLevel: Int = 5
+	private let chaosFactorToDrawAdjustment: [Int: Int] = [
+		1:-2,
+		2:-2,
+		3:-1,
+		4:-1,
+		5:0,
+		6:1,
+		7:1,
+		8:2,
+		9:2
+	]
+
+	func getOracleResultFor(mythicFateRank: MYTHIC_FATE_RANK) -> Bool {
+		guard let chaosDrawAdjustment = chaosFactorToDrawAdjustment[currentMythicChaosLevel] else { return true }
+
+		let mythicFateRank = MYTHIC_FATE_RANK.getMythicRankStatsFor(mythicFateRank)
+
+		os_log(.default, log: logger, "Rank draw: %d", mythicFateRank.draw)
+		os_log(.default, log: logger, "Chaos adjsutment: %d", chaosDrawAdjustment)
+
+		var numberOfCardsToDraw = mythicFateRank.draw + chaosDrawAdjustment
+		numberOfCardsToDraw = numberOfCardsToDraw < 1 ? 1 : numberOfCardsToDraw
+
+		print("numberOfCardsToDraw: \(numberOfCardsToDraw)")
 
 
-struct MythicOracleModel {
-	var oracleAnswer: MYTHIC_ORACLE_ANSWER
-	var mythicChaosLevel: Int = 5
+		if numberOfCardsToDraw > 1 {
+			var theBools = [Bool]()
+			for _ in 1...numberOfCardsToDraw {
+				theBools.append(Bool.random())
+			}
+
+			print(theBools)
+
+			if mythicFateRank.neededYes == .ALL {
+				print("ALL YES")
+				return getIfAllTrue(theBools)
+			}
+
+			print("ANY YES")
+			return getIfAnyTrue(theBools)
+
+		}
+
+		return Bool.random()
+
+	}
+
+	/**
+	Get if ANY in an array of Bools are true.
+	- Parameter boolArray: [Bool]
+	- Returns: Bool
+	*/
+	private func getIfAnyTrue(_ boolArray: [Bool]) -> Bool {
+		let anyTrue = boolArray.reduce(false) { (result, bool) in
+			return result || bool
+		}
+		return anyTrue
+	}
+
+	/**
+	Get if ALL in an array of Bools are true.
+	- Parameter boolArray: [Bool]
+	- Returns: Bool
+	*/
+	private func getIfAllTrue(_ boolArray: [Bool]) -> Bool {
+		let allTrue = boolArray.reduce(true) { (result, bool) in
+			return result && bool
+		}
+		return allTrue
+	}
+
 }
 
 enum MYTHIC_ORACLE_ANSWER: Int, CaseIterable {
@@ -19,6 +96,7 @@ enum MYTHIC_ORACLE_ANSWER: Int, CaseIterable {
 	case NO
 	case YES
 	case YES_EXCEPTIONAL
+	case NONE
 }
 
 struct MythicFateRankStat {
@@ -35,17 +113,17 @@ enum MYTHIC_YES_DRAW: String, CaseIterable {
 }
 
 enum MYTHIC_FATE_RANK: Int, CaseIterable {
-	case REALLY_REALLY_HAS_TO_BE
-	case REALLY_HAS_TO_BE
-	case HAS_TO_BE
-	case VERY_LIKELY
-	case LIKELY
-	case FIFTY_FIFTY
-	case UNLIKELY
-	case VERY_UNLIKELY
-	case IMPOSSIBLE
-	case REALLY_IMPOSSIBLE
-	case REALLY_REALLY_IMPOSSIBLE
+	case REALLY_REALLY_HAS_TO_BE = 1
+	case REALLY_HAS_TO_BE = 2
+	case HAS_TO_BE = 3
+	case VERY_LIKELY = 4
+	case LIKELY = 5
+	case FIFTY_FIFTY = 6
+	case UNLIKELY = 7
+	case VERY_UNLIKELY = 8
+	case IMPOSSIBLE = 9
+	case REALLY_IMPOSSIBLE = 10
+	case REALLY_REALLY_IMPOSSIBLE = 11
 	case NONE
 
 	static func getMythicRankStatsFor(_ fateRank: MYTHIC_FATE_RANK) -> MythicFateRankStat {

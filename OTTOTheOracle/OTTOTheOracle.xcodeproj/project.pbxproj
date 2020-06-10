@@ -48,7 +48,7 @@
 		3173EE662491425100F646A3 /* ShowMythicCardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */; };
 		3173EE682491428700F646A3 /* ShowGMACardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */; };
 		3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE69249143C900F646A3 /* QuickDiceView.swift */; };
-		3173EE6C249144EC00F646A3 /* JustDiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE6B249144EC00F646A3 /* JustDiceViewModel.swift */; };
+		3173EE6C249144EC00F646A3 /* DiceSquareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */; };
 		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */; };
@@ -112,7 +112,7 @@
 		3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMythicCardNavButton.swift; sourceTree = "<group>"; };
 		3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGMACardNavButton.swift; sourceTree = "<group>"; };
 		3173EE69249143C900F646A3 /* QuickDiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDiceView.swift; sourceTree = "<group>"; };
-		3173EE6B249144EC00F646A3 /* JustDiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDiceViewModel.swift; sourceTree = "<group>"; };
+		3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSquareViewModel.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardOnlyView.swift; sourceTree = "<group>"; };
 		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS.json; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 				3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */,
 				316D87022487D900000E03E0 /* GMACardViewModel.swift */,
 				316D87042487E91D000E03E0 /* MythicCardViewModel.swift */,
-				3173EE6B249144EC00F646A3 /* JustDiceViewModel.swift */,
+				3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -439,7 +439,7 @@
 				316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */,
 				3173EE602491360F00F646A3 /* SimpleOraclesNavButton.swift in Sources */,
 				312F201B2481B3E1000CEB9C /* StartingView.swift in Sources */,
-				3173EE6C249144EC00F646A3 /* JustDiceViewModel.swift in Sources */,
+				3173EE6C249144EC00F646A3 /* DiceSquareViewModel.swift in Sources */,
 				3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */,
 				31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */,
 				3133B1AC24901C0D005FF8FD /* SWWCOracleModel.swift in Sources */,

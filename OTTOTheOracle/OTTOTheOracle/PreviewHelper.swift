@@ -14,6 +14,13 @@ class PreviewHelper {
 		return OracleViewModel()
 	}
 
+	static func mockRollDiceSquare() -> OracleViewModel {
+		let oracleViewModel = OracleViewModel()
+		oracleViewModel.diceSquareViewModel.getNewRolls()
+		return oracleViewModel
+	}
+
+
 	static func mockOracleWithDeckAndDrawnCard() -> OracleViewModel {
 		let oracleViewModel = OracleViewModel()
 		oracleViewModel.drawGMACard()

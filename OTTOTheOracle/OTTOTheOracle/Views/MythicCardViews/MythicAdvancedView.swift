@@ -13,7 +13,7 @@ struct MythicAdvancedView: View {
 	@Environment(\.presentationMode) var presentation
 
 	@State private var difficulty: Double = 6.0
-	@State private var chaosLevel: Double = 5.0
+	@State private var chaosFactor: Double = 5.0
 
 	var body: some View {
 		ScrollView {
@@ -21,15 +21,18 @@ struct MythicAdvancedView: View {
 				VStack(spacing: 10.0) {
 					Text("Difficulty \(difficulty, specifier: "%.0f")")
 					Slider(value: $difficulty, in: 1...11, step: 1.0)
-					Text("Chaos Level \(chaosLevel, specifier: "%.0f")")
-					Slider(value: $chaosLevel, in: 1...9, step: 1.0)
+					Text("Chaos Level \(chaosFactor, specifier: "%.0f")")
+					Slider(value: $chaosFactor, in: 1...9, step: 1.0)
 				}
 				.padding(.horizontal, 40.0)
 				MythicCardOnlyView()
 					.environmentObject(oracleViewModel)
 					.background(Color.green)
 				Button("Calculate") {
-					self.oracleViewModel.drawMythicCard()
+					print("Calculate")
+					guard let mythicRank = MYTHIC_FATE_RANK.init(rawValue: Int(self.difficulty)) else  { return }
+					print(mythicRank)
+					self.oracleViewModel.getMythicOracleResult(difficulty: mythicRank, chaosFactor: Int(self.chaosFactor))
 				}
 				.foregroundColor(.blue)
 				.padding(25.0)

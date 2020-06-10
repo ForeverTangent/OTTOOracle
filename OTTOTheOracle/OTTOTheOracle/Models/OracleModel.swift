@@ -21,6 +21,8 @@ class OracleModel {
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
 
+	private var mythicOracle = MythicOracleModel()
+
 	var mythicDeck: Deck<MythicCard>?
 	var gmaDeck: Deck<GMACard>?
 
@@ -67,6 +69,17 @@ class OracleModel {
 		}
 
 		return Deck(gmaCards)
+	}
+
+	/**
+	
+	*/
+	public func getMythicOracleResultFor(_ mythicFateRank: MYTHIC_FATE_RANK, atChaosFactor chaosFactor: Int = 0) -> Bool {
+		if chaosFactor != 0 {
+			mythicOracle.currentMythicChaosLevel = chaosFactor
+		}
+		let results = mythicOracle.getOracleResultFor(mythicFateRank: mythicFateRank)
+		return results
 	}
 
 }

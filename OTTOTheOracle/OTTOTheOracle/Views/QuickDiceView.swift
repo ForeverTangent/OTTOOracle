@@ -9,16 +9,15 @@
 import SwiftUI
 
 struct QuickDiceView: View {
-	@ObservedObject var randomDiceViewModel = JustDiceViewModel()
+	@EnvironmentObject var oracleViewModel: OracleViewModel
 
     var body: some View {
-		VStack {
-			Spacer()
-//			GMADiceView(randomDiceViewModel: randomDiceViewModel, usingRandom: true)
-//				.scaleEffect(/*@START_MENU_TOKEN@*/2.0/*@END_MENU_TOKEN@*/)
-			Spacer()
-			Button("Reload") {
-				self.randomDiceViewModel.getNewRollAll()
+		VStack(spacing: 50.0) {
+			GMADiceView()
+				.environmentObject(oracleViewModel)
+				.scaleEffect(2.0)
+			Button("Reroll") {
+				self.oracleViewModel.getNewDiceSquareRoll()
 			}
 			.foregroundColor(.blue)
 			.padding(75.0)
@@ -27,13 +26,12 @@ struct QuickDiceView: View {
 					.stroke(Color.blue, lineWidth: 5)
 					.frame(width: 200.0, height: 50.0)
 			)
-			Spacer()
 		}
     }
 }
 
 struct QuickDiceView_Previews: PreviewProvider {
     static var previews: some View {
-        QuickDiceView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		QuickDiceView().environmentObject(OracleViewModel())
     }
 }

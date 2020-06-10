@@ -60,7 +60,7 @@ struct GMATopView: View {
 				}
 				.padding(.horizontal)
 			}
-			GMADiceView()
+			GMADiceView().environmentObject(oracleViewModel)
 				.frame(width: 100.0, height: 100.0)
 			VStack{
 				VStack {
