@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct QuickDiceView: View {
-	@ObservedObject var randomDiceViewModel = RandomDiceViewModel()
+	@ObservedObject var randomDiceViewModel = JustDiceViewModel()
 
     var body: some View {
 		VStack {

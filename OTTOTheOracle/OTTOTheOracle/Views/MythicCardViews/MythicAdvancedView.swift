@@ -25,7 +25,7 @@ struct MythicAdvancedView: View {
 					Slider(value: $chaosLevel, in: 1...9, step: 1.0)
 				}
 				.padding(.horizontal, 40.0)
-				MythicSimpleCardView()
+				MythicCardOnlyView()
 					.environmentObject(oracleViewModel)
 					.background(Color.green)
 				Button("Calculate") {

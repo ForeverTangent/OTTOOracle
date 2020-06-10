@@ -14,7 +14,7 @@ struct MythicSimpleView: View {
 
 	var body: some View {
 		VStack {
-			MythicSimpleCardView().environmentObject(oracleViewModel)
+			MythicCardOnlyView().environmentObject(oracleViewModel)
 			Button("Reload") {
 				self.oracleViewModel.drawMythicCard()
 			}

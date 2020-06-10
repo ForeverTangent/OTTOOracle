@@ -15,7 +15,7 @@ struct GMAMainView: View {
 	var body: some View {
 		ScrollView {
 			VStack {
-				GMACardView().padding(.vertical, 25.0).environmentObject(oracleViewModel)
+				GMACardOnlyView().padding(.vertical, 25.0).environmentObject(oracleViewModel)
 				Group {
 					Button("Reload") {
 						self.oracleViewModel.drawGMACard()

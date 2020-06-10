@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct GMACardView: View {
+struct GMACardOnlyView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
     var body: some View {
@@ -24,8 +24,8 @@ struct GMACardView: View {
     }
 }
 
-struct GMACardView_Previews: PreviewProvider {
+struct GMACardOnlyView_Previews: PreviewProvider {
     static var previews: some View {
-		return GMACardView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		return GMACardOnlyView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }
