@@ -36,6 +36,7 @@
 		316D8714248AB6F4000E03E0 /* FateOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8713248AB6F4000E03E0 /* FateOracleModel.swift */; };
 		316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8715248AB756000E03E0 /* MythicOracleModel.swift */; };
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
+		3173EE592491265E00F646A3 /* PETOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE582491265E00F646A3 /* PETOracleModel.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardView.swift */; };
 		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */; };
@@ -87,6 +88,7 @@
 		316D8713248AB6F4000E03E0 /* FateOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleModel.swift; sourceTree = "<group>"; };
 		316D8715248AB756000E03E0 /* MythicOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicOracleModel.swift; sourceTree = "<group>"; };
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
+		3173EE582491265E00F646A3 /* PETOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETOracleModel.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardView.swift; sourceTree = "<group>"; };
 		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS.json; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				3133B1A724901B53005FF8FD /* CRGEOracleModel.swift */,
 				3133B1A924901BB5005FF8FD /* UNEOracleModel.swift */,
 				3133B1AB24901C0D005FF8FD /* SWWCOracleModel.swift */,
+				3173EE582491265E00F646A3 /* PETOracleModel.swift */,
 			);
 			path = Oracles;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				3188CB882481CD1F001F53B5 /* GMACardView.swift in Sources */,
 				31E9B9E9248BE655007B4463 /* RPGSoloOracleView.swift in Sources */,
 				3133B1A824901B53005FF8FD /* CRGEOracleModel.swift in Sources */,
+				3173EE592491265E00F646A3 /* PETOracleModel.swift in Sources */,
 				316D87012487D31D000E03E0 /* MythicCardView.swift in Sources */,
 				3133B19D24901901005FF8FD /* Card.swift in Sources */,
 				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
