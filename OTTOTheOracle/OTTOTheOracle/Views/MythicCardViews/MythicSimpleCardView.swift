@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MythicCardView: View {
+struct MythicSimpleCardView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
 	var body: some View {
@@ -24,6 +24,6 @@ struct MythicCardView: View {
 
 struct MythicCardView_Previews: PreviewProvider {
     static var previews: some View {
-		MythicCardView().environmentObject(PreviewHelper.mockOracleWithSortedDeckUseCardIndex(0))
+		MythicSimpleCardView().environmentObject(PreviewHelper.mockOracleWithSortedDeckUseCardIndex(0))
     }
 }

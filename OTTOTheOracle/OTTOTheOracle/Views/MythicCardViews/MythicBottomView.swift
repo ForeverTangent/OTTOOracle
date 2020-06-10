@@ -13,20 +13,25 @@ struct MythicBottomView: View {
 
 	var body: some View {
 		VStack {
-			HStack {
+			VStack {
 				Text("SCENE SETUP")
 					.font(.subheadline)
 				Text("\(oracleViewModel.currentMythicCardViewModel.sceneSetup)")
 					.fontWeight(.bold)
+					.multilineTextAlignment(.center)
+					.frame(height: 50.0)
 			}
 			.padding(.vertical, 5.0)
-			HStack {
+			VStack(spacing: 10.0) {
 				Text("\(oracleViewModel.currentMythicCardViewModel.description1)")
 					.fontWeight(.bold)
+					.multilineTextAlignment(.leading)
 				Text("DESCRIPTIONS")
 					.font(.subheadline)
+					.multilineTextAlignment(.center)
 				Text("\(oracleViewModel.currentMythicCardViewModel.description2)")
 					.fontWeight(.bold)
+					.multilineTextAlignment(.trailing)
 			}
 			.padding(.vertical, 5.0)
 			.frame(width: 360.0)

@@ -29,6 +29,9 @@ class OracleViewModel: ObservableObject {
 	// Mythic
 	@Published var chaosFactor: Int = 5
 
+	// CRGE
+	@Published var surgeFactor: Int = 5
+
 	// RPG-Solo, Fate
 	@Published var surpriseFactor: Int = 0
 
@@ -46,7 +49,7 @@ class OracleViewModel: ObservableObject {
 	// MARK: - Class Methods
 
 	func rollFateDice() {
-		fateDiceRoll = FateDice.roll()
+		fateDiceRoll = FateDice().roll()
 	}
 
 	

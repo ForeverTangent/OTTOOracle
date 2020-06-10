@@ -18,7 +18,7 @@ struct TextPopUpView: View {
 		Text("\(displayedText)")
 			.font(.title)
 			.fontWeight(.bold)
-			.onLongPressGesture {
+			.onTapGesture {
 				self.showPopover = true
 		}
 		.popover(isPresented: $showPopover) {

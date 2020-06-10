@@ -14,12 +14,12 @@ struct MythicSimpleView: View {
 
 	var body: some View {
 		VStack {
-			MythicCardView().environmentObject(oracleViewModel)
+			MythicSimpleCardView().environmentObject(oracleViewModel)
 			Button("Reload") {
 				self.oracleViewModel.drawMythicCard()
 			}
 			.foregroundColor(.blue)
-			.padding(75.0)
+			.padding(50.0)
 			.overlay(
 				RoundedRectangle(cornerRadius: 20)
 					.stroke(Color.blue, lineWidth: 5)

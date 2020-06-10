@@ -15,27 +15,32 @@ struct MythicTopView: View {
 		HStack {
 			VStack {
 				Text("SUBJECT")
+					.frame(height: 50.0)
 					.accessibility(hidden: true)
 				Text("\(oracleViewModel.currentMythicCardViewModel.subject)")
 					.fontWeight(.bold)
-					.frame(width: 120.0)
+					.multilineTextAlignment(.center)
+					.frame(width: 120.0, height: 75.0)
 					.accessibility(label: Text("Subject: \(oracleViewModel.currentMythicCardViewModel.subject)"))
 			}
 			Spacer()
-			VStack {
+			VStack(alignment: .center) {
 				Text("EVENT FOCUS")
+					.multilineTextAlignment(.center)
+					.frame(width: 120.0, height: 50.0)
 					.accessibility(hidden: true)
 				Text("\(oracleViewModel.currentMythicCardViewModel.eventFocus)")
 					.fontWeight(.bold)
 					.multilineTextAlignment(.center)
+					.frame(width: 120.0, height: 75.0)
 					.accessibility(label: Text("EVENT FOCUS: \(oracleViewModel.currentMythicCardViewModel.eventFocus)"))
 			}
 			Spacer()
 			VStack {
-				Text("ACTION").accessibility(hidden: true)
+				Text("ACTION").frame(height: 50.0).accessibility(hidden: true)
 				Text("\(oracleViewModel.currentMythicCardViewModel.action)")
 					.fontWeight(.bold)
-					.frame(width: 120.0)
+					.frame(width: 120.0, height: 75.0)
 			}
 		}
 		.frame(width: 360.0)

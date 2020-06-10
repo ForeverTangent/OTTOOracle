@@ -11,6 +11,9 @@ import SwiftUI
 struct MythicMidView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
+	@State var isExceptional: Bool = false
+	@State var isResultYes: Bool = false
+
     var body: some View {
 		HStack {
 			Spacer()
