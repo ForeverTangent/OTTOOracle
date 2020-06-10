@@ -14,19 +14,19 @@ struct StartingView: View {
 	var body: some View {
 		NavigationView {
 			VStack {
-				ShowRPGSoloOracle()
+				ShowRPGSoloOracleButton()
 				Spacer()
 				ShowMythicCardButton()
-					.navigationBarTitle("SOLO-RPG")
+
 				Spacer()
 				ShowGMACardButton().environmentObject(oracleManager)
 			}.frame(height: 250.0)
+				.navigationBarTitle("SOLO-RPG", displayMode: .inline)
 		}.environmentObject(oracleManager)
 	}
 }
 
-
-struct ShowRPGSoloOracle: View {
+struct ShowRPGSoloOracleButton: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 
 	var body: some View {
@@ -46,7 +46,6 @@ struct ShowRPGSoloOracle: View {
 
 	}
 }
-
 
 struct ShowMythicCardButton: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
@@ -93,55 +92,51 @@ struct ShowGMACardButton: View {
 	}
 }
 
+//struct MythicMainView: View {
+//	@EnvironmentObject var oracleViewModel: OracleViewModel
+//	@Environment(\.presentationMode) var presentation
+//
+//	var body: some View {
+//		VStack {
+//			MythicCardView().environmentObject(oracleViewModel)
+//			Button("Reload") {
+//				self.oracleViewModel.drawMythicCard()
+//			}
+//			.foregroundColor(.blue)
+//			.padding(75.0)
+//			.overlay(
+//				RoundedRectangle(cornerRadius: 20)
+//					.stroke(Color.blue, lineWidth: 5)
+//					.frame(width: 200.0, height: 50.0)
+//			)
+//		}
+//		.frame(height: 500.0)
+//	}
+//}
 
-struct MythicMainView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
-	@Environment(\.presentationMode) var presentation
-
-	var body: some View {
-		VStack {
-			MythicCardView().environmentObject(oracleViewModel)
-			Button("Reload") {
-				self.oracleViewModel.drawMythicCard()
-			}
-			.foregroundColor(.blue)
-			.padding(75.0)
-			.overlay(
-				RoundedRectangle(cornerRadius: 20)
-					.stroke(Color.blue, lineWidth: 5)
-					.frame(width: 200.0, height: 50.0)
-			)
-		}
-		.frame(height: 500.0)
-	}
-}
-
-struct GMAMainView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
-	@Environment(\.presentationMode) var presentation
-
-	var body: some View {
-		ScrollView {
-			VStack {
-				GMACardView().environmentObject(oracleViewModel)
-				Button("Reload") {
-					self.oracleViewModel.drawGMACard()
-				}
-				.foregroundColor(.blue)
-				.padding(.top, 100.0)
-				.overlay(
-					RoundedRectangle(cornerRadius: 20)
-						.stroke(Color.blue, lineWidth: 5)
-						.frame(width: 200.0, height: 50.0)
-				)
-			}
-		}
-
-	}
-}
-
-
-
+//struct GMAMainView: View {
+//	@EnvironmentObject var oracleViewModel: OracleViewModel
+//	@Environment(\.presentationMode) var presentation
+//
+//	var body: some View {
+//		ScrollView {
+//			VStack {
+//				GMACardView().environmentObject(oracleViewModel)
+//				Button("Reload") {
+//					self.oracleViewModel.drawGMACard()
+//				}
+//				.foregroundColor(.blue)
+//				.padding(.top, 100.0)
+//				.overlay(
+//					RoundedRectangle(cornerRadius: 20)
+//						.stroke(Color.blue, lineWidth: 5)
+//						.frame(width: 200.0, height: 50.0)
+//				)
+//			}
+//		}
+//
+//	}
+//}
 
 
 struct StartingView_Previews: PreviewProvider {

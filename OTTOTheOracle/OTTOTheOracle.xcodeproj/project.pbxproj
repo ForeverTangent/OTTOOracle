@@ -22,6 +22,8 @@
 		3133B1A824901B53005FF8FD /* CRGEOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1A724901B53005FF8FD /* CRGEOracleModel.swift */; };
 		3133B1AA24901BB5005FF8FD /* UNEOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1A924901BB5005FF8FD /* UNEOracleModel.swift */; };
 		3133B1AC24901C0D005FF8FD /* SWWCOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1AB24901C0D005FF8FD /* SWWCOracleModel.swift */; };
+		3133B1CA249047FE005FF8FD /* MythicMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1C9249047FE005FF8FD /* MythicMainView.swift */; };
+		3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1CB24904871005FF8FD /* GMAMainView.swift */; };
 		3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */; };
 		3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E4922483335300DCCC76 /* GMADiceView.swift */; };
 		316D87012487D31D000E03E0 /* MythicCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D87002487D31D000E03E0 /* MythicCardView.swift */; };
@@ -71,6 +73,8 @@
 		3133B1A724901B53005FF8FD /* CRGEOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleModel.swift; sourceTree = "<group>"; };
 		3133B1A924901BB5005FF8FD /* UNEOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNEOracleModel.swift; sourceTree = "<group>"; };
 		3133B1AB24901C0D005FF8FD /* SWWCOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWWCOracleModel.swift; sourceTree = "<group>"; };
+		3133B1C9249047FE005FF8FD /* MythicMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicMainView.swift; sourceTree = "<group>"; };
+		3133B1CB24904871005FF8FD /* GMAMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAMainView.swift; sourceTree = "<group>"; };
 		3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleViewModel.swift; sourceTree = "<group>"; };
 		3168E4922483335300DCCC76 /* GMADiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADiceView.swift; sourceTree = "<group>"; };
 		316D87002487D31D000E03E0 /* MythicCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCardView.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 		316D870624886B87000E03E0 /* MythicCardViews */ = {
 			isa = PBXGroup;
 			children = (
+				316D87002487D31D000E03E0 /* MythicCardView.swift */,
 				316D870724886BB3000E03E0 /* MythicTopView.swift */,
 				316D870924886E8A000E03E0 /* MythicMidView.swift */,
 				316D870B24887188000E03E0 /* MythicBottomView.swift */,
@@ -231,6 +236,7 @@
 		31BE22A82484401800E21C00 /* GMACardViews */ = {
 			isa = PBXGroup;
 			children = (
+				3188CB872481CD1F001F53B5 /* GMACardView.swift */,
 				31BE22A424843EE600E21C00 /* GMATopView.swift */,
 				3168E4922483335300DCCC76 /* GMADiceView.swift */,
 				31BE22A624843F9300E21C00 /* GMADescriptionsView.swift */,
@@ -254,9 +260,9 @@
 			children = (
 				312F201A2481B3E1000CEB9C /* StartingView.swift */,
 				31E9B9E8248BE655007B4463 /* RPGSoloOracleView.swift */,
-				316D87002487D31D000E03E0 /* MythicCardView.swift */,
+				3133B1C9249047FE005FF8FD /* MythicMainView.swift */,
+				3133B1CB24904871005FF8FD /* GMAMainView.swift */,
 				316D870624886B87000E03E0 /* MythicCardViews */,
-				3188CB872481CD1F001F53B5 /* GMACardView.swift */,
 				31BE22A82484401800E21C00 /* GMACardViews */,
 				31C6BC1F248F107100494CD7 /* TextPopUpView.swift */,
 			);
@@ -354,6 +360,7 @@
 				312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */,
 				3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */,
 				31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */,
+				3133B1CA249047FE005FF8FD /* MythicMainView.swift in Sources */,
 				316D870A24886E8A000E03E0 /* MythicMidView.swift in Sources */,
 				3133B1A12490193D005FF8FD /* Deck.swift in Sources */,
 				31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */,
@@ -373,6 +380,7 @@
 				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,
 				316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */,
 				312F201B2481B3E1000CEB9C /* StartingView.swift in Sources */,
+				3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */,
 				31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */,
 				3133B1AC24901C0D005FF8FD /* SWWCOracleModel.swift in Sources */,
 			);
