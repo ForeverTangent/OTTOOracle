@@ -1,5 +1,5 @@
 # OTTOOracle
-An Auto Game Master and Writing Tool
+An Auto Game Master, Improv, and Writing Tool
 
 ## Author
 Stan Rosenbaum
@@ -49,3 +49,7 @@ Specifcally the GM Emulator Models this project tries to impliment are:
 There are not 100% exact too.  I have tweaked all the system a little bit for various reason.
 
 But like I said this is just a hobby project, but if you get any use out of it, bonus.  And please I mean no infridgement on any of the developers of the systems.   This is just an intellectual exercise for me to learn stuff.
+
+## Improv
+
+I had to take an Improv class for one of my Master Degrees.  I noticed how the results of the system often mirrored basic rules of improv.  I think it would be nuts to see something like this used in improv.
