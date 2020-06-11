@@ -37,6 +37,9 @@
 		314F83FF2492B6D40061C1EA /* CypherOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */; };
 		314F84012492BCC80061C1EA /* ShowCypherOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F84002492BCC80061C1EA /* ShowCypherOracleNavButton.swift */; };
 		314F84032492BDE00061C1EA /* AdventureCrafterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F84022492BDE00061C1EA /* AdventureCrafterModel.swift */; };
+		315407142492CB7D00EB18D5 /* CRGEOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */; };
+		315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407152492CB9100EB18D5 /* CRGEOracleView.swift */; };
+		315407182492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */; };
 		3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */; };
 		3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E4922483335300DCCC76 /* GMADiceView.swift */; };
 		316D87012487D31D000E03E0 /* MythicCardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D87002487D31D000E03E0 /* MythicCardOnlyView.swift */; };
@@ -48,7 +51,7 @@
 		316D871024895889000E03E0 /* View+isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870F24895889000E03E0 /* View+isHidden.swift */; };
 		316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8715248AB756000E03E0 /* MythicOracleModel.swift */; };
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
-		3173EE592491265E00F646A3 /* PETOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE582491265E00F646A3 /* PETOracleModel.swift */; };
+		3173EE592491265E00F646A3 /* PETGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE582491265E00F646A3 /* PETGeneratorModel.swift */; };
 		3173EE5B24912CD300F646A3 /* OTTOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5A24912CD300F646A3 /* OTTOButton.swift */; };
 		3173EE5D2491340D00F646A3 /* SimpleOraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */; };
 		3173EE602491360F00F646A3 /* ShowSimpleOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */; };
@@ -110,6 +113,9 @@
 		314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherOracleViewModel.swift; sourceTree = "<group>"; };
 		314F84002492BCC80061C1EA /* ShowCypherOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCypherOracleNavButton.swift; sourceTree = "<group>"; };
 		314F84022492BDE00061C1EA /* AdventureCrafterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterModel.swift; sourceTree = "<group>"; };
+		315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleViewModel.swift; sourceTree = "<group>"; };
+		315407152492CB9100EB18D5 /* CRGEOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleView.swift; sourceTree = "<group>"; };
+		315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCRGEOracleNavButton.swift; sourceTree = "<group>"; };
 		3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleViewModel.swift; sourceTree = "<group>"; };
 		3168E4922483335300DCCC76 /* GMADiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADiceView.swift; sourceTree = "<group>"; };
 		316D87002487D31D000E03E0 /* MythicCardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCardOnlyView.swift; sourceTree = "<group>"; };
@@ -121,7 +127,7 @@
 		316D870F24895889000E03E0 /* View+isHidden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+isHidden.swift"; sourceTree = "<group>"; };
 		316D8715248AB756000E03E0 /* MythicOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicOracleModel.swift; sourceTree = "<group>"; };
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
-		3173EE582491265E00F646A3 /* PETOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETOracleModel.swift; sourceTree = "<group>"; };
+		3173EE582491265E00F646A3 /* PETGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETGeneratorModel.swift; sourceTree = "<group>"; };
 		3173EE5A24912CD300F646A3 /* OTTOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOButton.swift; sourceTree = "<group>"; };
 		3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleOraclesView.swift; sourceTree = "<group>"; };
 		3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSimpleOraclesNavButton.swift; sourceTree = "<group>"; };
@@ -235,7 +241,6 @@
 				31E9B9EA248BE6BE007B4463 /* RPGSoloOracleModel.swift */,
 				3133B1A524901A55005FF8FD /* CypherOracleModel.swift */,
 				3133B1A724901B53005FF8FD /* CRGEOracleModel.swift */,
-				3173EE582491265E00F646A3 /* PETOracleModel.swift */,
 			);
 			path = Oracles;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				314F84022492BDE00061C1EA /* AdventureCrafterModel.swift */,
+				3173EE582491265E00F646A3 /* PETGeneratorModel.swift */,
 				3133B1AB24901C0D005FF8FD /* SWWCGeneratorModel.swift */,
 				3133B1A924901BB5005FF8FD /* UNEGeneratorModel.swift */,
 			);
@@ -288,6 +294,7 @@
 				314F83F224927DE80061C1EA /* ShowQuickDiceViewNavButton.swift */,
 				314F83FA2492B2810061C1EA /* ShowFateOracleNavButton.swift */,
 				314F84002492BCC80061C1EA /* ShowCypherOracleNavButton.swift */,
+				315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */,
 			);
 			path = Navigation_Buttons;
 			sourceTree = "<group>";
@@ -328,6 +335,7 @@
 				316D87042487E91D000E03E0 /* MythicCardViewModel.swift */,
 				3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */,
 				314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */,
+				315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 				31C6BC1F248F107100494CD7 /* TextPopUpView.swift */,
 				314F83F6249285330061C1EA /* FateOracleView.swift */,
 				314F83FC2492B6580061C1EA /* CypherOracleView.swift */,
+				315407152492CB9100EB18D5 /* CRGEOracleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 				314F83FD2492B6580061C1EA /* CypherOracleView.swift in Sources */,
 				3118052524915B6400C3812C /* ShowAdvMythicCardNavButton.swift in Sources */,
 				3133B1A624901A55005FF8FD /* CypherOracleModel.swift in Sources */,
+				315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */,
 				316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */,
 				316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */,
 				314F83FF2492B6D40061C1EA /* CypherOracleViewModel.swift in Sources */,
@@ -470,13 +480,15 @@
 				3173EE5B24912CD300F646A3 /* OTTOButton.swift in Sources */,
 				31E9B9E9248BE655007B4463 /* RPGSoloOracleView.swift in Sources */,
 				3133B1A824901B53005FF8FD /* CRGEOracleModel.swift in Sources */,
-				3173EE592491265E00F646A3 /* PETOracleModel.swift in Sources */,
+				3173EE592491265E00F646A3 /* PETGeneratorModel.swift in Sources */,
 				3173EE662491425100F646A3 /* ShowMythicCardNavButton.swift in Sources */,
 				316D87012487D31D000E03E0 /* MythicCardOnlyView.swift in Sources */,
 				3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */,
 				311805292492646900C3812C /* GMAOracleModel.swift in Sources */,
 				3133B19D24901901005FF8FD /* Card.swift in Sources */,
 				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
+				315407182492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift in Sources */,
+				315407142492CB7D00EB18D5 /* CRGEOracleViewModel.swift in Sources */,
 				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,
 				316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */,
 				314F84032492BDE00061C1EA /* AdventureCrafterModel.swift in Sources */,

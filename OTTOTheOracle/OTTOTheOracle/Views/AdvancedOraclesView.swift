@@ -16,6 +16,7 @@ struct AdvancedOraclesView: View {
 			ShowAdvMythicCardNavButton()
 			ShowFateOracleNavButton()
 			ShowCypherOracleNavButton()
+			ShowCRGEOracleNavButton()
 		}.frame(height: 250.0)
 			.navigationBarTitle("Advanced Oracles", displayMode: .inline)
 	}

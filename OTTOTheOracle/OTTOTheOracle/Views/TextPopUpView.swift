@@ -9,15 +9,14 @@
 import SwiftUI
 
 struct TextPopUpView: View {
-//	@EnvironmentObject var oracleViewModel: OracleViewModel
 	@Binding var showPopover: Bool
+
 	var displayedText: String
 	var popUpText: String
 
 	var body: some View {
 		Text("\(displayedText)")
 			.font(.title)
-			.fontWeight(.bold)
 			.onTapGesture {
 				self.showPopover = true
 		}

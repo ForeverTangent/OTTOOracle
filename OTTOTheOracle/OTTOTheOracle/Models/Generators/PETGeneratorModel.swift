@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PETOracleModel {
+class PETGeneratorModel {
 
 }
 

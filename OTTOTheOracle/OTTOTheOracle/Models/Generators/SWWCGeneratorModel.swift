@@ -15,9 +15,6 @@ class SWWCGeneratorModel {
 
 }
 
-
-
-
 enum SWWC_SIBLING_BIOLOGICAL_SEX: String, RPG_TABLE, Codable {
 	typealias Result = SWWC_SIBLING_BIOLOGICAL_SEX
 
@@ -58,7 +55,6 @@ enum SWWC_SIBLING_SEX_ORIENTATION: String, RPG_TABLE, Codable {
 		}
 	}
 }
-
 
 
 enum SWWC_SIBLING_BIOLOGICAL_AGE_RELATION: String, RPG_TABLE, Codable {

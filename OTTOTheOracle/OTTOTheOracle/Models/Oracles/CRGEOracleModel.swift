@@ -9,7 +9,108 @@
 import Foundation
 
 class CRGEOracleModel {
+
+	var d100 = Die(maxPips: 100)
 	var surge: Int = 0
+
+
+	public func getOracleResultFor(stage: CRGE_STAGE,
+								   withSurge surge: Int = 0) -> CRGEOracleResult {
+
+		var surgeReturn = 0
+		var answer: String
+
+		switch stage {
+			case .KNOWLEDGE:
+				answer = getKnowledgeResult(withSurge: surge)
+			case .CONFLICT:
+				answer = getConflictResult(withSurge: surge)
+			case .ENDINGS:
+				answer = getEndingsResult(withSurge: surge)
+		}
+
+		print(answer)
+
+		if getIncreaseSurge(answer: answer) {
+			surgeReturn = surge + 2
+		} else {
+			surgeReturn = 0
+		}
+
+		print("surgeReturn: \(surgeReturn)")
+
+		var unexpectedResults: (unexpectedly: CRGE_UNEXPECTEDLY, description: String) = (.NONE, "")
+
+		if getIfUnexpected(oracleResult: answer) {
+			unexpectedResults.unexpectedly = CRGE_UNEXPECTEDLY.randomWeightedElement()
+			unexpectedResults.description = CRGE_UNEXPECTEDLY.getDescription(situation: unexpectedResults.unexpectedly)
+		}
+
+		return CRGEOracleResult(surge: surgeReturn,
+								answer: answer,
+								unexpected: unexpectedResults.unexpectedly,
+								unexpectedDescription: unexpectedResults.description)
+
+	}
+
+	private func getKnowledgeResult(withSurge surge: Int = 0) -> String {
+		let dieResult = d100.roll() + surge
+		return CRGE_TO_KNOWLEDGE.getElementBy(value: dieResult).rawValue
+	}
+
+	private func getConflictResult(withSurge surge: Int = 0) -> String {
+		let dieResult = d100.roll() + surge
+		return CRGE_TO_CONFLICT.getElementBy(value: dieResult).rawValue
+	}
+
+	private func getEndingsResult(withSurge surge: Int = 0) -> String {
+		let dieResult = d100.roll() + surge
+		return CRGE_TO_ENDINGS.getElementBy(value: dieResult).rawValue
+	}
+
+	private func getIncreaseSurge(answer: String) -> Bool {
+
+		print(answer)
+
+		if answer.lowercased().contains("and".lowercased()) {
+			return true
+		}
+
+		if answer.lowercased().contains("but".lowercased()) {
+			return true
+		}
+
+		return false
+	}
+
+	private func getIfUnexpected(oracleResult: String) -> Bool {
+		if oracleResult.contains("unexpectedly") || oracleResult.contains("unexpectedly") { return true }
+		return false
+	}
+
+
+}
+
+struct CRGEOracleResult {
+	var surge: Int
+	var answer: String
+	var unexpected: CRGE_UNEXPECTEDLY
+	var unexpectedDescription: String
+}
+
+
+enum CRGE_STAGE: Int {
+	case KNOWLEDGE = 0
+	case CONFLICT = 1
+	case ENDINGS = 2
+
+	static func getStageString(_ rank: CRGE_STAGE) -> String {
+		switch rank {
+			case .KNOWLEDGE: return "To Knowledge..."
+			case .CONFLICT: return "To Conflict..."
+			case .ENDINGS: return "To Endings..."
+		}
+	}
 }
 
 enum CRGE_TO_KNOWLEDGE: String, RPG_TABLE {
@@ -115,35 +216,32 @@ enum CRGE_TO_ENDINGS: String, RPG_TABLE {
 
 
 enum CRGE_UNEXPECTEDLY: String, RPG_TABLE {
-
-
-
 	typealias Result = CRGE_UNEXPECTEDLY
 
 	static var MIN: Int = 1
 	static var MAX: Int = 17
 
-	case FORESHADOWING
-	case TYING_OFF
-	case TO_CONFLICT
-	case COSTUME_CHANGE
-	case KEY_GRIP
-	case TO_KNOWLEDGE
-	case FRAMING
-	case SET_CHANGE
-	case UPSTAGED
-	case PATTERN_CHANGE
-	case LIMELIT
-	case ENTERING_THE_RED
-	case TO_ENDINGS
-	case MONTAGE
-	case ENTER_STAGE_LEFT
-	case CROSS_STITCH
-	case SIX_DEGREES
+	case FORESHADOWING = "Foreshadowing..."
+	case TYING_OFF = "Tying off..."
+	case TO_CONFLICT = "To conflict..."
+	case COSTUME_CHANGE = "Costume Change..."
+	case KEY_GRIP = "Key grip..."
+	case TO_KNOWLEDGE = "To knowledge..."
+	case FRAMING = "Framing..."
+	case SET_CHANGE = "Set change..."
+	case UPSTAGED = "Upstaged..."
+	case PATTERN_CHANGE = "Pattern change..."
+	case LIMELIT = "Limelit..."
+	case ENTERING_THE_RED = "Entering the Red..."
+	case TO_ENDINGS = "To endings..."
+	case MONTAGE = "Montage..."
+	case ENTER_STAGE_LEFT = "Enter stage left..."
+	case CROSS_STITCH = "Cross Stitch..."
+	case SIX_DEGREES = "Six degrees..."
 	case RE_ROLL_RESERVERED_1
 	case RE_ROLL_RESERVERED_2
 	case RE_ROLL_RESERVERED_3
-	case NONE
+	case NONE = "None"
 
 	static func getElementBy(value: Int) -> CRGE_UNEXPECTEDLY {
 		switch value {
@@ -169,6 +267,27 @@ enum CRGE_UNEXPECTEDLY: String, RPG_TABLE {
 		}
 	}
 
-
+	static func getDescription(situation: CRGE_UNEXPECTEDLY) -> String {
+		switch situation {
+			case FORESHADOWING: return "Set a thread to be the main thread for the next scene. The current scene should then start wrapping up and heading towards the next scene."
+			case TYING_OFF: return "The main thread resolves or substantially moves forward in this scene by narrative decree. This does not mean that the main thread cannot create follow-up threads."
+			case TO_CONFLICT: return "The next scene centers on a conflict of your choosing. Set the main elements of the next scene, and start heading toward them in this scene."
+			case COSTUME_CHANGE: return "An NPC drastically changes their mind, motivations, alliances, etc. for better or worse. This could be a big story reveal or a simple change of heart."
+			case KEY_GRIP: return "Set the location or general elements for the next scene. The current scene should then start wrapping up and heading towards the next scene."
+			case TO_KNOWLEDGE: return "The next scene centers on lore or investigation of your choosing. Set the main elements of the next scene, and start heading toward them in this scene."
+			case FRAMING: return "An NPC (new or pre-existing) or object becomes critical to the main thread."
+			case SET_CHANGE: return "Scene continues in another location. The current thread remains as much as makes sense."
+			case UPSTAGED: return "An NPC makes a big move. If the NPC has any motivations, plot vectors, or goals they go into overdrive."
+			case PATTERN_CHANGE: return "The main thread gets modified, drastically. Whatever direction the main thread was heading, make a hard left. Use a generator, such as Rory’s Story Cubes, tarot cards or a random Wikipedia page, as necessary."
+			case LIMELIT: return "The rest of the scene goes great for the PC’s. Assume that the majority of the questions pertaining to the main thread with regard to the scene are answered in a way that benefits the PC’s."
+			case ENTERING_THE_RED: return "Threat of danger or combat arrives. The premise of the scene gets more dangerous in a way that forces the PC’s to respond by leaving, fighting, or taking their chances."
+			case TO_ENDINGS: return "The next scene resolves or substantially moves forward a thread of your choosing. Set the main elements of the next scene, and start heading toward them in this scene."
+			case MONTAGE: return "The timeframe of the scene changes to a montage of actions set across various scenes to move forward."
+			case ENTER_STAGE_LEFT: return "A PC or NPC (new or pre-existing) arrives fresh in the scene."
+			case CROSS_STITCH: return "Choose another thread to be the main thread for the rest of the scene."
+			case SIX_DEGREES: return "A meaningful, but not always positive, connection forms between two PC’s and/or NPC’s."
+			default: return "NONE"
+		}
+	}
 
 }
