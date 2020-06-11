@@ -23,7 +23,7 @@ class FateDie: Die {
 	// MARK: - Init
 
 	init() {
-		os_log(.default, log: logger, "Creating Fate Die")
+//		os_log(.default, log: logger, "Creating Fate Die")
 		super.init(maxPips: 1)
 		self.minPips = -1
 	}
@@ -42,7 +42,7 @@ class FateDice {
 	var fateDie4 = FateDie()
 
 	func roll() -> Int {
-		os_log(.default, log: FateDice.logger, "Performing FateDice roll.")
+//		os_log(.default, log: FateDice.logger, "Performing FateDice roll.")
 		let result1 = fateDie1.roll()
 		let result2 = fateDie2.roll()
 		let result3 = fateDie3.roll()

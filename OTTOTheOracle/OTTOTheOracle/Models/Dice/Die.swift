@@ -27,14 +27,14 @@ class Die {
 	// MARK: - Init
 
 	init(maxPips: Int) {
-		os_log(.default, log: logger, "Creating Die with %d pips.", maxPips)
+//		os_log(.default, log: logger, "Creating Die with %d pips.", maxPips)
 		self.maxPips = maxPips
 	}
 
 	// MARK: Class Methods
 
 	func roll() -> Int {
-		os_log(.default, log: logger, "Rolling %d Die", maxPips)
+//		os_log(.default, log: logger, "Rolling %d Die", maxPips)
 		var SRNG = SystemRandomNumberGenerator()
 		return Int.random(in: minPips...maxPips, using: &SRNG)
 	}

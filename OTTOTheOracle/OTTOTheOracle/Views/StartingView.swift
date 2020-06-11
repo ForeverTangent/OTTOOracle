@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import os
 
 struct StartingView: View {
 	@EnvironmentObject var oracleManager: OracleViewModel
@@ -17,7 +18,7 @@ struct StartingView: View {
 				ShowSimpleOraclesNavButton()
 				ShowAdvancedOraclesNavButton()
 			}.frame(height: 250.0)
-				.navigationBarTitle("Advanced Oracles", displayMode: .inline)
+				.navigationBarTitle("GM Oracles", displayMode: .inline)
 		}.environmentObject(oracleManager)
 	}
 }

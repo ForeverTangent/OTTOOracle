@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UNEOracleModel {
+class UNEGeneratorModel {
 	
 }
 

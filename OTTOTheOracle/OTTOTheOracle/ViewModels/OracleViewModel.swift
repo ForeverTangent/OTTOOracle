@@ -17,7 +17,7 @@ class OracleViewModel: ObservableObject {
 	// MARK: - Properties
 
 	private static let subsystem = Bundle.main.bundleIdentifier!
-	private static let catagory = "OracleManager"
+	private static let catagory = "OracleViewModel"
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
 
@@ -82,7 +82,7 @@ class OracleViewModel: ObservableObject {
 	}
 
 	func getMythicOracleResult(difficulty: MYTHIC_FATE_RANK, chaosFactor: Int) {
-		print("Drawing advanced Mythic card")
+		os_log(.default, log: logger, "Drawing advanced Mythic card")
 
 		if let mythicOracleResultCard = mythicOracleModel.getMythicOracleResultFor(difficulty, atChaosFactor: chaosFactor) {
 			currentMythicCardViewModel = MythicCardViewModel(mythicCard: mythicOracleResultCard)

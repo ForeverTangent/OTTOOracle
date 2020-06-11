@@ -15,6 +15,7 @@ struct AdvancedOraclesView: View {
 		VStack(spacing: 50.0) {
 			ShowAdvMythicCardNavButton()
 			ShowFateOracleNavButton()
+			ShowCypherOracleNavButton()
 		}.frame(height: 250.0)
 			.navigationBarTitle("Advanced Oracles", displayMode: .inline)
 	}

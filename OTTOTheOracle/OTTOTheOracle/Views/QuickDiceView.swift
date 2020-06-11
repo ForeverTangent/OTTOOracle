@@ -17,7 +17,6 @@ struct QuickDiceView: View {
 			.environmentObject(diceSquareViewModel)
 				.scaleEffect(2.0)
 			Button("Reroll") {
-				print("Reroll")
 				self.diceSquareViewModel.getNewRolls()
 			}
 			.foregroundColor(.blue)

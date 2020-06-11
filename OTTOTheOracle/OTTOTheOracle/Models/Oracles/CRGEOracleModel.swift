@@ -12,7 +12,6 @@ class CRGEOracleModel {
 	var surge: Int = 0
 }
 
-
 enum CRGE_TO_KNOWLEDGE: String, RPG_TABLE {
 
 	typealias Result = CRGE_TO_KNOWLEDGE

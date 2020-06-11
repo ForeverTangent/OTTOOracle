@@ -11,7 +11,7 @@ import Foundation
 /**
 SWWC - Savage World's Wildcard Creator
 */
-class SWWCOracleModel {
+class SWWCGeneratorModel {
 
 }
 

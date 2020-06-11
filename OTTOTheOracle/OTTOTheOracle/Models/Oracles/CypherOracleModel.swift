@@ -14,12 +14,13 @@ class CypherOracleModel {
 
 	var adventureStatus: CYPHER_ADVENTURE_STATUS = .AVERAGE
 
-	func getOracleResultFor(cypherDifficulty: CYPHER_GM_CONSULT) -> CypherResult {
+	func getOracleResultFor(adventureStatus: CYPHER_ADVENTURE_STATUS, gmConsult: CYPHER_GM_CONSULT) -> CypherResult {
+		
 		let oracleRoll = d20.roll()
 		let developerRoll = d20.roll()
 
-		let oracleAnswer: CYPHER_ANSWER = oracleRoll >= cypherDifficulty.rawValue ? .YES : .NO
-		let oracleModifierAnswer: CYPHER_ANSWER = developerRoll < adventureStatus.rawValue ? .YES : .NO
+		let oracleAnswer: CYPHER_ANSWER = oracleRoll >= (gmConsult.rawValue * 3) ? .YES : .NO
+		let oracleModifierAnswer: CYPHER_ANSWER = developerRoll < (adventureStatus.rawValue * 3) ? .YES : .NO
 
 		if oracleModifierAnswer == .YES {
 			return CypherResult(oracleAnswer: oracleAnswer, developer: CYPHER_DEVELOPER.randomWeightedElement())
@@ -43,23 +44,47 @@ enum CYPHER_ANSWER: String {
 
 
 enum CYPHER_ADVENTURE_STATUS: Int, CaseIterable {
-	case SOLID = 3
-	case STABLE = 6
-	case AVERAGE = 9
-	case UNSTABLE = 12
-	case INSANE = 15
-	case CHAOS = 18
+	case SOLID = 1
+	case STABLE = 2
+	case AVERAGE = 3
+	case UNSTABLE = 4
+	case INSANE = 5
+	case CHAOS = 6
 	case NONE = 0
+
+	static func getStatusString(_ rank: CYPHER_ADVENTURE_STATUS) -> String {
+		switch rank {
+			case .SOLID: return "SOLID"
+			case .STABLE: return "STABLE"
+			case .AVERAGE: return "AVERAGE"
+			case .UNSTABLE: return "UNSTABLE"
+			case .INSANE: return "INSANE"
+			case .CHAOS: return "CHAOS"
+			case .NONE: return "NONE"
+		}
+	}
 }
 
 enum CYPHER_GM_CONSULT: Int, CaseIterable {
-	case VERY_LIKELY = 3
-	case LIKELY = 6
-	case AVERAGE = 9
-	case UNLIKELY = 12
-	case VERY_UNLIKELY = 15
-	case IMPROBABLE = 18
+	case VERY_LIKELY = 1
+	case LIKELY = 2
+	case AVERAGE = 3
+	case UNLIKELY = 4
+	case VERY_UNLIKELY = 5
+	case IMPROBABLE = 6
 	case NONE = 0
+
+	static func getConsultString(_ rank: CYPHER_GM_CONSULT) -> String {
+		switch rank {
+			case .VERY_LIKELY: return "VERY_LIKELY"
+			case .LIKELY: return "LIKELY"
+			case .AVERAGE: return "AVERAGE"
+			case .UNLIKELY: return "UNLIKELY"
+			case .VERY_UNLIKELY: return "VERY_UNLIKELY"
+			case .IMPROBABLE: return "IMPROBABLE"
+			case .NONE: return "NONE"
+		}
+	}
 }
 
 enum CYPHER_DEVELOPER: String, RPG_TABLE {

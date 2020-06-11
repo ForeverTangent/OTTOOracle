@@ -69,18 +69,17 @@ class MythicOracleModel {
 	- Returns: MythicCard?
 	*/
 	func drawMythicCard() -> MythicCard? {
-		print("Drawing a Mythic card")
+		os_log(.default, log: logger, "Drawing a Mythic card")
 				guard
 			let theMythicDeck = mythicDeck,
 			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
-				print("Returned")
+				os_log(.default, log: logger, "No Mythic card drawn")
 				return nil
 		}
-		print("Got a Mythic card")
+		os_log(.default, log: logger, "Got a Mythic card")
 		firstDrawnCard.forward = Bool.random()
 
-		print("Drew card: \(firstDrawnCard.cardFile)")
-
+		os_log(.default, log: logger, "Drew card: %s", firstDrawnCard.cardFile)
 		return firstDrawnCard
 	}
 
@@ -90,17 +89,17 @@ class MythicOracleModel {
 	- Returns: MythicCard?
 	*/
 	func drawMythicCardAndSetForward(_ forward: Bool) -> MythicCard? {
-		print("Drawing a Mythic card")
+		os_log(.default, log: logger, "Drawing a Mythic card")
 		guard
 			let theMythicDeck = mythicDeck,
 			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
-				print("Returned")
+				os_log(.default, log: logger, "No Mythic card drawn")
 				return nil
 		}
-		print("Got a Mythic card")
+		os_log(.default, log: logger, "Got a Mythic card")
 		firstDrawnCard.forward = forward
 
-		print("Drew card: \(firstDrawnCard.cardFile)")
+		os_log(.default, log: logger, "Drew card: %s", firstDrawnCard.cardFile)
 
 		return firstDrawnCard
 
@@ -154,8 +153,7 @@ class MythicOracleModel {
 		var numberOfCardsToDraw = mythicFateRank.draw + chaosDrawAdjustment
 		numberOfCardsToDraw = numberOfCardsToDraw < 1 ? 1 : numberOfCardsToDraw
 
-		print("numberOfCardsToDraw: \(numberOfCardsToDraw)")
-
+		os_log(.default, log: logger, "numberOfCardsToDraw: %d", numberOfCardsToDraw)
 
 		if numberOfCardsToDraw > 1 {
 			var theBools = [Bool]()
