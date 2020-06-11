@@ -21,13 +21,12 @@ class OracleViewModel: ObservableObject {
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
 
+	private var mythicOracleModel = MythicOracleModel()
 	private var oracleModel = OracleModel()
 
 	private var currentMythicCard = MythicCard()
 	private var currentGMACard = GMACard()
 
-	// Mythic
-	@Published var chaosFactor: Int = 5
 
 	// CRGE
 	@Published var surgeFactor: Int = 5
@@ -50,35 +49,54 @@ class OracleViewModel: ObservableObject {
 
 	// MARK: - Class Methods
 
-	
+	/**
+	Draws a Mythic Card for the View Model
+	*/
 	func drawMythicCard() {
-		print("Drawing a Mythic card")
-				guard
-			let theMythicDeck = oracleModel.mythicDeck,
-			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
-				print("Returned")
-				return
-		}
-		print("Got a Mythic card")
-		firstDrawnCard.forward = Bool.random()
-		print("Drew card: \(firstDrawnCard.cardFile)")
-		currentMythicCard = firstDrawnCard
-		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
+		guard let theMythicCard = mythicOracleModel.drawMythicCard() else { return }
+		currentMythicCardViewModel = MythicCardViewModel(mythicCard: theMythicCard)
+
+//		print("Drawing a Mythic card")
+//				guard
+//			let theMythicDeck = oracleModel.mythicDeck,
+//			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
+//				print("Returned")
+//				return
+//		}
+//		print("Got a Mythic card")
+//		firstDrawnCard.forward = Bool.random()
+//		print("Drew card: \(firstDrawnCard.cardFile)")
+//		currentMythicCard = firstDrawnCard
+//		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
 	}
 
-	func drawMythicCardAndSetForward(_ forward: Bool) {
-		print("Drawing a Mythic card")
-		guard
-			let theMythicDeck = oracleModel.mythicDeck,
-			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
-				print("Returned")
-				return
+//	func drawMythicCardAndSetForward(_ forward: Bool) {
+//		print("Drawing a Mythic card")
+//		guard
+//			let theMythicDeck = oracleModel.mythicDeck,
+//			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
+//				print("Returned")
+//				return
+//		}
+//		print("Got a Mythic card")
+//		firstDrawnCard.forward = forward
+//		print("Drew card: \(firstDrawnCard.cardFile)")
+//		currentMythicCard = firstDrawnCard
+//		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
+//	}
+
+	func drawMythicCardIndex(_ index: Int, forward: Bool = true) {
+		if let indexedMythicCard = mythicOracleModel.drawMythicCardIndex(index, forward: forward) {
+			currentMythicCardViewModel = MythicCardViewModel(mythicCard: indexedMythicCard)
 		}
-		print("Got a Mythic card")
-		firstDrawnCard.forward = forward
-		print("Drew card: \(firstDrawnCard.cardFile)")
-		currentMythicCard = firstDrawnCard
-		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
+//		guard
+//			let theMythicDeck = oracleModel.mythicDeck,
+//			index < theMythicDeck.cards.count else {
+//				return
+//		}
+//		currentMythicCard = theMythicDeck.cards[index]
+//		currentMythicCard.forward = forward
+//		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
 	}
 
 
@@ -95,16 +113,6 @@ class OracleViewModel: ObservableObject {
 		getNewDiceSquareRoll()
 	}
 
-	func drawMythicCardIndex(_ index: Int, forward: Bool = true) {
-		guard
-			let theMythicDeck = oracleModel.mythicDeck,
-			index < theMythicDeck.cards.count else {
-				return
-		}
-		currentMythicCard = theMythicDeck.cards[index]
-		currentMythicCard.forward = forward
-		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
-	}
 
 	func drawGMACardIndex(_ index: Int) {
 		guard
@@ -117,16 +125,16 @@ class OracleViewModel: ObservableObject {
 	}
 
 	func getNewDiceSquareRoll() {
-		print("retrollling")
+		print("rerollling")
 		diceSquareViewModel.getNewRolls()
 	}
 
 	func getMythicOracleResult(difficulty: MYTHIC_FATE_RANK, chaosFactor: Int) {
 		print("Drawing advanced Mythic card")
 
-		let mythicOracleResult = oracleModel.getMythicOracleResultFor(difficulty, atChaosFactor: chaosFactor)
-		drawMythicCardAndSetForward(mythicOracleResult)
-
+		if let mythicOracleResultCard = mythicOracleModel.getMythicOracleResultFor(difficulty, atChaosFactor: chaosFactor) {
+			currentMythicCardViewModel = MythicCardViewModel(mythicCard: mythicOracleResultCard)
+		}
 	}
 
 }

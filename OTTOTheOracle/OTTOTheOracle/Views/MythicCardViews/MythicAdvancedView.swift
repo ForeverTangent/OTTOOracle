@@ -31,7 +31,6 @@ struct MythicAdvancedView: View {
 				Button("Calculate") {
 					print("Calculate")
 					guard let mythicRank = MYTHIC_FATE_RANK.init(rawValue: Int(self.difficulty)) else  { return }
-					print(mythicRank)
 					self.oracleViewModel.getMythicOracleResult(difficulty: mythicRank, chaosFactor: Int(self.chaosFactor))
 				}
 				.foregroundColor(.blue)

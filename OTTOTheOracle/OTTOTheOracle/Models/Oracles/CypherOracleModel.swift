@@ -9,27 +9,57 @@
 import Foundation
 
 
-struct CypherOracleModel {
-	var result: String
-	var twist: String
+class CypherOracleModel {
+	var d20 = Die(maxPips: 20)
+
+	var adventureStatus: CYPHER_ADVENTURE_STATUS = .AVERAGE
+
+	func getOracleResultFor(cypherDifficulty: CYPHER_GM_CONSULT) -> CypherResult {
+		let oracleRoll = d20.roll()
+		let developerRoll = d20.roll()
+
+		let oracleAnswer: CYPHER_ANSWER = oracleRoll >= cypherDifficulty.rawValue ? .YES : .NO
+		let oracleModifierAnswer: CYPHER_ANSWER = developerRoll < adventureStatus.rawValue ? .YES : .NO
+
+		if oracleModifierAnswer == .YES {
+			return CypherResult(oracleAnswer: oracleAnswer, developer: CYPHER_DEVELOPER.randomWeightedElement())
+		}
+
+		return CypherResult(oracleAnswer: oracleAnswer, developer: .NONE)
+	}
 }
 
+
+struct CypherResult {
+	var oracleAnswer: CYPHER_ANSWER
+	var developer: CYPHER_DEVELOPER
+}
+
+
+enum CYPHER_ANSWER: String {
+	case YES
+	case NO
+}
+
+
 enum CYPHER_ADVENTURE_STATUS: Int, CaseIterable {
-	case SOLID = 1
-	case STABLE = 2
-	case AVERAGE = 3
-	case UNSTABLE = 4
-	case INSANE = 5
-	case CHAOS = 6
+	case SOLID = 3
+	case STABLE = 6
+	case AVERAGE = 9
+	case UNSTABLE = 12
+	case INSANE = 15
+	case CHAOS = 18
+	case NONE = 0
 }
 
 enum CYPHER_GM_CONSULT: Int, CaseIterable {
-	case VERY_LIKELY = 1
-	case LIKELY = 2
-	case AVERAGE = 3
-	case UNLIKELY = 4
-	case VERY_UNLIKELY = 5
-	case IMPROBABLE = 6
+	case VERY_LIKELY = 3
+	case LIKELY = 6
+	case AVERAGE = 9
+	case UNLIKELY = 12
+	case VERY_UNLIKELY = 15
+	case IMPROBABLE = 18
+	case NONE = 0
 }
 
 enum CYPHER_DEVELOPER: String, RPG_TABLE {

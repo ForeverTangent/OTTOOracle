@@ -53,6 +53,16 @@ class Deck<T: Comparable> {
 
 
 	/**
+	Sorts and get the specific card.
+	*/
+	func getCardIndex(_ index: Int) -> T? {
+		guard index < cards.count else { return nil }
+		sortDeck()
+		return cards[index]
+	}
+
+
+	/**
 	Sorts the deck.
 	*/
 	func sortDeck() {

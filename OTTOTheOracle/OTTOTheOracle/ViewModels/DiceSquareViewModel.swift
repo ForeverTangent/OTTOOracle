@@ -42,7 +42,7 @@ class DiceSquareViewModel: ObservableObject {
 		getNewRolls()
 	}
 
-	func getNewRolls() {
+	public func getNewRolls() {
 		os_log(.default, log: logger, "Rolling new dice sqaure.")
 		d4 = "\(d4Die.roll())"
 		d6 = "\(d6Die.roll())"

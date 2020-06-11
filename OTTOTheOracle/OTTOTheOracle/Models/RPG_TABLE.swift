@@ -18,7 +18,7 @@ protocol RPG_TABLE: CaseIterable {
 	static func getElementBy(value: Int) -> Result
 	static func randomElement() -> Self
 	static func randomIntInRange() -> Int
-	static func randomWeightedElement() -> Result?
+	static func randomWeightedElement() -> Result
 }
 
 /**
@@ -46,7 +46,7 @@ extension RPG_TABLE {
 		return Self.allCases.randomElement(using: &SRNG)!
 	}
 
-	static func randomWeightedElement() -> Result? {
+	static func randomWeightedElement() -> Result {
 		let index = randomIntInRange()
 		return getElementBy(value: index)
 	}

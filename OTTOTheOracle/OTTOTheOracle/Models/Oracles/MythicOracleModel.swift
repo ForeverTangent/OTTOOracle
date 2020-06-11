@@ -9,12 +9,17 @@
 import Foundation
 import os
 
+
 class MythicOracleModel {
+
+	// MARK: - Propeties
 
 	private static let subsystem = Bundle.main.bundleIdentifier!
 	private static let catagory = "MythicOracleModel"
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
+
+	private var mythicDeck: Deck<MythicCard>?
 
 	var currentMythicChaosLevel: Int = 5
 	private let chaosFactorToDrawAdjustment: [Int: Int] = [
@@ -29,11 +34,120 @@ class MythicOracleModel {
 		9:2
 	]
 
-	func getOracleResultFor(mythicFateRank: MYTHIC_FATE_RANK) -> Bool {
+
+	// MARK: - Init
+
+	init() {
+		os_log(.default, log: logger, "Creating MythicOracleModel.")
+		mythicDeck = loadMYTHICDeck()
+	}
+
+
+	// MARK: - Class Methods
+
+	/**
+	Loads the MYTHIC JSON data.
+	- Returns: Deck<MYTHICCard>
+	*/
+	private func loadMYTHICDeck() -> Deck<MythicCard> {
+		os_log(.default, log: logger, "Loading Mythic Cards()")
+		let decoder = JSONDecoder()
+		guard
+			let path = Bundle.main.path(forResource:"MYTHIC_CARDS", ofType: "json"),
+			let data = FileManager.default.contents(atPath: path),
+			let mythicCards = try? decoder.decode([MythicCard].self, from: data) else {
+				fatalError("Can not get MYTHICCard json data")
+		}
+
+		return Deck(mythicCards)
+	}
+
+
+	/**
+	Shuffles and draws a mythic card.
+	- Parameter forwad: Bool
+	- Returns: MythicCard?
+	*/
+	func drawMythicCard() -> MythicCard? {
+		print("Drawing a Mythic card")
+				guard
+			let theMythicDeck = mythicDeck,
+			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
+				print("Returned")
+				return nil
+		}
+		print("Got a Mythic card")
+		firstDrawnCard.forward = Bool.random()
+
+		print("Drew card: \(firstDrawnCard.cardFile)")
+
+		return firstDrawnCard
+	}
+
+	/**
+	Shuffles and draws a mythic card and set if the card is forward or reversed.
+	- Parameter forwad: Bool
+	- Returns: MythicCard?
+	*/
+	func drawMythicCardAndSetForward(_ forward: Bool) -> MythicCard? {
+		print("Drawing a Mythic card")
+		guard
+			let theMythicDeck = mythicDeck,
+			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
+				print("Returned")
+				return nil
+		}
+		print("Got a Mythic card")
+		firstDrawnCard.forward = forward
+
+		print("Drew card: \(firstDrawnCard.cardFile)")
+
+		return firstDrawnCard
+
+	}
+
+	/**
+	Sorts the Deck and get a specific card at index.
+	*/
+	func drawMythicCardIndex(_ index: Int, forward: Bool = true) -> MythicCard? {
+		guard
+			let theMythicDeck = mythicDeck,
+			index < theMythicDeck.cards.count else {
+				return nil
+		}
+
+		theMythicDeck.sortDeck()
+		return theMythicDeck.cards[index]
+		
+	}
+
+
+	/**
+	Gets the Mythic Card Result for a given rank AND chaos factor.
+	- Parameter mythicFateRank: MYTHIC_FATE_RANK
+	- Parameter chaosFactor: Int = 0
+	- Returns: MythicCard?
+	*/
+	public func getMythicOracleResultFor(_ mythicFateRank: MYTHIC_FATE_RANK, atChaosFactor chaosFactor: Int = 0) -> MythicCard? {
+		if chaosFactor != 0 {
+			currentMythicChaosLevel = chaosFactor
+		}
+		let boolResult = getOracleResultFor(mythicFateRank: mythicFateRank)
+		return drawMythicCardAndSetForward(boolResult)
+	}
+
+
+	/**
+	Gets the Mythic Oracle Result for a given rank.
+	- Parameter mythicFateRank: MYTHIC_FATE_RANK
+	- Returns: MythicCard?
+	*/
+	private func getOracleResultFor(mythicFateRank: MYTHIC_FATE_RANK) -> Bool {
 		guard let chaosDrawAdjustment = chaosFactorToDrawAdjustment[currentMythicChaosLevel] else { return true }
 
 		let mythicFateRank = MYTHIC_FATE_RANK.getMythicRankStatsFor(mythicFateRank)
 
+		os_log(.default, log: logger, "Mythic Rank : %s", mythicFateRank.title)
 		os_log(.default, log: logger, "Rank draw: %d", mythicFateRank.draw)
 		os_log(.default, log: logger, "Chaos adjsutment: %d", chaosDrawAdjustment)
 

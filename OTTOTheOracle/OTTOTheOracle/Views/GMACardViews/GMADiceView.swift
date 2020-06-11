@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct GMADiceView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
-	
+	@ObservedObject var diceSquareViewModel = DiceSquareViewModel()
+
 	var body: some View {
 		HStack(alignment: .center) {
 			VStack(alignment: .center) {
@@ -19,10 +19,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d4)")
+					Text("\(diceSquareViewModel.d4)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Four"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d4)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d4)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {
@@ -30,10 +30,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d10)")
+					Text("\(diceSquareViewModel.d10)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Ten"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d10)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d10)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {
@@ -41,10 +41,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d20)")
+					Text("\(diceSquareViewModel.d20)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Twenty"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d20)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d20)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 			}
@@ -54,10 +54,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d6)")
+					Text("\(diceSquareViewModel.d6)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Six"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d6)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d6)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {
@@ -65,10 +65,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.fateResult)")
+					Text("\(diceSquareViewModel.fateResult)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("Fate Dice"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.fateResult)"))
+						.accessibility(value: Text("\(diceSquareViewModel.fateResult)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {
@@ -76,10 +76,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d10Tens)")
+					Text("\(diceSquareViewModel.d10Tens)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Ten Tens"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d10Tens)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d10Tens)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 			}
@@ -89,10 +89,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d8)")
+					Text("\(diceSquareViewModel.d8)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Eight"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d8)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d8)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {
@@ -100,10 +100,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d12)")
+					Text("\(diceSquareViewModel.d12)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Twelve"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d12)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d12)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 				VStack {
@@ -111,10 +111,10 @@ struct GMADiceView: View {
 						.font(.system(size:10))
 						.fontWeight(.thin)
 						.accessibility(hidden: true)
-					Text("\(oracleViewModel.diceSquareViewModel.d10Ones)")
+					Text("\(diceSquareViewModel.d10Ones)")
 						.fontWeight(.regular)
 						.accessibility(label: Text("D Ten Ones"))
-						.accessibility(value: Text("\(oracleViewModel.diceSquareViewModel.d10Ones)"))
+						.accessibility(value: Text("\(diceSquareViewModel.d10Ones)"))
 				}
 				.frame(width: 30.0, height: 30.0)
 			}
@@ -125,7 +125,7 @@ struct GMADiceView: View {
 
 struct GMADiceView_Previews: PreviewProvider {
 	static var previews: some View {
-		return GMADiceView().environmentObject(PreviewHelper.mockRollDiceSquare())
+		return GMADiceView(diceSquareViewModel: DiceSquareViewModel())
 	}
 
 }

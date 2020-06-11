@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct QuickDiceView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var diceSquareViewModel: DiceSquareViewModel
 
     var body: some View {
 		VStack(spacing: 50.0) {
 			GMADiceView()
-				.environmentObject(oracleViewModel)
+			.environmentObject(diceSquareViewModel)
 				.scaleEffect(2.0)
 			Button("Reroll") {
-				self.oracleViewModel.getNewDiceSquareRoll()
+				print("Reroll")
+				self.diceSquareViewModel.getNewRolls()
 			}
 			.foregroundColor(.blue)
 			.padding(75.0)
@@ -32,6 +33,6 @@ struct QuickDiceView: View {
 
 struct QuickDiceView_Previews: PreviewProvider {
     static var previews: some View {
-		QuickDiceView().environmentObject(OracleViewModel())
+		QuickDiceView(diceSquareViewModel: DiceSquareViewModel())
     }
 }

@@ -10,6 +10,7 @@
 		31180521249150D700C3812C /* MythicAdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31180520249150D700C3812C /* MythicAdvancedView.swift */; };
 		3118052324915B2600C3812C /* AdvancedOraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118052224915B2600C3812C /* AdvancedOraclesView.swift */; };
 		3118052524915B6400C3812C /* ShowAdvMythicCardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118052424915B6400C3812C /* ShowAdvMythicCardNavButton.swift */; };
+		311805292492646900C3812C /* GMAOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311805282492646900C3812C /* GMAOracleModel.swift */; };
 		312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F20162481B3E1000CEB9C /* AppDelegate.swift */; };
 		312F20192481B3E1000CEB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F20182481B3E1000CEB9C /* SceneDelegate.swift */; };
 		312F201B2481B3E1000CEB9C /* StartingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F201A2481B3E1000CEB9C /* StartingView.swift */; };
@@ -72,6 +73,7 @@
 		31180520249150D700C3812C /* MythicAdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicAdvancedView.swift; sourceTree = "<group>"; };
 		3118052224915B2600C3812C /* AdvancedOraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOraclesView.swift; sourceTree = "<group>"; };
 		3118052424915B6400C3812C /* ShowAdvMythicCardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAdvMythicCardNavButton.swift; sourceTree = "<group>"; };
+		311805282492646900C3812C /* GMAOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAOracleModel.swift; sourceTree = "<group>"; };
 		312F20132481B3E1000CEB9C /* OTTOTheOracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTTOTheOracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		312F20162481B3E1000CEB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		312F20182481B3E1000CEB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				316D8715248AB756000E03E0 /* MythicOracleModel.swift */,
+				311805282492646900C3812C /* GMAOracleModel.swift */,
 				316D8713248AB6F4000E03E0 /* FateOracleModel.swift */,
 				31E9B9EA248BE6BE007B4463 /* RPGSoloOracleModel.swift */,
 				3133B1A524901A55005FF8FD /* CypherOracleModel.swift */,
@@ -433,6 +436,7 @@
 				3173EE662491425100F646A3 /* ShowMythicCardNavButton.swift in Sources */,
 				316D87012487D31D000E03E0 /* MythicCardOnlyView.swift in Sources */,
 				3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */,
+				311805292492646900C3812C /* GMAOracleModel.swift in Sources */,
 				3133B19D24901901005FF8FD /* Card.swift in Sources */,
 				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
 				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,
