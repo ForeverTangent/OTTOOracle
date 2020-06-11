@@ -10,7 +10,6 @@ import SwiftUI
 
 struct GMAMainView: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
-	@Environment(\.presentationMode) var presentation
 
 	var body: some View {
 		ScrollView {

@@ -22,14 +22,14 @@ class OracleModel {
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
 
 //	var mythicDeck: Deck<MythicCard>?
-	var gmaDeck: Deck<GMACard>?
+//	var gmaDeck: Deck<GMACard>?
 
 	// MARK: - Init
 
 	init() {
 		os_log(.default, log: logger, "Creating OTTOKnowledge... Loading Cards")
 //		mythicDeck = loadMYTHICDeck()
-		gmaDeck = loadGMADeck()
+//		gmaDeck = loadGMADeck()
 	}
 
 
@@ -52,22 +52,22 @@ class OracleModel {
 //		return Deck(mythicCards)
 //	}
 
-	/**
-	Loads the CMA JSON data.
-	- Returns: Deck<GMACard>
-	*/
-	private func loadGMADeck() -> Deck<GMACard> {
-		os_log(.default, log: logger, "loadGMADeck()")
-		let decoder = JSONDecoder()
-		guard
-			let path = Bundle.main.path(forResource:"GMA_CARDS", ofType: "json"),
-			let data = FileManager.default.contents(atPath: path),
-			let gmaCards = try? decoder.decode([GMACard].self, from: data) else {
-				fatalError("Can not get GMACard json data")
-		}
-
-		return Deck(gmaCards)
-	}
+//	/**
+//	Loads the CMA JSON data.
+//	- Returns: Deck<GMACard>
+//	*/
+//	private func loadGMADeck() -> Deck<GMACard> {
+//		os_log(.default, log: logger, "loadGMADeck()")
+//		let decoder = JSONDecoder()
+//		guard
+//			let path = Bundle.main.path(forResource:"GMA_CARDS", ofType: "json"),
+//			let data = FileManager.default.contents(atPath: path),
+//			let gmaCards = try? decoder.decode([GMACard].self, from: data) else {
+//				fatalError("Can not get GMACard json data")
+//		}
+//
+//		return Deck(gmaCards)
+//	}
 
 //	/**
 //	

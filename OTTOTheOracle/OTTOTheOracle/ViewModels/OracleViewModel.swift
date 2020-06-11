@@ -22,6 +22,8 @@ class OracleViewModel: ObservableObject {
 	private let logger = OSLog(subsystem: subsystem, category: catagory)
 
 	private var mythicOracleModel = MythicOracleModel()
+	private var gmaOracleModel = GMAOracleModel()
+
 	private var oracleModel = OracleModel()
 
 	private var currentMythicCard = MythicCard()
@@ -55,73 +57,24 @@ class OracleViewModel: ObservableObject {
 	func drawMythicCard() {
 		guard let theMythicCard = mythicOracleModel.drawMythicCard() else { return }
 		currentMythicCardViewModel = MythicCardViewModel(mythicCard: theMythicCard)
-
-//		print("Drawing a Mythic card")
-//				guard
-//			let theMythicDeck = oracleModel.mythicDeck,
-//			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
-//				print("Returned")
-//				return
-//		}
-//		print("Got a Mythic card")
-//		firstDrawnCard.forward = Bool.random()
-//		print("Drew card: \(firstDrawnCard.cardFile)")
-//		currentMythicCard = firstDrawnCard
-//		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
 	}
-
-//	func drawMythicCardAndSetForward(_ forward: Bool) {
-//		print("Drawing a Mythic card")
-//		guard
-//			let theMythicDeck = oracleModel.mythicDeck,
-//			var firstDrawnCard = theMythicDeck.draw(fromTimesShuffled: 1).first else {
-//				print("Returned")
-//				return
-//		}
-//		print("Got a Mythic card")
-//		firstDrawnCard.forward = forward
-//		print("Drew card: \(firstDrawnCard.cardFile)")
-//		currentMythicCard = firstDrawnCard
-//		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
-//	}
 
 	func drawMythicCardIndex(_ index: Int, forward: Bool = true) {
 		if let indexedMythicCard = mythicOracleModel.drawMythicCardIndex(index, forward: forward) {
 			currentMythicCardViewModel = MythicCardViewModel(mythicCard: indexedMythicCard)
 		}
-//		guard
-//			let theMythicDeck = oracleModel.mythicDeck,
-//			index < theMythicDeck.cards.count else {
-//				return
-//		}
-//		currentMythicCard = theMythicDeck.cards[index]
-//		currentMythicCard.forward = forward
-//		currentMythicCardViewModel = MythicCardViewModel(mythicCard: currentMythicCard)
 	}
 
-
 	func drawGMACard() {
-		guard
-			let theGMADeck = oracleModel.gmaDeck,
-			let firstDrawnCard = theGMADeck.draw(fromTimesShuffled: 1).first else {
-				return
-		}
+		guard let theGMACard = gmaOracleModel.drawACard() else { return }
 		print("Got a GMA card")
-		print("Drew card: \(firstDrawnCard.cardFile)")
-		currentGMACard = firstDrawnCard
-		currentGMACardViewModel = GMACardViewModel(gmaCard: currentGMACard)
+		currentGMACardViewModel = GMACardViewModel(gmaCard: theGMACard)
 		getNewDiceSquareRoll()
 	}
 
-
-	func drawGMACardIndex(_ index: Int) {
-		guard
-			let theGMADeck = oracleModel.gmaDeck,
-			index < theGMADeck.cards.count else {
-				return
-		}
-		currentGMACard = theGMADeck.cards[index]
-		currentGMACardViewModel = GMACardViewModel(gmaCard: currentGMACard)
+	func drawGMACardAtIndex(_ index: Int) {
+		guard let theGMACard = gmaOracleModel.drawGMACardByIndex(index) else { return }
+		currentGMACardViewModel = GMACardViewModel(gmaCard: theGMACard)
 	}
 
 	func getNewDiceSquareRoll() {

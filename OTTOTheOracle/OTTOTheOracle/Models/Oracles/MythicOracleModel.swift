@@ -39,7 +39,7 @@ class MythicOracleModel {
 
 	init() {
 		os_log(.default, log: logger, "Creating MythicOracleModel.")
-		mythicDeck = loadMYTHICDeck()
+		self.mythicDeck = loadMYTHICDeck()
 	}
 
 

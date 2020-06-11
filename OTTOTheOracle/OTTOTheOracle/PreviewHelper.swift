@@ -30,7 +30,7 @@ class PreviewHelper {
 
 	static func mockOracleWithSortedDeckUseCardIndex(_ index: Int = 0) -> OracleViewModel {
 		let oracleViewModel = OracleViewModel()
-		oracleViewModel.drawGMACardIndex(index)
+		oracleViewModel.drawGMACardAtIndex(index)
 		oracleViewModel.drawMythicCardIndex(index, forward: true)
 		return oracleViewModel
 	}
