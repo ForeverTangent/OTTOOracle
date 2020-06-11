@@ -13,7 +13,8 @@ struct SimpleOraclesView: View {
 
 	var body: some View {
 		VStack(spacing: 50.0) {
-			RPGSoloOracleNavButton()
+			ShowQuickDiceViewNavButton()
+			ShowRPGSoloOracleNavButton()
 			ShowMythicCardNavButton()
 			ShowGMACardNavButton()
 		}.frame(height: 250.0)

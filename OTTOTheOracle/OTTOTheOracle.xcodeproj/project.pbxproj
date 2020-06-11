@@ -28,6 +28,11 @@
 		3133B1AC24901C0D005FF8FD /* SWWCOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1AB24901C0D005FF8FD /* SWWCOracleModel.swift */; };
 		3133B1CA249047FE005FF8FD /* MythicSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */; };
 		3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1CB24904871005FF8FD /* GMAMainView.swift */; };
+		314F83F324927DE80061C1EA /* ShowQuickDiceViewNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F224927DE80061C1EA /* ShowQuickDiceViewNavButton.swift */; };
+		314F83F524927F180061C1EA /* FateOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F424927F180061C1EA /* FateOracleModel.swift */; };
+		314F83F7249285330061C1EA /* FateOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F6249285330061C1EA /* FateOracleView.swift */; };
+		314F83F92492AC0B0061C1EA /* FateOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F82492AC0B0061C1EA /* FateOracleViewModel.swift */; };
+		314F83FB2492B2810061C1EA /* ShowFateOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83FA2492B2810061C1EA /* ShowFateOracleNavButton.swift */; };
 		3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */; };
 		3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E4922483335300DCCC76 /* GMADiceView.swift */; };
 		316D87012487D31D000E03E0 /* MythicCardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D87002487D31D000E03E0 /* MythicCardOnlyView.swift */; };
@@ -37,15 +42,14 @@
 		316D870A24886E8A000E03E0 /* MythicMidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870924886E8A000E03E0 /* MythicMidView.swift */; };
 		316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870B24887188000E03E0 /* MythicBottomView.swift */; };
 		316D871024895889000E03E0 /* View+isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870F24895889000E03E0 /* View+isHidden.swift */; };
-		316D8714248AB6F4000E03E0 /* FateOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8713248AB6F4000E03E0 /* FateOracleModel.swift */; };
 		316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8715248AB756000E03E0 /* MythicOracleModel.swift */; };
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
 		3173EE592491265E00F646A3 /* PETOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE582491265E00F646A3 /* PETOracleModel.swift */; };
 		3173EE5B24912CD300F646A3 /* OTTOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5A24912CD300F646A3 /* OTTOButton.swift */; };
 		3173EE5D2491340D00F646A3 /* SimpleOraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */; };
-		3173EE602491360F00F646A3 /* SimpleOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5F2491360F00F646A3 /* SimpleOraclesNavButton.swift */; };
-		3173EE622491365C00F646A3 /* AdvancedOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE612491365C00F646A3 /* AdvancedOraclesNavButton.swift */; };
-		3173EE64249136B600F646A3 /* RPGSoloOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE63249136B600F646A3 /* RPGSoloOracleNavButton.swift */; };
+		3173EE602491360F00F646A3 /* ShowSimpleOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */; };
+		3173EE622491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE612491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift */; };
+		3173EE64249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE63249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift */; };
 		3173EE662491425100F646A3 /* ShowMythicCardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */; };
 		3173EE682491428700F646A3 /* ShowGMACardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */; };
 		3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE69249143C900F646A3 /* QuickDiceView.swift */; };
@@ -93,6 +97,11 @@
 		3133B1AB24901C0D005FF8FD /* SWWCOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWWCOracleModel.swift; sourceTree = "<group>"; };
 		3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicSimpleView.swift; sourceTree = "<group>"; };
 		3133B1CB24904871005FF8FD /* GMAMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAMainView.swift; sourceTree = "<group>"; };
+		314F83F224927DE80061C1EA /* ShowQuickDiceViewNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQuickDiceViewNavButton.swift; sourceTree = "<group>"; };
+		314F83F424927F180061C1EA /* FateOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleModel.swift; sourceTree = "<group>"; };
+		314F83F6249285330061C1EA /* FateOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleView.swift; sourceTree = "<group>"; };
+		314F83F82492AC0B0061C1EA /* FateOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleViewModel.swift; sourceTree = "<group>"; };
+		314F83FA2492B2810061C1EA /* ShowFateOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFateOracleNavButton.swift; sourceTree = "<group>"; };
 		3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleViewModel.swift; sourceTree = "<group>"; };
 		3168E4922483335300DCCC76 /* GMADiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADiceView.swift; sourceTree = "<group>"; };
 		316D87002487D31D000E03E0 /* MythicCardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCardOnlyView.swift; sourceTree = "<group>"; };
@@ -102,15 +111,14 @@
 		316D870924886E8A000E03E0 /* MythicMidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicMidView.swift; sourceTree = "<group>"; };
 		316D870B24887188000E03E0 /* MythicBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicBottomView.swift; sourceTree = "<group>"; };
 		316D870F24895889000E03E0 /* View+isHidden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+isHidden.swift"; sourceTree = "<group>"; };
-		316D8713248AB6F4000E03E0 /* FateOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleModel.swift; sourceTree = "<group>"; };
 		316D8715248AB756000E03E0 /* MythicOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicOracleModel.swift; sourceTree = "<group>"; };
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		3173EE582491265E00F646A3 /* PETOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETOracleModel.swift; sourceTree = "<group>"; };
 		3173EE5A24912CD300F646A3 /* OTTOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOButton.swift; sourceTree = "<group>"; };
 		3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleOraclesView.swift; sourceTree = "<group>"; };
-		3173EE5F2491360F00F646A3 /* SimpleOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleOraclesNavButton.swift; sourceTree = "<group>"; };
-		3173EE612491365C00F646A3 /* AdvancedOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOraclesNavButton.swift; sourceTree = "<group>"; };
-		3173EE63249136B600F646A3 /* RPGSoloOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGSoloOracleNavButton.swift; sourceTree = "<group>"; };
+		3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSimpleOraclesNavButton.swift; sourceTree = "<group>"; };
+		3173EE612491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAdvancedOraclesNavButton.swift; sourceTree = "<group>"; };
+		3173EE63249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRPGSoloOracleNavButton.swift; sourceTree = "<group>"; };
 		3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMythicCardNavButton.swift; sourceTree = "<group>"; };
 		3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGMACardNavButton.swift; sourceTree = "<group>"; };
 		3173EE69249143C900F646A3 /* QuickDiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDiceView.swift; sourceTree = "<group>"; };
@@ -215,7 +223,7 @@
 			children = (
 				316D8715248AB756000E03E0 /* MythicOracleModel.swift */,
 				311805282492646900C3812C /* GMAOracleModel.swift */,
-				316D8713248AB6F4000E03E0 /* FateOracleModel.swift */,
+				314F83F424927F180061C1EA /* FateOracleModel.swift */,
 				31E9B9EA248BE6BE007B4463 /* RPGSoloOracleModel.swift */,
 				3133B1A524901A55005FF8FD /* CypherOracleModel.swift */,
 				3133B1A724901B53005FF8FD /* CRGEOracleModel.swift */,
@@ -254,12 +262,14 @@
 		3173EE5E249135E700F646A3 /* Navigation_Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				3173EE5F2491360F00F646A3 /* SimpleOraclesNavButton.swift */,
-				3173EE612491365C00F646A3 /* AdvancedOraclesNavButton.swift */,
-				3173EE63249136B600F646A3 /* RPGSoloOracleNavButton.swift */,
+				3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */,
+				3173EE612491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift */,
+				3173EE63249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift */,
 				3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */,
 				3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */,
 				3118052424915B6400C3812C /* ShowAdvMythicCardNavButton.swift */,
+				314F83F224927DE80061C1EA /* ShowQuickDiceViewNavButton.swift */,
+				314F83FA2492B2810061C1EA /* ShowFateOracleNavButton.swift */,
 			);
 			path = Navigation_Buttons;
 			sourceTree = "<group>";
@@ -295,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */,
+				314F83F82492AC0B0061C1EA /* FateOracleViewModel.swift */,
 				316D87022487D900000E03E0 /* GMACardViewModel.swift */,
 				316D87042487E91D000E03E0 /* MythicCardViewModel.swift */,
 				3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */,
@@ -315,6 +326,7 @@
 				316D870624886B87000E03E0 /* MythicCardViews */,
 				31BE22A82484401800E21C00 /* GMACardViews */,
 				31C6BC1F248F107100494CD7 /* TextPopUpView.swift */,
+				314F83F6249285330061C1EA /* FateOracleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,33 +409,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314F83FB2492B2810061C1EA /* ShowFateOracleNavButton.swift in Sources */,
 				3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */,
 				31E9B9EB248BE6BE007B4463 /* RPGSoloOracleModel.swift in Sources */,
 				3173EE682491428700F646A3 /* ShowGMACardNavButton.swift in Sources */,
 				31BE22952483DEE400E21C00 /* GMACard.swift in Sources */,
-				316D8714248AB6F4000E03E0 /* FateOracleModel.swift in Sources */,
 				3133B199249018B3005FF8FD /* Die.swift in Sources */,
 				3118052524915B6400C3812C /* ShowAdvMythicCardNavButton.swift in Sources */,
 				3133B1A624901A55005FF8FD /* CypherOracleModel.swift in Sources */,
 				316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */,
 				316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */,
 				31180521249150D700C3812C /* MythicAdvancedView.swift in Sources */,
+				314F83F92492AC0B0061C1EA /* FateOracleViewModel.swift in Sources */,
 				3133B1A324901959005FF8FD /* RPG_TABLE.swift in Sources */,
 				3133B1AA24901BB5005FF8FD /* UNEOracleModel.swift in Sources */,
 				312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */,
 				3173EE5D2491340D00F646A3 /* SimpleOraclesView.swift in Sources */,
 				3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */,
 				31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */,
-				3173EE64249136B600F646A3 /* RPGSoloOracleNavButton.swift in Sources */,
+				3173EE64249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift in Sources */,
 				3133B1CA249047FE005FF8FD /* MythicSimpleView.swift in Sources */,
+				314F83F7249285330061C1EA /* FateOracleView.swift in Sources */,
 				316D870A24886E8A000E03E0 /* MythicMidView.swift in Sources */,
 				3133B1A12490193D005FF8FD /* Deck.swift in Sources */,
-				3173EE622491365C00F646A3 /* AdvancedOraclesNavButton.swift in Sources */,
+				3173EE622491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift in Sources */,
 				31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */,
 				31C6BC20248F107100494CD7 /* TextPopUpView.swift in Sources */,
 				316D871024895889000E03E0 /* View+isHidden.swift in Sources */,
 				31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */,
 				312F20192481B3E1000CEB9C /* SceneDelegate.swift in Sources */,
+				314F83F324927DE80061C1EA /* ShowQuickDiceViewNavButton.swift in Sources */,
 				3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */,
 				3133B19B249018D6005FF8FD /* FateDie.swift in Sources */,
 				316D870824886BB3000E03E0 /* MythicTopView.swift in Sources */,
@@ -441,8 +456,9 @@
 				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
 				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,
 				316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */,
-				3173EE602491360F00F646A3 /* SimpleOraclesNavButton.swift in Sources */,
+				3173EE602491360F00F646A3 /* ShowSimpleOraclesNavButton.swift in Sources */,
 				312F201B2481B3E1000CEB9C /* StartingView.swift in Sources */,
+				314F83F524927F180061C1EA /* FateOracleModel.swift in Sources */,
 				3173EE6C249144EC00F646A3 /* DiceSquareViewModel.swift in Sources */,
 				3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */,
 				31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */,

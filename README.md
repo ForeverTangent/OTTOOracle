@@ -21,6 +21,8 @@ The more I thought about them, the more I realised the basic code to impliment t
 
 So basically this whole project is just an experience thing to learn SwiftUI, and to get used to how to program in the MVVM style and all that comes with that.
 
+A lot of 
+
 Specifcally the GM Emulator Models this project tries to impliment are:
 
 * (Mythic GM Emulator)[http://wordmillgames.com]
@@ -32,6 +34,7 @@ Specifcally the GM Emulator Models this project tries to impliment are:
 * Savage World's Wild Card genertor
 * Cypher GM Emulator
 * Cypher NPC Genertor
+* 
 
 There are not 100% exact too.  I have tweaked all the system a little bit for various reason.
 

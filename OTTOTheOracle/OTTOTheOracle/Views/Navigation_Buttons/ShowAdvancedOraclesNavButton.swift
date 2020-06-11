@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AdvancedOraclesNavButton: View {
+struct ShowAdvancedOraclesNavButton: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 	
 	var body: some View {
@@ -24,6 +24,6 @@ struct AdvancedOraclesNavButton: View {
 
 struct AdvancedOraclesButton_Previews: PreviewProvider {
     static var previews: some View {
-        AdvancedOraclesNavButton().environmentObject(OracleViewModel())
+        ShowAdvancedOraclesNavButton().environmentObject(OracleViewModel())
     }
 }

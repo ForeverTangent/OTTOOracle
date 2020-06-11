@@ -14,10 +14,10 @@ struct StartingView: View {
 	var body: some View {
 		NavigationView {
 			VStack(alignment: .center, spacing: 40.0) {
-				SimpleOraclesNavButton()
-				AdvancedOraclesNavButton()
+				ShowSimpleOraclesNavButton()
+				ShowAdvancedOraclesNavButton()
 			}.frame(height: 250.0)
-				.navigationBarTitle("SOLO-RPG", displayMode: .inline)
+				.navigationBarTitle("Advanced Oracles", displayMode: .inline)
 		}.environmentObject(oracleManager)
 	}
 }

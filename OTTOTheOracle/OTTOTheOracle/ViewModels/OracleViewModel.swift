@@ -42,7 +42,6 @@ class OracleViewModel: ObservableObject {
 	@Published var currentGMACardViewModel = GMACardViewModel(gmaCard: GMACard())
 
 	@Published var diceSquareViewModel = DiceSquareViewModel()
-	
 
 	init() {
 		os_log(.default, log: logger, "Creating OTTOOracleManager")
