@@ -13,10 +13,10 @@ struct ShowAdvMythicCardNavButton: View {
 
 	var body: some View {
 		NavigationLink(destination: MythicAdvancedView().environmentObject(oracleViewModel)) {
-			OTTOButton(buttonTitle: "Advance Mythic Card")
+			OTTOButton(buttonTitle: "Advanced Mythic Card")
 		}
 		.onAppear() {
-			print("Showing Mythic Card")
+			print("Showing Advanced Mythic Card")
 			self.oracleViewModel.drawMythicCard()
 		}
 	}

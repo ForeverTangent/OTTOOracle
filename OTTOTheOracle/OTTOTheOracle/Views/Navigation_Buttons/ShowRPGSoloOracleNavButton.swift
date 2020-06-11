@@ -12,7 +12,7 @@ struct ShowRPGSoloOracleNavButton: View {
 	@EnvironmentObject var oracleViewModel: OracleViewModel
 	
 	var body: some View {
-		NavigationLink(destination: RPGSoloOracleView().environmentObject(oracleViewModel)) {
+		NavigationLink(destination: SoloRPGView()) {
 			OTTOButton(buttonTitle: "Show RPG Solo Oracle")
 		}
 		.onAppear() {

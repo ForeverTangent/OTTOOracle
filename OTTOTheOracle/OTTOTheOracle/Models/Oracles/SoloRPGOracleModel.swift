@@ -8,13 +8,41 @@
 
 import Foundation
 
-struct RPGSoloOracleModel {
-	var result: String
-	var twist: String
+class SoloRPGOracleModel {
+
+	public func getResults() -> SoloRPGOracleResult {
+
+		let answer = SOLO_RPG_ORACLE.randomWeightedElement()
+		let twist = getTwist()
+
+		return SoloRPGOracleResult(answer: answer,
+								   twist_subject: twist.subject,
+								   twist_verb: twist.verb)
+	}
+
+	private func getTwist() -> (subject: String, verb: String) {
+		let d6 = Die(maxPips: 6)
+
+		if d6.roll() != 1 {
+			return ("None", "None")
+		}
+
+		let subject = SOLO_RPG_TWIST_1.randomWeightedElement()
+		let verb = SOLO_RPG_TWIST_2.randomWeightedElement()
+
+		return (subject, verb)
+	}
+
+}
+
+struct SoloRPGOracleResult {
+	var answer: String
+	var twist_subject: String
+	var twist_verb: String
 }
 
 
-enum RPG_SOLO_ORACLE: String, RPG_TABLE {
+enum SOLO_RPG_ORACLE: String, RPG_TABLE {
 	typealias Result = String
 
 	static var MIN: Int = 1
@@ -43,7 +71,7 @@ enum RPG_SOLO_ORACLE: String, RPG_TABLE {
 }
 
 
-enum RPG_SOLO_TWIST_1: String, RPG_TABLE {
+enum SOLO_RPG_TWIST_1: String, RPG_TABLE {
 	typealias Result = String
 
 	static var MIN: Int = 1
@@ -72,7 +100,7 @@ enum RPG_SOLO_TWIST_1: String, RPG_TABLE {
 }
 
 
-enum RPG_SOLO_TWIST_2: String, RPG_TABLE {
+enum SOLO_RPG_TWIST_2: String, RPG_TABLE {
 	typealias Result = String
 
 	static var MIN: Int = 1
@@ -83,7 +111,7 @@ enum RPG_SOLO_TWIST_2: String, RPG_TABLE {
 	case HELPS_THE_PROTAGONIST = "Helps the protagonist"
 	case HENDERS_THE_PROTAGONIST = "Henders the protagonist"
 	case CHANGES_THE_GOAL = "Changes the goal"
-	case ENDS_THE_SCENE = "ENDS_THE_SCENE"
+	case ENDS_THE_SCENE = "Ends the scene"
 	case NONE = "NONE"
 
 	static func getElementBy(value: Int) -> String {
@@ -100,7 +128,7 @@ enum RPG_SOLO_TWIST_2: String, RPG_TABLE {
 	}
 }
 
-enum RPG_SOLO_NEXT_SCENE: String, RPG_TABLE {
+enum SOLO_RPG_NEXT_SCENE: String, RPG_TABLE {
 	typealias Result = String
 
 	static var MIN: Int = 1
