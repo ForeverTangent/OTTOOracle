@@ -83,6 +83,8 @@
 		31FB75882493F41B00622969 /* GeneratorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75872493F41B00622969 /* GeneratorsView.swift */; };
 		31FB758A2493F56100622969 /* ShowOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75892493F56100622969 /* ShowOraclesNavButton.swift */; };
 		31FB758C2493F57200622969 /* ShowGeneratorsNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */; };
+		31FB75912493F8AA00622969 /* AdventureCrafterGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */; };
+		31FB75932493F90B00622969 /* ShowACGeneratorNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75922493F90B00622969 /* ShowACGeneratorNavButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +167,8 @@
 		31FB75872493F41B00622969 /* GeneratorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorsView.swift; sourceTree = "<group>"; };
 		31FB75892493F56100622969 /* ShowOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOraclesNavButton.swift; sourceTree = "<group>"; };
 		31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGeneratorsNavButton.swift; sourceTree = "<group>"; };
+		31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterGeneratorView.swift; sourceTree = "<group>"; };
+		31FB75922493F90B00622969 /* ShowACGeneratorNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowACGeneratorNavButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +311,7 @@
 				315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */,
 				31FB75892493F56100622969 /* ShowOraclesNavButton.swift */,
 				31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */,
+				31FB75922493F90B00622969 /* ShowACGeneratorNavButton.swift */,
 			);
 			path = Navigation_Buttons;
 			sourceTree = "<group>";
@@ -362,10 +367,11 @@
 				3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */,
 				3118052224915B2600C3812C /* AdvancedOraclesView.swift */,
 				3173EE5A24912CD300F646A3 /* OTTOButton.swift */,
+				31C6BC1F248F107100494CD7 /* TextPopUpView.swift */,
 				3173EE69249143C900F646A3 /* QuickDiceView.swift */,
 				3173EE5E249135E700F646A3 /* Navigation_Buttons */,
 				31FB758D2493F7FD00622969 /* OracleViews */,
-				31C6BC1F248F107100494CD7 /* TextPopUpView.swift */,
+				31FB758E2493F87D00622969 /* GeneratorViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,6 +387,14 @@
 				3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */,
 			);
 			path = OracleViews;
+			sourceTree = "<group>";
+		};
+		31FB758E2493F87D00622969 /* GeneratorViews */ = {
+			isa = PBXGroup;
+			children = (
+				31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */,
+			);
+			path = GeneratorViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,6 +485,7 @@
 				314F83FD2492B6580061C1EA /* CypherOracleView.swift in Sources */,
 				3118052524915B6400C3812C /* ShowAdvMythicCardNavButton.swift in Sources */,
 				3133B1A624901A55005FF8FD /* CypherOracleModel.swift in Sources */,
+				31FB75932493F90B00622969 /* ShowACGeneratorNavButton.swift in Sources */,
 				315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */,
 				316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */,
 				316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */,
@@ -480,6 +495,7 @@
 				3133B1A324901959005FF8FD /* RPG_TABLE.swift in Sources */,
 				3133B1AA24901BB5005FF8FD /* UNEGeneratorModel.swift in Sources */,
 				312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */,
+				31FB75912493F8AA00622969 /* AdventureCrafterGeneratorView.swift in Sources */,
 				3173EE5D2491340D00F646A3 /* SimpleOraclesView.swift in Sources */,
 				3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */,
 				31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */,

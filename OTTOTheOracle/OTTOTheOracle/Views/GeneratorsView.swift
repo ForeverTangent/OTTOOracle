@@ -9,9 +9,12 @@
 import SwiftUI
 
 struct GeneratorsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+	var body: some View {
+		VStack(alignment: .center, spacing: 40.0) {
+			ShowACGeneratorNavButton()
+		}.frame(height: 250.0)
+			.navigationBarTitle("Generators", displayMode: .inline)
+	}
 }
 
 struct GeneratorsView_Previews: PreviewProvider {

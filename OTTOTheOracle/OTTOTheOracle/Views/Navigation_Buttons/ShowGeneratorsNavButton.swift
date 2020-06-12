@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ShowGeneratorsNavButton: View {
 	var body: some View {
-		NavigationLink(destination: EmptyView()) {
+		NavigationLink(destination: GeneratorsView()) {
 			OTTOButton(buttonTitle: "Show Generators")
 		}
 		.onAppear() {
