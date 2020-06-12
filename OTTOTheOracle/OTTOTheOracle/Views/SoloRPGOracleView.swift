@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SoloRPGView: View {
+struct SoloRPGOracleView: View {
 	@ObservedObject var soloRPGViewModel = SoloRPGViewModel()
 
 	var body: some View {
@@ -44,6 +44,6 @@ struct SoloRPGView: View {
 
 struct SoloRPGView_Previews: PreviewProvider {
     static var previews: some View {
-        SoloRPGView()
+        SoloRPGOracleView()
     }
 }

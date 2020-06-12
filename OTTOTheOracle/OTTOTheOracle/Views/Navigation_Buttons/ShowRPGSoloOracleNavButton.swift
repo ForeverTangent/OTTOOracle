@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ShowRPGSoloOracleNavButton: View {
 	var body: some View {
-		NavigationLink(destination: SoloRPGView()) {
+		NavigationLink(destination: SoloRPGOracleView()) {
 			OTTOButton(buttonTitle: "Show RPG Solo Oracle")
 		}
 		.onAppear() {

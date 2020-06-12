@@ -41,7 +41,7 @@
 		315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407152492CB9100EB18D5 /* CRGEOracleView.swift */; };
 		315407182492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */; };
 		3154071A2492F65C00EB18D5 /* SoloRPGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */; };
-		3154071C2492F78100EB18D5 /* SoloRPGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154071B2492F78100EB18D5 /* SoloRPGView.swift */; };
+		3154071C2492F78100EB18D5 /* SoloRPGOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */; };
 		3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */; };
 		3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E4922483335300DCCC76 /* GMADiceView.swift */; };
 		316D87012487D31D000E03E0 /* MythicCardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D87002487D31D000E03E0 /* MythicCardOnlyView.swift */; };
@@ -122,7 +122,7 @@
 		315407152492CB9100EB18D5 /* CRGEOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleView.swift; sourceTree = "<group>"; };
 		315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCRGEOracleNavButton.swift; sourceTree = "<group>"; };
 		315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGViewModel.swift; sourceTree = "<group>"; };
-		3154071B2492F78100EB18D5 /* SoloRPGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGView.swift; sourceTree = "<group>"; };
+		3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGOracleView.swift; sourceTree = "<group>"; };
 		3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleViewModel.swift; sourceTree = "<group>"; };
 		3168E4922483335300DCCC76 /* GMADiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMADiceView.swift; sourceTree = "<group>"; };
 		316D87002487D31D000E03E0 /* MythicCardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCardOnlyView.swift; sourceTree = "<group>"; };
@@ -356,6 +356,7 @@
 		31D29507248539340024AC8F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31FB758D2493F7FD00622969 /* OracleViews */,
 				312F201A2481B3E1000CEB9C /* StartingView.swift */,
 				31FB75852493F40B00622969 /* OraclesView.swift */,
 				31FB75872493F41B00622969 /* GeneratorsView.swift */,
@@ -370,9 +371,16 @@
 				314F83F6249285330061C1EA /* FateOracleView.swift */,
 				314F83FC2492B6580061C1EA /* CypherOracleView.swift */,
 				315407152492CB9100EB18D5 /* CRGEOracleView.swift */,
-				3154071B2492F78100EB18D5 /* SoloRPGView.swift */,
+				3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		31FB758D2493F7FD00622969 /* OracleViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OracleViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,7 +515,7 @@
 				3133B19D24901901005FF8FD /* Card.swift in Sources */,
 				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
 				315407182492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift in Sources */,
-				3154071C2492F78100EB18D5 /* SoloRPGView.swift in Sources */,
+				3154071C2492F78100EB18D5 /* SoloRPGOracleView.swift in Sources */,
 				315407142492CB7D00EB18D5 /* CRGEOracleViewModel.swift in Sources */,
 				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,
 				316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */,
