@@ -356,7 +356,6 @@
 		31D29507248539340024AC8F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				31FB758D2493F7FD00622969 /* OracleViews */,
 				312F201A2481B3E1000CEB9C /* StartingView.swift */,
 				31FB75852493F40B00622969 /* OraclesView.swift */,
 				31FB75872493F41B00622969 /* GeneratorsView.swift */,
@@ -365,13 +364,8 @@
 				3173EE5A24912CD300F646A3 /* OTTOButton.swift */,
 				3173EE69249143C900F646A3 /* QuickDiceView.swift */,
 				3173EE5E249135E700F646A3 /* Navigation_Buttons */,
-				316D870624886B87000E03E0 /* MythicCardViews */,
-				31BE22A82484401800E21C00 /* GMACardViews */,
+				31FB758D2493F7FD00622969 /* OracleViews */,
 				31C6BC1F248F107100494CD7 /* TextPopUpView.swift */,
-				314F83F6249285330061C1EA /* FateOracleView.swift */,
-				314F83FC2492B6580061C1EA /* CypherOracleView.swift */,
-				315407152492CB9100EB18D5 /* CRGEOracleView.swift */,
-				3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,6 +373,12 @@
 		31FB758D2493F7FD00622969 /* OracleViews */ = {
 			isa = PBXGroup;
 			children = (
+				316D870624886B87000E03E0 /* MythicCardViews */,
+				31BE22A82484401800E21C00 /* GMACardViews */,
+				314F83F6249285330061C1EA /* FateOracleView.swift */,
+				314F83FC2492B6580061C1EA /* CypherOracleView.swift */,
+				315407152492CB9100EB18D5 /* CRGEOracleView.swift */,
+				3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */,
 			);
 			path = OracleViews;
 			sourceTree = "<group>";
