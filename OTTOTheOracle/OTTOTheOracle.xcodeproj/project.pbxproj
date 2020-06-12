@@ -85,7 +85,20 @@
 		31FB758C2493F57200622969 /* ShowGeneratorsNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */; };
 		31FB75912493F8AA00622969 /* AdventureCrafterGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */; };
 		31FB75932493F90B00622969 /* ShowACGeneratorNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75922493F90B00622969 /* ShowACGeneratorNavButton.swift */; };
+		31FB75952493FA6900622969 /* AdventureCrafterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75942493FA6900622969 /* AdventureCrafterViewModel.swift */; };
+		31FB759D2494451E00622969 /* OTTOTheOracleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB759C2494451E00622969 /* OTTOTheOracleTests.swift */; };
+		31FB75A52494458000622969 /* AdventureCraftModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75A42494458000622969 /* AdventureCraftModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31FB759F2494451E00622969 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 312F200B2481B3E1000CEB9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 312F20122481B3E1000CEB9C;
+			remoteInfo = OTTOTheOracle;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		31180520249150D700C3812C /* MythicAdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicAdvancedView.swift; sourceTree = "<group>"; };
@@ -169,10 +182,22 @@
 		31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGeneratorsNavButton.swift; sourceTree = "<group>"; };
 		31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterGeneratorView.swift; sourceTree = "<group>"; };
 		31FB75922493F90B00622969 /* ShowACGeneratorNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowACGeneratorNavButton.swift; sourceTree = "<group>"; };
+		31FB75942493FA6900622969 /* AdventureCrafterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterViewModel.swift; sourceTree = "<group>"; };
+		31FB759A2494451E00622969 /* OTTOTheOracleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OTTOTheOracleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31FB759C2494451E00622969 /* OTTOTheOracleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOTheOracleTests.swift; sourceTree = "<group>"; };
+		31FB759E2494451E00622969 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31FB75A42494458000622969 /* AdventureCraftModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCraftModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		312F20102481B3E1000CEB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31FB75972494451E00622969 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -186,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				312F20152481B3E1000CEB9C /* OTTOTheOracle */,
+				31FB759B2494451E00622969 /* OTTOTheOracleTests */,
 				312F20142481B3E1000CEB9C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -194,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				312F20132481B3E1000CEB9C /* OTTOTheOracle.app */,
+				31FB759A2494451E00622969 /* OTTOTheOracleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,6 +381,7 @@
 				314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */,
 				315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */,
 				315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */,
+				31FB75942493FA6900622969 /* AdventureCrafterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -397,6 +425,16 @@
 			path = GeneratorViews;
 			sourceTree = "<group>";
 		};
+		31FB759B2494451E00622969 /* OTTOTheOracleTests */ = {
+			isa = PBXGroup;
+			children = (
+				31FB75A42494458000622969 /* AdventureCraftModelTests.swift */,
+				31FB759C2494451E00622969 /* OTTOTheOracleTests.swift */,
+				31FB759E2494451E00622969 /* Info.plist */,
+			);
+			path = OTTOTheOracleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -417,6 +455,24 @@
 			productReference = 312F20132481B3E1000CEB9C /* OTTOTheOracle.app */;
 			productType = "com.apple.product-type.application";
 		};
+		31FB75992494451E00622969 /* OTTOTheOracleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31FB75A12494451E00622969 /* Build configuration list for PBXNativeTarget "OTTOTheOracleTests" */;
+			buildPhases = (
+				31FB75962494451E00622969 /* Sources */,
+				31FB75972494451E00622969 /* Frameworks */,
+				31FB75982494451E00622969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31FB75A02494451E00622969 /* PBXTargetDependency */,
+			);
+			name = OTTOTheOracleTests;
+			productName = OTTOTheOracleTests;
+			productReference = 31FB759A2494451E00622969 /* OTTOTheOracleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -429,6 +485,10 @@
 				TargetAttributes = {
 					312F20122481B3E1000CEB9C = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					31FB75992494451E00622969 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 312F20122481B3E1000CEB9C;
 					};
 				};
 			};
@@ -446,6 +506,7 @@
 			projectRoot = "";
 			targets = (
 				312F20122481B3E1000CEB9C /* OTTOTheOracle */,
+				31FB75992494451E00622969 /* OTTOTheOracleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -465,6 +526,13 @@
 				31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json in Resources */,
 				312F201D2481B3E2000CEB9C /* Assets.xcassets in Resources */,
 				31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31FB75982494451E00622969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +588,7 @@
 				316D870824886BB3000E03E0 /* MythicTopView.swift in Sources */,
 				3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */,
 				3118052324915B2600C3812C /* AdvancedOraclesView.swift in Sources */,
+				31FB75952493FA6900622969 /* AdventureCrafterViewModel.swift in Sources */,
 				3173EE5B24912CD300F646A3 /* OTTOButton.swift in Sources */,
 				3154071A2492F65C00EB18D5 /* SoloRPGViewModel.swift in Sources */,
 				3133B1A824901B53005FF8FD /* CRGEOracleModel.swift in Sources */,
@@ -546,7 +615,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31FB75962494451E00622969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FB759D2494451E00622969 /* OTTOTheOracleTests.swift in Sources */,
+				31FB75A52494458000622969 /* AdventureCraftModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31FB75A02494451E00622969 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 312F20122481B3E1000CEB9C /* OTTOTheOracle */;
+			targetProxy = 31FB759F2494451E00622969 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		312F20212481B3E2000CEB9C /* LaunchScreen.storyboard */ = {
@@ -720,6 +806,46 @@
 			};
 			name = Release;
 		};
+		31FB75A22494451E00622969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69WU6LWMSQ;
+				INFOPLIST_FILE = OTTOTheOracleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Rosenbaum.OTTOTheOracleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTTOTheOracle.app/OTTOTheOracle";
+			};
+			name = Debug;
+		};
+		31FB75A32494451E00622969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69WU6LWMSQ;
+				INFOPLIST_FILE = OTTOTheOracleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Rosenbaum.OTTOTheOracleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTTOTheOracle.app/OTTOTheOracle";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -737,6 +863,15 @@
 			buildConfigurations = (
 				312F20282481B3E2000CEB9C /* Debug */,
 				312F20292481B3E2000CEB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31FB75A12494451E00622969 /* Build configuration list for PBXNativeTarget "OTTOTheOracleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31FB75A22494451E00622969 /* Debug */,
+				31FB75A32494451E00622969 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

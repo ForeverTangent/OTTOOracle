@@ -16,24 +16,41 @@ class AdventureCrafterModel {
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	static let logger = OSLog(subsystem: subsystem, category: catagory)
 
-	private var adventureThemeModel: AdventureThemesModel = AdventureThemeModelBuilder().build()
+	var adventureModel: AdventureModel?
 
-	func getRandomPlotline() -> String {
-		return ""
+	func buildNewAdventureThemesModel() {
+		let adventureThemeModel = AdventureThemeModelBuilder().build()
+		adventureModel = AdventureModel(adventureThemes: adventureThemeModel)
 	}
 
-	func getRandomCharacter() -> String  {
-		return ""
+	func buildTurningPoint() {
+		guard let theAdventureModel = adventureModel else { return }
+		var turningPoints = theAdventureModel.turningPoints
+		let newNurningPoint = TuringPointBuilder().build(withThemeModel: theAdventureModel.themes)
+		turningPoints.append(newNurningPoint)
+		theAdventureModel.turningPoints = turningPoints
+	}
+
+	func getRandomTurningPoint() -> TuringPoint? {
+		guard let theAdventureModel = adventureModel else { return nil }
+		let turningPoint = TuringPointBuilder().build(withThemeModel: theAdventureModel.themes)
+		return turningPoint
+	}
+
+	func buildNewAdventure() {
+		buildNewAdventureThemesModel()
 	}
 
 }
 
 
-class AdventureModel {
+class AdventureModel: Codable {
 	var title: String = ""
 	var notes = [String]()
 	var date = Date()
 	var themes: AdventureThemesModel
+
+	var turningPoints = [TuringPoint]()
 
 	init(adventureThemes: AdventureThemesModel) {
 		self.themes = adventureThemes
@@ -42,15 +59,27 @@ class AdventureModel {
 }
 
 
-class AdventureThemesModel {
+class AdventureThemesModel: Codable {
 
-	var priorityToTheme: [Int: ADVENTURE_THEMES]
+	var priorityToTheme: [Int: ADVENTURE_THEME]
 
-	init(priorityToTheme: [Int: ADVENTURE_THEMES]) {
+	init(priorityToTheme: [Int: ADVENTURE_THEME]) {
 		self.priorityToTheme = priorityToTheme
 	}
 
-	func getRandomTheme() -> ADVENTURE_THEMES {
+	func getThemesByPriority() -> [ADVENTURE_THEME] {
+		var themes = [ADVENTURE_THEME]()
+
+		for order in 1...5 {
+			if let theTheme = priorityToTheme[order] {
+				themes.append(theTheme)
+			}
+		}
+		return themes
+	}
+
+
+	func getRandomTheme() -> ADVENTURE_THEME {
 
 		let d10 = Die(maxPips: 10)
 
@@ -68,20 +97,60 @@ class AdventureThemesModel {
 		}
 	}
 
-	private func getTheme(number: Int) -> ADVENTURE_THEMES {
+	private func getTheme(number: Int) -> ADVENTURE_THEME {
 		guard let theTheme = priorityToTheme[number] else { return .NONE }
 		return theTheme
 	}
 
 }
 
+class AdventureThemeModelBuilder {
 
-struct TuringPoint: Comparable, Codable {
-	var order: Int
+	func buildWith(_ themes: [ADVENTURE_THEME]) -> AdventureThemesModel? {
+		guard themes.count == 5 else { fatalError("Need all 5") }
 
-	var plotLineTitle: String
-	var plotLineType: ADVENTURE_PLOTLINE_TYPE
-	var plotPoints = [Int: ADVENTURE_PLOT_POINTS]()
+		let priorityToTheme: [Int: ADVENTURE_THEME] = [
+			1: themes[0],
+			2: themes[1],
+			3: themes[2],
+			4: themes[3],
+			5: themes[4]
+		]
+		return AdventureThemesModel(priorityToTheme: priorityToTheme)
+	}
+
+
+	func build() -> AdventureThemesModel {
+		var priorityToTheme =  [Int: ADVENTURE_THEME]()
+		var priority = 1
+
+		while priorityToTheme.count < 5 || priority < 6{
+			let randomTheme = ADVENTURE_THEME.randomWeightedElement()
+			if !getIfThemeIsInDictionary(priorityToTheme: priorityToTheme,
+										 theme: randomTheme) {
+				priorityToTheme[priority] = randomTheme
+				priority += 1
+			}
+		}
+		print(priorityToTheme)
+		return AdventureThemesModel(priorityToTheme: priorityToTheme)
+	}
+
+
+	private func getIfThemeIsInDictionary(priorityToTheme: [Int: ADVENTURE_THEME], theme: ADVENTURE_THEME) -> Bool {
+		guard priorityToTheme.values.contains(theme) else { return false }
+		return true
+	}
+
+}
+
+
+class TuringPoint: Comparable, Codable {
+	var order: Int = 0
+
+	var plotLineTitle = ""
+	var plotLineType: ADVENTURE_PLOTLINE_TYPE = .NONE
+	var plotPoints = [Int: String]()
 
 	var characters = [CharacterData]()
 
@@ -89,6 +158,116 @@ struct TuringPoint: Comparable, Codable {
 
 	static func < (lhs: TuringPoint, rhs: TuringPoint) -> Bool { lhs.order < rhs.order }
 	static func == (lhs: TuringPoint, rhs: TuringPoint) -> Bool { lhs.order == rhs.order }
+
+}
+
+
+class TuringPointBuilder {
+
+	func build(withThemeModel themesModel: AdventureThemesModel) -> TuringPoint {
+		return buildPlotline(withThemeModel: themesModel)
+	}
+
+	private func buildPlotline(withThemeModel themeModel: AdventureThemesModel) -> TuringPoint {
+		let turningPoint = TuringPoint()
+
+		turningPoint.plotLineType = .NEW_PLOTLINE
+		turningPoint.plotLineTitle = ""
+
+		let numberOfPlotPoints = Int.random(in: 2...5)
+
+		var indexToPlotPoint = [Int: String]()
+
+		for index in 1...numberOfPlotPoints {
+			let theme = themeModel.getRandomTheme()
+			let plotPoint = getPlotPointWithTheme(theme)
+			let plotPointString = getPlotPointRawValue(plotPoint: plotPoint)
+			indexToPlotPoint[index] = plotPointString
+		}
+
+		turningPoint.plotPoints = indexToPlotPoint
+		return turningPoint
+	}
+
+
+	private func getPlotPointRawValue( plotPoint: PLOT_POINT) -> String {
+
+		if let thePlotPoint = plotPoint as? ADVENTURE_PLOT_POINTS {
+			return thePlotPoint.rawValue
+		}
+
+		if let thePlotPoint = plotPoint as? ADVENTURE_META_PLOT_POINTS {
+			return thePlotPoint.rawValue
+		}
+
+		return "None"
+
+	}
+
+
+	private func getPlotPointWithTheme(_ theme: ADVENTURE_THEME) -> PLOT_POINT {
+		switch theme {
+			case .ACTION:
+				return getActionPlotPoint()
+			case .TENSION:
+				return getTensionPlotPoint()
+			case .MYSTERY:
+				return getMysteryPlotPoint()
+			case .SOCIAL:
+				return getSocialPlotPoint()
+			case .PERSONAL:
+				return getPersonalPlotPoint()
+			default:
+				return ADVENTURE_PLOT_POINTS.NONE
+		}
+	}
+
+	private func getActionPlotPoint() -> PLOT_POINT {
+		let plotPoint = ADVENTURE_ACTION_PLOT_POINT.randomWeightedElement()
+
+		if plotPoint == .META {
+			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+		}
+		return plotPoint
+	}
+
+
+	private func getTensionPlotPoint() -> PLOT_POINT {
+		let plotPoint = ADVENTURE_TENSION_PLOT_POINT.randomWeightedElement()
+
+		if plotPoint == .META {
+			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+		}
+		return plotPoint
+	}
+
+	private func getMysteryPlotPoint() -> PLOT_POINT {
+		let plotPoint = ADVENTURE_MYSTERY_PLOT_POINT.randomWeightedElement()
+
+		if plotPoint == .META {
+			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+		}
+		return plotPoint
+	}
+
+	private func getSocialPlotPoint() -> PLOT_POINT {
+		let plotPoint = ADVENTURE_SOCIAL_PLOT_POINT.randomWeightedElement()
+
+		if plotPoint == .META {
+			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+		}
+		return plotPoint
+	}
+
+	private func getPersonalPlotPoint() -> PLOT_POINT {
+		let plotPoint = ADVENTURE_PERSONAL_PLOT_PLOINT.randomWeightedElement()
+
+		if plotPoint == .META {
+			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+		}
+		return plotPoint
+	}
+
 
 }
 
@@ -104,36 +283,6 @@ struct CharacterData: Comparable, Equatable, Codable {
 
 	static func < (lhs: CharacterData, rhs: CharacterData) -> Bool { lhs.order < rhs.order }
 	static func == (lhs: CharacterData, rhs: CharacterData) -> Bool { lhs.name == rhs.name }
-
-}
-
-
-class AdventureThemeModelBuilder {
-
-	func build() -> AdventureThemesModel {
-
-		var priorityToTheme =  [Int: ADVENTURE_THEMES]()
-		var priority = 1
-
-		while priorityToTheme.count < 5 || priority < 6{
-			let randomTheme = ADVENTURE_THEMES.randomWeightedElement()
-			if !getIfThemeIsInDictionary(priorityToTheme: priorityToTheme,
-										 theme: randomTheme) {
-				priorityToTheme[priority] = randomTheme
-				priority += 1
-			}
-		}
-
-		print(priorityToTheme)
-		return AdventureThemesModel(priorityToTheme: priorityToTheme)
-	}
-
-
-	private func getIfThemeIsInDictionary(priorityToTheme: [Int: ADVENTURE_THEMES],
-										  theme: ADVENTURE_THEMES) -> Bool {
-		guard priorityToTheme.values.contains(theme) else { return false }
-		return true
-	}
 
 }
 
@@ -161,8 +310,8 @@ enum ADVENTURE_PLOTLINE_TYPE: String, RPG_TABLE, Codable {
 }
 
 
-enum ADVENTURE_THEMES: String, RPG_TABLE, Codable {
-	typealias Result = ADVENTURE_THEMES
+enum ADVENTURE_THEME: String, RPG_TABLE, Codable {
+	typealias Result = ADVENTURE_THEME
 
 	static var MIN: Int = 1
 	static var MAX: Int = 10
@@ -174,7 +323,7 @@ enum ADVENTURE_THEMES: String, RPG_TABLE, Codable {
 	case PERSONAL = "Personal"
 	case NONE = "None"
 
-	static func getElementBy(value: Int) -> ADVENTURE_THEMES {
+	static func getElementBy(value: Int) -> ADVENTURE_THEME {
 		switch value {
 			case 1...2: return .ACTION
 			case 3...4: return .TENSION
@@ -185,7 +334,7 @@ enum ADVENTURE_THEMES: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getDescriptionOf(theme: ADVENTURE_THEMES) -> String {
+	static func getDescriptionOf(theme: ADVENTURE_THEME) -> String {
 		switch theme {
 			case .ACTION: return "Action Themed Plot Points focus on elements that promote instant activity in the Adventure."
 			case .TENSION: return "Tension Plot Points are Adventure elements designed to make Characters nervous"
@@ -197,6 +346,7 @@ enum ADVENTURE_THEMES: String, RPG_TABLE, Codable {
 	}
 
 }
+
 
 
 
@@ -283,7 +433,6 @@ enum ADVENTURE_CHARACTERS: Int, RPG_TABLE {
 		}
 	}
 }
-
 
 enum ADVENTURE_ACTION_PLOT_POINT: Int, RPG_TABLE, Codable {
 	typealias Result = ADVENTURE_PLOT_POINTS
@@ -865,7 +1014,7 @@ enum ADVENTURE_PERSONAL_PLOT_PLOINT: Int, RPG_TABLE, Codable {
 }
 
 
-enum ADVENTURE_META_PLOT_POINTS: String, RPG_TABLE, Codable {
+enum ADVENTURE_META_PLOT_POINTS: String, RPG_TABLE, Codable, PLOT_POINT {
 
 	typealias Result = ADVENTURE_META_PLOT_POINTS
 
@@ -897,7 +1046,13 @@ enum ADVENTURE_META_PLOT_POINTS: String, RPG_TABLE, Codable {
 
 	static var metaPlotPointToDescriptions = [ADVENTURE_META_PLOT_POINTS: String]()
 
-	static func getDescriptionForMetaPlotPloint(_ metaPlotPoint: ADVENTURE_META_PLOT_POINTS) -> String {
+	static func getShortDescriptionForPlotPloint<T>(_ plotPoint: T) -> String where T : PLOT_POINT {
+		guard let thePlotPoint = plotPoint as? ADVENTURE_META_PLOT_POINTS else { return "None" }
+		return getDescriptionFromJsonForMetaPlotPloint(thePlotPoint)
+
+	}
+
+	static func getDescriptionFromJsonForMetaPlotPloint(_ metaPlotPoint: ADVENTURE_META_PLOT_POINTS) -> String {
 		guard let theDescription = metaPlotPointToDescriptions[metaPlotPoint] else { return "" }
 		return theDescription
 	}
@@ -918,11 +1073,15 @@ enum ADVENTURE_META_PLOT_POINTS: String, RPG_TABLE, Codable {
 		}
 	}
 
-
 }
 
 
-enum ADVENTURE_PLOT_POINTS: String, Codable {
+protocol PLOT_POINT {
+	static func getShortDescriptionForPlotPloint<T: PLOT_POINT>(_ plotPoint: T) -> String
+}
+
+
+enum ADVENTURE_PLOT_POINTS: String, Codable, PLOT_POINT {
 	case CONCLUSION
 	case NONE
 	case INTO_THE_UNKNOWN
@@ -1110,8 +1269,10 @@ enum ADVENTURE_PLOT_POINTS: String, Codable {
 	case AN_OPPOSING_STORY
 	case META
 
-	static func getShortDescriptionForPlotPloint(_ plotPoint: ADVENTURE_PLOT_POINTS) -> String {
-		switch plotPoint {
+	static func getShortDescriptionForPlotPloint<T>(_ plotPoint: T) -> String where T : PLOT_POINT {
+
+		guard let thePlotPoint = plotPoint as? ADVENTURE_PLOT_POINTS else { return "None" }
+		switch thePlotPoint {
 			case CONCLUSION: return "Conclusion"
 			case NONE: return "None"
 			case INTO_THE_UNKNOWN: return "Into The Unknown"
