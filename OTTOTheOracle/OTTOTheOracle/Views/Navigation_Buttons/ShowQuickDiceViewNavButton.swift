@@ -16,7 +16,6 @@ struct ShowQuickDiceViewNavButton: View {
 		.onAppear() {
 			print("Showing RPG Solo Oracle")
 		}
-
 	}
 }
 

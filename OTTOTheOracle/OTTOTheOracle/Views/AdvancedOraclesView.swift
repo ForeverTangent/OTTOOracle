@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct AdvancedOraclesView: View {
-	@EnvironmentObject var oracleManager: OracleViewModel
-
 	var body: some View {
 		VStack(spacing: 50.0) {
 			ShowAdvMythicCardNavButton()
@@ -24,6 +22,6 @@ struct AdvancedOraclesView: View {
 
 struct AdvancedOraclesView_Previews: PreviewProvider {
     static var previews: some View {
-        AdvancedOraclesView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+        AdvancedOraclesView()
     }
 }

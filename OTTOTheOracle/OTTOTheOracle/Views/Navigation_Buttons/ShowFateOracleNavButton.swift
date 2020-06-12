@@ -16,7 +16,6 @@ struct ShowFateOracleNavButton: View {
 		.onAppear() {
 			print("Show Fate Oracle")
 		}
-
 	}
 }
 

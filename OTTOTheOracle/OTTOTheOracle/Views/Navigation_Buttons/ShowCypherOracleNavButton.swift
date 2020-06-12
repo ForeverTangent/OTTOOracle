@@ -16,7 +16,6 @@ struct ShowCypherOracleNavButton: View {
 		.onAppear() {
 			print("Show Cypher Oracle")
 		}
-
 	}
 }
 

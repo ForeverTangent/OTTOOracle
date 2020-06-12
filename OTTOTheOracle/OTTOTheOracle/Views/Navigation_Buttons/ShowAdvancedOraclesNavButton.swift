@@ -9,21 +9,18 @@
 import SwiftUI
 
 struct ShowAdvancedOraclesNavButton: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
-	
 	var body: some View {
-		NavigationLink(destination: AdvancedOraclesView().environmentObject(oracleViewModel)) {
+		NavigationLink(destination: AdvancedOraclesView()) {
 			OTTOButton(buttonTitle: "Advanced Oracles")
 		}
 		.onAppear() {
 			print("Showing RPG Solo Oracle")
 		}
-
 	}
 }
 
 struct AdvancedOraclesButton_Previews: PreviewProvider {
     static var previews: some View {
-        ShowAdvancedOraclesNavButton().environmentObject(OracleViewModel())
+        ShowAdvancedOraclesNavButton()
     }
 }

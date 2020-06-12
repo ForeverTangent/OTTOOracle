@@ -16,7 +16,6 @@ struct ShowCRGEOracleNavButton: View {
 		.onAppear() {
 			print("Show CRGE Oracle")
 		}
-
 	}
 }
 

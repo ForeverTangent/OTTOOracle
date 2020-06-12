@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct SimpleOraclesView: View {
-	@EnvironmentObject var oracleManager: OracleViewModel
-
 	var body: some View {
 		VStack(spacing: 50.0) {
 			ShowQuickDiceViewNavButton()

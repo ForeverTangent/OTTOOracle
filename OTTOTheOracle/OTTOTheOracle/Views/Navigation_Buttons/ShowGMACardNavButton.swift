@@ -19,7 +19,6 @@ struct ShowGMACardNavButton: View {
 			print("Showing Mything Card")
 			self.oracleViewModel.drawGMACard()
 		}
-
 	}
 }
 
