@@ -31,6 +31,19 @@ class AdventureCrafterModel {
 		theAdventureModel.turningPoints = turningPoints
 	}
 
+
+	func getPlotPointsForTurningPoint(index: Int) -> [ADVENTURE_PLOT_POINTS]? {
+		guard
+			let theAdventureModel = adventureModel,
+			!theAdventureModel.turningPoints.isEmpty,
+			index < theAdventureModel.turningPoints.count,
+			!theAdventureModel.turningPoints[index].plotPoints.isEmpty else {
+				return nil
+		}
+
+		return theAdventureModel.turningPoints[index].plotPoints
+	}
+
 	func getRandomTurningPoint() -> TuringPoint? {
 		guard let theAdventureModel = adventureModel else { return nil }
 		let turningPoint = TuringPointBuilder().build(withThemeModel: theAdventureModel.themes)
@@ -145,14 +158,14 @@ class AdventureThemeModelBuilder {
 }
 
 
-class TuringPoint: Comparable, Codable {
+struct TuringPoint: Comparable, Codable {
 	var order: Int = 0
 
-	var plotLineTitle = ""
-	var plotLineType: ADVENTURE_PLOTLINE_TYPE = .NONE
-	var plotPoints = [Int: String]()
+	var plotLineTitle: String
+	var plotLineType: ADVENTURE_PLOTLINE_TYPE
+	var plotPoints: [ADVENTURE_PLOT_POINTS]
 
-	var characters = [CharacterData]()
+	var characters: [CharacterData]
 
 	// MARK: - Comparable
 
@@ -169,43 +182,29 @@ class TuringPointBuilder {
 	}
 
 	private func buildPlotline(withThemeModel themeModel: AdventureThemesModel) -> TuringPoint {
-		let turningPoint = TuringPoint()
-
-		turningPoint.plotLineType = .NEW_PLOTLINE
-		turningPoint.plotLineTitle = ""
 
 		let numberOfPlotPoints = Int.random(in: 2...5)
 
-		var indexToPlotPoint = [Int: String]()
+		var indexToPlotPoints = [ADVENTURE_PLOT_POINTS]()
 
-		for index in 1...numberOfPlotPoints {
+		for _ in 1...numberOfPlotPoints {
 			let theme = themeModel.getRandomTheme()
 			let plotPoint = getPlotPointWithTheme(theme)
-			let plotPointString = getPlotPointRawValue(plotPoint: plotPoint)
-			indexToPlotPoint[index] = plotPointString
+			indexToPlotPoints.append(plotPoint)
+
 		}
 
-		turningPoint.plotPoints = indexToPlotPoint
+		let turningPoint = TuringPoint(order: 0,
+									   plotLineTitle: "",
+									   plotLineType: .NEW_PLOTLINE,
+									   plotPoints: indexToPlotPoints,
+									   characters: [CharacterData]() )
+
 		return turningPoint
 	}
 
 
-	private func getPlotPointRawValue( plotPoint: PLOT_POINT) -> String {
-
-		if let thePlotPoint = plotPoint as? ADVENTURE_PLOT_POINTS {
-			return thePlotPoint.rawValue
-		}
-
-		if let thePlotPoint = plotPoint as? ADVENTURE_META_PLOT_POINTS {
-			return thePlotPoint.rawValue
-		}
-
-		return "None"
-
-	}
-
-
-	private func getPlotPointWithTheme(_ theme: ADVENTURE_THEME) -> PLOT_POINT {
+	private func getPlotPointWithTheme(_ theme: ADVENTURE_THEME) -> ADVENTURE_PLOT_POINTS {
 		switch theme {
 			case .ACTION:
 				return getActionPlotPoint()
@@ -222,48 +221,48 @@ class TuringPointBuilder {
 		}
 	}
 
-	private func getActionPlotPoint() -> PLOT_POINT {
+	private func getActionPlotPoint() -> ADVENTURE_PLOT_POINTS {
 		let plotPoint = ADVENTURE_ACTION_PLOT_POINT.randomWeightedElement()
 
 		if plotPoint == .META {
-			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
 		}
 		return plotPoint
 	}
 
 
-	private func getTensionPlotPoint() -> PLOT_POINT {
+	private func getTensionPlotPoint() -> ADVENTURE_PLOT_POINTS {
 		let plotPoint = ADVENTURE_TENSION_PLOT_POINT.randomWeightedElement()
 
 		if plotPoint == .META {
-			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
 		}
 		return plotPoint
 	}
 
-	private func getMysteryPlotPoint() -> PLOT_POINT {
+	private func getMysteryPlotPoint() -> ADVENTURE_PLOT_POINTS {
 		let plotPoint = ADVENTURE_MYSTERY_PLOT_POINT.randomWeightedElement()
 
 		if plotPoint == .META {
-			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
 		}
 		return plotPoint
 	}
 
-	private func getSocialPlotPoint() -> PLOT_POINT {
+	private func getSocialPlotPoint() -> ADVENTURE_PLOT_POINTS {
 		let plotPoint = ADVENTURE_SOCIAL_PLOT_POINT.randomWeightedElement()
 
 		if plotPoint == .META {
-			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
 		}
 		return plotPoint
 	}
 
-	private func getPersonalPlotPoint() -> PLOT_POINT {
+	private func getPersonalPlotPoint() -> ADVENTURE_PLOT_POINTS {
 		let plotPoint = ADVENTURE_PERSONAL_PLOT_PLOINT.randomWeightedElement()
 
 		if plotPoint == .META {
-			return ADVENTURE_META_PLOT_POINTS.randomWeightedElement()
+			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
 		}
 		return plotPoint
 	}
@@ -672,6 +671,7 @@ enum ADVENTURE_TENSION_PLOT_POINT: Int, RPG_TABLE, Codable {
 
 
 enum ADVENTURE_MYSTERY_PLOT_POINT: Int, RPG_TABLE, Codable {
+	
 	typealias Result = ADVENTURE_PLOT_POINTS
 
 	static var MIN: Int = 1
@@ -730,57 +730,57 @@ enum ADVENTURE_MYSTERY_PLOT_POINT: Int, RPG_TABLE, Codable {
 
 	static func getElementBy(value: Int) -> ADVENTURE_PLOT_POINTS {
 		switch value {
-			case 1...8: return .CONCLUSION
-			case 9...24: return .NONE
-			case 25...26: return .INTO_THE_UNKNOWN
-			case 27...28: return .USEFUL_INFORMATION_FROM_AN_UNKNOWN_SOURCE
-			case 29...30: return .A_MOTIVE_FREE_CRIME
-			case 31...32: return .A_CHARACTER_DISAPPEARS
-			case 33: return .THIS_ISNT_WORKING
-			case 34...35: return .A_RESOURCE_DISAPPEARS
-			case 36: return .FORTUITOUS_FIND
-			case 37: return .ALL_IS_REVEALED
-			case 38...29: return .USEFUL_INFORMATION_FROM_A_KNOWN_SOURCE
-			case 40: return .CRYPTIC_INFORMATION_FROM_A_KNOWN_SOURCE
-			case 41...42: return .LIE_DISCOVERED
-			case 43: return .SOMETHING_EXOTIC
-			case 44...45: return .A_CRIME_IS_COMMITTED
-			case 46...47: return .ITS_A_SECRET
-			case 48: return .SOMETHING_LOST_HAS_BEEN_FOUND
-			case 49: return .THE_OBSERVER
-			case 50: return .A_SECRET_WEAPON
-			case 51...52: return .LIAR
-			case 53: return .A_CHARACTER_ACTS_OUT_OF_CHARACTER
-			case 54: return .DEAD
-			case 55...56: return .MYSTERY_SOLVED
-			case 57: return .SECRET_INFORMATION_LEAKED
-			case 58...59: return .SUSPICION
-			case 60...61: return .EVIDENCE
-			case 62...63: return .THE_PLOT_THICKENS
-			case 64: return .DUBIOUS_RATIONALE
-			case 65: return .A_CRUCIAL_LIFE_SUPPORT_SYSTEM_BEGINS_TO_FAIL
-			case 66...67: return .CRYPTIC_INFORMATION_FROM_AN_UNKNOWN_SOURCE
-			case 68...69: return .A_COMMON_THREAD
-			case 70: return .NOT_THEIR_MASTER
-			case 71...72: return .THE_SECRET_TO_THE_POWER
-			case 73...74: return .HIDDEN_AGENDA
-			case 75: return .AN_OBJECT_OF_UNKNOWN_USE_IS_FOUND
-			case 76: return .CLEAR_THE_RECORD
-			case 77: return .FRAMED
-			case 78: return .AN_IMPROBABLE_CRIME
-			case 79...80: return .THE_HIDDEN_HAND
-			case 81...82: return .FIND_IT_OR_ELSE
-			case 83: return .TRAVEL_SETTING
-			case 84: return .AN_OLD_DEAL
-			case 85: return .A_MYSTERIOUS_NEW_PERSON
-			case 86: return .RURAL_SETTING
-			case 87...88: return .SOMEONE_IS_WHERE_THEY_SHOULD_NOT_BE
-			case 89: return .VULNERABILITY_EXPLOITED
-			case 90...91: return .FRAUD
-			case 92...93: return .BEAT_YOU_TO_IT
-			case 94: return .CONSPIRACY_THEORY
-			case 95: return .AN_OPPOSING_STORY
-			case 96...100: return .META
+//			case 1...8: return .CONCLUSION
+//			case 9...24: return .NONE
+//			case 25...26: return .INTO_THE_UNKNOWN
+//			case 27...28: return .USEFUL_INFORMATION_FROM_AN_UNKNOWN_SOURCE
+//			case 29...30: return .A_MOTIVE_FREE_CRIME
+//			case 31...32: return .A_CHARACTER_DISAPPEARS
+//			case 33: return .THIS_ISNT_WORKING
+//			case 34...35: return .A_RESOURCE_DISAPPEARS
+//			case 36: return .FORTUITOUS_FIND
+//			case 37: return .ALL_IS_REVEALED
+//			case 38...29: return .USEFUL_INFORMATION_FROM_A_KNOWN_SOURCE
+//			case 40: return .CRYPTIC_INFORMATION_FROM_A_KNOWN_SOURCE
+//			case 41...42: return .LIE_DISCOVERED
+//			case 43: return .SOMETHING_EXOTIC
+//			case 44...45: return .A_CRIME_IS_COMMITTED
+//			case 46...47: return .ITS_A_SECRET
+//			case 48: return .SOMETHING_LOST_HAS_BEEN_FOUND
+//			case 49: return .THE_OBSERVER
+//			case 50: return .A_SECRET_WEAPON
+//			case 51...52: return .LIAR
+//			case 53: return .A_CHARACTER_ACTS_OUT_OF_CHARACTER
+//			case 54: return .DEAD
+//			case 55...56: return .MYSTERY_SOLVED
+//			case 57: return .SECRET_INFORMATION_LEAKED
+//			case 58...59: return .SUSPICION
+//			case 60...61: return .EVIDENCE
+//			case 62...63: return .THE_PLOT_THICKENS
+//			case 64: return .DUBIOUS_RATIONALE
+//			case 65: return .A_CRUCIAL_LIFE_SUPPORT_SYSTEM_BEGINS_TO_FAIL
+//			case 66...67: return .CRYPTIC_INFORMATION_FROM_AN_UNKNOWN_SOURCE
+//			case 68...69: return .A_COMMON_THREAD
+//			case 70: return .NOT_THEIR_MASTER
+//			case 71...72: return .THE_SECRET_TO_THE_POWER
+//			case 73...74: return .HIDDEN_AGENDA
+//			case 75: return .AN_OBJECT_OF_UNKNOWN_USE_IS_FOUND
+//			case 76: return .CLEAR_THE_RECORD
+//			case 77: return .FRAMED
+//			case 78: return .AN_IMPROBABLE_CRIME
+//			case 79...80: return .THE_HIDDEN_HAND
+//			case 81...82: return .FIND_IT_OR_ELSE
+//			case 83: return .TRAVEL_SETTING
+//			case 84: return .AN_OLD_DEAL
+//			case 85: return .A_MYSTERIOUS_NEW_PERSON
+//			case 86: return .RURAL_SETTING
+//			case 87...88: return .SOMEONE_IS_WHERE_THEY_SHOULD_NOT_BE
+//			case 89: return .VULNERABILITY_EXPLOITED
+//			case 90...91: return .FRAUD
+//			case 92...93: return .BEAT_YOU_TO_IT
+//			case 94: return .CONSPIRACY_THEORY
+//			case 95: return .AN_OPPOSING_STORY
+//			case 96...100: return .META
 			default:
 				return .NONE
 		}
@@ -957,6 +957,13 @@ enum ADVENTURE_PERSONAL_PLOT_PLOINT: Int, RPG_TABLE, Codable {
 	case PROTECTOR
 	case SERVANT
 	case META
+	case META_CHARACTER_EXITS_THE_ADVENTURE
+	case META_CHARACTER_RETURNS
+	case META_CHARACTER_STEPS_UP
+	case META_CHARACTER_STEPS_DOWN
+	case META_CHARACTER_DOWNGRADE
+	case META_CHARACTER_UPGRADE
+	case META_PLOTLINE_COMBO
 
 	static func getElementBy(value: Int) -> ADVENTURE_PLOT_POINTS {
 		switch value {
@@ -1014,74 +1021,7 @@ enum ADVENTURE_PERSONAL_PLOT_PLOINT: Int, RPG_TABLE, Codable {
 }
 
 
-enum ADVENTURE_META_PLOT_POINTS: String, RPG_TABLE, Codable, PLOT_POINT {
-
-	typealias Result = ADVENTURE_META_PLOT_POINTS
-
-	static var MIN: Int = 1
-	static var MAX: Int = 100
-
-	case CHARACTER_EXITS_THE_ADVENTURE
-	case CHARACTER_RETURNS
-	case CHARACTER_STEPS_UP
-	case CHARACTER_STEPS_DOWN
-	case CHARACTER_DOWNGRADE
-	case CHARACTER_UPGRADE
-	case PLOTLINE_COMBO
-	case NONE
-
-	static func getElementBy(value: Int) -> ADVENTURE_META_PLOT_POINTS {
-		switch value {
-			case 1...18: return .CHARACTER_EXITS_THE_ADVENTURE
-			case 19...27: return .CHARACTER_RETURNS
-			case 28...36: return .CHARACTER_STEPS_UP
-			case 37...55: return .CHARACTER_STEPS_DOWN
-			case 56...73: return .CHARACTER_DOWNGRADE
-			case 74...82: return .CHARACTER_UPGRADE
-			case 83...1000: return .PLOTLINE_COMBO
-			default:
-				return .NONE
-		}
-	}
-
-	static var metaPlotPointToDescriptions = [ADVENTURE_META_PLOT_POINTS: String]()
-
-	static func getShortDescriptionForPlotPloint<T>(_ plotPoint: T) -> String where T : PLOT_POINT {
-		guard let thePlotPoint = plotPoint as? ADVENTURE_META_PLOT_POINTS else { return "None" }
-		return getDescriptionFromJsonForMetaPlotPloint(thePlotPoint)
-
-	}
-
-	static func getDescriptionFromJsonForMetaPlotPloint(_ metaPlotPoint: ADVENTURE_META_PLOT_POINTS) -> String {
-		guard let theDescription = metaPlotPointToDescriptions[metaPlotPoint] else { return "" }
-		return theDescription
-	}
-
-	static func loadMetaPlotPointToDescription() {
-		let decoder = JSONDecoder()
-		guard
-			let path = Bundle.main.path(forResource:"META_PLOT_POINT_TO_DESCRIPTION", ofType: "json"),
-			let data = FileManager.default.contents(atPath: path) else {
-				fatalError("Blarg")
-		}
-
-		do {
-			let metaPlotPointsToDescriptions = try decoder.decode([ADVENTURE_META_PLOT_POINTS: String].self, from: data)
-			ADVENTURE_META_PLOT_POINTS.metaPlotPointToDescriptions = metaPlotPointsToDescriptions
-		} catch {
-			os_log(.error, log: AdventureCrafterModel.logger, "%s", error.localizedDescription)
-		}
-	}
-
-}
-
-
-protocol PLOT_POINT {
-	static func getShortDescriptionForPlotPloint<T: PLOT_POINT>(_ plotPoint: T) -> String
-}
-
-
-enum ADVENTURE_PLOT_POINTS: String, Codable, PLOT_POINT {
+enum ADVENTURE_PLOT_POINTS: String, Codable {
 	case CONCLUSION
 	case NONE
 	case INTO_THE_UNKNOWN
@@ -1268,207 +1208,248 @@ enum ADVENTURE_PLOT_POINTS: String, Codable, PLOT_POINT {
 	case SERVANT
 	case AN_OPPOSING_STORY
 	case META
+	case META_CHARACTER_EXITS_THE_ADVENTURE
+	case META_CHARACTER_RETURNS
+	case META_CHARACTER_STEPS_UP
+	case META_CHARACTER_STEPS_DOWN
+	case META_CHARACTER_DOWNGRADE
+	case META_CHARACTER_UPGRADE
+	case META_PLOTLINE_COMBO
 
-	static func getShortDescriptionForPlotPloint<T>(_ plotPoint: T) -> String where T : PLOT_POINT {
+	
+	static func getRandomMetaPlotPoint() -> ADVENTURE_PLOT_POINTS {
+		let number = Int.random(in: 1...100)
 
-		guard let thePlotPoint = plotPoint as? ADVENTURE_PLOT_POINTS else { return "None" }
-		switch thePlotPoint {
-			case CONCLUSION: return "Conclusion"
-			case NONE: return "None"
-			case INTO_THE_UNKNOWN: return "Into The Unknown"
-			case A_CHARACTER_IS_ATTACKED_IN_A_NON_LETHAL_WAY: return "A Character Is Attacked In A Non Lethal Way"
-			case A_NEEDED_RESOURCE_RUNS_OUT: return "A Needed Resource Runs Out"
-			case USEFUL_INFORMATION_FROM_AN_UNKNOWN_SOURCE: return "Useful Information From An Unknown Source"
-			case IMPENDING_DOOM: return "Impending Doom"
-			case OUTCAST: return "Outcast"
-			case PERSUASION: return "Persuasion"
-			case A_MOTIVE_FREE_CRIME: return "A Motive Free Crime"
-			case COLLATERAL_DAMAGE: return "Collateral Damage"
-			case SHADY_PLACES: return "Shady Places"
-			case A_CHARACTER_IS_ATTACKED_IN_A_LETHAL_WAY: return "A Character Is Attacked In A Lethal Way"
-			case DO_IT_OR_ELSE: return "Do It Or Else"
-			case REMOTE_LOCATION: return "Remote Location"
-			case AMBUSH: return "Ambush"
-			case SOLD: return "Sold"
-			case CATASTROPHE: return "Catastrophe"
-			case GRISLY_TONE: return "Grisly Tone"
-			case CHARACTER_HAS_A_CLEVER_IDEA: return "Character Has A Clever Idea"
-			case SOMETHING_IS_GETTING_AWAY: return "Something Is Getting Away"
-			case RETALIATION: return "Retaliation"
-			case A_CHARACTER_DISAPPEARS: return "A Character Disappears"
-			case HUNTED: return "Hunted"
-			case A_HIGH_ENERGY_GATHERING: return "A High Energy Gathering"
-			case A_RARE_OR_UNIQUE_SOCIAL_GATHERING: return "A Rare Or Unique Social Gathering"
-			case BAD_DECISION: return "Bad Decision"
-			case THIS_ISNT_WORKING: return "This Isnt Working"
-			case DISTRACTION: return "Distraction"
-			case ILL_WILL: return "Ill Will"
-			case AN_ORGANIZATION: return "An Organization"
-			case WANTED_BY_THE_LAW: return "Wanted By The Law"
-			case A_RESOURCE_DISAPPEARS: return "A Resource Disappears"
-			case IT_IS_YOUR_DUTY: return "It Is Your Duty"
-			case FORTUITOUS_FIND: return "Fortuitous Find"
-			case CHARACTER_CONNECTION_SEVERED: return "Character Connection Severed"
-			case ALL_IS_REVEALED: return "All Is Revealed"
-			case HUMILIATION: return "Humiliation"
-			case PEOPLE_BEHAVING_BADLY: return "People Behaving Badly"
-			case USEFUL_INFORMATION_FROM_A_KNOWN_SOURCE: return "Useful Information From A Known Source"
-			case CRYPTIC_INFORMATION_FROM_A_KNOWN_SOURCE: return "Cryptic Information From A Known Source"
-			case LIE_DISCOVERED: return "Lie Discovered"
-			case A_CHARACTER_IS_ATTACKED_TO_ABDUCT: return "A Character Is Attacked To Abduct"
-			case SOMETHING_EXOTIC: return "Something Exotic"
-			case IMMEDIATELY: return "Immediately"
-			case FAME: return "Fame"
-			case CHASE: return "Chase"
-			case BETRAYAL: return "Betrayal"
-			case A_CRIME_IS_COMMITTED: return "A Crime Is Committed"
-			case A_CHARACTER_IS_INCAPACITATED: return "A Character Is Incapacitated"
-			case ITS_A_SECRET: return "Its A Secret"
-			case SOMETHING_LOST_HAS_BEEN_FOUND: return "Something Lost Has Been Found"
-			case SCAPEGOAT: return "Scapegoat"
-			case NOWHERE_TO_RUN: return "Nowhere To Run"
-			case AT_NIGHT: return "At Night"
-			case THE_OBSERVER: return "The Observer"
-			case ESCAPE: return "Escape"
-			case A_SECRET_WEAPON: return "A Secret Weapon"
-			case HEAVILY_GUARDED: return "Heavily Guarded"
-			case RESCUE: return "Rescue"
-			case LIAR: return "Liar"
-			case HOME_SWEET_HOME: return "Home Sweet Home"
-			case A_CHARACTER_ACTS_OUT_OF_CHARACTER: return "A Character Acts Out Of Character"
-			case HEADQUARTERS: return "Headquarters"
-			case PHYSICAL_CONTEST_OF_SKILLS: return "Physical Contest Of Skills"
-			case DEAD: return "Dead"
-			case A_COMMON_SOCIAL_GATHERING: return "A Common Social Gathering"
-			case LIGHT_URBAN_SETTING: return "Light Urban Setting"
-			case MYSTERY_SOLVED: return "Mystery Solved"
-			case A_WORK_RELATED_GATHERING: return "A Work Related Gathering"
-			case FAMILY_MATTERS: return "Family Matters"
-			case SECRET_INFORMATION_LEAKED: return "Secret Information Leaked"
-			case SUSPICION: return "Suspicion"
-			case LOSE_LOSE: return "Lose Lose"
-			case A_FIGURE_FROM_THE_PAST: return "A Figure From The Past"
-			case MASS_BATTLE: return "Mass Battle"
-			case OUT_IN_THE_OPEN: return "Out In The Open"
-			case EVIDENCE: return "Evidence"
-			case A_CHARACTER_IS_DIMINISHED: return "A Character Is Diminished"
-			case THE_PLOT_THICKENS: return "The Plot Thickens"
-			case ENEMIES: return "Enemies"
-			case DUBIOUS_RATIONALE: return "Dubious Rationale"
-			case MENACING_TONE: return "Menacing Tone"
-			case A_CRUCIAL_LIFE_SUPPORT_SYSTEM_BEGINS_TO_FAIL: return "A Crucial Life Support System Begins To Fail"
-			case DENSE_URBAN_SETTING: return "Dense Urban Setting"
-			case DOING_THE_RIGHT_THING: return "Doing The Right Thing"
-			case VICTORY: return "Victory"
-			case TAKING_CHANCES: return "Taking Chances"
-			case A_GROUP_IS_IN_TROUBLE: return "A Group Is In Trouble"
-			case SOLE_SURVIVOR: return "Sole Survivor"
-			case TOKEN_RESPONSE: return "Token Response"
-			case CRYPTIC_INFORMATION_FROM_AN_UNKNOWN_SOURCE: return "Cryptic Information From An Unknown Source"
-			case A_COMMON_THREAD: return "A Common Thread"
-			case A_PROBLEM_RETURNS: return "A Problem Returns"
-			case STUCK: return "Stuck"
-			case AT_YOUR_MERCY: return "At Your Mercy"
-			case STOP_THAT: return "Stop That"
-			case NOT_THEIR_MASTER: return "Not Their Master"
-			case FALL_FROM_POWER: return "Fall From Power"
-			case HELP_IS_OFFERED_FOR_A_PRICE: return "Help Is Offered For A Price"
-			case PUBLIC_LOCATION: return "Public Location"
-			case THE_LEADER: return "The Leader"
-			case PRIZED_POSSESSION: return "Prized Possession"
-			case SAVIOR: return "Savior"
-			case DISARMED: return "Disarmed"
-			case THE_SECRET_TO_THE_POWER: return "The Secret To The Power"
-			case HIDDEN_AGENDA: return "Hidden Agenda"
-			case DEFEND_OR_NOT_TO_DEFEND: return "Defend Or Not To Defend"
-			case CRASH: return "Crash"
-			case REINFORCEMENTS: return "Reinforcements"
-			case GOVERNMENT: return "Government"
-			case PHYSICAL_BARRIER_TO_OVERCOME: return "Physical Barrier To Overcome"
-			case INJUSTICE: return "Injustice"
-			case QUIET_CATASTROPHE: return "Quiet Catastrophe"
-			case AN_OBJECT_OF_UNKNOWN_USE_IS_FOUND: return "An Object Of Unknown Use Is Found"
-			case ITS_ALL_ABOUT_YOU: return "Its All About You"
-			case A_CELEBRATION: return "A Celebration"
-			case STANDOFF: return "Standoff"
-			case DOUBLE_DOWN: return "Double Down"
-			case HIDDEN_THREAT: return "Hidden Threat"
-			case CHARACTER_CONNECTION: return "Character Connection"
-			case RELIGION: return "Religion"
-			case INNOCENCE: return "Innocence"
-			case CLEAR_THE_RECORD: return "Clear The Record"
-			case WILLING_TO_TALK: return "Willing To Talk"
-			case THEFT: return "Theft"
-			case CHARACTER_HARM: return "Character Harm"
-			case A_NEED_TO_HIDE: return "A Need To Hide"
-			case FOLLOWED: return "Followed"
-			case FRAMED: return "Framed"
-			case PREPARATION: return "Preparation"
-			case AN_IMPROBABLE_CRIME: return "An Improbable Crime"
-			case FRIEND_FOCUS: return "Friend Focus"
-			case UNTOUCHABLE: return "Untouchable"
-			case BRIBE: return "Bribe"
-			case DEALING_WITH_A_CALAMITY: return "Dealing With A Calamity"
-			case SUDDEN_CESSATION: return "Sudden Cessation"
-			case ITS_A_TRAP: return "Its A Trap"
-			case A_MEETING_OF_MINDS: return "A Meeting Of Minds"
-			case TIME_LIMIT: return "Time Limit"
-			case THE_HIDDEN_HAND: return "The Hidden Hand"
-			case A_NEEDED_RESOURCE_IS_RUNNING_SHORT: return "A Needed Resource Is Running Short"
-			case ORGANIZATIONS_IN_CONFLICT: return "Organizations In Conflict"
-			case BAD_NEWS: return "Bad News"
-			case CHARACTER_ASSISTANCE: return "Character Assistance"
-			case ASKING_FOR_HELP: return "Asking For Help"
-			case HUNKER_DOWN: return "Hunker Down"
-			case ABANDONED: return "Abandoned"
-			case FIND_IT_OR_ELSE: return "Find It Or Else"
-			case USED_AGAINST_THEM: return "Used Against Them"
-			case POWERFUL_PERSON: return "Powerful Person"
-			case CREEPY_TONE: return "Creepy Tone"
-			case WELCOME_TO_THE_PLOT: return "Welcome To The Plot"
-			case TRAVEL_SETTING: return "Travel Setting"
-			case ESCORT_DUTY: return "Escort Duty"
-			case AN_OLD_DEAL: return "An Old Deal"
-			case A_NEW_ENEMY: return "A New Enemy"
-			case ALLIANCE: return "Alliance"
-			case POWER_OVER_OTHERS: return "Power Over Others"
-			case A_MYSTERIOUS_NEW_PERSON: return "A Mysterious New Person"
-			case FRENETIC_ACTIVITY: return "Frenetic Activity"
-			case RURAL_SETTING: return "Rural Setting"
-			case LIKEABLE: return "Likeable"
-			case SOMEONE_IS_WHERE_THEY_SHOULD_NOT_BE: return "Someone Is Where They Should Not Be"
-			case SNEAKY_BARRIER: return "Sneaky Barrier"
-			case CORRUPTION: return "Corruption"
-			case VULNERABILITY_EXPLOITED: return "Vulnerability Exploited"
-			case THE_PROMISE_OF_REWARD: return "The Promise Of Reward"
-			case FRAUD: return "Fraud"
-			case ITS_BUSINESS: return "Its Business"
-			case JUST_CAUSE_GONE_AWRY: return "Just Cause Gone Awry"
-			case EXPERT_KNOWLEDGE: return "Expert Knowledge"
-			case A_MOMENT_OF_PEACE: return "A Moment Of Peace"
-			case A_FOCUS_ON_THE_MUNDANE: return "A Focus On The Mundane"
-			case RUN_AWAY: return "Run Away"
-			case BEAT_YOU_TO_IT: return "Beat You To It"
-			case CONFRONTATION: return "Confrontation"
-			case ARGUMENT: return "Argument"
-			case SOCIAL_TENSION_SET_TO_BOILING: return "Social Tension Set To Boiling"
-			case PROTECTOR: return "Protector"
-			case CRESCENDO: return "Crescendo"
-			case DESTROY_THE_THING: return "Destroy The Thing"
-			case CONSPIRACY_THEORY: return "Conspiracy Theory"
-			case SERVANT: return "Servant"
-			case AN_OPPOSING_STORY: return "An Opposing Story"
-			case META: return "Meta"
+		switch number {
+			case 1...18: return .META_CHARACTER_EXITS_THE_ADVENTURE
+			case 19...27: return .META_CHARACTER_RETURNS
+			case 28...36: return .META_CHARACTER_STEPS_UP
+			case 37...55: return .META_CHARACTER_STEPS_DOWN
+			case 56...73: return .META_CHARACTER_DOWNGRADE
+			case 74...82: return .META_CHARACTER_UPGRADE
+			case 83...100: return .META_PLOTLINE_COMBO
+			default: return .NONE
 		}
-
 	}
 
-	static func getDescriptionForPlotPloint(_ plotPoint: ADVENTURE_PLOT_POINTS) -> String {
-		guard let theDescription = plotPointToDescriptions[plotPoint] else { return "" }
+	static func getShortDescriptionForPlotPloint(_ plotPoint: ADVENTURE_PLOT_POINTS) -> String {
+
+		switch plotPoint {
+			case .CONCLUSION: return "Conclusion"
+			case .NONE: return "None"
+			case .INTO_THE_UNKNOWN: return "Into The Unknown"
+			case .A_CHARACTER_IS_ATTACKED_IN_A_NON_LETHAL_WAY: return "A Character Is Attacked In A Non Lethal Way"
+			case .A_NEEDED_RESOURCE_RUNS_OUT: return "A Needed Resource Runs Out"
+			case .USEFUL_INFORMATION_FROM_AN_UNKNOWN_SOURCE: return "Useful Information From An Unknown Source"
+			case .IMPENDING_DOOM: return "Impending Doom"
+			case .OUTCAST: return "Outcast"
+			case .PERSUASION: return "Persuasion"
+			case .A_MOTIVE_FREE_CRIME: return "A Motive Free Crime"
+			case .COLLATERAL_DAMAGE: return "Collateral Damage"
+			case .SHADY_PLACES: return "Shady Places"
+			case .A_CHARACTER_IS_ATTACKED_IN_A_LETHAL_WAY: return "A Character Is Attacked In A Lethal Way"
+			case .DO_IT_OR_ELSE: return "Do It Or Else"
+			case .REMOTE_LOCATION: return "Remote Location"
+			case .AMBUSH: return "Ambush"
+			case .SOLD: return "Sold"
+			case .CATASTROPHE: return "Catastrophe"
+			case .GRISLY_TONE: return "Grisly Tone"
+			case .CHARACTER_HAS_A_CLEVER_IDEA: return "Character Has A Clever Idea"
+			case .SOMETHING_IS_GETTING_AWAY: return "Something Is Getting Away"
+			case .RETALIATION: return "Retaliation"
+			case .A_CHARACTER_DISAPPEARS: return "A Character Disappears"
+			case .HUNTED: return "Hunted"
+			case .A_HIGH_ENERGY_GATHERING: return "A High Energy Gathering"
+			case .A_RARE_OR_UNIQUE_SOCIAL_GATHERING: return "A Rare Or Unique Social Gathering"
+			case .BAD_DECISION: return "Bad Decision"
+			case .THIS_ISNT_WORKING: return "This Isnt Working"
+			case .DISTRACTION: return "Distraction"
+			case .ILL_WILL: return "Ill Will"
+			case .AN_ORGANIZATION: return "An Organization"
+			case .WANTED_BY_THE_LAW: return "Wanted By The Law"
+			case .A_RESOURCE_DISAPPEARS: return "A Resource Disappears"
+			case .IT_IS_YOUR_DUTY: return "It Is Your Duty"
+			case .FORTUITOUS_FIND: return "Fortuitous Find"
+			case .CHARACTER_CONNECTION_SEVERED: return "Character Connection Severed"
+			case .ALL_IS_REVEALED: return "All Is Revealed"
+			case .HUMILIATION: return "Humiliation"
+			case .PEOPLE_BEHAVING_BADLY: return "People Behaving Badly"
+			case .USEFUL_INFORMATION_FROM_A_KNOWN_SOURCE: return "Useful Information From A Known Source"
+			case .CRYPTIC_INFORMATION_FROM_A_KNOWN_SOURCE: return "Cryptic Information From A Known Source"
+			case .LIE_DISCOVERED: return "Lie Discovered"
+			case .A_CHARACTER_IS_ATTACKED_TO_ABDUCT: return "A Character Is Attacked To Abduct"
+			case .SOMETHING_EXOTIC: return "Something Exotic"
+			case .IMMEDIATELY: return "Immediately"
+			case .FAME: return "Fame"
+			case .CHASE: return "Chase"
+			case .BETRAYAL: return "Betrayal"
+			case .A_CRIME_IS_COMMITTED: return "A Crime Is Committed"
+			case .A_CHARACTER_IS_INCAPACITATED: return "A Character Is Incapacitated"
+			case .ITS_A_SECRET: return "Its A Secret"
+			case .SOMETHING_LOST_HAS_BEEN_FOUND: return "Something Lost Has Been Found"
+			case .SCAPEGOAT: return "Scapegoat"
+			case .NOWHERE_TO_RUN: return "Nowhere To Run"
+			case .AT_NIGHT: return "At Night"
+			case .THE_OBSERVER: return "The Observer"
+			case .ESCAPE: return "Escape"
+			case .A_SECRET_WEAPON: return "A Secret Weapon"
+			case .HEAVILY_GUARDED: return "Heavily Guarded"
+			case .RESCUE: return "Rescue"
+			case .LIAR: return "Liar"
+			case .HOME_SWEET_HOME: return "Home Sweet Home"
+			case .A_CHARACTER_ACTS_OUT_OF_CHARACTER: return "A Character Acts Out Of Character"
+			case .HEADQUARTERS: return "Headquarters"
+			case .PHYSICAL_CONTEST_OF_SKILLS: return "Physical Contest Of Skills"
+			case .DEAD: return "Dead"
+			case .A_COMMON_SOCIAL_GATHERING: return "A Common Social Gathering"
+			case .LIGHT_URBAN_SETTING: return "Light Urban Setting"
+			case .MYSTERY_SOLVED: return "Mystery Solved"
+			case .A_WORK_RELATED_GATHERING: return "A Work Related Gathering"
+			case .FAMILY_MATTERS: return "Family Matters"
+			case .SECRET_INFORMATION_LEAKED: return "Secret Information Leaked"
+			case .SUSPICION: return "Suspicion"
+			case .LOSE_LOSE: return "Lose Lose"
+			case .A_FIGURE_FROM_THE_PAST: return "A Figure From The Past"
+			case .MASS_BATTLE: return "Mass Battle"
+			case .OUT_IN_THE_OPEN: return "Out In The Open"
+			case .EVIDENCE: return "Evidence"
+			case .A_CHARACTER_IS_DIMINISHED: return "A Character Is Diminished"
+			case .THE_PLOT_THICKENS: return "The Plot Thickens"
+			case .ENEMIES: return "Enemies"
+			case .DUBIOUS_RATIONALE: return "Dubious Rationale"
+			case .MENACING_TONE: return "Menacing Tone"
+			case .A_CRUCIAL_LIFE_SUPPORT_SYSTEM_BEGINS_TO_FAIL: return "A Crucial Life Support System Begins To Fail"
+			case .DENSE_URBAN_SETTING: return "Dense Urban Setting"
+			case .DOING_THE_RIGHT_THING: return "Doing The Right Thing"
+			case .VICTORY: return "Victory"
+			case .TAKING_CHANCES: return "Taking Chances"
+			case .A_GROUP_IS_IN_TROUBLE: return "A Group Is In Trouble"
+			case .SOLE_SURVIVOR: return "Sole Survivor"
+			case .TOKEN_RESPONSE: return "Token Response"
+			case .CRYPTIC_INFORMATION_FROM_AN_UNKNOWN_SOURCE: return "Cryptic Information From An Unknown Source"
+			case .A_COMMON_THREAD: return "A Common Thread"
+			case .A_PROBLEM_RETURNS: return "A Problem Returns"
+			case .STUCK: return "Stuck"
+			case .AT_YOUR_MERCY: return "At Your Mercy"
+			case .STOP_THAT: return "Stop That"
+			case .NOT_THEIR_MASTER: return "Not Their Master"
+			case .FALL_FROM_POWER: return "Fall From Power"
+			case .HELP_IS_OFFERED_FOR_A_PRICE: return "Help Is Offered For A Price"
+			case .PUBLIC_LOCATION: return "Public Location"
+			case .THE_LEADER: return "The Leader"
+			case .PRIZED_POSSESSION: return "Prized Possession"
+			case .SAVIOR: return "Savior"
+			case .DISARMED: return "Disarmed"
+			case .THE_SECRET_TO_THE_POWER: return "The Secret To The Power"
+			case .HIDDEN_AGENDA: return "Hidden Agenda"
+			case .DEFEND_OR_NOT_TO_DEFEND: return "Defend Or Not To Defend"
+			case .CRASH: return "Crash"
+			case .REINFORCEMENTS: return "Reinforcements"
+			case .GOVERNMENT: return "Government"
+			case .PHYSICAL_BARRIER_TO_OVERCOME: return "Physical Barrier To Overcome"
+			case .INJUSTICE: return "Injustice"
+			case .QUIET_CATASTROPHE: return "Quiet Catastrophe"
+			case .AN_OBJECT_OF_UNKNOWN_USE_IS_FOUND: return "An Object Of Unknown Use Is Found"
+			case .ITS_ALL_ABOUT_YOU: return "Its All About You"
+			case .A_CELEBRATION: return "A Celebration"
+			case .STANDOFF: return "Standoff"
+			case .DOUBLE_DOWN: return "Double Down"
+			case .HIDDEN_THREAT: return "Hidden Threat"
+			case .CHARACTER_CONNECTION: return "Character Connection"
+			case .RELIGION: return "Religion"
+			case .INNOCENCE: return "Innocence"
+			case .CLEAR_THE_RECORD: return "Clear The Record"
+			case .WILLING_TO_TALK: return "Willing To Talk"
+			case .THEFT: return "Theft"
+			case .CHARACTER_HARM: return "Character Harm"
+			case .A_NEED_TO_HIDE: return "A Need To Hide"
+			case .FOLLOWED: return "Followed"
+			case .FRAMED: return "Framed"
+			case .PREPARATION: return "Preparation"
+			case .AN_IMPROBABLE_CRIME: return "An Improbable Crime"
+			case .FRIEND_FOCUS: return "Friend Focus"
+			case .UNTOUCHABLE: return "Untouchable"
+			case .BRIBE: return "Bribe"
+			case .DEALING_WITH_A_CALAMITY: return "Dealing With A Calamity"
+			case .SUDDEN_CESSATION: return "Sudden Cessation"
+			case .ITS_A_TRAP: return "Its A Trap"
+			case .A_MEETING_OF_MINDS: return "A Meeting Of Minds"
+			case .TIME_LIMIT: return "Time Limit"
+			case .THE_HIDDEN_HAND: return "The Hidden Hand"
+			case .A_NEEDED_RESOURCE_IS_RUNNING_SHORT: return "A Needed Resource Is Running Short"
+			case .ORGANIZATIONS_IN_CONFLICT: return "Organizations In Conflict"
+			case .BAD_NEWS: return "Bad News"
+			case .CHARACTER_ASSISTANCE: return "Character Assistance"
+			case .ASKING_FOR_HELP: return "Asking For Help"
+			case .HUNKER_DOWN: return "Hunker Down"
+			case .ABANDONED: return "Abandoned"
+			case .FIND_IT_OR_ELSE: return "Find It Or Else"
+			case .USED_AGAINST_THEM: return "Used Against Them"
+			case .POWERFUL_PERSON: return "Powerful Person"
+			case .CREEPY_TONE: return "Creepy Tone"
+			case .WELCOME_TO_THE_PLOT: return "Welcome To The Plot"
+			case .TRAVEL_SETTING: return "Travel Setting"
+			case .ESCORT_DUTY: return "Escort Duty"
+			case .AN_OLD_DEAL: return "An Old Deal"
+			case .A_NEW_ENEMY: return "A New Enemy"
+			case .ALLIANCE: return "Alliance"
+			case .POWER_OVER_OTHERS: return "Power Over Others"
+			case .A_MYSTERIOUS_NEW_PERSON: return "A Mysterious New Person"
+			case .FRENETIC_ACTIVITY: return "Frenetic Activity"
+			case .RURAL_SETTING: return "Rural Setting"
+			case .LIKEABLE: return "Likeable"
+			case .SOMEONE_IS_WHERE_THEY_SHOULD_NOT_BE: return "Someone Is Where They Should Not Be"
+			case .SNEAKY_BARRIER: return "Sneaky Barrier"
+			case .CORRUPTION: return "Corruption"
+			case .VULNERABILITY_EXPLOITED: return "Vulnerability Exploited"
+			case .THE_PROMISE_OF_REWARD: return "The Promise Of Reward"
+			case .FRAUD: return "Fraud"
+			case .ITS_BUSINESS: return "Its Business"
+			case .JUST_CAUSE_GONE_AWRY: return "Just Cause Gone Awry"
+			case .EXPERT_KNOWLEDGE: return "Expert Knowledge"
+			case .A_MOMENT_OF_PEACE: return "A Moment Of Peace"
+			case .A_FOCUS_ON_THE_MUNDANE: return "A Focus On The Mundane"
+			case .RUN_AWAY: return "Run Away"
+			case .BEAT_YOU_TO_IT: return "Beat You To It"
+			case .CONFRONTATION: return "Confrontation"
+			case .ARGUMENT: return "Argument"
+			case .SOCIAL_TENSION_SET_TO_BOILING: return "Social Tension Set To Boiling"
+			case .PROTECTOR: return "Protector"
+			case .CRESCENDO: return "Crescendo"
+			case .DESTROY_THE_THING: return "Destroy The Thing"
+			case .CONSPIRACY_THEORY: return "Conspiracy Theory"
+			case .SERVANT: return "Servant"
+			case .AN_OPPOSING_STORY: return "An Opposing Story"
+			case .META: return "Meta"
+			case .META_CHARACTER_EXITS_THE_ADVENTURE: return "(Meta) Character exits the adventure."
+			case .META_CHARACTER_RETURNS: return "(Meta) Character returns to the adventure."
+			case .META_CHARACTER_STEPS_UP: return "(Meta) Character steps up in the adventure."
+			case .META_CHARACTER_STEPS_DOWN: return "(Meta) Character steps down in the adventure."
+			case .META_CHARACTER_DOWNGRADE: return "(Meta) Character is downgraded in the adventure."
+			case .META_CHARACTER_UPGRADE: return "(Meta) Character is upgraded in the adventure."
+			case .META_PLOTLINE_COMBO: return "(Meta) PLotline combo."
+		}
+	}
+
+	static var plotPointToFullDescriptions = [ADVENTURE_PLOT_POINTS: String]()
+
+	static func getFullDescriptionForPlotPloint(_ plotPoint: ADVENTURE_PLOT_POINTS) -> String {
+		if !isFullDescriptionsLoaded() {
+			loadPlotPointToFullDescriptions()
+		}
+		guard let theDescription = plotPointToFullDescriptions[plotPoint] else { return "" }
 		return theDescription
 	}
 
-	static func loadPlotPointToDescription() {
+	static func isFullDescriptionsLoaded() -> Bool {
+		if plotPointToFullDescriptions.count == 0 {
+			return false
+		}
+
+		return true
+	}
+
+	static func loadPlotPointToFullDescriptions() {
 		let decoder = JSONDecoder()
 		guard
 			let path = Bundle.main.path(forResource:"PLOT_POINT_TO_DESCRIPTION", ofType: "json"),
@@ -1478,17 +1459,13 @@ enum ADVENTURE_PLOT_POINTS: String, Codable, PLOT_POINT {
 
 		do {
 			let plotPointsToDescriptions = try decoder.decode([ADVENTURE_PLOT_POINTS: String].self, from: data)
-			ADVENTURE_PLOT_POINTS.plotPointToDescriptions = plotPointsToDescriptions
+			ADVENTURE_PLOT_POINTS.plotPointToFullDescriptions = plotPointsToDescriptions
 		} catch {
 			os_log(.error, log: AdventureCrafterModel.logger, "%s", error.localizedDescription)
 		}
 	}
 
-	static var plotPointToDescriptions = [ADVENTURE_PLOT_POINTS: String]()
-
 }
-
-
 
 enum ADVENTURE_CHARACTER_DESCRIPTOR: String, RPG_TABLE, Codable {
 	typealias Result = ADVENTURE_CHARACTER_DESCRIPTOR

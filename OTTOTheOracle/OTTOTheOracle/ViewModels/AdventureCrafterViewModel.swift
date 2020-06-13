@@ -8,21 +8,32 @@
 
 import Foundation
 
+/**
+https://stackoverflow.com/a/28288340/9760718
+*/
+extension StringProtocol {
+	var firstUppercased: String { prefix(1).uppercased() + dropFirst() }
+	var firstCapitalized: String { prefix(1).capitalized + dropFirst() }
+}
+
 class AdventureCrafterViewModel: ObservableObject {
 	var adventureCrafterModel = AdventureCrafterModel()
 
 	@Published var themes = [AdventureCrafterThemeViewModel]()
-	@Published var turningPoint = TuringPoint()
-	@Published var plotPoints = [TurningPlotPointViewModel]()
+	@Published var plotPoints = [PlotPointsViewModel]()
 
 	init() {
-		getACThemes()
 		adventureCrafterModel.buildNewAdventureThemesModel()
-		getTurningPoint()
+
+		getACThemes()
+		generateNewTurningPointPlotPoints()
 	}
 
 	func getACThemes() {
-		guard let theAdventureThemeModel = adventureCrafterModel.adventureModel else { return }
+		guard let theAdventureThemeModel = adventureCrafterModel.adventureModel else {
+			return
+		}
+
 		let acThemes = theAdventureThemeModel.themes
 		let acThemesByPrority = acThemes.getThemesByPriority()
 		let acThemeStrings = acThemesByPrority.map { AdventureCrafterThemeViewModel(theme: $0.rawValue)	}
@@ -30,33 +41,41 @@ class AdventureCrafterViewModel: ObservableObject {
 		print(themes)
 	}
 
-	func getTurningPoint() {
+	func generateNewTurningPointPlotPoints() {
 		guard let theTurningPoint = adventureCrafterModel.getRandomTurningPoint() else {
 			print("return")
 			return }
 
-		var thePlotPoints = [TurningPlotPointViewModel]()
+		let formattedPlotPoints = getFormattedPlotPoint(theTurningPoint.plotPoints)
 
-		for (key, value) in theTurningPoint.plotPoints {
-			let plotPoint = TurningPlotPointViewModel(priority: key, plotPoint: value)
-			thePlotPoints.append(plotPoint)
+		plotPoints = formattedPlotPoints
+	}
+
+	func getFormattedPlotPoint(_ plotPoints: [ADVENTURE_PLOT_POINTS]) -> [PlotPointsViewModel] {
+		let formattedPlotPoints: [PlotPointsViewModel] = plotPoints.map { (adventurePlotPoint) in
+			var plotPointsViewModel: PlotPointsViewModel = PlotPointsViewModel(plotPoint: "")
+			if adventurePlotPoint != .NONE && adventurePlotPoint != .META {
+				var plotPointString = adventurePlotPoint.rawValue
+				plotPointString = plotPointString.replacingOccurrences(of: "META_", with: "")
+				plotPointString = plotPointString.replacingOccurrences(of: "_", with: " ")
+				plotPointString = plotPointString.capitalized
+				plotPointsViewModel = PlotPointsViewModel(plotPoint: plotPointString)
+			}
+			return plotPointsViewModel
 		}
 
-		thePlotPoints.sort{ $0.priority < $1.priority }
-
-		plotPoints = thePlotPoints
+		return formattedPlotPoints
 	}
+
 
 }
 
-class TurningPlotPointViewModel: Identifiable {
-	var id: Int { get { priority } }
-	var priority: Int
-	var title: String
+struct PlotPointsViewModel: Identifiable {
+	var id = UUID()
+	var plotPoint: String
 
-	init(priority: Int, plotPoint: String) {
-		self.priority = priority
-		self.title = plotPoint
+	init(plotPoint: String) {
+		self.plotPoint = plotPoint
 	}
 }
 

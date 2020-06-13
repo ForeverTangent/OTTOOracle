@@ -25,17 +25,7 @@ protocol RPG_TABLE: CaseIterable {
 Extention fro RPG_TABLE Protocol.
 */
 extension RPG_TABLE {
-	static var MIN: Int {
-		get {
-			return 0
-		}
-	}
-	static var MAX: Int {
-		get {
-			return 99
-		}
-	}
-
+	
 	static func randomIntInRange() -> Int {
 		var SRNG = SystemRandomNumberGenerator()
 		return Int.random(in: MIN...MAX, using: &SRNG)
