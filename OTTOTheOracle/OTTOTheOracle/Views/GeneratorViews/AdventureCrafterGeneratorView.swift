@@ -15,7 +15,7 @@ struct AdventureCrafterGeneratorView: View {
 		TabView {
 			VStack {
 				VStack {
-					ForEach(self.adventureCrafterGeneratorVM.themes) { (theme) in
+					ForEach(self.adventureCrafterGeneratorVM.adventureThemesViewModel) { (theme) in
 						Text("\(theme.title)")
 							.font(.title)
 							.padding(.vertical, 5.0)
@@ -45,7 +45,7 @@ struct AdventureCrafterGeneratorView: View {
 			}
 			VStack {
 				VStack {
-					ForEach(self.adventureCrafterGeneratorVM.plotPoints) { (turningPoint) in
+					ForEach(self.adventureCrafterGeneratorVM.plotPointsViewModel) { (turningPoint) in
 						Text("\(turningPoint.plotPoint)")
 							.font(.title)
 							.multilineTextAlignment(.center)
@@ -75,7 +75,45 @@ struct AdventureCrafterGeneratorView: View {
 				Image(systemName: "1.square.fill")
 				Text("Plot Points")
 			}
-			Text("The Last Tab")
+			ScrollView {
+				Text("Character Tab")
+					.frame(width: 300.0)
+				VStack {
+					ForEach(self.adventureCrafterGeneratorVM.characterDataViewModel.identities) { (identity) in
+						Text("\(identity.identity)")
+							.font(.title)
+							.multilineTextAlignment(.center)
+							.padding(.vertical, 5.0)
+							.frame(width: 300.0)
+					}
+				}
+				Text("Break")
+				VStack {
+					ForEach(self.adventureCrafterGeneratorVM.characterDataViewModel.descriptors) { (descriptor) in
+						Text("\(descriptor.descriptor)")
+							.font(.title)
+							.multilineTextAlignment(.center)
+							.padding(.vertical, 5.0)
+							.frame(width: 300.0)
+					}
+				}
+				.frame(height: 250.0)
+				Button("Generate New Character") {
+					print("Generate New Character Pressed")
+					self.adventureCrafterGeneratorVM.generateNewCharacter()
+				}
+				.onAppear() {
+					print("Character Tab Appears")
+					self.adventureCrafterGeneratorVM.generateNewTurningPointPlotPoints()
+				}
+				.padding(.vertical, 50.0)
+				.foregroundColor(.blue)
+				.overlay(
+					RoundedRectangle(cornerRadius: 20)
+						.stroke(Color.blue, lineWidth: 5)
+						.frame(width: 200.0, height: 50.0)
+				)
+			}
 				.tabItem {
 					Image(systemName: "3.square.fill")
 					Text("Characters")

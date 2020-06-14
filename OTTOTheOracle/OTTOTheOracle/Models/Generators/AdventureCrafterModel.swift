@@ -18,6 +18,8 @@ class AdventureCrafterModel {
 
 	var adventureModel: AdventureModel?
 
+	var character: CharacterData?
+
 	func buildNewAdventureThemesModel() {
 		let adventureThemeModel = AdventureThemeModelBuilder().build()
 		adventureModel = AdventureModel(adventureThemes: adventureThemeModel)
@@ -29,6 +31,11 @@ class AdventureCrafterModel {
 		let newNurningPoint = TuringPointBuilder().build(withThemeModel: theAdventureModel.themes)
 		turningPoints.append(newNurningPoint)
 		theAdventureModel.turningPoints = turningPoints
+	}
+
+
+	func buildNewCharacter() {
+		character = CharacterDataBuilder().build()
 	}
 
 
@@ -275,8 +282,8 @@ struct CharacterData: Comparable, Equatable, Codable {
 	var order: Int
 	var name: String
 	var trait: ADVENTURE_CHARACTER_TRAIT
-	var indentity: ADVENTURE_CHARACTER_IDENTITY
-	var descriptor: ADVENTURE_CHARACTER_DESCRIPTOR
+	var identity: [ADVENTURE_CHARACTER_IDENTITY]
+	var descriptors: [ADVENTURE_CHARACTER_DESCRIPTOR]
 
 	// MARK: - Comparable
 
@@ -284,6 +291,81 @@ struct CharacterData: Comparable, Equatable, Codable {
 	static func == (lhs: CharacterData, rhs: CharacterData) -> Bool { lhs.name == rhs.name }
 
 }
+
+
+
+class CharacterDataBuilder {
+
+	func build() -> CharacterData {
+
+		let trait = ADVENTURE_CHARACTER_TRAIT.randomWeightedElement()
+
+		let identities: [ADVENTURE_CHARACTER_IDENTITY] = getCharacterIdentities()
+
+		let descriptors: [ADVENTURE_CHARACTER_DESCRIPTOR] = getCharacterDescriptors()
+
+
+		return CharacterData(order: 0,
+							 name: "",
+							 trait: trait,
+							 identity: identities,
+							 descriptors: descriptors)
+
+	}
+
+
+	private func getCharacterIdentities() -> [ADVENTURE_CHARACTER_IDENTITY] {
+
+		var listOfIdentities = [ADVENTURE_CHARACTER_IDENTITY]()
+
+		//		if let theIdentities = identities {
+		//			listOfIdentities = theIdentities
+		//		}
+
+		let identity = ADVENTURE_CHARACTER_IDENTITY.randomWeightedElement()
+
+		if identity == .ROLL_FOR_TWO_IDENTITIES {
+			var firstListOfIds = [ADVENTURE_CHARACTER_IDENTITY]()
+			var secondsListOfIds = [ADVENTURE_CHARACTER_IDENTITY]()
+			firstListOfIds += getCharacterIdentities()
+			secondsListOfIds +=  getCharacterIdentities()
+			listOfIdentities += firstListOfIds + secondsListOfIds
+		} else {
+			listOfIdentities.append(identity)
+		}
+
+		return listOfIdentities
+
+	}
+
+
+	private func getCharacterDescriptors() -> [ADVENTURE_CHARACTER_DESCRIPTOR] {
+
+		var listOfDescriptors = [ADVENTURE_CHARACTER_DESCRIPTOR]()
+
+		//		if let theDescriptors = descriptors {
+		//			listOfDescriptors = theDescriptors
+		//		}
+
+		let descriptor = ADVENTURE_CHARACTER_DESCRIPTOR.randomWeightedElement()
+
+		if descriptor == .ROLL_FOR_TWO_DESCRIPTORS {
+			var firstListOfDescriptors = [ADVENTURE_CHARACTER_DESCRIPTOR]()
+			var secondsListOfDescriptors  = [ADVENTURE_CHARACTER_DESCRIPTOR]()
+			firstListOfDescriptors += getCharacterDescriptors()
+			secondsListOfDescriptors +=  getCharacterDescriptors()
+			listOfDescriptors += firstListOfDescriptors + secondsListOfDescriptors
+		} else {
+			listOfDescriptors.append(descriptor)
+		}
+
+		return listOfDescriptors
+
+	}
+
+}
+
+
 
 
 enum ADVENTURE_PLOTLINE_TYPE: String, RPG_TABLE, Codable {

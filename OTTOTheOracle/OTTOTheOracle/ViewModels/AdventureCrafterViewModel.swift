@@ -19,8 +19,12 @@ extension StringProtocol {
 class AdventureCrafterViewModel: ObservableObject {
 	var adventureCrafterModel = AdventureCrafterModel()
 
-	@Published var themes = [AdventureCrafterThemeViewModel]()
-	@Published var plotPoints = [PlotPointsViewModel]()
+	@Published var adventureThemesViewModel = [AdventureCrafterThemeViewModel]()
+	@Published var plotPointsViewModel = [PlotPointsViewModel]()
+	@Published var characterDataViewModel = CharacterDataViewModel(
+		name: "",
+		identities: [CharacterDataIdentiesViewModel](),
+		descriptors: [CharacterDataDescriptorsViewModel]())
 
 	init() {
 		generateNewAdventureThemesModel()
@@ -38,8 +42,8 @@ class AdventureCrafterViewModel: ObservableObject {
 		let acThemes = theAdventureThemeModel.themes
 		let acThemesByPrority = acThemes.getThemesByPriority()
 		let acThemeStrings = acThemesByPrority.map { AdventureCrafterThemeViewModel(theme: $0.rawValue)	}
-		themes = acThemeStrings
-		print(themes)
+		adventureThemesViewModel = acThemeStrings
+		print(adventureThemesViewModel)
 	}
 
 
@@ -60,6 +64,40 @@ class AdventureCrafterViewModel: ObservableObject {
 	}
 
 
+	func getCharacterData() {
+		guard let theCharacterData = adventureCrafterModel.character else {
+			return
+		}
+
+		let formattedCharacterData = getFormattedCharacterData(theCharacterData)
+
+		characterDataViewModel = formattedCharacterData
+
+	}
+
+
+	func getFormattedCharacterData(_ characterData: CharacterData) -> CharacterDataViewModel {
+		var identities = [CharacterDataIdentiesViewModel]()
+		var descriptors = [CharacterDataDescriptorsViewModel]()
+
+		for element in characterData.identity {
+			let newCDIdentiryVM = CharacterDataIdentiesViewModel(identity: element.rawValue)
+			identities.append(newCDIdentiryVM)
+		}
+
+		for element in characterData.descriptors {
+			let newCDDescriptorVM = CharacterDataDescriptorsViewModel(descriptor: element.rawValue)
+			descriptors.append(newCDDescriptorVM)
+		}
+
+		let totalCharacterDataVM = CharacterDataViewModel(name: "ASDF",
+														  identities: identities,
+														  descriptors: descriptors)
+
+		return totalCharacterDataVM
+	}
+
+
 	func generateNewAdventureThemesModel() {
 		adventureCrafterModel.buildNewAdventureThemesModel()
 		getAdventureThemesForViewModel()
@@ -73,11 +111,37 @@ class AdventureCrafterViewModel: ObservableObject {
 
 		let formattedPlotPoints = getFormattedPlotPoints(theTurningPoint.plotPoints)
 
-		plotPoints = formattedPlotPoints
+		plotPointsViewModel = formattedPlotPoints
+	}
+
+	func generateNewCharacter() {
+		adventureCrafterModel.buildNewCharacter()
+		getCharacterData()
 	}
 
 
 }
+
+
+struct CharacterDataViewModel: Identifiable {
+	var id = UUID()
+	var name: String
+	var identities: [CharacterDataIdentiesViewModel]
+	var descriptors: [CharacterDataDescriptorsViewModel]
+
+}
+
+struct CharacterDataIdentiesViewModel: Identifiable {
+	var id = UUID()
+	var identity: String
+}
+
+struct CharacterDataDescriptorsViewModel: Identifiable {
+	var id = UUID()
+	var descriptor: String
+
+}
+
 
 struct PlotPointsViewModel: Identifiable {
 	var id = UUID()

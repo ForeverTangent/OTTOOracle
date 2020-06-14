@@ -77,7 +77,6 @@
 		31C6BC20248F107100494CD7 /* TextPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6BC1F248F107100494CD7 /* TextPopUpView.swift */; };
 		31E9B9EB248BE6BE007B4463 /* SoloRPGOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9B9EA248BE6BE007B4463 /* SoloRPGOracleModel.swift */; };
 		31E9B9EE248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */; };
-		31E9B9EF248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9ED248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json */; };
 		31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */; };
 		31FB75862493F40B00622969 /* OraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75852493F40B00622969 /* OraclesView.swift */; };
 		31FB75882493F41B00622969 /* GeneratorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75872493F41B00622969 /* GeneratorsView.swift */; };
@@ -174,7 +173,6 @@
 		31C6BC1F248F107100494CD7 /* TextPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPopUpView.swift; sourceTree = "<group>"; };
 		31E9B9EA248BE6BE007B4463 /* SoloRPGOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGOracleModel.swift; sourceTree = "<group>"; };
 		31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PLOT_POINT_TO_DESCRIPTION.json; sourceTree = "<group>"; };
-		31E9B9ED248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = META_PLOT_POINT_TO_DESCRIPTION.json; sourceTree = "<group>"; };
 		31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RUNE_DESCRIPTIONS.json; sourceTree = "<group>"; };
 		31FB75852493F40B00622969 /* OraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraclesView.swift; sourceTree = "<group>"; };
 		31FB75872493F41B00622969 /* GeneratorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorsView.swift; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 		3188CB842481C8C2001F53B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				31E9B9ED248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json */,
 				31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */,
 				3188CB852481C8F0001F53B5 /* GMA_CARDS.json */,
 				31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */,
@@ -517,7 +514,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				312F20232481B3E2000CEB9C /* LaunchScreen.storyboard in Resources */,
-				31E9B9EF248C5C06007B4463 /* META_PLOT_POINT_TO_DESCRIPTION.json in Resources */,
 				31E9B9EE248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json in Resources */,
 				312F20202481B3E2000CEB9C /* Preview Assets.xcassets in Resources */,
 				3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */,
