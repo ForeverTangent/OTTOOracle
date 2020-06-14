@@ -23,8 +23,9 @@ struct AdventureCrafterGeneratorView: View {
 					}
 				}
 				.frame(height: 250.0)
-				Button("Calculate") {
-					print("Calculate")
+				Button("Generate New Theme") {
+					print("Generate New Themes Pressed")
+					self.adventureCrafterGeneratorVM.generateNewAdventureThemesModel()
 				}
 				.onAppear() {
 					print("Themes Tab Appears")
@@ -53,11 +54,12 @@ struct AdventureCrafterGeneratorView: View {
 					}
 				}
 				.frame(height: 250.0)
-				Button("Calculate") {
-					print("Calculate")
+				Button("Generate Plot Points") {
+					print("Generate Plot Points Pressed")
+					self.adventureCrafterGeneratorVM.generateNewTurningPointPlotPoints()
 				}
 				.onAppear() {
-					print("Themes Tab Appears")
+					print("Plot Point Tab Appears")
 					self.adventureCrafterGeneratorVM.generateNewTurningPointPlotPoints()
 				}
 				.padding(.vertical, 50.0)

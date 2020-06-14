@@ -23,13 +23,14 @@ class AdventureCrafterViewModel: ObservableObject {
 	@Published var plotPoints = [PlotPointsViewModel]()
 
 	init() {
-		adventureCrafterModel.buildNewAdventureThemesModel()
+		generateNewAdventureThemesModel()
 
-		getACThemes()
+		getAdventureThemesForViewModel()
 		generateNewTurningPointPlotPoints()
 	}
 
-	func getACThemes() {
+
+	func getAdventureThemesForViewModel() {
 		guard let theAdventureThemeModel = adventureCrafterModel.adventureModel else {
 			return
 		}
@@ -41,17 +42,8 @@ class AdventureCrafterViewModel: ObservableObject {
 		print(themes)
 	}
 
-	func generateNewTurningPointPlotPoints() {
-		guard let theTurningPoint = adventureCrafterModel.getRandomTurningPoint() else {
-			print("return")
-			return }
 
-		let formattedPlotPoints = getFormattedPlotPoint(theTurningPoint.plotPoints)
-
-		plotPoints = formattedPlotPoints
-	}
-
-	func getFormattedPlotPoint(_ plotPoints: [ADVENTURE_PLOT_POINTS]) -> [PlotPointsViewModel] {
+	func getFormattedPlotPoints(_ plotPoints: [ADVENTURE_PLOT_POINTS]) -> [PlotPointsViewModel] {
 		let formattedPlotPoints: [PlotPointsViewModel] = plotPoints.map { (adventurePlotPoint) in
 			var plotPointsViewModel: PlotPointsViewModel = PlotPointsViewModel(plotPoint: "")
 			if adventurePlotPoint != .NONE && adventurePlotPoint != .META {
@@ -65,6 +57,23 @@ class AdventureCrafterViewModel: ObservableObject {
 		}
 
 		return formattedPlotPoints
+	}
+
+
+	func generateNewAdventureThemesModel() {
+		adventureCrafterModel.buildNewAdventureThemesModel()
+		getAdventureThemesForViewModel()
+	}
+
+
+	func generateNewTurningPointPlotPoints() {
+		guard let theTurningPoint = adventureCrafterModel.getRandomTurningPoint() else {
+			print("return")
+			return }
+
+		let formattedPlotPoints = getFormattedPlotPoints(theTurningPoint.plotPoints)
+
+		plotPoints = formattedPlotPoints
 	}
 
 
