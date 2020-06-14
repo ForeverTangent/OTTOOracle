@@ -67,6 +67,9 @@
 		3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */; };
 		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */; };
 		31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */; };
+		31ACC52E249655A600454787 /* CypherNPCGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC52D249655A600454787 /* CypherNPCGeneratorModel.swift */; };
+		31ACC53024969E3800454787 /* CypherNPCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */; };
+		31ACC5322496A23000454787 /* CypherNPCGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC5312496A23000454787 /* CypherNPCGeneratorView.swift */; };
 		31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22922483DE8B00E21C00 /* MythicCard.swift */; };
 		31BE22952483DEE400E21C00 /* GMACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22942483DEE400E21C00 /* GMACard.swift */; };
 		31BE22972483FF8B00E21C00 /* MYTHIC_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */; };
@@ -104,7 +107,7 @@
 		3118052224915B2600C3812C /* AdvancedOraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOraclesView.swift; sourceTree = "<group>"; };
 		3118052424915B6400C3812C /* ShowAdvMythicCardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAdvMythicCardNavButton.swift; sourceTree = "<group>"; };
 		311805282492646900C3812C /* GMAOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAOracleModel.swift; sourceTree = "<group>"; };
-		312F20132481B3E1000CEB9C /* OTTOTheOracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTTOTheOracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		312F20132481B3E1000CEB9C /* OTTO The Oracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTTO The Oracle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		312F20162481B3E1000CEB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		312F20182481B3E1000CEB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		312F201A2481B3E1000CEB9C /* StartingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingView.swift; sourceTree = "<group>"; };
@@ -162,6 +165,9 @@
 		3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardOnlyView.swift; sourceTree = "<group>"; };
 		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS.json; sourceTree = "<group>"; };
 		31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TAG_DESCRIPTIONS.json; sourceTree = "<group>"; };
+		31ACC52D249655A600454787 /* CypherNPCGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCGeneratorModel.swift; sourceTree = "<group>"; };
+		31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCViewModel.swift; sourceTree = "<group>"; };
+		31ACC5312496A23000454787 /* CypherNPCGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCGeneratorView.swift; sourceTree = "<group>"; };
 		31BE22922483DE8B00E21C00 /* MythicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicCard.swift; sourceTree = "<group>"; };
 		31BE22942483DEE400E21C00 /* GMACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACard.swift; sourceTree = "<group>"; };
 		31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MYTHIC_CARDS.json; sourceTree = "<group>"; };
@@ -217,7 +223,7 @@
 		312F20142481B3E1000CEB9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				312F20132481B3E1000CEB9C /* OTTOTheOracle.app */,
+				312F20132481B3E1000CEB9C /* OTTO The Oracle.app */,
 				31FB759A2494451E00622969 /* OTTOTheOracleTests.xctest */,
 			);
 			name = Products;
@@ -291,6 +297,7 @@
 				3173EE582491265E00F646A3 /* PETGeneratorModel.swift */,
 				3133B1AB24901C0D005FF8FD /* SWWCGeneratorModel.swift */,
 				3133B1A924901BB5005FF8FD /* UNEGeneratorModel.swift */,
+				31ACC52D249655A600454787 /* CypherNPCGeneratorModel.swift */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -379,6 +386,7 @@
 				315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */,
 				315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */,
 				31FB75942493FA6900622969 /* AdventureCrafterViewModel.swift */,
+				31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -418,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */,
+				31ACC5312496A23000454787 /* CypherNPCGeneratorView.swift */,
 			);
 			path = GeneratorViews;
 			sourceTree = "<group>";
@@ -449,7 +458,7 @@
 			);
 			name = OTTOTheOracle;
 			productName = OTTOTheOracle;
-			productReference = 312F20132481B3E1000CEB9C /* OTTOTheOracle.app */;
+			productReference = 312F20132481B3E1000CEB9C /* OTTO The Oracle.app */;
 			productType = "com.apple.product-type.application";
 		};
 		31FB75992494451E00622969 /* OTTOTheOracleTests */ = {
@@ -549,12 +558,14 @@
 				314F83FD2492B6580061C1EA /* CypherOracleView.swift in Sources */,
 				3118052524915B6400C3812C /* ShowAdvMythicCardNavButton.swift in Sources */,
 				3133B1A624901A55005FF8FD /* CypherOracleModel.swift in Sources */,
+				31ACC53024969E3800454787 /* CypherNPCViewModel.swift in Sources */,
 				31FB75932493F90B00622969 /* ShowACGeneratorNavButton.swift in Sources */,
 				315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */,
 				316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */,
 				316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */,
 				314F83FF2492B6D40061C1EA /* CypherOracleViewModel.swift in Sources */,
 				31180521249150D700C3812C /* MythicAdvancedView.swift in Sources */,
+				31ACC52E249655A600454787 /* CypherNPCGeneratorModel.swift in Sources */,
 				314F83F92492AC0B0061C1EA /* FateOracleViewModel.swift in Sources */,
 				3133B1A324901959005FF8FD /* RPG_TABLE.swift in Sources */,
 				3133B1AA24901BB5005FF8FD /* UNEGeneratorModel.swift in Sources */,
@@ -590,6 +601,7 @@
 				3133B1A824901B53005FF8FD /* CRGEOracleModel.swift in Sources */,
 				3173EE592491265E00F646A3 /* PETGeneratorModel.swift in Sources */,
 				3173EE662491425100F646A3 /* ShowMythicCardNavButton.swift in Sources */,
+				31ACC5322496A23000454787 /* CypherNPCGeneratorView.swift in Sources */,
 				316D87012487D31D000E03E0 /* MythicCardOnlyView.swift in Sources */,
 				3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */,
 				311805292492646900C3812C /* GMAOracleModel.swift in Sources */,
@@ -772,7 +784,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Rosenbaum.OTTOTheOracle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "OTTO The Oracle";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -795,7 +807,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Rosenbaum.OTTOTheOracle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "OTTO The Oracle";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -20,7 +20,6 @@ struct GMATopView: View {
 					.padding(.bottom, 5.0)
 				Text("\(oracleViewModel.currentGMACardViewModel.difficulty)")
 					.fontWeight(.bold)
-
 			}
 			VStack{
 				Text("ODDS")
@@ -67,12 +66,10 @@ struct GMATopView: View {
 					Text("RUNE")
 						.font(.system(size:10))
 						.padding(.bottom, 5.0)
-					Text("\(oracleViewModel.currentGMACardViewModel.rune)")
-						.font(.title)
-						.fontWeight(.bold)
-						.contextMenu {
-							Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForRune())")
-					}
+
+
+					TextPopUpView(displayedText: oracleViewModel.currentGMACardViewModel.rune,
+								  popUpText: oracleViewModel.currentGMACardViewModel.getDescriptionForRune())
 
 				}
 				.padding(.bottom)
@@ -81,13 +78,8 @@ struct GMATopView: View {
 						.font(.system(size:10))
 						.padding(.bottom, 5.0)
 
-					Text("\(oracleViewModel.currentGMACardViewModel.element)")
-						.fontWeight(.bold)
-						.font(.title)
-						.fontWeight(.bold)
-						.contextMenu {
-							Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForElement())")
-					}
+					TextPopUpView(displayedText: oracleViewModel.currentGMACardViewModel.element,
+								  popUpText: oracleViewModel.currentGMACardViewModel.getDescriptionForElement())
 
 				}
 			}

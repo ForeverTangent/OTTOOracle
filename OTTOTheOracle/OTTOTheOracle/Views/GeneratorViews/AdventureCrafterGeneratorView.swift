@@ -60,7 +60,6 @@ struct AdventureCrafterGeneratorView: View {
 				}
 				.onAppear() {
 					print("Plot Point Tab Appears")
-					self.adventureCrafterGeneratorVM.generateNewTurningPointPlotPoints()
 				}
 				.padding(.vertical, 50.0)
 				.foregroundColor(.blue)
@@ -78,16 +77,28 @@ struct AdventureCrafterGeneratorView: View {
 			ScrollView {
 				Text("Character Tab")
 					.frame(width: 300.0)
+				Button("Generate New Character") {
+					print("Generate New Character Pressed")
+					self.adventureCrafterGeneratorVM.generateNewCharacter()
+				}
+				.onAppear() {
+					print("Character Tab Appears")
+				}
+				.padding(.vertical, 50.0)
+				.foregroundColor(.blue)
+				.overlay(
+					RoundedRectangle(cornerRadius: 20)
+						.stroke(Color.blue, lineWidth: 5)
+						.frame(width: 200.0, height: 50.0)
+				)
 				VStack {
 					ForEach(self.adventureCrafterGeneratorVM.characterDataViewModel.identities) { (identity) in
 						Text("\(identity.identity)")
 							.font(.title)
 							.multilineTextAlignment(.center)
-							.padding(.vertical, 5.0)
 							.frame(width: 300.0)
 					}
 				}
-				Text("Break")
 				VStack {
 					ForEach(self.adventureCrafterGeneratorVM.characterDataViewModel.descriptors) { (descriptor) in
 						Text("\(descriptor.descriptor)")
@@ -97,27 +108,14 @@ struct AdventureCrafterGeneratorView: View {
 							.frame(width: 300.0)
 					}
 				}
-				.frame(height: 250.0)
-				Button("Generate New Character") {
-					print("Generate New Character Pressed")
-					self.adventureCrafterGeneratorVM.generateNewCharacter()
-				}
-				.onAppear() {
-					print("Character Tab Appears")
-					self.adventureCrafterGeneratorVM.generateNewTurningPointPlotPoints()
-				}
-				.padding(.vertical, 50.0)
-				.foregroundColor(.blue)
-				.overlay(
-					RoundedRectangle(cornerRadius: 20)
-						.stroke(Color.blue, lineWidth: 5)
-						.frame(width: 200.0, height: 50.0)
-				)
+				Spacer()
+
 			}
+			.padding(.top, 30.0)
 				.tabItem {
 					Image(systemName: "3.square.fill")
-					Text("Characters")
-			}
+					Text("Characters") }
+
 		}
 		.font(.headline)
 

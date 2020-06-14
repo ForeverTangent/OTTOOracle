@@ -13,7 +13,6 @@ class PETGeneratorModel {
 }
 
 struct PETCharacter {
-	var id = UUID()
 	var name: String
 	var agenda: PET_AGENDA
 	var basePersonalityTags = [PET_PERSONALITY_TAGS_BASE]()

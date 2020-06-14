@@ -15,29 +15,14 @@ struct GMATagBottonView: View {
 		VStack {
 			HStack {
 				Spacer()
-				Text("\(oracleViewModel.currentGMACardViewModel.tagSymbol1)")
-					.font(.system(size:20))
-					.fontWeight(.bold)
-					.frame(width: 50.0)
-					.contextMenu {
-						Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForTag1())")
-				}
+				TextPopUpView(displayedText: oracleViewModel.currentGMACardViewModel.tagSymbol1,
+							  popUpText: oracleViewModel.currentGMACardViewModel.getDescriptionForTag1())
 				Spacer()
-				Text("\(oracleViewModel.currentGMACardViewModel.tagSymbol2)")
-					.font(.system(size:20))
-					.fontWeight(.bold)
-					.frame(width: 50.0)
-					.contextMenu {
-						Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForTag2())")
-				}
+				TextPopUpView(displayedText: oracleViewModel.currentGMACardViewModel.tagSymbol2,
+							  popUpText: oracleViewModel.currentGMACardViewModel.getDescriptionForTag2())
 				Spacer()
-				Text("\(oracleViewModel.currentGMACardViewModel.tagSymbol3)")
-					.font(.system(size:20))
-					.fontWeight(.bold)
-					.frame(width: 50.0)
-					.contextMenu {
-						Text("\(oracleViewModel.currentGMACardViewModel.getDescriptionForTag3())")
-				}
+				TextPopUpView(displayedText: oracleViewModel.currentGMACardViewModel.tagSymbol3,
+							  popUpText: oracleViewModel.currentGMACardViewModel.getDescriptionForTag3())
 				Spacer()
 				Text("\(oracleViewModel.currentGMACardViewModel.scatterSymbol)")
 					.font(.system(size:20))

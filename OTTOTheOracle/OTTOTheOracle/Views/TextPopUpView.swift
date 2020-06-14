@@ -9,32 +9,35 @@
 import SwiftUI
 
 struct TextPopUpView: View {
-	@Binding var showPopover: Bool
+	@State private var showPopover: Bool = false
 
 	var displayedText: String
 	var popUpText: String
 
 	var body: some View {
-		Text("\(displayedText)")
-			.font(.title)
-			.onTapGesture {
-				self.showPopover = true
-		}
-		.popover(isPresented: $showPopover) {
-			Text("\(self.popUpText)")
-				.frame(width: 250.0)
+		VStack {
+			Text("\(displayedText)")
 				.onTapGesture {
-					self.showPopover = false
+					self.showPopover = true
+			}
+			.popover(
+				isPresented: self.$showPopover
+			) {
+				Text("\(self.popUpText)")
+					.padding(.all, 30.0)
+					.onTapGesture {
+						self.showPopover = false
+				}
+
 			}
 		}
 	}
 }
 
+
 struct TextPopUpView_Previews: PreviewProvider {
 
 	static var previews: some View {
-		TextPopUpView(showPopover: .constant(true),
-					  displayedText: "1",
-					  popUpText: "Preview").environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		TextPopUpView(displayedText: "Displayed", popUpText: "Popup")
 	}
 }

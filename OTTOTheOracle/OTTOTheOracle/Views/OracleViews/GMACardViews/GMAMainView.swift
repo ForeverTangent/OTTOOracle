@@ -28,7 +28,6 @@ struct GMAMainView: View {
 				}
 			}
 		}
-
 	}
 }
 
