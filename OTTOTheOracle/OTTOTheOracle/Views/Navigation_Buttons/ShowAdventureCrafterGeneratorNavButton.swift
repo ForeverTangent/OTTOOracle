@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ShowACGeneratorNavButton: View {
+struct ShowAdventureCrafterGeneratorNavButton: View {
 	var body: some View {
 		NavigationLink(destination: AdventureCrafterGeneratorView()) {
 			OTTOButton(buttonTitle: "Show Adventure Crafter")
@@ -21,6 +21,6 @@ struct ShowACGeneratorNavButton: View {
 
 struct ShowACGeneratorNavButton_Previews: PreviewProvider {
     static var previews: some View {
-        ShowACGeneratorNavButton()
+        ShowAdventureCrafterGeneratorNavButton()
     }
 }

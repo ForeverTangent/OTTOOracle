@@ -11,8 +11,9 @@ import SwiftUI
 struct GeneratorsView: View {
 	var body: some View {
 		VStack(alignment: .center, spacing: 40.0) {
-			ShowACGeneratorNavButton()
+			ShowAdventureCrafterGeneratorNavButton()
 			ShowCypherNPCGeneratorNavButton()
+			ShowUNEGenratorNavButton()
 		}.frame(height: 250.0)
 			.navigationBarTitle("Generators", displayMode: .inline)
 	}

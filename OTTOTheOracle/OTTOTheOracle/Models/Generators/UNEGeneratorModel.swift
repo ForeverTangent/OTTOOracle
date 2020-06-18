@@ -9,7 +9,77 @@
 import Foundation
 
 class UNEGeneratorModel {
-	
+
+	func getRandomCharacter() -> UNECharacter {
+		return UNECharacter(name: "",
+							modifier: UNE_NPC_MODIFIER.randomWeightedElement(),
+							noun: UNE_NPC_NOUN.randomWeightedElement(),
+							motivationVerb: UNE_NPC_MOTIVATION_VERB.randomWeightedElement(),
+							motivationNoun: UNE_NPC_MOTIVATION_NOUN.randomWeightedElement())
+	}
+
+
+	func getInteractionFrom(relationshipStatus status: UNE_NPC_RELATIONSHIP_STATUS,
+							andDemeanor demeanor: UNE_NPC_DEMEANOR) -> UNEInteraction {
+
+		let conversationMood = getConversationMoodFrom(relationshipStatus: status)
+		let bearing = getBearingFrom(demeanor: demeanor)
+		let focus: UNE_NPC_FOCUS = UNE_NPC_FOCUS.randomWeightedElement()
+
+		return UNEInteraction(relationshipStatus: status,
+							  conversationMood: conversationMood,
+							  demeanor: demeanor,
+							  bearing: bearing,
+							  focus: focus)
+	}
+
+
+	private func getConversationMoodFrom(relationshipStatus status: UNE_NPC_RELATIONSHIP_STATUS) -> UNE_NPC_CONVERSATION_MOOD {
+		switch status {
+			case .LOVED: return UNE_NPC_COVERSATION_MOOD_LOVED.randomWeightedElement()
+			case .FRIENDLY: return UNE_NPC_COVERSATION_MOOD_FRIENDLY.randomWeightedElement()
+			case .PEACEFUL: return UNE_NPC_COVERSATION_MOOD_PEACEFUL.randomWeightedElement()
+			case .NEUTRAL: return UNE_NPC_COVERSATION_MOOD_NEUTRAL.randomWeightedElement()
+			case .DISTRUSTFUL: return UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL.randomWeightedElement()
+			case .HOSTILE: return UNE_NPC_COVERSATION_MOOD_HOSTILE.randomWeightedElement()
+			case .HATED: return UNE_NPC_COVERSATION_MOOD_HATED.randomWeightedElement()
+			case .NONE: return UNE_NPC_CONVERSATION_MOOD.NONE
+		}
+	}
+
+
+	private func getBearingFrom(demeanor: UNE_NPC_DEMEANOR) -> UNE_NPC_BEARING {
+		switch demeanor {
+			case .SCHEMING: return UNE_NPC_DEMEANOR_SCHEMING.randomWeightedElement()
+			case .INSANE: return UNE_NPC_DEMEANOR_INSANE.randomWeightedElement()
+			case .FRIENDLY: return UNE_NPC_DEMEANOR_FRIENDLY.randomWeightedElement()
+			case .HOSTILE: return UNE_NPC_DEMEANOR_HOSTILE.randomWeightedElement()
+			case .INQUISITIVE: return UNE_NPC_DEMEANOR_INQUISITIVE.randomWeightedElement()
+			case .KNOWNING: return UNE_NPC_DEMEANOR_KNOWING.randomWeightedElement()
+			case .MYSTERIOUS: return UNE_NPC_DEMEANOR_MYSTERIOUS.randomWeightedElement()
+			case .PREJUDICED: return UNE_NPC_DEMEANOR_PREJUDICED.randomWeightedElement()
+			case .NONE: return UNE_NPC_BEARING.NONE
+		}
+	}
+
+}
+
+
+struct UNECharacter {
+	var name: String
+	var modifier: UNE_NPC_MODIFIER
+	var noun: UNE_NPC_NOUN
+	var motivationVerb: UNE_NPC_MOTIVATION_VERB
+	var motivationNoun: UNE_NPC_MOTIVATION_NOUN
+}
+
+
+struct UNEInteraction {
+	var relationshipStatus: UNE_NPC_RELATIONSHIP_STATUS = .NONE
+	var conversationMood: UNE_NPC_CONVERSATION_MOOD = .NONE
+	var demeanor: UNE_NPC_DEMEANOR = .NONE
+	var bearing: UNE_NPC_BEARING = .NONE
+	var focus: UNE_NPC_FOCUS = .NONE
 }
 
 
@@ -873,13 +943,52 @@ enum UNE_NPC_MOTIVATION_NOUN: String, RPG_TABLE {
 			default: return .NONE
 		}
 	}
+}
 
+
+enum UNE_NPC_RELATIONSHIP_STATUS: Int, CaseIterable, Codable {
+	
+	case NONE = 0
+	case LOVED
+	case FRIENDLY
+	case PEACEFUL
+	case NEUTRAL
+	case DISTRUSTFUL
+	case HOSTILE
+	case HATED
+
+	static func getElementString(_ value: UNE_NPC_RELATIONSHIP_STATUS) -> String {
+		switch value {
+			case .LOVED: return "Loved"
+			case .FRIENDLY: return "Friendly"
+			case .PEACEFUL: return "Peaceful"
+			case .NEUTRAL: return "Neutral"
+			case .DISTRUSTFUL: return "Distrustful"
+			case .HOSTILE: return "Hostile"
+			case .HATED: return "Hated"
+			default: return "None"
+		}
+	}
+	
 }
 
 
 
+enum UNE_NPC_CONVERSATION_MOOD: String, Codable {
+	case WITHDRAWN
+	case GUARDED
+	case CAUTIOUS
+	case NEUTRAL
+	case SOCIALABLE
+	case HELPFUL
+	case FORTHCOMING
+	case NONE
+
+}
+
+
 enum UNE_NPC_COVERSATION_MOOD_LOVED: String, RPG_TABLE {
-	typealias Result = UNE_NPC_COVERSATION_MOOD_LOVED
+	typealias Result = UNE_NPC_CONVERSATION_MOOD
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -893,7 +1002,7 @@ enum UNE_NPC_COVERSATION_MOOD_LOVED: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_COVERSATION_MOOD_LOVED {
+	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1: return .WITHDRAWN
 			case 2...6: return .GUARDED
@@ -908,7 +1017,7 @@ enum UNE_NPC_COVERSATION_MOOD_LOVED: String, RPG_TABLE {
 }
 
 enum UNE_NPC_COVERSATION_MOOD_FRIENDLY: String, RPG_TABLE {
-	typealias Result = UNE_NPC_COVERSATION_MOOD_FRIENDLY
+	typealias Result = UNE_NPC_CONVERSATION_MOOD
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -922,7 +1031,7 @@ enum UNE_NPC_COVERSATION_MOOD_FRIENDLY: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_COVERSATION_MOOD_FRIENDLY {
+	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...2: return .WITHDRAWN
 			case 3...8: return .GUARDED
@@ -937,7 +1046,7 @@ enum UNE_NPC_COVERSATION_MOOD_FRIENDLY: String, RPG_TABLE {
 }
 
 enum UNE_NPC_COVERSATION_MOOD_PEACEFUL: String, RPG_TABLE {
-	typealias Result = UNE_NPC_COVERSATION_MOOD_PEACEFUL
+	typealias Result = UNE_NPC_CONVERSATION_MOOD
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -951,7 +1060,7 @@ enum UNE_NPC_COVERSATION_MOOD_PEACEFUL: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_COVERSATION_MOOD_PEACEFUL {
+	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...3: return .WITHDRAWN
 			case 4...11: return .GUARDED
@@ -967,7 +1076,7 @@ enum UNE_NPC_COVERSATION_MOOD_PEACEFUL: String, RPG_TABLE {
 
 
 enum UNE_NPC_COVERSATION_MOOD_NEUTRAL: String, RPG_TABLE {
-	typealias Result = UNE_NPC_COVERSATION_MOOD_NEUTRAL
+	typealias Result = UNE_NPC_CONVERSATION_MOOD
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -981,7 +1090,7 @@ enum UNE_NPC_COVERSATION_MOOD_NEUTRAL: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_COVERSATION_MOOD_NEUTRAL {
+	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...5: return .WITHDRAWN
 			case 6...15: return .GUARDED
@@ -997,7 +1106,7 @@ enum UNE_NPC_COVERSATION_MOOD_NEUTRAL: String, RPG_TABLE {
 
 
 enum UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL: String, RPG_TABLE {
-	typealias Result = UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL
+	typealias Result = UNE_NPC_CONVERSATION_MOOD
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1011,7 +1120,7 @@ enum UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL {
+	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...7: return .WITHDRAWN
 			case 8...18: return .GUARDED
@@ -1026,7 +1135,7 @@ enum UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL: String, RPG_TABLE {
 }
 
 enum UNE_NPC_COVERSATION_MOOD_HOSTILE: String, RPG_TABLE {
-	typealias Result = UNE_NPC_COVERSATION_MOOD_HOSTILE
+	typealias Result = UNE_NPC_CONVERSATION_MOOD
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1040,7 +1149,7 @@ enum UNE_NPC_COVERSATION_MOOD_HOSTILE: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_COVERSATION_MOOD_HOSTILE {
+	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...11: return .WITHDRAWN
 			case 12...24: return .GUARDED
@@ -1056,7 +1165,7 @@ enum UNE_NPC_COVERSATION_MOOD_HOSTILE: String, RPG_TABLE {
 
 
 enum UNE_NPC_COVERSATION_MOOD_HATED: String, RPG_TABLE {
-	typealias Result = UNE_NPC_COVERSATION_MOOD_HATED
+	typealias Result = UNE_NPC_CONVERSATION_MOOD
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1070,7 +1179,7 @@ enum UNE_NPC_COVERSATION_MOOD_HATED: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_COVERSATION_MOOD_HATED {
+	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...15: return .WITHDRAWN
 			case 16...30: return .GUARDED
@@ -1085,12 +1194,14 @@ enum UNE_NPC_COVERSATION_MOOD_HATED: String, RPG_TABLE {
 }
 
 
-enum UNE_NPC_BEARING: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING
+
+enum UNE_NPC_DEMEANOR: Int, RPG_TABLE {
+	typealias Result = UNE_NPC_DEMEANOR
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
 
+	case NONE = 0
 	case SCHEMING
 	case INSANE
 	case FRIENDLY
@@ -1099,9 +1210,8 @@ enum UNE_NPC_BEARING: String, RPG_TABLE {
 	case KNOWNING
 	case MYSTERIOUS
 	case PREJUDICED
-	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
+	static func getElementBy(value: Int) -> UNE_NPC_DEMEANOR {
 		switch value {
 			case 1...12: return .SCHEMING
 			case 13...24: return .INSANE
@@ -1114,11 +1224,111 @@ enum UNE_NPC_BEARING: String, RPG_TABLE {
 			default: return .NONE
 		}
 	}
+
+	static func getElementString(_ value: UNE_NPC_DEMEANOR) -> String {
+		switch value {
+			case .SCHEMING: return "Scheming"
+			case .INSANE: return "Insane"
+			case .FRIENDLY: return "Friendly"
+			case .HOSTILE: return "Hostile"
+			case .INQUISITIVE: return "Inquisitive"
+			case .KNOWNING: return "Knowning"
+			case .MYSTERIOUS: return "Mysterious"
+			case .PREJUDICED: return "Prejudiced"
+			case .NONE: return "None"
+		}
+	}
+
 }
 
 
-enum UNE_NPC_BEARING_SCHEMING: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_SCHEMING
+enum UNE_NPC_BEARING: String, Codable {
+	case NONE
+	case INTENT
+	case BARGIN
+	case MEANS
+	case PROPOSITION
+	case PLAN
+	case COMPROMISE
+	case AGENDA
+	case ARRANGEMENT
+	case NEGOTIATION
+	case PLOT
+	case MADNESS
+	case FEAR
+	case ACCIDENT
+	case CHAOS
+	case IDOCY
+	case ILLUSION
+	case TURMOIL
+	case CONFUSION
+	case FACADE
+	case BEWILDERMENT
+	case ALLIANCE
+	case COMFORT
+	case GRATITUDE
+	case SHELTER
+	case HAPPINESS
+	case SUPPORT
+	case PROMISE
+	case DELIGHT
+	case AID
+	case CELEBRATION
+	case DEATH
+	case CAPTURE
+	case JUDGEMENT
+	case COMBAT
+	case SURRENDER
+	case RAGE
+	case RESENTMENT
+	case SUBMISSION
+	case INJURY
+	case DESTRUCTION
+	case QUESTIONS
+	case INVERSTIGATION
+	case INTEREST
+	case DEMAND
+	case SUSPICION
+	case REQUEST
+	case CURIOUSITY
+	case SKEPTICISM
+	case COMMAND
+	case PETITION
+	case REPORT
+	case EFFECTS
+	case EXAMINATION
+	case RECORDS
+	case ACCOUNT
+	case NEWS
+	case HISTORY
+	case TELLING
+	case DISCOURSE
+	case SPEECH
+	case RUMOR
+	case UNCERTAINITY
+	case SECRETS
+	case MISDIRECTION
+	case WHISPERS
+	case LIES
+	case SHADOWS
+	case ENIGMA
+	case OBSCURITY
+	case CONUNDRUM
+	case REPUTATION
+	case DOUBT
+	case BIAS
+	case DISLIKE
+	case PARTIALITY
+	case BELIEF
+	case VIEW
+	case DISCRIMINATION
+	case ASSESSMENT
+	case DIFFERENCE
+
+}
+
+enum UNE_NPC_DEMEANOR_SCHEMING: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1135,7 +1345,7 @@ enum UNE_NPC_BEARING_SCHEMING: String, RPG_TABLE {
 	case PLOT
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_SCHEMING {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .INTENT
 			case 11...20: return .BARGIN
@@ -1152,8 +1362,8 @@ enum UNE_NPC_BEARING_SCHEMING: String, RPG_TABLE {
 	}
 }
 
-enum UNE_NPC_BEARING_INSANE: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_INSANE
+enum UNE_NPC_DEMEANOR_INSANE: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1170,7 +1380,7 @@ enum UNE_NPC_BEARING_INSANE: String, RPG_TABLE {
 	case BEWILDERMENT
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_INSANE {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .MADNESS
 			case 11...20: return .FEAR
@@ -1188,8 +1398,8 @@ enum UNE_NPC_BEARING_INSANE: String, RPG_TABLE {
 }
 
 
-enum UNE_NPC_BEARING_FRIENDLY: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_FRIENDLY
+enum UNE_NPC_DEMEANOR_FRIENDLY: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1206,7 +1416,7 @@ enum UNE_NPC_BEARING_FRIENDLY: String, RPG_TABLE {
 	case CELEBRATION
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_FRIENDLY {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .ALLIANCE
 			case 11...20: return .COMFORT
@@ -1224,8 +1434,8 @@ enum UNE_NPC_BEARING_FRIENDLY: String, RPG_TABLE {
 }
 
 
-enum UNE_NPC_BEARING_HOSTILE: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_HOSTILE
+enum UNE_NPC_DEMEANOR_HOSTILE: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1242,7 +1452,7 @@ enum UNE_NPC_BEARING_HOSTILE: String, RPG_TABLE {
 	case DESTRUCTION
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_HOSTILE {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .DEATH
 			case 11...20: return .CAPTURE
@@ -1260,8 +1470,8 @@ enum UNE_NPC_BEARING_HOSTILE: String, RPG_TABLE {
 }
 
 
-enum UNE_NPC_BEARING_INQUISITIVE: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_INQUISITIVE
+enum UNE_NPC_DEMEANOR_INQUISITIVE: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1278,7 +1488,7 @@ enum UNE_NPC_BEARING_INQUISITIVE: String, RPG_TABLE {
 	case PETITION
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_INQUISITIVE {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .QUESTIONS
 			case 11...20: return .INVERSTIGATION
@@ -1295,8 +1505,8 @@ enum UNE_NPC_BEARING_INQUISITIVE: String, RPG_TABLE {
 	}
 }
 
-enum UNE_NPC_BEARING_KNOWING: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_KNOWING
+enum UNE_NPC_DEMEANOR_KNOWING: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1313,7 +1523,7 @@ enum UNE_NPC_BEARING_KNOWING: String, RPG_TABLE {
 	case SPEECH
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_KNOWING {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .REPORT
 			case 11...20: return .EFFECTS
@@ -1330,8 +1540,8 @@ enum UNE_NPC_BEARING_KNOWING: String, RPG_TABLE {
 	}
 }
 
-enum UNE_NPC_BEARING_MYSTERIOUS: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_MYSTERIOUS
+enum UNE_NPC_DEMEANOR_MYSTERIOUS: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1348,7 +1558,7 @@ enum UNE_NPC_BEARING_MYSTERIOUS: String, RPG_TABLE {
 	case CONUNDRUM
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_MYSTERIOUS {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .RUMOR
 			case 11...20: return .UNCERTAINITY
@@ -1365,8 +1575,8 @@ enum UNE_NPC_BEARING_MYSTERIOUS: String, RPG_TABLE {
 	}
 }
 
-enum UNE_NPC_BEARING_PREJUDICED: String, RPG_TABLE {
-	typealias Result = UNE_NPC_BEARING_PREJUDICED
+enum UNE_NPC_DEMEANOR_PREJUDICED: String, RPG_TABLE {
+	typealias Result = UNE_NPC_BEARING
 
 	static var MIN: Int = 1
 	static var MAX: Int = 100
@@ -1383,7 +1593,7 @@ enum UNE_NPC_BEARING_PREJUDICED: String, RPG_TABLE {
 	case DIFFERENCE
 	case NONE
 
-	static func getElementBy(value: Int) -> UNE_NPC_BEARING_PREJUDICED {
+	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .REPUTATION
 			case 11...20: return .DOUBT
