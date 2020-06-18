@@ -10,9 +10,9 @@ import Foundation
 
 class CypherNPCGeneratorModel {
 
-	func getRandomCharacter() -> CypherNPRCharacter {
+	func getRandomCharacter() -> CypherNPCCharacter {
 
-		return CypherNPRCharacter(
+		return CypherNPCCharacter(
 			name: "",
 			description: CYPHER_CHARACTER_DESCRIPTOR.randomWeightedElement(),
 			type: CYPHER_CHARACTER_TYPE.randomWeightedElement(),
@@ -29,7 +29,7 @@ class CypherNPCGeneratorModel {
 }
 
 
-struct CypherNPRCharacter {
+struct CypherNPCCharacter {
 	var name: String
 	var description: CYPHER_CHARACTER_DESCRIPTOR
 	var type:  CYPHER_CHARACTER_TYPE

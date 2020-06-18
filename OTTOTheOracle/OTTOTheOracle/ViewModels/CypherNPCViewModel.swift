@@ -24,7 +24,7 @@ class CypherNPCViewModel: ObservableObject {
 
 	}
 
-	private func getFormattedCypherNPCCharacter(_ npcCharacter: CypherNPRCharacter) -> DisplayedCypherNPCCharacterViewModel {
+	private func getFormattedCypherNPCCharacter(_ npcCharacter: CypherNPCCharacter) -> DisplayedCypherNPCCharacterViewModel {
 		displayedCypherNPRCharacterViewModel = DisplayedCypherNPCCharacterViewModel(
 			name: npcCharacter.name,
 			description: npcCharacter.description.rawValue.capitalized,
@@ -34,7 +34,7 @@ class CypherNPCViewModel: ObservableObject {
 			characterMotivation: npcCharacter.characterMotivation.rawValue.capitalized,
 			interactionTone: npcCharacter.interactionTone.rawValue.capitalized,
 			interactionDescriptorA: npcCharacter.interactionDescriptorA.rawValue.capitalized,
-			interactionDescriptorB: npcCharacter.interactionDescriptorA.rawValue.capitalized,
+			interactionDescriptorB: npcCharacter.interactionDescriptorB.rawValue.capitalized,
 			interactionFocus: npcCharacter.interactionFocus.rawValue.capitalized)
 
 		return displayedCypherNPRCharacterViewModel

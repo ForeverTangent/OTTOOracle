@@ -63,6 +63,7 @@
 		3173EE682491428700F646A3 /* ShowGMACardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */; };
 		3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE69249143C900F646A3 /* QuickDiceView.swift */; };
 		3173EE6C249144EC00F646A3 /* DiceSquareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */; };
+		317FB1AC249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1AB249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */; };
 		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */; };
@@ -161,6 +162,7 @@
 		3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGMACardNavButton.swift; sourceTree = "<group>"; };
 		3173EE69249143C900F646A3 /* QuickDiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDiceView.swift; sourceTree = "<group>"; };
 		3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSquareViewModel.swift; sourceTree = "<group>"; };
+		317FB1AB249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCypherNPCGeneratorNavButton.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardOnlyView.swift; sourceTree = "<group>"; };
 		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS.json; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				31FB75892493F56100622969 /* ShowOraclesNavButton.swift */,
 				31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */,
 				31FB75922493F90B00622969 /* ShowACGeneratorNavButton.swift */,
+				317FB1AB249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift */,
 			);
 			path = Navigation_Buttons;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				3133B1A12490193D005FF8FD /* Deck.swift in Sources */,
 				31FB758C2493F57200622969 /* ShowGeneratorsNavButton.swift in Sources */,
 				3173EE622491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift in Sources */,
+				317FB1AC249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift in Sources */,
 				31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */,
 				31C6BC20248F107100494CD7 /* TextPopUpView.swift in Sources */,
 				316D871024895889000E03E0 /* View+isHidden.swift in Sources */,
