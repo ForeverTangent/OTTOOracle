@@ -199,24 +199,24 @@ enum GMACard_Element: String, RPG_TABLE, Codable {
 }
 
 enum GMACard_LikelyOdds: String, Codable {
-	case noBang = "NO!"
-	case yesBang = "YES!"
-	case no = "NO"
-	case yes = "YES"
+	case NO_BANG = "NO!"
+	case YES_BANG = "YES!"
+	case NO = "NO"
+	case YES = "YES"
 	case NONE = "NONE"
 }
 
 enum GMACard_ScatterSymbol: String, Codable {
-	case east = "EAST_→"
-	case hit = "HIT_\u{1f4a5}"
-	case miss = "MISS_–"
-	case north = "NORTH_↑"
-	case northeast = "NORTHEAST_↗︎"
-	case northwest = "NORTHWEST_↖︎"
-	case south = "SOUTH_↓"
-	case southeast = "SOUTHEAST_↘︎"
-	case southwest = "SOUTHWEST_↙︎"
-	case west = "WEST_←"
+	case EAST = "EAST_→"
+	case HIT = "HIT_💥"
+	case MISS = "MISS_–"
+	case NORTH = "NORTH_↑"
+	case NORTHEAST = "NORTHEAST_↗︎"
+	case NORTHWEST = "NORTHWEST_↖︎"
+	case SOUTH = "SOUTH_↓"
+	case SOUTHEAST = "SOUTHEAST_↘︎"
+	case SOUTHWEST = "SOUTHWEST_↙︎"
+	case WEST = "WEST_←"
 	case NONE = "NONE"
 }
 

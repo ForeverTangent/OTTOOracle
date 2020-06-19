@@ -89,13 +89,13 @@ struct GMATopView: View {
 
 	func getLikelyOdds(_ likelyOdds: GMACard_LikelyOdds) -> String {
 		switch likelyOdds {
-			case .noBang:
+			case .NO_BANG:
 				return "NO!"
-			case .yesBang:
+			case .YES_BANG:
 				return "YES!"
-			case .no:
+			case .NO:
 				return "No."
-			case .yes:
+			case .YES:
 				return "Yes."
 			case .NONE:
 				return "NA"

@@ -75,13 +75,13 @@ class GMACardViewModel {
 
 	private func getLikelyOdds(_ likelyOdds: GMACard_LikelyOdds) -> String {
 		switch likelyOdds {
-			case .noBang:
+			case .NO_BANG:
 				return "NO!"
-			case .yesBang:
+			case .YES_BANG:
 				return "YES!"
-			case .no:
+			case .NO:
 				return "No."
-			case .yes:
+			case .YES:
 				return "Yes."
 			case .NONE:
 				return "None"
@@ -131,22 +131,19 @@ class GMACardViewModel {
 	}
 
 	func getDescriptionForElement() -> String {
-//		guard let description = gmaCard.element.descriptionLong else { return "" }
 		return gmaCard.element.descriptionLong
 	}
 
 	func getDescriptionForTag1() -> String {
-//		guard let description = tagToDescriptions[gmaCard.tagSymbol1] else { return "" }
 		return gmaCard.tagSymbol1.descriptionLong
 	}
 
 	func getDescriptionForTag2() -> String {
-//		guard let description = tagToDescriptions[gmaCard.tagSymbol2] else { return "" }
 		return gmaCard.tagSymbol2.descriptionLong
 	}
 
 	func getDescriptionForTag3() -> String {
-//		guard let description = tagToDescriptions[gmaCard.tagSymbol3] else { return "" }
+
 		return gmaCard.tagSymbol3.descriptionLong
 	}
 
