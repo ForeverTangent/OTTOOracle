@@ -23,7 +23,6 @@ class CRGEOracleViewModel: ObservableObject {
 		answer = results.answer
 		self.surge = Double(results.surge)
 		unexpectedly = results.unexpected.rawValue
-		unexpectedlyDescription = results.unexpectedDescription
 
 
 	}

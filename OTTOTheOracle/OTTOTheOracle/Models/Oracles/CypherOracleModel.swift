@@ -42,8 +42,15 @@ enum CYPHER_ANSWER: String {
 	case NO
 }
 
+/**
+This Enum is Int based so we can use it with a slider
+*/
+enum CYPHER_ADVENTURE_STATUS: Int, RPG_TABLE {
+	typealias Result = CYPHER_ADVENTURE_STATUS
 
-enum CYPHER_ADVENTURE_STATUS: Int, CaseIterable {
+	static var MIN: Int = 1
+	static var MAX: Int = 6
+
 	case SOLID = 1
 	case STABLE = 2
 	case AVERAGE = 3
@@ -52,37 +59,77 @@ enum CYPHER_ADVENTURE_STATUS: Int, CaseIterable {
 	case CHAOS = 6
 	case NONE = 0
 
-	static func getStatusString(_ rank: CYPHER_ADVENTURE_STATUS) -> String {
-		switch rank {
-			case .SOLID: return "SOLID"
-			case .STABLE: return "STABLE"
-			case .AVERAGE: return "AVERAGE"
-			case .UNSTABLE: return "UNSTABLE"
-			case .INSANE: return "INSANE"
-			case .CHAOS: return "CHAOS"
-			case .NONE: return "NONE"
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .SOLID: return "Solid"
+				case .STABLE: return "Stable"
+				case .AVERAGE: return "Average"
+				case .UNSTABLE: return "Unstable"
+				case .INSANE: return "Insane"
+				case .CHAOS: return "Chaos"
+				case .NONE: return "None"
+			}
 		}
 	}
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> CYPHER_ADVENTURE_STATUS {
+		switch value {
+			case 1: return .SOLID
+			case 2: return .STABLE
+			case 3: return .AVERAGE
+			case 4: return .UNSTABLE
+			case 5: return .INSANE
+			case 6: return .CHAOS
+			default: return .NONE
+		}
+	}
+
 }
 
-enum CYPHER_GM_CONSULT: Int, CaseIterable {
+/**
+This Enum is Int based so we can use it with a slider
+*/
+enum CYPHER_GM_CONSULT: Int, RPG_TABLE {
+	typealias Result = CYPHER_GM_CONSULT
+
+	static var MIN: Int = 1
+	static var MAX: Int = 6
+
+	case NONE = 0
 	case VERY_LIKELY = 1
 	case LIKELY = 2
 	case AVERAGE = 3
 	case UNLIKELY = 4
 	case VERY_UNLIKELY = 5
 	case IMPROBABLE = 6
-	case NONE = 0
 
-	static func getConsultString(_ rank: CYPHER_GM_CONSULT) -> String {
-		switch rank {
-			case .VERY_LIKELY: return "VERY_LIKELY"
-			case .LIKELY: return "LIKELY"
-			case .AVERAGE: return "AVERAGE"
-			case .UNLIKELY: return "UNLIKELY"
-			case .VERY_UNLIKELY: return "VERY_UNLIKELY"
-			case .IMPROBABLE: return "IMPROBABLE"
-			case .NONE: return "NONE"
+
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .VERY_LIKELY: return "Very Likely"
+				case .LIKELY: return "Likely"
+				case .AVERAGE: return "Average"
+				case .UNLIKELY: return "Unlikely"
+				case .VERY_UNLIKELY: return "Very Unlikely"
+				case .IMPROBABLE: return "Improbable"
+				case .NONE: return "None"
+			}
+		}
+	}
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> CYPHER_GM_CONSULT {
+		switch value {
+			case 1: return .VERY_LIKELY
+			case 2: return .LIKELY
+			case 3: return .AVERAGE
+			case 4: return .UNLIKELY
+			case 5: return .VERY_UNLIKELY
+			case 6: return .IMPROBABLE
+			default: return .NONE
 		}
 	}
 }
@@ -107,6 +154,17 @@ enum CYPHER_DEVELOPER: String, RPG_TABLE {
 	case NPC_INHIBITOR = "NPC Inhibitor..."
 	case NPC_ENABLER = "NPC Enabler..."
 	case NONE = "NONE"
+
+	var descriptionShort: String {
+		get {
+			return rawValue
+		}
+	}
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> CYPHER_DEVELOPER {
 		switch value {

@@ -18,7 +18,7 @@ class SoloRPGViewModel: ObservableObject {
 
 		let result = soloRPGOracleModel.getResults()
 
-		answer = result.answer
+		answer = result.answer.descriptionShort
 		twist = "\(result.twist_subject), \(result.twist_verb)"
 
 	}

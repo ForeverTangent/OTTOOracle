@@ -25,6 +25,18 @@ enum SWWC_SIBLING_BIOLOGICAL_SEX: String, RPG_TABLE, Codable {
 	case FEMALE
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return self.rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> SWWC_SIBLING_BIOLOGICAL_SEX {
 		switch value {
 			case 1: return .MALE
@@ -45,6 +57,18 @@ enum SWWC_SIBLING_SEX_ORIENTATION: String, RPG_TABLE, Codable {
 	case GAY
 	case OTHER // Non-Binary, Trans, etc...
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return self.rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> SWWC_SIBLING_SEX_ORIENTATION {
 		switch value {
@@ -67,6 +91,9 @@ enum SWWC_SIBLING_BIOLOGICAL_AGE_RELATION: String, RPG_TABLE, Codable {
 	case YOUNGER
 	case TWIN
 	case NONE
+
+	var descriptionShort: String { get { return self.rawValue.capitalized } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_SIBLING_BIOLOGICAL_AGE_RELATION {
 		switch value {
@@ -91,6 +118,9 @@ enum SWWC_SIBLING_FEELINGS_TO_PC: String, RPG_TABLE, Codable {
 	case WORSHIP_YOU = "Worship you..."
 	case HATE_YOU = "Hate you..."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_SIBLING_FEELINGS_TO_PC {
 		switch value {
@@ -117,6 +147,9 @@ enum SWWC_FAMILY_RANKING: String, RPG_TABLE, Codable {
 	case WEALTHY = "Rich"
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_FAMILY_RANKING {
 		switch value {
 			case 1...2: return .POOR
@@ -140,6 +173,9 @@ enum SWWC_FAMILY_STATUS: String, RPG_TABLE, Codable {
 	case STABLE = "Family status is ok."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_FAMILY_STATUS {
 		switch value {
 			case 1...5: return .DANGER_OF_LOSING_EVERYTHING
@@ -158,6 +194,9 @@ enum SWWC_PARENTAL_STATUS: String, RPG_TABLE, Codable {
 	case BOTH_LIVE = "Both parents are still alive."
 	case ORPHAN = "One or both parents are MIA."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_PARENTAL_STATUS {
 		switch value {
@@ -185,6 +224,9 @@ enum SWWC_FAMILY_TRAGEDY: String, RPG_TABLE, Codable {
 	case FEUD = "Family is a feud with another (or more)."
 	case DEBT = "Family is in debt"
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_FAMILY_TRAGEDY {
 		switch value {
@@ -222,6 +264,9 @@ enum SWWC_FAMILY_EVENT: String, RPG_TABLE, Codable {
 	case SOLD = "Parent(s) sold you for money."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_FAMILY_EVENT {
 		switch value {
 			case 1: return .DIED_IN_WAR
@@ -250,6 +295,9 @@ enum SWWC_CHILDHOOD_EVENTS: String, RPG_TABLE, Codable {
 	case MUDANE = "Childhood was uneventful."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_CHILDHOOD_EVENTS {
 		switch value {
 			case 1...4: return .FOURTUNE
@@ -277,6 +325,9 @@ enum SWWC_CHILDHOOD_FOURTUNATE_EVENTS: String, RPG_TABLE, Codable {
 	case HEROIC_PRIVATE = "You did something heroic, only a few know."
 	case CELEBRITY = "You were a celebrity, child star."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_CHILDHOOD_FOURTUNATE_EVENTS {
 		switch value {
@@ -313,6 +364,9 @@ enum SWWC_CHILDHOOD_TRAUMA_EVENTS: String, RPG_TABLE, Codable {
 	case HUNTED = "You were hunted."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_CHILDHOOD_TRAUMA_EVENTS {
 		switch value {
 			case 1: return .ACCIDENT
@@ -348,6 +402,9 @@ enum SWWV_PERSONALITY_TYPE: String, RPG_TABLE, Codable {
 	case COLD = "Cold, arrogent, ruthless."
 	case PSYCHOPATH = "Anti-social, violent, sadistic, cruel."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWV_PERSONALITY_TYPE {
 		switch value {
@@ -397,6 +454,9 @@ enum SWWV_PHILOSPHY_TYPE: String, RPG_TABLE, Codable {
 	case SURVIVAL = "Survival of the fittest."
 	case CHAOS = "Entropy and chaos shall previal."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWV_PHILOSPHY_TYPE {
 		switch value {
@@ -470,6 +530,9 @@ enum SWWV_WHO_YOU_VALUE_MOST: String, RPG_TABLE, Codable {
 	case DISLIKE = "You dislike everyone, including yourself."
 	case HATE = "You hate everyone, including yourself."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWV_WHO_YOU_VALUE_MOST {
 		switch value {
@@ -564,6 +627,9 @@ enum SWWV_MOST_VALUED_POSSESSION: String, RPG_TABLE, Codable {
 	case PLAN = "A master plan for some greater goal."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWV_MOST_VALUED_POSSESSION {
 		switch value {
 			case 1: return .MEMORIES
@@ -656,6 +722,9 @@ enum SWWV_MOTIVATION: String, RPG_TABLE, Codable {
 	case CONQUEST = "Greater conquest."
 	case DESTRUCTION = "Destroying and/or killing everything."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWV_MOTIVATION {
 		switch value {
@@ -750,6 +819,9 @@ enum SWWV_WORLDVIEW: String, RPG_TABLE, Codable {
 	case USELESS = "People are scum and should all be killed."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWV_WORLDVIEW {
 		switch value {
 			case 1: return .LOVE_EVERYONE
@@ -837,6 +909,9 @@ enum SWWC_LIFE_EVENTS: String, RPG_TABLE, Codable {
 	case ROMANTIC_AFFAIR = "Raomandtic affair."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS {
 		switch value {
 			case 1: return .JACKPOT
@@ -872,6 +947,9 @@ enum SWWC_LIFE_EVENTS_JACKPOT: String, RPG_TABLE, Codable {
 	case FAVOR = "Favor owed to you."
 	case SETTLEMENT_TROPHY = "Settlement received (or trophy won)."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_JACKPOT {
 		switch value {
@@ -909,6 +987,9 @@ enum SWWC_LIFE_EVENTS_TAPPED_OUT: String, RPG_TABLE, Codable {
 	case BLACKMAILED = "Blackmail (scandal)."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_TAPPED_OUT {
 		switch value {
 			case 1: return .ROBBED
@@ -943,6 +1024,9 @@ enum SWWC_LIFE_EVENTS_LUCKY_STAR: String, RPG_TABLE, Codable {
 	case BRAWNY = "Brawny."
 	case BERSERK = "Berserk."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_LUCKY_STAR {
 		switch value {
@@ -980,6 +1064,9 @@ enum SWWC_LIFE_EVENTS_STAR_CROSSED: String, RPG_TABLE, Codable {
 	case QUIRK = "Has a quirk."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_STAR_CROSSED {
 		switch value {
 			case 1: return .CRIPPLING_INJURY
@@ -1015,6 +1102,9 @@ enum SWWC_LIFE_EVENTS_TAKE_A_FRIEND: String, RPG_TABLE, Codable {
 	case BODY_GUARD = "Body guard."
 	case HEALER = "Medical doctor or healer."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_TAKE_A_FRIEND {
 		switch value {
@@ -1052,6 +1142,9 @@ enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY: String, RPG_TABLE, Codable {
 	case GOVERNMENT_PERSON = "A government leader is an enemy."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_MAKE_AN_ENEMY {
 		switch value {
 			case 1: return .FRIEND_TO_ENEMY
@@ -1088,6 +1181,9 @@ enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE: String, RPG_TABLE, Codable {
 	case FOILED = "Foiled plan of the other."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE {
 		switch value {
 			case 1: return .LOSE_FACE
@@ -1117,6 +1213,9 @@ enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_DIRECTION: String, RPG_TABLE, Codable {
 	case MUTUAL = "Feeling's mutual."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_DIRECTION {
 		switch value {
 			case 1...4: return .THEY_HATE_YOU
@@ -1139,6 +1238,9 @@ enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_ACTION: String, RPG_TABLE, Codable {
 	case IGNORE = "Ignore them."
 	case TELL_OFF = "Attack them verbally."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_ACTION {
 		switch value {
@@ -1165,6 +1267,9 @@ enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_TOOLS: String, RPG_TABLE, Codable {
 	case LARGE_ARMY = "Large Army"
 	case SOCIETY = "An entire race or world"
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_TOOLS {
 		switch value {
@@ -1196,6 +1301,9 @@ enum SWWC_LIFE_EVENTS_ADVENTURE: String, RPG_TABLE, Codable {
 	case DISCOVERY = "An Amazing Discovery"
 	case SECRET_MISSION = "A secret ,ission"
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ADVENTURE {
 		switch value {
@@ -1232,6 +1340,9 @@ enum SWWC_LIFE_EVENTS_MISFORTUNE: String, RPG_TABLE, Codable {
 	case RESPONSIBLE = "Responsible for death of team/family/village."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ADVENTURE {
 		switch value {
 			case 1: return .BATTLE
@@ -1267,6 +1378,9 @@ enum SWWC_LIFE_EVENTS_WITNESS: String, RPG_TABLE, Codable {
 	case ECONOMIC_CRASH = "Major Economic Crash."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_WITNESS {
 		switch value {
 			case 1: return .PLAGUE
@@ -1296,6 +1410,9 @@ enum SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS: String, RPG_TABLE, Codable {
 	case FAST_AFFAIR = "Fast affair, one night stands."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS {
 		switch value {
 			case 1...4: return .HAPPY_LOVE_AFFAIR
@@ -1324,6 +1441,9 @@ enum SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_TRAGIC: String, RPG_TABLE, Codable {
 	case CUT_OFF = "Lover cut you out of the action."
 	case BANISHED = "Lover imprisoned or exiled."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_TRAGIC {
 		switch value {
@@ -1360,6 +1480,9 @@ enum SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_WITH_PROBLEMS: String, RPG_TABLE, Codable
 	case STAR_CROSSED = "You have conflicting backgrounds and/or families."
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_WITH_PROBLEMS {
 		switch value {
 			case 1: return .THEY_HATE
@@ -1395,6 +1518,9 @@ enum SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS: String, RPG_TABLE, Codab
 	case YOU_LIKE_THEY_HATE = "You like them, they hate you"
 	case YOU_HATE_THEY_LIKE = "They like you, you hate them."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS {
 		switch value {

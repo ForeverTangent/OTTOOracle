@@ -203,12 +203,39 @@ class MythicOracleModel {
 
 }
 
-enum MYTHIC_ORACLE_ANSWER: Int, CaseIterable {
+enum MYTHIC_ORACLE_ANSWER: String, RPG_TABLE {
+	typealias EnumerationType = MYTHIC_ORACLE_ANSWER
+
+	static var MIN: Int = 1
+	static var MAX: Int = 4
+
 	case NO_EXCEPTIONAL
 	case NO
 	case YES
 	case YES_EXCEPTIONAL
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
+	static func getElementBy(value: Int) -> MYTHIC_ORACLE_ANSWER {
+		switch value {
+			case 1: return .NO_EXCEPTIONAL
+			case 2: return .NO
+			case 3: return .YES
+			case 4: return .YES_EXCEPTIONAL
+			default: return .NONE
+		}
+	}
 }
 
 struct MythicFateRankStat {
@@ -218,13 +245,48 @@ struct MythicFateRankStat {
 
 }
 
-enum MYTHIC_YES_DRAW: String, CaseIterable {
+enum MYTHIC_YES_DRAW: String, RPG_TABLE {
+	typealias EnumerationType = MYTHIC_YES_DRAW
+
+	static var MIN: Int = 1
+	static var MAX: Int = 2
+
 	case ANY = "ANY"
 	case ALL = "ALL"
 	case NONE = "NONE"
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
+	static func getElementBy(value: Int) -> MYTHIC_YES_DRAW {
+		switch value {
+			case 1: return .ANY
+			case 2: return .ALL
+			default: return .NONE
+		}
+	}
+
 }
 
-enum MYTHIC_FATE_RANK: Int, CaseIterable {
+/**
+This Enum is Int based so we can use it with a slider
+*/
+enum MYTHIC_FATE_RANK: Int, RPG_TABLE {
+	typealias EnumerationType = MYTHIC_FATE_RANK
+
+	static var MIN: Int = 1
+	static var MAX: Int = 11
+
+
 	case REALLY_REALLY_HAS_TO_BE = 1
 	case REALLY_HAS_TO_BE = 2
 	case HAS_TO_BE = 3
@@ -237,6 +299,46 @@ enum MYTHIC_FATE_RANK: Int, CaseIterable {
 	case REALLY_IMPOSSIBLE = 10
 	case REALLY_REALLY_IMPOSSIBLE = 11
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .REALLY_REALLY_HAS_TO_BE: return "Really, Really, has to be..."
+				case .REALLY_HAS_TO_BE: return " Really has to be..."
+				case .HAS_TO_BE: return "Has to be..."
+				case .VERY_LIKELY: return "Very Likely..."
+				case .LIKELY: return "Likely..."
+				case .FIFTY_FIFTY: return "Fifty Fifty..."
+				case .UNLIKELY: return "Unlikely..."
+				case .VERY_UNLIKELY: return "Very Unlikely..."
+				case .IMPOSSIBLE: return "Impossible..."
+				case .REALLY_IMPOSSIBLE: return "Really Impossible..."
+				case .REALLY_REALLY_IMPOSSIBLE: return "Really, Really Impossible..."
+				case .NONE: return "None"
+			}
+		}
+	}
+
+	var descriptionLong: String {
+		return descriptionShort
+	}
+
+	static func getElementBy(value: Int) -> MYTHIC_FATE_RANK {
+		switch value {
+			case 1: return .REALLY_REALLY_HAS_TO_BE
+			case 2: return .REALLY_HAS_TO_BE
+			case 3: return .HAS_TO_BE
+			case 4: return .VERY_LIKELY
+			case 5: return .LIKELY
+			case 6: return .FIFTY_FIFTY
+			case 7: return .UNLIKELY
+			case 8: return .VERY_UNLIKELY
+			case 9: return .IMPOSSIBLE
+			case 10: return .REALLY_IMPOSSIBLE
+			case 11: return .REALLY_REALLY_IMPOSSIBLE
+			default: return .NONE
+		}
+	}
 
 	static func getMythicRankStatsFor(_ fateRank: MYTHIC_FATE_RANK) -> MythicFateRankStat {
 		switch fateRank {

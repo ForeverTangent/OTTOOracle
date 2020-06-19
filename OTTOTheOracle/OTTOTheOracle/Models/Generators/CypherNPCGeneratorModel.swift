@@ -151,6 +151,18 @@ enum CYPHER_CHARACTER_DESCRIPTOR: String, RPG_TABLE, Codable {
 	case IDEALISTIC
 	case NONE
 
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
+
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_DESCRIPTOR {
 		switch value {
 
@@ -367,6 +379,17 @@ enum CYPHER_CHARACTER_TYPE: String, RPG_TABLE, Codable {
 	case EXTRA_TERRESTRIAL
 	case HENCHMAN
 	case NONE
+
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_TYPE {
 		switch value {
@@ -585,6 +608,17 @@ enum CYPHER_CHARACTER_FOCUS_A: String, RPG_TABLE, Codable {
 	case TWIST
 	case NONE
 
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_FOCUS_A {
 		switch value {
 			case 1: return .CONQUER
@@ -801,6 +835,17 @@ enum CYPHER_CHARACTER_FOCUS_B: String, RPG_TABLE, Codable {
 	case WELLBEING
 	case NONE
 
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_FOCUS_B {
 		switch value {
 			case 1: return .FREEDOM
@@ -936,6 +981,17 @@ enum CYPHER_CHARACTER_MOTIVATION: String, RPG_TABLE, Codable {
 	case BUSINESS
 	case NONE
 
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_MOTIVATION {
 		switch value {
 			case 1: return .KNOWLEDGE
@@ -963,6 +1019,7 @@ enum CYPHER_CHARACTER_MOTIVATION: String, RPG_TABLE, Codable {
 	}
 
 }
+
 
 
 
@@ -1073,6 +1130,17 @@ enum CYPHER_CHARACTER_INTERACTION_EMOTIONAL_TONE: String, RPG_TABLE, Codable {
 	case HYSTERICAL
 	case TRANQUIL
 	case NONE
+
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_INTERACTION_EMOTIONAL_TONE {
 		switch value {
@@ -1291,6 +1359,17 @@ enum CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_A: String, RPG_TABLE, Codable {
 	case CONNIVING
 	case NONE
 
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_A {
 		switch value {
 			case 1: return .SCHEMING
@@ -1506,6 +1585,17 @@ enum CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_B: String, RPG_TABLE, Codable {
 	case PROPERTY
 	case OWNERSHIP
 	case NONE
+
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_B {
 		switch value {
@@ -1723,6 +1813,17 @@ enum CYPHER_CHARACTER_INTERACTION_FOCUS: String, RPG_TABLE, Codable {
 	case A_MISSION
 	case EMPLOYMENT
 	case NONE
+
+	var descriptionShort: String { get {
+		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> CYPHER_CHARACTER_INTERACTION_FOCUS {
 		switch value {

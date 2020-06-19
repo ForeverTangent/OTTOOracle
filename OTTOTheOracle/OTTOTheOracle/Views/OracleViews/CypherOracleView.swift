@@ -17,11 +17,11 @@ struct CypherOracleView: View {
 	var body: some View {
 		VStack(spacing: 10.0) {
 			Text("Adventure Status \(adventureStatus, specifier: "%.0f")")
-			Text("\(CYPHER_ADVENTURE_STATUS.getStatusString(CYPHER_ADVENTURE_STATUS.init(rawValue: Int(adventureStatus)) ?? .AVERAGE))")
+			Text("\(CYPHER_ADVENTURE_STATUS.init(rawValue: Int(adventureStatus))?.descriptionShort ?? "" )")
 				.font(.title)
 			Slider(value: $adventureStatus, in: 1...6, step: 1.0)
 			Text("GM Consult \(gmConsult, specifier: "%.0f")")
-			Text("\(CYPHER_GM_CONSULT.getConsultString(CYPHER_GM_CONSULT.init(rawValue: Int(gmConsult)) ?? .AVERAGE))")
+			Text("\(CYPHER_GM_CONSULT.init(rawValue: Int(gmConsult))?.descriptionShort ?? "" )")
 				.font(.title)
 				.frame(height: nil)
 			Slider(value: $gmConsult, in: 1...6, step: 1.0)

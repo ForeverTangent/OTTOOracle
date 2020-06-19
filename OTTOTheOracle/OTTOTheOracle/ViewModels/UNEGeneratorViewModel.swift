@@ -46,8 +46,8 @@ class UNEGeneratorViewModel: ObservableObject {
 
 	private func getFormatterUNEInteraction(_ interaction: UNEInteraction) -> UNEInteractionViewModel {
 
-		let status = UNE_NPC_RELATIONSHIP_STATUS.getElementString(interaction.relationshipStatus)
-		let demeanor = UNE_NPC_DEMEANOR.getElementString(interaction.demeanor)
+		let status = interaction.relationshipStatus.descriptionShort
+		let demeanor = interaction.demeanor.descriptionShort
 
 		let uneInteractionViewModel = UNEInteractionViewModel(relationshipStatus: status,
 															  conversationMood: interaction.conversationMood.rawValue.capitalized,

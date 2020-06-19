@@ -122,6 +122,9 @@ enum GMACard_Rune: String, RPG_TABLE, Codable {
 	case WUNJO_ᚹ
 	case NONE
 
+	var descriptionShort: String { get { return rawValue.capitalized.replacingOccurrences(of: "_", with: " ") } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> GMACard_Rune {
 		switch value {
 			case 1: return .ALGIZ_ᛉ
@@ -165,6 +168,9 @@ enum GMACard_Element: String, RPG_TABLE, Codable {
 	case FIRE = "FIRE_🔥"
 	case WATER = "WATER_💧"
 	case NONE = "NONE"
+
+	var descriptionShort: String { get { return rawValue.capitalized.replacingOccurrences(of: "_", with: " ") } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> GMACard_Element {
 		switch value {
@@ -217,6 +223,9 @@ enum GMACard_TagSymbol: String, RPG_TABLE, Codable {
 	case TOWER = "TOWER_♖"
 	case WAND = "WAND_𐃆"
 	case NONE = "NONE"
+
+	var descriptionShort: String { get { return rawValue.capitalized.replacingOccurrences(of: "_", with: " ") } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> GMACard_TagSymbol {
 		switch value {

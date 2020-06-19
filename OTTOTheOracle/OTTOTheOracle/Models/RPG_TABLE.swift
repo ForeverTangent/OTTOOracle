@@ -11,21 +11,24 @@ import Foundation
 /**
 Protocol for building RPG_TABLEs
 */
-protocol RPG_TABLE: CaseIterable {
-	associatedtype Result
+protocol RPG_TABLE: CaseIterable, Codable {
+	associatedtype EnumerationType
+
+	var descriptionShort: String { get }
+	var descriptionLong: String { get }
+
 	static var MIN: Int { get }
 	static var MAX: Int { get }
-	static func getElementBy(value: Int) -> Result
+	static func getElementBy(value: Int) -> EnumerationType
 	static func randomElement() -> Self
 	static func randomIntInRange() -> Int
-	static func randomWeightedElement() -> Result
+	static func randomWeightedElement() -> EnumerationType
 }
 
 /**
 Extention fro RPG_TABLE Protocol.
 */
 extension RPG_TABLE {
-	
 	static func randomIntInRange() -> Int {
 		var SRNG = SystemRandomNumberGenerator()
 		return Int.random(in: MIN...MAX, using: &SRNG)
@@ -36,7 +39,7 @@ extension RPG_TABLE {
 		return Self.allCases.randomElement(using: &SRNG)!
 	}
 
-	static func randomWeightedElement() -> Result {
+	static func randomWeightedElement() -> EnumerationType {
 		let index = randomIntInRange()
 		return getElementBy(value: index)
 	}

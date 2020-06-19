@@ -59,24 +59,30 @@ enum PET_AGENDA: String, RPG_TABLE, Codable {
 		}
 	}
 
-
-	static func getDescriptionOfAgenda(_ agenda: PET_AGENDA) -> String {
-		switch agenda {
-			case .TRUE_FACE_NEGATIVE: return "PC acts out of character in a negative way; a secret revealed."
-			case .INEPT: return "Draw a new Seed and interpret it negatively as the PC’s action."
-			case .FLASHBACK_NEGATIVE: return "Something from the PC’s backstory negatively influences their action."
-			case .UNNOBLE: return "PC indulges or expresses a vice or ignoble facet of their character."
-			case .WEAK: return "PC takes the easiest and safest possible option for them."
-			case .FOCUSED: return "PC acts in accordance with their current desire or to preserve their well-being. "
-			case .SKILLED: return "PC uses an aspect they’re comfortable with (a skill, profession, tactic, or similar). "
-			case .NOBLE: return "PC expresses a noble facet of their character."
-			case .FLASHBACK_POSITIVE: return "Something from the PC’s backstory positively influences their action."
-			case .ON_POINT: return "Draw a new Seed. Play any Seed; interpret it positively as the PC’s action."
-			case .TRUE_FACE_POSITIVE: return "PC acts out of character in a positive way; a secret revealed."
-			case .NONE: return "NONE"
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
 		}
 	}
 
+	var descriptionLong: String {
+		get {
+			switch self {
+				case .TRUE_FACE_NEGATIVE: return "PC acts out of character in a negative way; a secret revealed."
+				case .INEPT: return "Draw a new Seed and interpret it negatively as the PC’s action."
+				case .FLASHBACK_NEGATIVE: return "Something from the PC’s backstory negatively influences their action."
+				case .UNNOBLE: return "PC indulges or expresses a vice or ignoble facet of their character."
+				case .WEAK: return "PC takes the easiest and safest possible option for them."
+				case .FOCUSED: return "PC acts in accordance with their current desire or to preserve their well-being. "
+				case .SKILLED: return "PC uses an aspect they’re comfortable with (a skill, profession, tactic, or similar). "
+				case .NOBLE: return "PC expresses a noble facet of their character."
+				case .FLASHBACK_POSITIVE: return "Something from the PC’s backstory positively influences their action."
+				case .ON_POINT: return "Draw a new Seed. Play any Seed; interpret it positively as the PC’s action."
+				case .TRUE_FACE_POSITIVE: return "PC acts out of character in a positive way; a secret revealed."
+				case .NONE: return "NONE"
+			}
+		}
+	}
 }
 
 
@@ -123,6 +129,9 @@ enum PET_PERSONALITY_TAGS_BASE: String, RPG_TABLE, Codable {
 	case CHARISMATIC
 	case FORGETFUL
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> PET_PERSONALITY_TAGS_BASE {
 		switch value {
@@ -212,6 +221,9 @@ enum PET_PERSONALITY_TAGS_ADVANCED: String, RPG_TABLE, Codable {
 	case AMORAL
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> PET_PERSONALITY_TAGS_ADVANCED {
 		switch value {
 			case 1: return .DEMANDING
@@ -275,6 +287,9 @@ enum PET_META_TAGS: String, RPG_TABLE, Codable {
 	case IN_ZONE
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> PET_META_TAGS {
 		switch value {
 			case 1: return .TIRED
@@ -320,6 +335,9 @@ enum PET_FOCUS_TAGS: String, RPG_TABLE, Codable {
 	case PROVE_SELF
 	case INFAMY
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> PET_FOCUS_TAGS {
 		switch value {
@@ -372,6 +390,9 @@ enum PET_SEEDS: String, RPG_TABLE, Codable {
 	case GOAL
 	case NONE
 
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> PET_SEEDS {
 		switch value {
 			case 1: return .SEEK
@@ -408,6 +429,9 @@ enum PET_ORACLE: String, RPG_TABLE {
 	case GWYW_WITH_CONFLICT = "Get what PC want with interparty conflict."
 	case CONFLICT_DO_NOT_GET = "PC does not get what PC want, and with interparty conflict."
 	case NONE
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> PET_ORACLE {
 		switch value {

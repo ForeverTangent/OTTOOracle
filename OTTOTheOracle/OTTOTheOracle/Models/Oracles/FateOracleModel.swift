@@ -78,14 +78,25 @@ enum FATE_SURPRISE_FACTOR: Int, CaseIterable {
 }
 
 enum FATE_SURPRISE: String, RPG_TABLE {
-
 	static var MIN: Int = 0
 	static var MAX: Int = 6
 
-	case MINOR = "Minor"
-	case MODERATE = "Moderate"
-	case MAJOR = "Major"
-	case NONE = "None"
+	case MINOR
+	case MODERATE
+	case MAJOR
+	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> FATE_SURPRISE {
 		switch value {
@@ -124,7 +135,9 @@ enum FATE_ORACLE_RANK: Int {
 	}
 }
 
-
+/**
+This Enum is Int based so we can use it with a slider
+*/
 enum FATE_ORACLE_TERRIBLE_ANSWER_TABLE: Int, RPG_TABLE {
 
 	static var MIN: Int = -4
@@ -140,6 +153,27 @@ enum FATE_ORACLE_TERRIBLE_ANSWER_TABLE: Int, RPG_TABLE {
 	case YES_MINUS = 3
 	case YES = 4
 
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .NO_MINUS_MINUS_2: return FATE_ORACLE_ANSWER_TITLE.NO_MINUS_MINUS.rawValue
+				case .NO_MINUS_MINUS_1: return FATE_ORACLE_ANSWER_TITLE.NO_MINUS_MINUS.rawValue
+				case .NO_MINUS: return FATE_ORACLE_ANSWER_TITLE.NO_MINUS.rawValue
+				case .NO_2: return FATE_ORACLE_ANSWER_TITLE.NO.rawValue
+				case .NO_1: return FATE_ORACLE_ANSWER_TITLE.NO.rawValue
+				case .NO_PLUS: return FATE_ORACLE_ANSWER_TITLE.NO_PlUS.rawValue
+				case .EITHER: return FATE_ORACLE_ANSWER_TITLE.EITHER.rawValue
+				case .YES_MINUS: return FATE_ORACLE_ANSWER_TITLE.YES_MINUS.rawValue
+				case .YES: return FATE_ORACLE_ANSWER_TITLE.YES.rawValue
+			}
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> FateAnswerTableResult {
 		switch value {
@@ -168,6 +202,9 @@ enum FATE_ORACLE_TERRIBLE_ANSWER_TABLE: Int, RPG_TABLE {
 
 }
 
+/**
+This Enum is Int based so we can use it with a slider
+*/
 enum FATE_ORACLE_POOR_ANSWER_TABLE: Int, RPG_TABLE {
 
 	static var MIN: Int = -4
@@ -182,6 +219,37 @@ enum FATE_ORACLE_POOR_ANSWER_TABLE: Int, RPG_TABLE {
 	case YES_MINUS = 2
 	case YES = 3
 	case YES_PLUS = 4
+
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .NO_MINUS_MINUS_1:
+					return FATE_ORACLE_ANSWER_TITLE.NO_MINUS_MINUS.rawValue
+				case .NO_MINUS_2:
+					return FATE_ORACLE_ANSWER_TITLE.NO_MINUS.rawValue
+				case .NO_MINUS_1:
+					return FATE_ORACLE_ANSWER_TITLE.NO_MINUS.rawValue
+				case .NO:
+					return FATE_ORACLE_ANSWER_TITLE.NO.rawValue
+				case .NO_PLUS:
+					return FATE_ORACLE_ANSWER_TITLE.NO.rawValue
+				case .EITHER:
+					return FATE_ORACLE_ANSWER_TITLE.EITHER.rawValue
+				case .YES_MINUS:
+					return FATE_ORACLE_ANSWER_TITLE.YES_MINUS.rawValue
+				case .YES:
+					return FATE_ORACLE_ANSWER_TITLE.YES.rawValue
+				case .YES_PLUS:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS.rawValue
+			}
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> FateAnswerTableResult {
 		switch value {
@@ -210,6 +278,9 @@ enum FATE_ORACLE_POOR_ANSWER_TABLE: Int, RPG_TABLE {
 
 }
 
+/**
+This Enum is Int based so we can use it with a slider
+*/
 enum FATE_ORACLE_EVEN_ANSWER_TABLE: Int, RPG_TABLE {
 
 	static var MIN: Int = -4
@@ -224,6 +295,37 @@ enum FATE_ORACLE_EVEN_ANSWER_TABLE: Int, RPG_TABLE {
 	case YES = 2
 	case YES_PLUS_1 = 3
 	case YES_PLUS_2 = 4
+
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .NO_MINUS_2:
+					return FATE_ORACLE_ANSWER_TITLE.NO_MINUS.rawValue
+				case .NO_MINUS_1:
+					return FATE_ORACLE_ANSWER_TITLE.NO_MINUS.rawValue
+				case .NO:
+					return FATE_ORACLE_ANSWER_TITLE.NO.rawValue
+				case .NO_PLUS:
+					return FATE_ORACLE_ANSWER_TITLE.NO_PlUS.rawValue
+				case .EITHER:
+					return FATE_ORACLE_ANSWER_TITLE.EITHER.rawValue
+				case .YES_MINUS:
+					return FATE_ORACLE_ANSWER_TITLE.YES_MINUS.rawValue
+				case .YES:
+					return FATE_ORACLE_ANSWER_TITLE.YES.rawValue
+				case .YES_PLUS_1:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS.rawValue
+				case .YES_PLUS_2:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS.rawValue
+			}
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> FateAnswerTableResult {
 		switch value {
@@ -252,6 +354,9 @@ enum FATE_ORACLE_EVEN_ANSWER_TABLE: Int, RPG_TABLE {
 
 }
 
+/**
+This Enum is Int based so we can use it with a slider
+*/
 enum FATE_ORACLE_GOOD_ANSWER_TABLE: Int, RPG_TABLE {
 
 	static var MIN: Int = -4
@@ -266,6 +371,37 @@ enum FATE_ORACLE_GOOD_ANSWER_TABLE: Int, RPG_TABLE {
 	case YES_PLUS_1 = 2
 	case YES_PLUS_2 = 3
 	case YES_PLUS_PLUS = 4
+
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .NO_MINUS:
+					return FATE_ORACLE_ANSWER_TITLE.NO_MINUS.rawValue
+				case .NO:
+					return FATE_ORACLE_ANSWER_TITLE.NO.rawValue
+				case .NO_PLUS:
+					return FATE_ORACLE_ANSWER_TITLE.NO_PlUS.rawValue
+				case .EITHER:
+					return FATE_ORACLE_ANSWER_TITLE.EITHER.rawValue
+				case .YES_MINUS:
+					return FATE_ORACLE_ANSWER_TITLE.YES_MINUS.rawValue
+				case .YES:
+					return FATE_ORACLE_ANSWER_TITLE.YES.rawValue
+				case .YES_PLUS_1:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS.rawValue
+				case .YES_PLUS_2:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS.rawValue
+				case .YES_PLUS_PLUS:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS_PLUS.rawValue
+			}
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> FateAnswerTableResult {
 		switch value {
@@ -295,6 +431,9 @@ enum FATE_ORACLE_GOOD_ANSWER_TABLE: Int, RPG_TABLE {
 }
 
 
+/**
+This Enum is Int based so we can use it with a slider
+*/
 enum FATE_ORACLE_GREAT_ANSWER_TABLE: Int, RPG_TABLE {
 
 	static var MIN: Int = -4
@@ -309,6 +448,37 @@ enum FATE_ORACLE_GREAT_ANSWER_TABLE: Int, RPG_TABLE {
 	case YES_PLUS = 2
 	case YES_PLUS_PLUS_1 = 3
 	case YES_PLUS_PLUS_2 = 4
+
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .NO:
+					return FATE_ORACLE_ANSWER_TITLE.NO.rawValue
+				case .NO_PLUS:
+					return FATE_ORACLE_ANSWER_TITLE.NO_PlUS.rawValue
+				case .EITHER:
+					return FATE_ORACLE_ANSWER_TITLE.EITHER.rawValue
+				case .YES_MINUS:
+					return FATE_ORACLE_ANSWER_TITLE.YES_MINUS.rawValue
+				case .YES_1:
+					return FATE_ORACLE_ANSWER_TITLE.YES.rawValue
+				case .YES_2:
+					return FATE_ORACLE_ANSWER_TITLE.YES.rawValue
+				case .YES_PLUS:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS.rawValue
+				case .YES_PLUS_PLUS_1:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS_PLUS.rawValue
+				case .YES_PLUS_PLUS_2:
+					return FATE_ORACLE_ANSWER_TITLE.YES_PLUS_PLUS.rawValue
+			}
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> FateAnswerTableResult {
 		switch value {

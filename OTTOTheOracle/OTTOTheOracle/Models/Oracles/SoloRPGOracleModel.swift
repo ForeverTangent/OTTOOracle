@@ -12,7 +12,7 @@ class SoloRPGOracleModel {
 
 	public func getResults() -> SoloRPGOracleResult {
 
-		let answer = SOLO_RPG_ORACLE.randomWeightedElement()
+		let answer = RPG_SOLO_ORACLE.randomWeightedElement()
 		let twist = getTwist()
 
 		return SoloRPGOracleResult(answer: answer,
@@ -20,30 +20,28 @@ class SoloRPGOracleModel {
 								   twist_verb: twist.verb)
 	}
 
-	private func getTwist() -> (subject: String, verb: String) {
+	private func getTwist() -> (subject: RPG_SOLO_TWIST_1, verb: RPG_SOLO_TWIST_2) {
 		let d6 = Die(maxPips: 6)
 
 		if d6.roll() != 1 {
-			return ("None", "None")
+			return (RPG_SOLO_TWIST_1.NONE, RPG_SOLO_TWIST_2.NONE)
 		}
 
-		let subject = SOLO_RPG_TWIST_1.randomWeightedElement()
-		let verb = SOLO_RPG_TWIST_2.randomWeightedElement()
-
-		return (subject, verb)
+		return (RPG_SOLO_TWIST_1.randomWeightedElement(), RPG_SOLO_TWIST_2.randomWeightedElement())
 	}
 
 }
 
 struct SoloRPGOracleResult {
-	var answer: String
-	var twist_subject: String
-	var twist_verb: String
+	var answer: RPG_SOLO_ORACLE
+	var twist_subject: RPG_SOLO_TWIST_1
+	var twist_verb: RPG_SOLO_TWIST_2
 }
 
 
-enum SOLO_RPG_ORACLE: String, RPG_TABLE {
-	typealias Result = String
+
+enum RPG_SOLO_ORACLE: String, RPG_TABLE {
+	typealias Result = RPG_SOLO_ORACLE
 
 	static var MIN: Int = 1
 	static var MAX: Int = 6
@@ -56,23 +54,27 @@ enum SOLO_RPG_ORACLE: String, RPG_TABLE {
 	case YES_AND = "Yes, and..."
 	case NONE = "NONE"
 
-	static func getElementBy(value: Int) -> String {
+	static func getElementBy(value: Int) -> RPG_SOLO_ORACLE {
 		switch value {
-			case 1: return NO_AND.rawValue
-			case 2: return NO.rawValue
-			case 3: return NO_BUT.rawValue
-			case 4: return YES_BUT.rawValue
-			case 5: return YES.rawValue
-			case 6: return YES_AND.rawValue
+			case 1: return NO_AND
+			case 2: return NO
+			case 3: return NO_BUT
+			case 4: return YES_BUT
+			case 5: return YES
+			case 6: return YES_AND
 			default:
-				return NONE.rawValue
+				return NONE
 		}
 	}
+
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
 }
 
 
-enum SOLO_RPG_TWIST_1: String, RPG_TABLE {
-	typealias Result = String
+enum RPG_SOLO_TWIST_1: String, RPG_TABLE {
+	typealias Result = RPG_SOLO_TWIST_1
 
 	static var MIN: Int = 1
 	static var MAX: Int = 6
@@ -85,23 +87,26 @@ enum SOLO_RPG_TWIST_1: String, RPG_TABLE {
 	case ITEM = "Item"
 	case NONE = "NONE"
 
-	static func getElementBy(value: Int) -> String {
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> RPG_SOLO_TWIST_1 {
 		switch value {
-			case 1: return NPC.rawValue
-			case 2: return PC.rawValue
-			case 3: return ORGANIZATION.rawValue
-			case 4: return PHYSICAL_EVENT.rawValue
-			case 5: return EMOTIONAL_EVENT.rawValue
-			case 6: return ITEM.rawValue
+			case 1: return NPC
+			case 2: return PC
+			case 3: return ORGANIZATION
+			case 4: return PHYSICAL_EVENT
+			case 5: return EMOTIONAL_EVENT
+			case 6: return ITEM
 			default:
-				return NONE.rawValue
+				return NONE
 		}
 	}
 }
 
 
-enum SOLO_RPG_TWIST_2: String, RPG_TABLE {
-	typealias Result = String
+enum RPG_SOLO_TWIST_2: String, RPG_TABLE {
+	typealias Result = RPG_SOLO_TWIST_2
 
 	static var MIN: Int = 1
 	static var MAX: Int = 6
@@ -111,25 +116,29 @@ enum SOLO_RPG_TWIST_2: String, RPG_TABLE {
 	case HELPS_THE_PROTAGONIST = "Helps the protagonist"
 	case HENDERS_THE_PROTAGONIST = "Henders the protagonist"
 	case CHANGES_THE_GOAL = "Changes the goal"
-	case ENDS_THE_SCENE = "Ends the scene"
+	case ENDS_THE_SCENE = "ENDS_THE_SCENE"
 	case NONE = "NONE"
 
-	static func getElementBy(value: Int) -> String {
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
+
+	static func getElementBy(value: Int) -> RPG_SOLO_TWIST_2 {
 		switch value {
-			case 1: return APPEARS.rawValue
-			case 2: return ALTERS_THE_LOCATION.rawValue
-			case 3: return HELPS_THE_PROTAGONIST.rawValue
-			case 4: return HENDERS_THE_PROTAGONIST.rawValue
-			case 5: return CHANGES_THE_GOAL.rawValue
-			case 6: return ENDS_THE_SCENE.rawValue
+			case 1: return APPEARS
+			case 2: return ALTERS_THE_LOCATION
+			case 3: return HELPS_THE_PROTAGONIST
+			case 4: return HENDERS_THE_PROTAGONIST
+			case 5: return CHANGES_THE_GOAL
+			case 6: return ENDS_THE_SCENE
 			default:
-				return NONE.rawValue
+				return NONE
 		}
 	}
 }
 
-enum SOLO_RPG_NEXT_SCENE: String, RPG_TABLE {
-	typealias Result = String
+enum RPG_SOLO_NEXT_SCENE: String, RPG_TABLE {
+	typealias Result = RPG_SOLO_NEXT_SCENE
 
 	static var MIN: Int = 1
 	static var MAX: Int = 6
@@ -139,13 +148,16 @@ enum SOLO_RPG_NEXT_SCENE: String, RPG_TABLE {
 	case MEANWHILE = "Meanwhile"
 	case NONE = "NONE"
 
-	static func getElementBy(value: Int) -> String {
+	var descriptionShort: String { get { return rawValue } }
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> RPG_SOLO_NEXT_SCENE {
 		switch value {
-			case 1...3: return DRAMATIC_SCENE.rawValue
-			case 4...5: return QUIET_SCENE.rawValue
-			case 6: return MEANWHILE.rawValue
+			case 1...3: return DRAMATIC_SCENE
+			case 4...5: return QUIET_SCENE
+			case 6: return MEANWHILE
 			default:
-				return NONE.rawValue
+				return NONE
 		}
 	}
 }

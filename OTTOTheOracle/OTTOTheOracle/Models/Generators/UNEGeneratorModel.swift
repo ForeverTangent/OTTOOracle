@@ -191,6 +191,18 @@ enum UNE_NPC_MODIFIER: String, RPG_TABLE {
 	case CONFIDENT
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_MODIFIER {
 		switch value {
 			case 1: return .SUPERFLUOUS
@@ -405,6 +417,18 @@ enum UNE_NPC_NOUN: String, RPG_TABLE {
 	case BEGGAR
 	case WARRIOR
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_NOUN {
 		switch value {
@@ -622,6 +646,18 @@ enum UNE_NPC_MOTIVATION_VERB: String, RPG_TABLE {
 	case SUPPORT
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_MOTIVATION_VERB {
 		switch value {
 			case 1: return .ADVISE
@@ -837,6 +873,18 @@ enum UNE_NPC_MOTIVATION_NOUN: String, RPG_TABLE {
 	case SUPPORT
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_MOTIVATION_NOUN {
 
 		switch value {
@@ -945,9 +993,15 @@ enum UNE_NPC_MOTIVATION_NOUN: String, RPG_TABLE {
 	}
 }
 
+/**
+This Enum is Int based so we can use it with a slider
+*/
+enum UNE_NPC_RELATIONSHIP_STATUS: Int, RPG_TABLE {
+	typealias EnumerationType = UNE_NPC_RELATIONSHIP_STATUS
 
-enum UNE_NPC_RELATIONSHIP_STATUS: Int, CaseIterable, Codable {
-	
+	static var MIN: Int = 1
+	static var MAX: Int = 7
+
 	case NONE = 0
 	case LOVED
 	case FRIENDLY
@@ -957,19 +1011,39 @@ enum UNE_NPC_RELATIONSHIP_STATUS: Int, CaseIterable, Codable {
 	case HOSTILE
 	case HATED
 
-	static func getElementString(_ value: UNE_NPC_RELATIONSHIP_STATUS) -> String {
-		switch value {
-			case .LOVED: return "Loved"
-			case .FRIENDLY: return "Friendly"
-			case .PEACEFUL: return "Peaceful"
-			case .NEUTRAL: return "Neutral"
-			case .DISTRUSTFUL: return "Distrustful"
-			case .HOSTILE: return "Hostile"
-			case .HATED: return "Hated"
-			default: return "None"
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .LOVED: return "Loved"
+				case .FRIENDLY: return "Friendly"
+				case .PEACEFUL: return "Peaceful"
+				case .NEUTRAL: return "Neutral"
+				case .DISTRUSTFUL: return "Distrustful"
+				case .HOSTILE: return "Hostile"
+				case .HATED: return "Hated"
+				default: return "None"
+			}
 		}
 	}
-	
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
+	static func getElementBy(value: Int) -> UNE_NPC_RELATIONSHIP_STATUS {
+		switch value {
+			case 1: return .LOVED
+			case 2: return .FRIENDLY
+			case 3: return .PEACEFUL
+			case 4: return .NEUTRAL
+			case 5: return .DISTRUSTFUL
+			case 6: return .HOSTILE
+			case 7: return .HATED
+			default: return .NONE
+		}
+	}
 }
 
 
@@ -1002,6 +1076,19 @@ enum UNE_NPC_COVERSATION_MOOD_LOVED: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		get {
+			return descriptionShort
+		}
+	}
+
+
 	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1: return .WITHDRAWN
@@ -1031,6 +1118,16 @@ enum UNE_NPC_COVERSATION_MOOD_FRIENDLY: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...2: return .WITHDRAWN
@@ -1059,6 +1156,16 @@ enum UNE_NPC_COVERSATION_MOOD_PEACEFUL: String, RPG_TABLE {
 	case HELPFUL
 	case FORTHCOMING
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
@@ -1090,6 +1197,16 @@ enum UNE_NPC_COVERSATION_MOOD_NEUTRAL: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...5: return .WITHDRAWN
@@ -1120,6 +1237,16 @@ enum UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...7: return .WITHDRAWN
@@ -1148,6 +1275,16 @@ enum UNE_NPC_COVERSATION_MOOD_HOSTILE: String, RPG_TABLE {
 	case HELPFUL
 	case FORTHCOMING
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
@@ -1179,6 +1316,16 @@ enum UNE_NPC_COVERSATION_MOOD_HATED: String, RPG_TABLE {
 	case FORTHCOMING
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_CONVERSATION_MOOD {
 		switch value {
 			case 1...15: return .WITHDRAWN
@@ -1194,7 +1341,9 @@ enum UNE_NPC_COVERSATION_MOOD_HATED: String, RPG_TABLE {
 }
 
 
-
+/**
+This Enum is Int based so we can use it with a slider
+*/
 enum UNE_NPC_DEMEANOR: Int, RPG_TABLE {
 	typealias Result = UNE_NPC_DEMEANOR
 
@@ -1211,6 +1360,24 @@ enum UNE_NPC_DEMEANOR: Int, RPG_TABLE {
 	case MYSTERIOUS
 	case PREJUDICED
 
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .SCHEMING: return "Scheming"
+				case .INSANE: return "Insane"
+				case .FRIENDLY: return "Friendly"
+				case .HOSTILE: return "Hostile"
+				case .INQUISITIVE: return "Inquisitive"
+				case .KNOWNING: return "Knowning"
+				case .MYSTERIOUS: return "Mysterious"
+				case .PREJUDICED: return "Prejudiced"
+				case .NONE: return "None"
+			}
+		}
+	}
+
+	var descriptionLong: String { get { return descriptionShort } }
+
 	static func getElementBy(value: Int) -> UNE_NPC_DEMEANOR {
 		switch value {
 			case 1...12: return .SCHEMING
@@ -1224,21 +1391,6 @@ enum UNE_NPC_DEMEANOR: Int, RPG_TABLE {
 			default: return .NONE
 		}
 	}
-
-	static func getElementString(_ value: UNE_NPC_DEMEANOR) -> String {
-		switch value {
-			case .SCHEMING: return "Scheming"
-			case .INSANE: return "Insane"
-			case .FRIENDLY: return "Friendly"
-			case .HOSTILE: return "Hostile"
-			case .INQUISITIVE: return "Inquisitive"
-			case .KNOWNING: return "Knowning"
-			case .MYSTERIOUS: return "Mysterious"
-			case .PREJUDICED: return "Prejudiced"
-			case .NONE: return "None"
-		}
-	}
-
 }
 
 
@@ -1345,6 +1497,16 @@ enum UNE_NPC_DEMEANOR_SCHEMING: String, RPG_TABLE {
 	case PLOT
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .INTENT
@@ -1379,6 +1541,16 @@ enum UNE_NPC_DEMEANOR_INSANE: String, RPG_TABLE {
 	case FACADE
 	case BEWILDERMENT
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
@@ -1416,6 +1588,16 @@ enum UNE_NPC_DEMEANOR_FRIENDLY: String, RPG_TABLE {
 	case CELEBRATION
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .ALLIANCE
@@ -1451,6 +1633,16 @@ enum UNE_NPC_DEMEANOR_HOSTILE: String, RPG_TABLE {
 	case INJURY
 	case DESTRUCTION
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
@@ -1488,6 +1680,16 @@ enum UNE_NPC_DEMEANOR_INQUISITIVE: String, RPG_TABLE {
 	case PETITION
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .QUESTIONS
@@ -1522,6 +1724,16 @@ enum UNE_NPC_DEMEANOR_KNOWING: String, RPG_TABLE {
 	case DISCOURSE
 	case SPEECH
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
@@ -1558,6 +1770,16 @@ enum UNE_NPC_DEMEANOR_MYSTERIOUS: String, RPG_TABLE {
 	case CONUNDRUM
 	case NONE
 
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
+
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
 			case 1...10: return .RUMOR
@@ -1592,6 +1814,16 @@ enum UNE_NPC_DEMEANOR_PREJUDICED: String, RPG_TABLE {
 	case ASSESSMENT
 	case DIFFERENCE
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_BEARING {
 		switch value {
@@ -1652,6 +1884,16 @@ enum UNE_NPC_FOCUS: String, RPG_TABLE {
 	case PREVIOUS_SCENE
 	case ENEMY
 	case NONE
+
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized
+		}
+	}
+
+	var descriptionLong: String {
+		descriptionShort
+	}
 
 	static func getElementBy(value: Int) -> UNE_NPC_FOCUS {
 		switch value {
