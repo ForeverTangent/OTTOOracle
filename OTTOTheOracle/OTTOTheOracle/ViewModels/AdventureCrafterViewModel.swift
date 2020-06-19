@@ -8,14 +8,6 @@
 
 import Foundation
 
-/**
-https://stackoverflow.com/a/28288340/9760718
-*/
-extension StringProtocol {
-	var firstUppercased: String { prefix(1).uppercased() + dropFirst() }
-	var firstCapitalized: String { prefix(1).capitalized + dropFirst() }
-}
-
 class AdventureCrafterViewModel: ObservableObject {
 	var adventureCrafterModel = AdventureCrafterModel()
 
@@ -26,20 +18,17 @@ class AdventureCrafterViewModel: ObservableObject {
 		identities: [CharacterDataIdentiesViewModel](),
 		descriptors: [CharacterDataDescriptorsViewModel]())
 
+
 	init() {
 		generateNewAdventureThemesModel()
-
 		getAdventureThemesForViewModel()
 		generateNewTurningPointPlotPoints()
 	}
 
 
-	func getAdventureThemesForViewModel() {
-		guard let theAdventureThemeModel = adventureCrafterModel.adventureModel else {
-			return
-		}
-
-		let acThemes = theAdventureThemeModel.themes
+	public func getAdventureThemesForViewModel() {
+		guard let theAdventureThemeModel = adventureCrafterModel.getThemes() else { return }
+		let acThemes = theAdventureThemeModel
 		let acThemesByPrority = acThemes.getThemesByPriority()
 		let acThemeStrings = acThemesByPrority.map { AdventureCrafterThemeViewModel(theme: $0.rawValue)	}
 		adventureThemesViewModel = acThemeStrings
@@ -47,32 +36,34 @@ class AdventureCrafterViewModel: ObservableObject {
 	}
 
 
-	func getFormattedPlotPoints(_ plotPoints: [ADVENTURE_PLOT_POINTS]) -> [PlotPointsViewModel] {
-		let formattedPlotPoints: [PlotPointsViewModel] = plotPoints.map { (adventurePlotPoint) in
-			var plotPointsViewModel: PlotPointsViewModel = PlotPointsViewModel(plotPoint: "")
-			if adventurePlotPoint != .NONE && adventurePlotPoint != .META {
-				var plotPointString = adventurePlotPoint.rawValue
-				plotPointString = plotPointString.replacingOccurrences(of: "META_", with: "")
-				plotPointString = plotPointString.replacingOccurrences(of: "_", with: " ")
-				plotPointString = plotPointString.capitalized
-				plotPointsViewModel = PlotPointsViewModel(plotPoint: plotPointString)
-			}
+	public func getTurningPointIndex(_ turningPointIndex: Int) -> TuringPoint? {
+		guard let theTurningPoint = adventureCrafterModel.getTurningPoint(index: turningPointIndex) else {
+			return nil
+		}
+		return theTurningPoint
+	}
+
+
+	func getFormattedPlotPoints(_ plotPoints: [Int: ADVENTURE_PLOT_POINTS]) -> [PlotPointsViewModel] {
+		let formattedPlotPoints: [PlotPointsViewModel] = plotPoints.map { (key: Int, value: ADVENTURE_PLOT_POINTS) in
+			let plotPointsViewModel: PlotPointsViewModel = PlotPointsViewModel(index: key,
+																			   descriptionShort: value.descriptionShort,
+																			   descriptionLong: value.descriptionLong)
 			return plotPointsViewModel
 		}
-
 		return formattedPlotPoints
 	}
 
 
+	func getLongDescriptionOfPlotPoint(_ plotPoint: ADVENTURE_PLOT_POINTS) -> String {
+		return plotPoint.descriptionLong
+	}
+
+
 	func getCharacterData() {
-		guard let theCharacterData = adventureCrafterModel.character else {
-			return
-		}
-
+		guard let theCharacterData = adventureCrafterModel.character else { return }
 		let formattedCharacterData = getFormattedCharacterData(theCharacterData)
-
 		characterDataViewModel = formattedCharacterData
-
 	}
 
 
@@ -81,19 +72,19 @@ class AdventureCrafterViewModel: ObservableObject {
 		var descriptors = [CharacterDataDescriptorsViewModel]()
 
 		for element in characterData.identity {
-			let newCDIdentiryVM = CharacterDataIdentiesViewModel(identity: element.rawValue)
+			let newCDIdentiryVM = CharacterDataIdentiesViewModel(identity: element.descriptionShort)
 			identities.append(newCDIdentiryVM)
 		}
 
 		for element in characterData.descriptors {
-			let newCDDescriptorVM = CharacterDataDescriptorsViewModel(descriptor: element.rawValue)
+			let newCDDescriptorVM = CharacterDataDescriptorsViewModel(descriptorShort: element.descriptionShort,
+																	  descriptorLong: element.descriptionLong)
 			descriptors.append(newCDDescriptorVM)
 		}
 
 		let totalCharacterDataVM = CharacterDataViewModel(name: "ASDF",
 														  identities: identities,
 														  descriptors: descriptors)
-
 		return totalCharacterDataVM
 	}
 
@@ -105,7 +96,7 @@ class AdventureCrafterViewModel: ObservableObject {
 
 
 	func generateNewTurningPointPlotPoints() {
-		guard let theTurningPoint = adventureCrafterModel.getRandomTurningPoint() else {
+		guard let theTurningPoint = adventureCrafterModel.buildRandomTurningPoint() else {
 			print("return")
 			return }
 
@@ -138,23 +129,28 @@ struct CharacterDataIdentiesViewModel: Identifiable {
 
 struct CharacterDataDescriptorsViewModel: Identifiable {
 	var id = UUID()
-	var descriptor: String
+	var descriptorShort: String
+	var descriptorLong: String
 
 }
 
 
 struct PlotPointsViewModel: Identifiable {
-	var id = UUID()
-	var plotPoint: String
+	var id: Int { get { return index } }
+	var index: Int
+	var descriptionShort: String
+	var descriptionLong: String
 
-	init(plotPoint: String) {
-		self.plotPoint = plotPoint
+	init(index: Int, descriptionShort: String, descriptionLong: String) {
+		self.index = index
+		self.descriptionShort = descriptionShort
+		self.descriptionLong = descriptionLong
 	}
 }
 
 
 class AdventureCrafterThemeViewModel: Identifiable {
-	var id: String { get { title } }
+	var id: String { get { return title } }
 	var title: String
 
 	init(theme: String) {

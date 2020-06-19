@@ -16,16 +16,15 @@ class AdventureCrafterModel {
 	static let poiLogger = OSLog(subsystem: subsystem, category: .pointsOfInterest)
 	static let logger = OSLog(subsystem: subsystem, category: catagory)
 
-	var adventureModel: AdventureModel?
-
+	private var adventureModel: AdventureModel?
 	var character: CharacterData?
 
-	func buildNewAdventureThemesModel() {
+	public func buildNewAdventureThemesModel() {
 		let adventureThemeModel = AdventureThemeModelBuilder().build()
 		adventureModel = AdventureModel(adventureThemes: adventureThemeModel)
 	}
 
-	func buildTurningPoint() {
+	public func buildTurningPoint() {
 		guard let theAdventureModel = adventureModel else { return }
 		var turningPoints = theAdventureModel.turningPoints
 		let newNurningPoint = TuringPointBuilder().build(withThemeModel: theAdventureModel.themes)
@@ -34,24 +33,41 @@ class AdventureCrafterModel {
 	}
 
 
-	func buildNewCharacter() {
+	public func buildNewCharacter() {
 		character = CharacterDataBuilder().build()
 	}
 
+	public func getThemes() -> AdventureThemesModel? {
+		guard let theAdventureModel = adventureModel else { return nil }
+		return theAdventureModel.themes
+	}
 
-	func getPlotPointsForTurningPoint(index: Int) -> [ADVENTURE_PLOT_POINTS]? {
+	public func getTurningPoint(index: Int) -> TuringPoint? {
 		guard
 			let theAdventureModel = adventureModel,
 			!theAdventureModel.turningPoints.isEmpty,
-			index < theAdventureModel.turningPoints.count,
-			!theAdventureModel.turningPoints[index].plotPoints.isEmpty else {
+			index < theAdventureModel.turningPoints.count else {
 				return nil
 		}
 
-		return theAdventureModel.turningPoints[index].plotPoints
+		return theAdventureModel.turningPoints[index]
+
 	}
 
-	func getRandomTurningPoint() -> TuringPoint? {
+
+	public func getTurningPointIndex(_ turningPointIndex: Int,
+									 andPlotPointAtIndex plotPointIndex: Int) -> [Int: ADVENTURE_PLOT_POINTS]? {
+		guard
+			let theTurningPoint = getTurningPoint(index: turningPointIndex),
+			!theTurningPoint.plotPoints.isEmpty,
+			plotPointIndex < theTurningPoint.plotPoints.count else {
+				return nil
+		}
+
+		return theTurningPoint.plotPoints
+	}
+
+	public func buildRandomTurningPoint() -> TuringPoint? {
 		guard let theAdventureModel = adventureModel else { return nil }
 		let turningPoint = TuringPointBuilder().build(withThemeModel: theAdventureModel.themes)
 		return turningPoint
@@ -170,7 +186,7 @@ struct TuringPoint: Comparable, Codable {
 
 	var plotLineTitle: String
 	var plotLineType: ADVENTURE_PLOTLINE_TYPE
-	var plotPoints: [ADVENTURE_PLOT_POINTS]
+	var plotPoints: [Int: ADVENTURE_PLOT_POINTS]
 
 	var characters: [CharacterData]
 
@@ -192,12 +208,12 @@ class TuringPointBuilder {
 
 		let numberOfPlotPoints = Int.random(in: 2...5)
 
-		var indexToPlotPoints = [ADVENTURE_PLOT_POINTS]()
+		var indexToPlotPoints = [Int: ADVENTURE_PLOT_POINTS]()
 
-		for _ in 1...numberOfPlotPoints {
+		for index in 1...numberOfPlotPoints {
 			let theme = themeModel.getRandomTheme()
 			let plotPoint = getPlotPointWithTheme(theme)
-			indexToPlotPoints.append(plotPoint)
+			indexToPlotPoints[index] = plotPoint
 
 		}
 
