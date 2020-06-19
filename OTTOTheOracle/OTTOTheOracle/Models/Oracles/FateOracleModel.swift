@@ -12,6 +12,7 @@ import Foundation
 class FateOracleModel {
 	
 	static func getFateOracleResultForRank(_ rank: FATE_ORACLE_RANK) -> FateOracleResult {
+
 		var answerTableResult: FateAnswerTableResult
 		switch rank {
 			case .TERRIBLE: answerTableResult = FATE_ORACLE_TERRIBLE_ANSWER_TABLE.randomWeightedElement()
@@ -19,6 +20,7 @@ class FateOracleModel {
 			case .EVEN: answerTableResult = FATE_ORACLE_EVEN_ANSWER_TABLE.randomWeightedElement()
 			case .GOOD: answerTableResult = FATE_ORACLE_GOOD_ANSWER_TABLE.randomWeightedElement()
 			case .GREAT: answerTableResult = FATE_ORACLE_GREAT_ANSWER_TABLE.randomWeightedElement()
+			case .NONE: answerTableResult = FATE_ORACLE_EVEN_ANSWER_TABLE.randomWeightedElement()
 		}
 		
 		return FateOracleResult(title: answerTableResult.title,
@@ -62,19 +64,72 @@ enum FATE_ORACLE_ANSWER_TITLE: String, CaseIterable {
 	case YES_PLUS_PLUS = "Yes++"
 }
 
-enum FATE_ORACLE_ANSWER: Int, CaseIterable {
+enum FATE_ORACLE_ANSWER: Int, RPG_TABLE {
+	typealias EnumerationType = FATE_ORACLE_ANSWER
+
+	static var MIN: Int = -1
+	static var MAX: Int = 1
+
 	case NO = -1
 	case EITHER = 0
 	case YES = 1
+
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .NO: return "No"
+				case .EITHER: return "Either"
+				case .YES: return "Yes"
+			}
+		}
+	}
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> FATE_ORACLE_ANSWER {
+		switch value {
+			case -1: return .NO
+			case 0: return .EITHER
+			case 1: return .YES
+			default: return .EITHER
+		}
+	}
 }
 
-enum FATE_SURPRISE_FACTOR: Int, CaseIterable {
+enum FATE_SURPRISE_FACTOR: Int, RPG_TABLE {
+	typealias EnumerationType = FATE_SURPRISE_FACTOR
+
+	static var MIN: Int = -2
+	static var MAX: Int = 2
+
 	case MINUS_2 = -2
 	case MINUS_1 = -1
 	case NONE = 0
 	case PLUS_1 = 1
 	case PLUS_2 = 2
 
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .MINUS_2: return "--"
+				case .MINUS_1: return "-"
+				case .NONE: return ""
+				case .PLUS_1: return "+"
+				case .PLUS_2: return "++"
+			}
+		}
+	}
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> FATE_SURPRISE_FACTOR {
+		switch value {
+			case -2: return .MINUS_2
+			case -1: return .MINUS_1
+			case 0: return .NONE
+			case 1: return .PLUS_1
+			case 2: return .PLUS_2
+			default: return .NONE
+		}
+	}
 }
 
 enum FATE_SURPRISE: String, RPG_TABLE {
@@ -117,22 +172,47 @@ enum FATE_SURPRISE: String, RPG_TABLE {
 }
 
 
-enum FATE_ORACLE_RANK: Int {
+/**
+This Enum is Int based so we can use it with a slider
+*/
+enum FATE_ORACLE_RANK: Int, RPG_TABLE {
+	typealias EnumerationType = FATE_ORACLE_RANK
+
+	static var MIN: Int = 1
+	static var MAX: Int = 5
+
+	case NONE = 0
 	case TERRIBLE = 1
 	case POOR = 2
 	case EVEN = 3
 	case GOOD = 4
 	case GREAT = 5
 
-	static func getRankString(_ rank: FATE_ORACLE_RANK) -> String {
-		switch rank {
-			case .TERRIBLE: return "TERRIBLE"
-			case .POOR: return "POOR"
-			case .EVEN: return "EVEN"
-			case .GOOD: return "GOOD"
-			case .GREAT: return "GREAT"
+	var descriptionShort: String {
+		get {
+			switch self {
+				case .TERRIBLE: return "Terrible"
+				case .POOR: return "Poor"
+				case .EVEN: return "Even"
+				case .GOOD: return "Good"
+				case .GREAT: return "Great"
+				default: return "None"
+			}
 		}
 	}
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> FATE_ORACLE_RANK {
+		switch value {
+			case 1: return .TERRIBLE
+			case 2: return .POOR
+			case 3: return .EVEN
+			case 4: return .GOOD
+			case 5: return .GREAT
+			default: return .NONE
+		}
+	}
+
 }
 
 /**

@@ -1669,7 +1669,7 @@ enum ADVENTURE_PLOT_POINTS: String, Codable {
 	static func loadPlotPointToFullDescriptions() {
 		let decoder = JSONDecoder()
 		guard
-			let path = Bundle.main.path(forResource:"PLOT_POINT_TO_DESCRIPTION", ofType: "json"),
+			let path = Bundle.main.path(forResource:"PLOT_POINT_DESCRIPTION_LONG", ofType: "json"),
 			let data = FileManager.default.contents(atPath: path) else {
 				fatalError("Blarg")
 		}

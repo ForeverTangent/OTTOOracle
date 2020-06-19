@@ -71,8 +71,8 @@
 		317FB1B8249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1B7249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */; };
-		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */; };
-		31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */; };
+		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json */; };
+		31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json */; };
 		31ACC52E249655A600454787 /* CypherNPCGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC52D249655A600454787 /* CypherNPCGeneratorModel.swift */; };
 		31ACC53024969E3800454787 /* CypherNPCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */; };
 		31ACC5322496A23000454787 /* CypherNPCGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC5312496A23000454787 /* CypherNPCGeneratorView.swift */; };
@@ -85,8 +85,8 @@
 		31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE22A92484405300E21C00 /* GMATagBottonView.swift */; };
 		31C6BC20248F107100494CD7 /* TextPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6BC1F248F107100494CD7 /* TextPopUpView.swift */; };
 		31E9B9EB248BE6BE007B4463 /* SoloRPGOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9B9EA248BE6BE007B4463 /* SoloRPGOracleModel.swift */; };
-		31E9B9EE248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */; };
-		31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */; };
+		31E9B9EE248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9EC248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json */; };
+		31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json */; };
 		31FB75862493F40B00622969 /* OraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75852493F40B00622969 /* OraclesView.swift */; };
 		31FB75882493F41B00622969 /* GeneratorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75872493F41B00622969 /* GeneratorsView.swift */; };
 		31FB758A2493F56100622969 /* ShowOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75892493F56100622969 /* ShowOraclesNavButton.swift */; };
@@ -175,8 +175,8 @@
 		317FB1B7249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUNEGenratorNavButton.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardOnlyView.swift; sourceTree = "<group>"; };
-		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS.json; sourceTree = "<group>"; };
-		31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TAG_DESCRIPTIONS.json; sourceTree = "<group>"; };
+		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS_LONG.json; sourceTree = "<group>"; };
+		31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TAG_DESCRIPTIONS_LONG.json; sourceTree = "<group>"; };
 		31ACC52D249655A600454787 /* CypherNPCGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCGeneratorModel.swift; sourceTree = "<group>"; };
 		31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCViewModel.swift; sourceTree = "<group>"; };
 		31ACC5312496A23000454787 /* CypherNPCGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCGeneratorView.swift; sourceTree = "<group>"; };
@@ -190,8 +190,8 @@
 		31BE22AB24845F1F00E21C00 /* OTTOTheOracle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OTTOTheOracle.entitlements; sourceTree = "<group>"; };
 		31C6BC1F248F107100494CD7 /* TextPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPopUpView.swift; sourceTree = "<group>"; };
 		31E9B9EA248BE6BE007B4463 /* SoloRPGOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGOracleModel.swift; sourceTree = "<group>"; };
-		31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PLOT_POINT_TO_DESCRIPTION.json; sourceTree = "<group>"; };
-		31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RUNE_DESCRIPTIONS.json; sourceTree = "<group>"; };
+		31E9B9EC248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PLOT_POINT_DESCRIPTION_LONG.json; sourceTree = "<group>"; };
+		31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RUNE_DESCRIPTIONS_LONG.json; sourceTree = "<group>"; };
 		31FB75852493F40B00622969 /* OraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraclesView.swift; sourceTree = "<group>"; };
 		31FB75872493F41B00622969 /* GeneratorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorsView.swift; sourceTree = "<group>"; };
 		31FB75892493F56100622969 /* ShowOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOraclesNavButton.swift; sourceTree = "<group>"; };
@@ -365,12 +365,12 @@
 		3188CB842481C8C2001F53B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				31E9B9EC248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json */,
+				31E9B9EC248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json */,
 				3188CB852481C8F0001F53B5 /* GMA_CARDS.json */,
 				31BE22962483FF8B00E21C00 /* MYTHIC_CARDS.json */,
-				31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json */,
-				31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json */,
-				31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json */,
+				31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json */,
+				31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json */,
+				31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -541,14 +541,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				312F20232481B3E2000CEB9C /* LaunchScreen.storyboard in Resources */,
-				31E9B9EE248C5C06007B4463 /* PLOT_POINT_TO_DESCRIPTION.json in Resources */,
+				31E9B9EE248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json in Resources */,
 				312F20202481B3E2000CEB9C /* Preview Assets.xcassets in Resources */,
 				3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */,
-				31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS.json in Resources */,
+				31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json in Resources */,
 				31BE22972483FF8B00E21C00 /* MYTHIC_CARDS.json in Resources */,
-				31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS.json in Resources */,
+				31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json in Resources */,
 				312F201D2481B3E2000CEB9C /* Assets.xcassets in Resources */,
-				31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS.json in Resources */,
+				31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

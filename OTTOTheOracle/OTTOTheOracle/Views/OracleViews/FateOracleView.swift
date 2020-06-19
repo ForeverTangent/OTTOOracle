@@ -16,7 +16,7 @@ struct FateOracleView: View {
     var body: some View {
 		VStack(spacing: 25.0) {
 			Text("Difficulty \(difficulty, specifier: "%.0f")")
-			Text("\(FATE_ORACLE_RANK.getRankString(FATE_ORACLE_RANK.init(rawValue: Int(difficulty)) ?? .EVEN))")
+			Text("\(FATE_ORACLE_RANK.init(rawValue: Int(difficulty))?.descriptionShort ?? "")")
 				.font(.title)
 			Slider(value: $difficulty, in: 1...5, step: 1.0)
 			VStack {

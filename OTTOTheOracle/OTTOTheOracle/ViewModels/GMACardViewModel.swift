@@ -12,8 +12,6 @@ class GMACardViewModel {
 
 	private var gmaCard = GMACard()
 	private var runeToDescriptions = [GMACard_Rune: String]()
-	private var elementToDescriptions = [GMACard_Element: String]()
-	private var tagToDescriptions = [GMACard_TagSymbol: String]()
 
 	var cardFile: String { get { return gmaCard.cardFile } }
 	var difficulty: String { get { return "\(gmaCard.difficulty)" } }
@@ -56,16 +54,14 @@ class GMACardViewModel {
 	init(gmaCard: GMACard) {
 		self.gmaCard = gmaCard
 		loadGMARuneToDescription()
-		loadGMAElementToDescription()
-		loadGMATagToDescription()
 	}
 
-	func loadGMARuneToDescription() {
+	private func loadGMARuneToDescription() {
 
 		let decoder = JSONDecoder()
 
 		guard
-			let path = Bundle.main.path(forResource:"RUNE_DESCRIPTIONS", ofType: "json"),
+			let path = Bundle.main.path(forResource:"RUNE_DESCRIPTIONS_LONG", ofType: "json"),
 			let data = FileManager.default.contents(atPath: path) else {
 				fatalError("Blarg")
 		}
@@ -76,41 +72,6 @@ class GMACardViewModel {
 			print(error.localizedDescription)
 		}
 	}
-
-
-	func loadGMAElementToDescription() {
-		let decoder = JSONDecoder()
-
-		guard
-			let path = Bundle.main.path(forResource:"ELEMENT_DESCRIPTIONS", ofType: "json"),
-			let data = FileManager.default.contents(atPath: path) else {
-				fatalError("Blarg")
-		}
-
-		do {
-			elementToDescriptions = try decoder.decode([GMACard_Element: String].self, from: data)
-		} catch {
-			print(error.localizedDescription)
-		}
-	}
-
-	func loadGMATagToDescription() {
-		let decoder = JSONDecoder()
-
-		guard
-			let path = Bundle.main.path(forResource:"TAG_DESCRIPTIONS", ofType: "json"),
-			let data = FileManager.default.contents(atPath: path) else {
-				fatalError("Blarg")
-		}
-
-		do {
-			tagToDescriptions = try decoder.decode([GMACard_TagSymbol: String].self, from: data)
-		} catch {
-			print(error.localizedDescription)
-		}
-
-	}
-
 
 	private func getLikelyOdds(_ likelyOdds: GMACard_LikelyOdds) -> String {
 		switch likelyOdds {
@@ -165,27 +126,28 @@ class GMACardViewModel {
 
 	func getDescriptionForRune() -> String {
 		guard let description = runeToDescriptions[gmaCard.rune] else { return "" }
-		return description
+		let descriptionString = "\(gmaCard.rune.descriptionShort) \n \(description)"
+		return descriptionString
 	}
 
 	func getDescriptionForElement() -> String {
-		guard let description = elementToDescriptions[gmaCard.element] else { return "" }
-		return description
+//		guard let description = gmaCard.element.descriptionLong else { return "" }
+		return gmaCard.element.descriptionLong
 	}
 
 	func getDescriptionForTag1() -> String {
-		guard let description = tagToDescriptions[gmaCard.tagSymbol1] else { return "" }
-		return description
+//		guard let description = tagToDescriptions[gmaCard.tagSymbol1] else { return "" }
+		return gmaCard.tagSymbol1.descriptionLong
 	}
 
 	func getDescriptionForTag2() -> String {
-		guard let description = tagToDescriptions[gmaCard.tagSymbol2] else { return "" }
-		return description
+//		guard let description = tagToDescriptions[gmaCard.tagSymbol2] else { return "" }
+		return gmaCard.tagSymbol2.descriptionLong
 	}
 
 	func getDescriptionForTag3() -> String {
-		guard let description = tagToDescriptions[gmaCard.tagSymbol3] else { return "" }
-		return description
+//		guard let description = tagToDescriptions[gmaCard.tagSymbol3] else { return "" }
+		return gmaCard.tagSymbol3.descriptionLong
 	}
 
 }

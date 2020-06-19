@@ -169,8 +169,22 @@ enum GMACard_Element: String, RPG_TABLE, Codable {
 	case WATER = "WATER_💧"
 	case NONE = "NONE"
 
-	var descriptionShort: String { get { return rawValue.capitalized.replacingOccurrences(of: "_", with: " ") } }
-	var descriptionLong: String { get { return descriptionShort } }
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+	var descriptionLong: String {
+		get {
+			switch self {
+				case .AIR: return "Movement, curiosity, exploration; life in its most dynamic form. Chaotic but friendly; social."
+				case .EARTH: return "Survival, determination, defense; slow but steady and impervious. Orderly and unchanging; health."
+				case .FIRE: return "Aggression, energy, destruction; empowered but unchecked. Chaotic and dangerous; combat."
+				case .WATER: return "Intelligence, knowledge, eloquence; adaptable and understanding. Orderly but shifting; intellect."
+				case .NONE: return "None"
+			}
+		}
+	}
 
 	static func getElementBy(value: Int) -> GMACard_Element {
 		switch value {
@@ -224,8 +238,28 @@ enum GMACard_TagSymbol: String, RPG_TABLE, Codable {
 	case WAND = "WAND_𐃆"
 	case NONE = "NONE"
 
-	var descriptionShort: String { get { return rawValue.capitalized.replacingOccurrences(of: "_", with: " ") } }
-	var descriptionLong: String { get { return descriptionShort } }
+	var descriptionShort: String {
+		get {
+			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		}
+	}
+	var descriptionLong: String {
+		get {
+			switch self {
+				case .CROWN: return "An important individual, with power over you."
+				case .HEART: return "Family, friendship, or romance."
+				case .MOON: return "Confusion or misunderstanding."
+				case .SHIELD: return "Protection; not always physical."
+				case .SKULL: return "Impending loss, predictable but hard to avoid."
+				case .SUN: return "Clarity or revelation."
+				case .SWORD: return "Conflict; not always physical."
+				case .TARGET: return "A new goal; a distant or dynamic objective."
+				case .TOWER: return "Significant obstacle; probably static in nature."
+				case .WAND: return "Powerful technology or magic."
+				case .NONE: return "None"
+			}
+		}
+	}
 
 	static func getElementBy(value: Int) -> GMACard_TagSymbol {
 		switch value {
