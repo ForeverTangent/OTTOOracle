@@ -27,8 +27,9 @@ class UNEGeneratorViewModel: ObservableObject {
 	}
 
 
-	func getUNEInteractionFrom(relationshipStatus status: UNE_NPC_RELATIONSHIP_STATUS,
-							   andDemeanor demeanor: UNE_NPC_DEMEANOR) {
+	func getUNEInteractionFrom(
+		relationshipStatus status: UNE_NPC_RELATIONSHIP_STATUS,
+		andDemeanor demeanor: UNE_NPC_DEMEANOR) {
 		let uneInteractionModel = uneGeneratorModel.getInteractionFrom(relationshipStatus: status, andDemeanor: demeanor)
 		uneInteractionViewModel = getFormatterUNEInteraction(uneInteractionModel)
 	}

@@ -25,17 +25,8 @@ enum SWWC_SIBLING_BIOLOGICAL_SEX: String, RPG_TABLE, Codable {
 	case FEMALE
 	case NONE
 
-	var descriptionShort: String {
-		get {
-			return self.rawValue.capitalized
-		}
-	}
-
-	var descriptionLong: String {
-		get {
-			return descriptionShort
-		}
-	}
+	var descriptionShort: String { get { return self.rawValue.capitalized } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_SIBLING_BIOLOGICAL_SEX {
 		switch value {
@@ -58,17 +49,8 @@ enum SWWC_SIBLING_SEX_ORIENTATION: String, RPG_TABLE, Codable {
 	case OTHER // Non-Binary, Trans, etc...
 	case NONE
 
-	var descriptionShort: String {
-		get {
-			return self.rawValue.capitalized
-		}
-	}
-
-	var descriptionLong: String {
-		get {
-			return descriptionShort
-		}
-	}
+	var descriptionShort: String { get { return self.rawValue.capitalized } }
+	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> SWWC_SIBLING_SEX_ORIENTATION {
 		switch value {

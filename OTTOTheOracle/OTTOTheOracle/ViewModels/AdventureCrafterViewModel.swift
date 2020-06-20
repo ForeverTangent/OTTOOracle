@@ -20,9 +20,11 @@ class AdventureCrafterViewModel: ObservableObject {
 
 
 	init() {
-		generateNewAdventureThemesModel()
+//		generateNewAdventureThemesModel()
+//		generateNewTurningPointPlotPoints()
+//		generateNewCharacter()
+
 		getAdventureThemesForViewModel()
-		generateNewTurningPointPlotPoints()
 	}
 
 
@@ -32,7 +34,6 @@ class AdventureCrafterViewModel: ObservableObject {
 		let acThemesByPrority = acThemes.getThemesByPriority()
 		let acThemeStrings = acThemesByPrority.map { AdventureCrafterThemeViewModel(theme: $0.rawValue)	}
 		adventureThemesViewModel = acThemeStrings
-		print(adventureThemesViewModel)
 	}
 
 

@@ -42,7 +42,7 @@ struct ThemesSubView: View {
 						.frame(width: 300.0)
 				}
 			}
-			.frame(height: 300.0)
+			.frame(width: 300.0)
 			Button("Generate New Theme") {
 				print("Generate New Themes Pressed")
 				self.adventureCrafterGeneratorVM.generateNewAdventureThemesModel()
@@ -80,7 +80,7 @@ struct PlotPointsSubView: View {
 						.multilineTextAlignment(.center)
 				}
 			}
-			.frame(height: 300.0)
+			.frame(width: 300.0)
 			Button("Generate Plot Points") {
 				print("Generate Plot Points Pressed")
 				self.adventureCrafterGeneratorVM.generateNewTurningPointPlotPoints()
@@ -88,7 +88,7 @@ struct PlotPointsSubView: View {
 			.onAppear() {
 				print("Plot Point Tab Appears")
 			}
-			.padding(.vertical, 20.0)
+			.padding(.vertical, 50.0)
 			.foregroundColor(.blue)
 			.overlay(
 				RoundedRectangle(cornerRadius: 20)
@@ -117,8 +117,9 @@ struct CharacterSubView: View {
 						.frame(width: 300.0)
 				}
 			}
-			.padding(.vertical, 20.0)
-			VStack {
+			.frame(width: 300.0)
+			Spacer(minLength: 20.0)
+			VStack(spacing: 20.0) {
 				ForEach(self.adventureCrafterGeneratorVM.characterDataViewModel.descriptors) { (descriptor) in
 					Text("\(descriptor.descriptorShort)")
 						.font(.title)
@@ -135,7 +136,6 @@ struct CharacterSubView: View {
 				print("Character Tab Appears")
 			}
 			.padding(.vertical, 50.0)
-			.frame(width: 300.0)
 			.foregroundColor(.blue)
 			.overlay(
 				RoundedRectangle(cornerRadius: 20)
