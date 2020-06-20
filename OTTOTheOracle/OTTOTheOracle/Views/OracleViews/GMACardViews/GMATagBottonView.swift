@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct GMATagBottonView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel
 
     var body: some View {
 		VStack {
@@ -94,6 +94,6 @@ struct GMATagBottonView: View {
 
 struct GMATagBottonView_Previews: PreviewProvider {
     static var previews: some View {
-		return GMATagBottonView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		return GMATagBottonView(oracleViewModel: PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

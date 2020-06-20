@@ -13,6 +13,7 @@ struct ShowOraclesNavButton: View {
 		NavigationLink(destination: OraclesView()) {
 			OTTOButton(buttonTitle: "Show Oracles")
 		}
+		.isDetailLink(false)
 		.onAppear() {
 			print("Show Oracles")
 		}

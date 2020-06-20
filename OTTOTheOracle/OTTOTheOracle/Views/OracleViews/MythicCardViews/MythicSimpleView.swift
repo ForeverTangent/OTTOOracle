@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct MythicSimpleView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel = OracleViewModel()
 	@Environment(\.presentationMode) var presentation
 
 	var body: some View {
 		VStack {
-			MythicCardOnlyView()
+			MythicCardOnlyView(oracleViewModel: oracleViewModel)
 			Button("Reload") {
 				self.oracleViewModel.drawMythicCard()
 			}
@@ -32,6 +32,6 @@ struct MythicSimpleView: View {
 
 struct MythicMainView_Previews: PreviewProvider {
     static var previews: some View {
-		MythicSimpleView().environmentObject(PreviewHelper.mockOracleWithSortedDeckUseCardIndex(0))
+		MythicSimpleView(oracleViewModel: PreviewHelper.mockOracleWithSortedDeckUseCardIndex(0))
 	}
 }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MythicMidView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel
 
 	@State var isExceptional: Bool = false
 	@State var isResultYes: Bool = false
@@ -55,6 +55,6 @@ struct MythicMidView: View {
 
 struct MythicMidView_Previews: PreviewProvider {
     static var previews: some View {
-		MythicMidView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		MythicMidView(oracleViewModel: OracleViewModel())
     }
 }

@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct GMAMainView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel = OracleViewModel()
 
 	var body: some View {
 		ScrollView {
 			VStack {
-				GMACardOnlyView().padding(.vertical, 25.0).environmentObject(oracleViewModel)
+				GMACardOnlyView(oracleViewModel: oracleViewModel).padding(.vertical, 25.0)
 				Group {
 					Button("Reload") {
 						self.oracleViewModel.drawGMACard()
@@ -33,6 +33,6 @@ struct GMAMainView: View {
 
 struct GMAMainView_Previews: PreviewProvider {
     static var previews: some View {
-        GMAMainView().environmentObject(OracleViewModel())
+		GMAMainView(oracleViewModel: OracleViewModel())
     }
 }

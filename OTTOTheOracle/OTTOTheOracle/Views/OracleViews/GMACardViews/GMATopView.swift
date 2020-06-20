@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct GMATopView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel
 	@State private var showPopover: Bool = false
 
     var body: some View {
@@ -107,6 +107,6 @@ struct GMATopView: View {
 
 struct GMATopView_Previews: PreviewProvider {
     static var previews: some View {
-		return GMATopView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		return GMATopView(oracleViewModel: PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

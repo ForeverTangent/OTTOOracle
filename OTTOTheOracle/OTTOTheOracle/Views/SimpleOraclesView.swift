@@ -22,6 +22,6 @@ struct SimpleOraclesView: View {
 
 struct SimpleOraclesView_Previews: PreviewProvider {
     static var previews: some View {
-		SimpleOraclesView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		SimpleOraclesView()
     }
 }

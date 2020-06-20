@@ -13,7 +13,219 @@ SWWC - Savage World's Wildcard Creator
 */
 class SWWCGeneratorModel {
 
+	var wcBackground: WildCardBackgroundModel = WildCardBackgroundModel()
+
+	func buildNewCharacterBackground() {
+		var backgroundModel = WildCardBackgroundModel()
+		buildFamilyHistoryUsingBackgroundModel(&backgroundModel)
+		buildChildhoodBackgroundModel(&backgroundModel)
+		buildPersonalityAndPhilosophy(&backgroundModel)
+		buildLifeEvents(&backgroundModel)
+		
+		wcBackground = backgroundModel
+	}
+
+	private func buildFamilyHistoryUsingBackgroundModel(_ backgroundModel: inout WildCardBackgroundModel) {
+
+		backgroundModel.familyRanking = SWWC_FAMILY_RANKING.randomWeightedElement()
+		backgroundModel.familyStatus = SWWC_FAMILY_STATUS.randomWeightedElement()
+
+		if backgroundModel.familyStatus == .DANGER_OF_LOSING_EVERYTHING {
+			backgroundModel.familyTradegies = SWWC_FAMILY_TRAGEDY.randomWeightedElement()
+		}
+
+		backgroundModel.parentsStatus = SWWC_PARENTAL_STATUS.randomWeightedElement()
+		backgroundModel.familyEvents = SWWC_FAMILY_EVENT.randomWeightedElement()
+
+	}
+
+	private func buildChildhoodBackgroundModel(_ backgroundModel: inout WildCardBackgroundModel) {
+
+		let value = Int.random(in: 1...10)
+
+		switch value {
+			case 1,3,5,7: // Fortunre
+				backgroundModel.childhoodFortune = SWWC_CHILDHOOD_FOURTUNATE_EVENTS.randomWeightedElement()
+			case 2,4,6,8: // Tradegy
+				backgroundModel.childhoodTrauma = SWWC_CHILDHOOD_TRAUMA_EVENTS.randomWeightedElement()
+			case 9, 10: // One of each
+				backgroundModel.childhoodFortune = SWWC_CHILDHOOD_FOURTUNATE_EVENTS.randomWeightedElement()
+				backgroundModel.childhoodTrauma = SWWC_CHILDHOOD_TRAUMA_EVENTS.randomWeightedElement()
+			default:
+				break
+		}
+	}
+
+	private func buildPersonalityAndPhilosophy(_ backgroundModel: inout WildCardBackgroundModel) {
+		backgroundModel.personalityType = SWWC_PERSONALITY_TYPE.randomWeightedElement()
+		backgroundModel.philosophyType = SWWC_PHILOSPHY_TYPE.getPhilosophyWithPersonality(backgroundModel.personalityType)
+
+		// Drivers
+		// Even = Personality driven, Odd Philosphy driven
+
+		// Who do you Value
+		if Int.random(in: 1...10) % 2 == 0 {
+			backgroundModel.valueWhoMost = SWWC_WHO_YOU_VALUE_MOST.getPersonValuedByPersonality(backgroundModel.personalityType)
+		} else {
+			backgroundModel.valueWhoMost = SWWC_WHO_YOU_VALUE_MOST.getPersonValuedByPhilosphy(backgroundModel.philosophyType)
+		}
+
+		// What do you Value
+		if Int.random(in: 1...10) % 2 == 0 {
+			backgroundModel.valueWhatObjectMost = SWWC_WHAT_OBJECT_VALUED_MOST.getMVOByPersonality(backgroundModel.personalityType)
+		} else {
+			backgroundModel.valueWhatObjectMost = SWWC_WHAT_OBJECT_VALUED_MOST.getMVOByPhilosphy(backgroundModel.philosophyType)
+		}
+
+		// Personal Motivation
+		if Int.random(in: 1...10) % 2 == 0 {
+			backgroundModel.personalMotivation = SWWC_PERSONAL_MOTIVATION.getMVPByPersonality(backgroundModel.personalityType)
+		} else {
+			backgroundModel.personalMotivation = SWWC_PERSONAL_MOTIVATION.getMVPByPhilosphy(backgroundModel.philosophyType)
+		}
+
+
+		// Worldview
+		if Int.random(in: 1...10) % 2 == 0 {
+			backgroundModel.personalWorldview = SWWC_WORLDVIEW.getWorldviewByPersonality(backgroundModel.personalityType)
+		} else {
+			backgroundModel.personalWorldview = SWWC_WORLDVIEW.getWorldviewByPhilosphy(backgroundModel.philosophyType)
+		}
+
+		// Worldview
+		if Int.random(in: 1...10) % 2 == 0 {
+			backgroundModel.personalWorldview = SWWC_WORLDVIEW.getWorldviewByPersonality(backgroundModel.personalityType)
+		} else {
+			backgroundModel.personalWorldview = SWWC_WORLDVIEW.getWorldviewByPhilosphy(backgroundModel.philosophyType)
+		}
+
+	}
+
+	private func buildLifeEvents(_ backgroundModel: inout WildCardBackgroundModel) {
+
+		backgroundModel.age = SWWC_AGE_RANGE.randomWeightedElement()
+
+		var numberOfLifeEvents = 0
+
+		switch backgroundModel.age {
+			case .YOUNG: numberOfLifeEvents = Int.random(in: 1...10)
+			case .ADULT: numberOfLifeEvents = Int.random(in: 2...20)
+			case .ELDERLY: numberOfLifeEvents = Int.random(in: 2...20) + 5
+			default: numberOfLifeEvents = 0
+		}
+
+		for _ in 1...numberOfLifeEvents {
+			backgroundModel.lifeEvents.append(SWWC_LIFE_EVENTS.randomWeightedElement())
+		}
+
+		for _ in 1...getEnemyLifeEventsCount(&backgroundModel) {
+			backgroundModel.enemies.append(EnemyDetails(cause: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE.randomWeightedElement(),
+														direction: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_DIRECTION.randomWeightedElement(),
+														action: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_ACTION.randomWeightedElement(),
+														tools: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_TOOLS.randomWeightedElement()))
+		}
+
+		for _ in 1...getRomanticEventsCount(&backgroundModel) {
+			let howItWorkedOut = SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS.randomWeightedElement()
+			switch howItWorkedOut {
+				case .HAPPY_LOVE_AFFAIR:
+					backgroundModel.romances.append(RomanceDetails(tone: howItWorkedOut,
+																   tradegy: .NONE,
+																   problem: .NONE,
+																   currentFeeling: .NONE))
+				case .TRAGIC_LOVE_AFFAIR:
+					backgroundModel.romances.append(
+						RomanceDetails(tone: howItWorkedOut,
+									   tradegy: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_TRAGIC.randomWeightedElement(),
+									   problem: .NONE,
+									   currentFeeling: .NONE))
+				case .LOVE_AFFAIR_WITH_PROBLEMS:
+					backgroundModel.romances.append(
+						RomanceDetails(tone: howItWorkedOut,
+									   tradegy: .NONE,
+									   problem: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_WITH_PROBLEMS.randomWeightedElement(),
+									   currentFeeling: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS.randomWeightedElement()))
+				case .FAST_AFFAIR:
+					backgroundModel.romances.append(
+						RomanceDetails(tone: howItWorkedOut,
+									   tradegy: .NONE,
+									   problem: .NONE,
+									   currentFeeling: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS.randomWeightedElement()))
+				case .NONE:
+					break
+			}
+		}
+	}
+
+
+	private func getEnemyLifeEventsCount(_ backgroundModel: inout WildCardBackgroundModel) -> Int {
+		func isEnemyEvent(_ event: SWWC_LIFE_EVENTS) -> Bool {
+			if
+				backgroundModel.lifeEvents.contains(.FRIEND_TO_ENEMY),
+				backgroundModel.lifeEvents.contains(.CHILDHOOD_ENEMY),
+				backgroundModel.lifeEvents.contains(.LOVER_TO_ENEMY),
+				backgroundModel.lifeEvents.contains(.ENEMY_AGENT),
+				backgroundModel.lifeEvents.contains(.TICKED_OFF_ENEMY),
+				backgroundModel.lifeEvents.contains(.TEAM_MEMBER_ENEMY),
+				backgroundModel.lifeEvents.contains(.RELATIVE_ENEMY),
+				backgroundModel.lifeEvents.contains(.UNDERWORLD_CRIME_LORD_ENEMY),
+				backgroundModel.lifeEvents.contains(.POWERFUL_PERSON_ENEMY),
+				backgroundModel.lifeEvents.contains(.GOVERNMENT_PERSON_ENEMY) {
+				return true
+			}
+			return false
+		}
+		let enemyCount: Int = backgroundModel.lifeEvents.map { isEnemyEvent($0) ? 1 : 0 }.reduce(0, +)
+		print(enemyCount)
+		return enemyCount
+	}
+
+
+	private func getRomanticEventsCount(_ backgroundModel: inout WildCardBackgroundModel) -> Int {
+		let romanticEvents: Int = backgroundModel.lifeEvents.map { $0 == .ROMANTIC_AFFAIR ? 1 : 0 }.reduce(0, +)
+		return romanticEvents
+	}
+
 }
+
+
+struct WildCardBackgroundModel {
+	var familyRanking: SWWC_FAMILY_RANKING = .NONE
+	var familyStatus: SWWC_FAMILY_STATUS = .NONE
+	var parentsStatus: SWWC_PARENTAL_STATUS = .NONE
+	var familyTradegies: SWWC_FAMILY_TRAGEDY = .NONE
+	var familyEvents: SWWC_FAMILY_EVENT = .NONE
+	var childhoodFortune: SWWC_CHILDHOOD_FOURTUNATE_EVENTS = .NONE
+	var childhoodTrauma: SWWC_CHILDHOOD_TRAUMA_EVENTS = .NONE
+	var personalityType: SWWC_PERSONALITY_TYPE = .NONE
+	var philosophyType: SWWC_PHILOSPHY_TYPE = .NONE
+	var valueWhoMost: SWWC_WHO_YOU_VALUE_MOST = .NONE
+	var valueWhatObjectMost: SWWC_WHAT_OBJECT_VALUED_MOST = .NONE
+	var personalMotivation: SWWC_PERSONAL_MOTIVATION = .NONE
+	var personalWorldview: SWWC_WORLDVIEW = .NONE
+	var age: SWWC_AGE_RANGE = .NONE
+	var lifeEvents: [SWWC_LIFE_EVENTS] = [SWWC_LIFE_EVENTS]()
+	var enemies: [EnemyDetails] = [EnemyDetails]()
+	var romances: [RomanceDetails] = [RomanceDetails]()
+
+}
+
+struct EnemyDetails {
+	var cause: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE = .NONE
+	var direction: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_DIRECTION = .NONE
+	var action: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_ACTION = .NONE
+	var tools: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_TOOLS = .NONE
+}
+
+
+struct RomanceDetails {
+	var tone: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS = .NONE
+	var tradegy: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_TRAGIC = .NONE
+	var problem: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_WITH_PROBLEMS = .NONE
+	var currentFeeling: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS = .NONE
+
+}
+
 
 enum SWWC_SIBLING_BIOLOGICAL_SEX: String, RPG_TABLE, Codable {
 	typealias Result = SWWC_SIBLING_BIOLOGICAL_SEX
@@ -272,9 +484,10 @@ enum SWWC_CHILDHOOD_EVENTS: String, RPG_TABLE, Codable {
 	static var MIN: Int = 1
 	static var MAX: Int = 10
 
+	case MUDANE = "Childhood was uneventful."
 	case FOURTUNE = "Childhood had a fortunate event."
 	case TRAUMA = "Childhood had a unfortunate trauma."
-	case MUDANE = "Childhood was uneventful."
+	case BOTH = "Childhood was both forunate and tramatic."
 	case NONE
 
 	var descriptionShort: String { get { return rawValue } }
@@ -282,9 +495,10 @@ enum SWWC_CHILDHOOD_EVENTS: String, RPG_TABLE, Codable {
 
 	static func getElementBy(value: Int) -> SWWC_CHILDHOOD_EVENTS {
 		switch value {
-			case 1...4: return .FOURTUNE
-			case 5...6: return .MUDANE
-			case 7...10: return .TRAUMA
+			case 1: return .MUDANE
+			case 2...5: return .FOURTUNE
+			case 6...9: return .TRAUMA
+			case 10: return .BOTH
 			default: return .NONE
 		}
 	}
@@ -366,9 +580,9 @@ enum SWWC_CHILDHOOD_TRAUMA_EVENTS: String, RPG_TABLE, Codable {
 	}
 }
 
-enum SWWV_PERSONALITY_TYPE: String, RPG_TABLE, Codable {
+enum SWWC_PERSONALITY_TYPE: String, RPG_TABLE, Codable {
 
-	typealias Result = SWWV_PERSONALITY_TYPE
+	typealias Result = SWWC_PERSONALITY_TYPE
 
 	static var MIN: Int = 1
 	static var MAX: Int = 10
@@ -388,7 +602,7 @@ enum SWWV_PERSONALITY_TYPE: String, RPG_TABLE, Codable {
 	var descriptionShort: String { get { return rawValue } }
 	var descriptionLong: String { get { return descriptionShort } }
 
-	static func getElementBy(value: Int) -> SWWV_PERSONALITY_TYPE {
+	static func getElementBy(value: Int) -> SWWC_PERSONALITY_TYPE {
 		switch value {
 			case 1: return .EXTROVERTED_VAPID
 			case 2: return .EXTROVERTED_FRIENDLY
@@ -405,8 +619,8 @@ enum SWWV_PERSONALITY_TYPE: String, RPG_TABLE, Codable {
 	}
 
 
-	static func getValueOfPersonalityType(_ type: SWWV_PERSONALITY_TYPE) -> Int {
-		switch type {
+	func getValueOfPersonalityType() -> Int {
+		switch self {
 			case .EXTROVERTED_VAPID, .EXTROVERTED_FRIENDLY: return 1
 			case .CASUAL, .MOODY: return 2
 			case .INTROVERTED_STABLE, .INTROVERTED_ALOOF: return 2
@@ -418,9 +632,9 @@ enum SWWV_PERSONALITY_TYPE: String, RPG_TABLE, Codable {
 
 }
 
-enum SWWV_PHILOSPHY_TYPE: String, RPG_TABLE, Codable {
+enum SWWC_PHILOSPHY_TYPE: String, RPG_TABLE, Codable {
 
-	typealias Result = SWWV_PHILOSPHY_TYPE
+	typealias Result = SWWC_PHILOSPHY_TYPE
 
 	static var MIN: Int = 1
 	static var MAX: Int = 10
@@ -440,7 +654,7 @@ enum SWWV_PHILOSPHY_TYPE: String, RPG_TABLE, Codable {
 	var descriptionShort: String { get { return rawValue } }
 	var descriptionLong: String { get { return descriptionShort } }
 
-	static func getElementBy(value: Int) -> SWWV_PHILOSPHY_TYPE {
+	static func getElementBy(value: Int) -> SWWC_PHILOSPHY_TYPE {
 		switch value {
 			case 1: return .LOVE
 			case 2: return .GOOD_TIME
@@ -456,9 +670,9 @@ enum SWWV_PHILOSPHY_TYPE: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getPhilosophyWithPersonality(_ personality: SWWV_PERSONALITY_TYPE) -> SWWV_PHILOSPHY_TYPE {
+	static func getPhilosophyWithPersonality(_ personality: SWWC_PERSONALITY_TYPE) -> SWWC_PHILOSPHY_TYPE {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PERSONALITY_TYPE.getValueOfPersonalityType(personality) + Int.random(in: 1...10, using: &SRNG)
+		let result = personality.getValueOfPersonalityType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .LOVE
@@ -475,8 +689,8 @@ enum SWWV_PHILOSPHY_TYPE: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getValueOfPhilosphyType(_ type: SWWV_PHILOSPHY_TYPE) -> Int {
-		switch type {
+	func getValueOfPhilosphyType() -> Int {
+		switch self {
 			case .LOVE, .GOOD_TIME: return 1
 			case .FRIENDSHIP, .HONESTY: return 2
 			case .HONOR, .MONEY: return 2
@@ -490,9 +704,9 @@ enum SWWV_PHILOSPHY_TYPE: String, RPG_TABLE, Codable {
 }
 
 
-enum SWWV_WHO_YOU_VALUE_MOST: String, RPG_TABLE, Codable {
+enum SWWC_WHO_YOU_VALUE_MOST: String, RPG_TABLE, Codable {
 
-	typealias Result = SWWV_WHO_YOU_VALUE_MOST
+	typealias Result = SWWC_WHO_YOU_VALUE_MOST
 
 	static var MIN: Int = 1
 	static var MAX: Int = 14
@@ -516,7 +730,7 @@ enum SWWV_WHO_YOU_VALUE_MOST: String, RPG_TABLE, Codable {
 	var descriptionShort: String { get { return rawValue } }
 	var descriptionLong: String { get { return descriptionShort } }
 
-	static func getElementBy(value: Int) -> SWWV_WHO_YOU_VALUE_MOST {
+	static func getElementBy(value: Int) -> SWWC_WHO_YOU_VALUE_MOST {
 		switch value {
 			case 1: return .EVERYONE
 			case 2: return .ALL_KNOWN
@@ -536,9 +750,9 @@ enum SWWV_WHO_YOU_VALUE_MOST: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getPersonValuedByPersonality(_ personality: SWWV_PERSONALITY_TYPE) -> SWWV_WHO_YOU_VALUE_MOST {
+	static func getPersonValuedByPersonality(_ personality: SWWC_PERSONALITY_TYPE) -> SWWC_WHO_YOU_VALUE_MOST {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PERSONALITY_TYPE.getValueOfPersonalityType(personality) + Int.random(in: 1...10, using: &SRNG)
+		let result = personality.getValueOfPersonalityType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .EVERYONE
@@ -559,9 +773,9 @@ enum SWWV_WHO_YOU_VALUE_MOST: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getPersonValuedByPhilosphy(_ philosphy: SWWV_PHILOSPHY_TYPE) -> SWWV_WHO_YOU_VALUE_MOST {
+	static func getPersonValuedByPhilosphy(_ philosphy: SWWC_PHILOSPHY_TYPE) -> SWWC_WHO_YOU_VALUE_MOST {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PHILOSPHY_TYPE.getValueOfPhilosphyType(philosphy) + Int.random(in: 1...10, using: &SRNG)
+		let result = philosphy.getValueOfPhilosphyType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .EVERYONE
@@ -586,9 +800,9 @@ enum SWWV_WHO_YOU_VALUE_MOST: String, RPG_TABLE, Codable {
 
 
 
-enum SWWV_MOST_VALUED_POSSESSION: String, RPG_TABLE, Codable {
+enum SWWC_WHAT_OBJECT_VALUED_MOST: String, RPG_TABLE, Codable {
 
-	typealias Result = SWWV_MOST_VALUED_POSSESSION
+	typealias Result = SWWC_WHAT_OBJECT_VALUED_MOST
 
 	static var MIN: Int = 1
 	static var MAX: Int = 14
@@ -612,7 +826,7 @@ enum SWWV_MOST_VALUED_POSSESSION: String, RPG_TABLE, Codable {
 	var descriptionShort: String { get { return rawValue } }
 	var descriptionLong: String { get { return descriptionShort } }
 
-	static func getElementBy(value: Int) -> SWWV_MOST_VALUED_POSSESSION {
+	static func getElementBy(value: Int) -> SWWC_WHAT_OBJECT_VALUED_MOST {
 		switch value {
 			case 1: return .MEMORIES
 			case 2: return .TOKEN
@@ -632,9 +846,9 @@ enum SWWV_MOST_VALUED_POSSESSION: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getMVPByPersonality(_ personality: SWWV_PERSONALITY_TYPE) -> SWWV_MOST_VALUED_POSSESSION {
+	static func getMVOByPersonality(_ personality: SWWC_PERSONALITY_TYPE) -> SWWC_WHAT_OBJECT_VALUED_MOST {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PERSONALITY_TYPE.getValueOfPersonalityType(personality) + Int.random(in: 1...10, using: &SRNG)
+		let result = personality.getValueOfPersonalityType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .MEMORIES
@@ -655,9 +869,9 @@ enum SWWV_MOST_VALUED_POSSESSION: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getMVPByPhilosphy(_ philosphy: SWWV_PHILOSPHY_TYPE) -> SWWV_MOST_VALUED_POSSESSION {
+	static func getMVOByPhilosphy(_ philosphy: SWWC_PHILOSPHY_TYPE) -> SWWC_WHAT_OBJECT_VALUED_MOST {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PHILOSPHY_TYPE.getValueOfPhilosphyType(philosphy) + Int.random(in: 1...10, using: &SRNG)
+		let result = philosphy.getValueOfPhilosphyType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .MEMORIES
@@ -682,9 +896,9 @@ enum SWWV_MOST_VALUED_POSSESSION: String, RPG_TABLE, Codable {
 
 
 
-enum SWWV_MOTIVATION: String, RPG_TABLE, Codable {
+enum SWWC_PERSONAL_MOTIVATION: String, RPG_TABLE, Codable {
 
-	typealias Result = SWWV_MOTIVATION
+	typealias Result = SWWC_PERSONAL_MOTIVATION
 
 	static var MIN: Int = 1
 	static var MAX: Int = 14
@@ -708,7 +922,7 @@ enum SWWV_MOTIVATION: String, RPG_TABLE, Codable {
 	var descriptionShort: String { get { return rawValue } }
 	var descriptionLong: String { get { return descriptionShort } }
 
-	static func getElementBy(value: Int) -> SWWV_MOTIVATION {
+	static func getElementBy(value: Int) -> SWWC_PERSONAL_MOTIVATION {
 		switch value {
 			case 1: return .THE_WHOLE_WORLD
 			case 2: return .ALL_LIFE
@@ -728,9 +942,9 @@ enum SWWV_MOTIVATION: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getMVPByPersonality(_ personality: SWWV_PERSONALITY_TYPE) -> SWWV_MOTIVATION {
+	static func getMVPByPersonality(_ personality: SWWC_PERSONALITY_TYPE) -> SWWC_PERSONAL_MOTIVATION {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PERSONALITY_TYPE.getValueOfPersonalityType(personality) + Int.random(in: 1...10, using: &SRNG)
+		let result = personality.getValueOfPersonalityType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .THE_WHOLE_WORLD
@@ -751,9 +965,9 @@ enum SWWV_MOTIVATION: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getMVPByPhilosphy(_ philosphy: SWWV_PHILOSPHY_TYPE) -> SWWV_MOTIVATION {
+	static func getMVPByPhilosphy(_ philosphy: SWWC_PHILOSPHY_TYPE) -> SWWC_PERSONAL_MOTIVATION {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PHILOSPHY_TYPE.getValueOfPhilosphyType(philosphy) + Int.random(in: 1...10, using: &SRNG)
+		let result = philosphy.getValueOfPhilosphyType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .THE_WHOLE_WORLD
@@ -778,9 +992,9 @@ enum SWWV_MOTIVATION: String, RPG_TABLE, Codable {
 
 
 
-enum SWWV_WORLDVIEW: String, RPG_TABLE, Codable {
+enum SWWC_WORLDVIEW: String, RPG_TABLE, Codable {
 
-	typealias Result = SWWV_WORLDVIEW
+	typealias Result = SWWC_WORLDVIEW
 
 	static var MIN: Int = 1
 	static var MAX: Int = 14
@@ -804,7 +1018,7 @@ enum SWWV_WORLDVIEW: String, RPG_TABLE, Codable {
 	var descriptionShort: String { get { return rawValue } }
 	var descriptionLong: String { get { return descriptionShort } }
 
-	static func getElementBy(value: Int) -> SWWV_WORLDVIEW {
+	static func getElementBy(value: Int) -> SWWC_WORLDVIEW {
 		switch value {
 			case 1: return .LOVE_EVERYONE
 			case 2: return .PEOPLE_ARE_WONDERFUL
@@ -824,9 +1038,9 @@ enum SWWV_WORLDVIEW: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getMVPByPersonality(_ personality: SWWV_PERSONALITY_TYPE) -> SWWV_WORLDVIEW {
+	static func getWorldviewByPersonality(_ personality: SWWC_PERSONALITY_TYPE) -> SWWC_WORLDVIEW {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PERSONALITY_TYPE.getValueOfPersonalityType(personality) + Int.random(in: 1...10, using: &SRNG)
+		let result = personality.getValueOfPersonalityType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .LOVE_EVERYONE
@@ -847,9 +1061,9 @@ enum SWWV_WORLDVIEW: String, RPG_TABLE, Codable {
 		}
 	}
 
-	static func getMVPByPhilosphy(_ philosphy: SWWV_PHILOSPHY_TYPE) -> SWWV_WORLDVIEW {
+	static func getWorldviewByPhilosphy(_ philosphy: SWWC_PHILOSPHY_TYPE) -> SWWC_WORLDVIEW {
 		var SRNG = SystemRandomNumberGenerator()
-		let result = SWWV_PHILOSPHY_TYPE.getValueOfPhilosphyType(philosphy) + Int.random(in: 1...10, using: &SRNG)
+		let result = philosphy.getValueOfPhilosphyType() + Int.random(in: 1...10, using: &SRNG)
 
 		switch result {
 			case 2: return .LOVE_EVERYONE
@@ -866,6 +1080,32 @@ enum SWWV_WORLDVIEW: String, RPG_TABLE, Codable {
 			case 13: return .TOOLS
 			case 14: return .SHEEP
 			case 15: return .USELESS
+			default: return .NONE
+		}
+	}
+
+}
+
+
+enum SWWC_AGE_RANGE: String, RPG_TABLE, Codable {
+	typealias EnumerationType = SWWC_AGE_RANGE
+
+	static var MIN: Int = 1
+	static var MAX: Int = 10
+
+	case YOUNG
+	case ADULT
+	case ELDERLY
+	case NONE
+
+	var descriptionShort: String { get { return rawValue.capitalized } }
+	var descriptionLong: String { get { return descriptionShort } }
+
+	static func getElementBy(value: Int) -> SWWC_AGE_RANGE {
+		switch value {
+			case 1...3: return .YOUNG
+			case 4...7: return .ADULT
+			case 8...10: return .ELDERLY
 			default: return .NONE
 		}
 	}
@@ -879,271 +1119,429 @@ enum SWWC_LIFE_EVENTS: String, RPG_TABLE, Codable {
 	static var MIN: Int = 1
 	static var MAX: Int = 10
 
-	case JACKPOT = "Jackpot!"
-	case TAPPED_OUT = "Tapped out."
-	case LUCKY_STAR = "Born under a lucky star."
-	case STAR_CROSSED = "Star-Crossed."
-	case TAKE_A_FRIEND = "Take yourself a friend."
-	case MAKE_AN_ENEMY = "Make an enemy."
-	case LIFETIME_ADVENTURE = "An adventure of an lifetime."
-	case TRAGIC_MISFORTUNE = "Tragic misfortune."
-	case WITNESS = "Witness to something..."
-	case ROMANTIC_AFFAIR = "Raomandtic affair."
+	// Base
 	case NONE
+	case JACKPOT
+	case TAPPED_OUT
+	case LUCKY_STAR
+	case STAR_CROSSED
+	case TAKE_A_FRIEND
+	case MAKE_AN_ENEMY
+	case LIFETIME_ADVENTURE
+	case TRAGIC_MISFORTUNE
+	case WITNESS
+	case ROMANTIC_AFFAIR
+	// SWWC_LIFE_EVENTS_JACKPOT
+	case INHERITANCE
+	case HEIRLOOM
+	case FIND
+	case GAMBLE_WON
+	case RELIC
+	case LUCKY_TRADE
+	case LOVE_TOKEN
+	case SPECIAL_ITEM
+	case FAVOR_OWED_TO_YOU
+	case SETTLEMENT_TROPHY
+	// SWWC_LIFE_EVENTS_TAPPED_OUT
+	case ROBBED
+	case GAMBLE_LOST
+	case DESTROYED
+	case LOST
+	case DEBT
+	case SWINDLED
+	case JUNK
+	case CURSED
+	case FAVOR_YOU_OWED
+	case BLACKMAILED
+	// SWWC_LIFE_EVENTS_LUCKY_STAR
+	case LUCKY
+	case RICH
+	case ALERT
+	case AMBIDEXTROUS
+	case ATTRACTIVE
+	case QUICK
+	case NOBLE
+	case FAST_HEALER
+	case BRAWNY
+	case BERSERK
+	// SWWC_LIFE_EVENTS_STAR_CROSSED
+	case CRIPPLING_INJURY
+	case DISFIGURED
+	case ILLNESS
+	case MENTAL_TRAUMA
+	case BAD_EYES
+	case ADDICTION
+	case DEBILITATING_INJURY
+	case ALL_THUMBS
+	case CLUELESS
+	case QUIRK
+	// SWWC_LIFE_EVENTS_TAKE_A_FRIEND
+	case ENEMY_RIVAL_FRIEND
+	case UNDERWORLD_CONTACT_FRIEND
+	case OFFICIAL_FRIEND
+	case COMPANION_FRIEND
+	case SOCIETY_FRIEND
+	case MENTOR_FRIEND
+	case RICH_RELATIVE
+	case GADGETEER_FRIEND
+	case BODY_GUARD_FRIEND
+	case HEALER_FRIEND
+	// SWWC_LIFE_EVENTS_MAKE_AN_ENEMY
+	case FRIEND_TO_ENEMY
+	case CHILDHOOD_ENEMY
+	case LOVER_TO_ENEMY
+	case ENEMY_AGENT
+	case TICKED_OFF_ENEMY
+	case TEAM_MEMBER_ENEMY
+	case RELATIVE_ENEMY
+	case UNDERWORLD_CRIME_LORD_ENEMY
+	case POWERFUL_PERSON_ENEMY
+	case GOVERNMENT_PERSON_ENEMY
+	// SWWC_LIFE_EVENTS_ADVENTURE
+	case BATTLE
+	case QUEST
+	case HEIST
+	case SURVIVOR
+	case EXPLORATION
+	case RESCUE
+	case DEFEATED_RIVAL
+	case SAFARI
+	case DISCOVERY
+	case SECRET_MISSION
+	// SWWC_LIFE_EVENTS_MISFORTUNE
+	case BETRAYED
+	case LOST_EVERYTHING
+	case IMPRISONED
+	case LABORATORY_ACCIDENT
+	case ABDUCTED
+	case TRAMATIC_HORROR
+	case HORRIBLE_WOUNDED
+	case EVIL_TWIN
+	case MARKED
+	case RESPONSIBLE
+	// SWWC_LIFE_EVENTS_WITNESS
+	case PLAGUE
+	case NATURAL_DISASTER
+	case MAN_MADE_DISASTER
+	case ASTRONOMICAL_EVENT
+	case FAMINE
+	case SUPERNATURAL_EVENT
+	case WAR
+	case REVOLUTION
+	case MAJOR_CLIMATE_CHANGE
+	case ECONOMIC_CRASH
+	
 
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
+
+	var descriptionShort: String { get { return rawValue.capitalized.replacingOccurrences(of: "_", with: " ") } }
+	var descriptionLong: String {
+		get {
+			switch self {
+				// Base
+				case .NONE: return "None"
+				case .JACKPOT: return "Jackpot!"
+				case .TAPPED_OUT: return "Tapped out."
+				case .LUCKY_STAR: return "Born under a lucky star."
+				case .STAR_CROSSED: return "Star-Crossed."
+				case .TAKE_A_FRIEND: return "Take yourself a friend."
+				case .MAKE_AN_ENEMY: return "Make an enemy."
+				case .LIFETIME_ADVENTURE: return "An adventure of an lifetime."
+				case .TRAGIC_MISFORTUNE: return "Tragic misfortune."
+				case .WITNESS: return "Witness to something..."
+				case .ROMANTIC_AFFAIR: return "Raomandtic affair."
+				// SWWC_LIFE_EVENTS_JACKPOT
+				case .INHERITANCE: return "Inheritance."
+				case .HEIRLOOM: return "Heirloom."
+				case .FIND: return "Lucky find."
+				case .GAMBLE_WON: return "Gambled, and won big."
+				case .RELIC: return "Processes one of a kind relic.."
+				case .LUCKY_TRADE: return "Lucky trade (or swindle)"
+				case .LOVE_TOKEN: return "Token of love."
+				case .SPECIAL_ITEM: return "Blessed/Enchanted/Masterwork Item."
+				case .FAVOR_OWED_TO_YOU: return "Favor owed to you."
+				case .SETTLEMENT_TROPHY: return "Settlement received (or trophy won)."
+				// SWWC_LIFE_EVENTS_TAPPED_OUT
+				case .ROBBED: return "Robbed."
+				case .GAMBLE_LOST: return "Gamble, lost big."
+				case .DESTROYED: return "Been destroyed."
+				case .LOST: return "Lost."
+				case .DEBT: return "In debt."
+				case .SWINDLED: return "Swindled (bad trade)."
+				case .JUNK: return "Junk"
+				case .CURSED: return "Cursed/Sabotaged Item"
+				case .FAVOR_YOU_OWED: return "Favor you owed."
+				case .BLACKMAILED: return "Blackmail (scandal)."
+				// SWWC_LIFE_EVENTS_LUCKY_STAR
+				case .LUCKY: return "Lucky."
+				case .RICH: return "Rich, or filthy rich."
+				case .ALERT: return "Alert."
+				case .AMBIDEXTROUS: return "Ambidextrous."
+				case .ATTRACTIVE: return "Attractive."
+				case .QUICK: return "Quick."
+				case .NOBLE: return "Noble"
+				case .FAST_HEALER: return "Fast Healer."
+				case .BRAWNY: return "Brawny."
+				case .BERSERK: return "Berserk."
+				// SWWC_LIFE_EVENTS_STAR_CROSSED
+				case .CRIPPLING_INJURY: return "Missing limb(s)."
+				case .DISFIGURED: return "Disfiguring injury."
+				case .ILLNESS: return "Childhood illness."
+				case .MENTAL_TRAUMA: return "Phobia or illness, major."
+				case .BAD_EYES: return "Bad eyesight."
+				case .ADDICTION: return "Additicted."
+				case .DEBILITATING_INJURY: return "Debilitating Injury (Lame/Blind/Deaf)."
+				case .ALL_THUMBS: return "All thumbs."
+				case .CLUELESS: return "Clueless."
+				case .QUIRK: return "Has a quirk."
+				// SWWC_LIFE_EVENTS_TAKE_A_FRIEND
+				case .ENEMY_RIVAL_FRIEND: return "Old enemy or rival."
+				case .UNDERWORLD_CONTACT_FRIEND: return "Underworld contact."
+				case .OFFICIAL_FRIEND: return "Offical contact."
+				case .COMPANION_FRIEND: return "Non-human companion (animal/robot)."
+				case .SOCIETY_FRIEND: return "Member of group or society."
+				case .MENTOR_FRIEND: return "Mentor."
+				case .RICH_RELATIVE: return "Rich relative."
+				case .GADGETEER_FRIEND: return "A gadgeteer."
+				case .BODY_GUARD_FRIEND: return "Body guard."
+				case .HEALER_FRIEND: return "Medical doctor or healer."
+				// SWWC_LIFE_EVENTS_MAKE_AN_ENEMY
+				case .FRIEND_TO_ENEMY: return "An old friend becomes an enemy."
+				case .CHILDHOOD_ENEMY: return "Childhood enemy/rival returns."
+				case .LOVER_TO_ENEMY: return "An old lover becomes an enemy."
+				case .ENEMY_AGENT: return "Someone from the other side."
+				case .TICKED_OFF_ENEMY: return "Someone you ticked off or upset (otherwise friendly or neutral)."
+				case .TEAM_MEMBER_ENEMY: return "A team member becomes a enemy."
+				case .RELATIVE_ENEMY: return "A relative becomes a enemy."
+				case .UNDERWORLD_CRIME_LORD_ENEMY: return "An underworld crime lord."
+				case .POWERFUL_PERSON_ENEMY: return "A powerful individual."
+				case .GOVERNMENT_PERSON_ENEMY: return "A government leader is an enemy."
+				// SWWC_LIFE_EVENTS_ADVENTURE
+				case .BATTLE: return "A battle, or war."
+				case .QUEST: return "A quest"
+				case .HEIST: return "Heist (crime of the century)"
+				case .SURVIVOR: return "Survivor."
+				case .EXPLORATION: return "Exploration"
+				case .RESCUE: return "A rescue"
+				case .DEFEATED_RIVAL: return "Defeated personal rival."
+				case .SAFARI: return "A safari"
+				case .DISCOVERY: return "An Amazing Discovery"
+				case .SECRET_MISSION: return "A secret mission"
+				// SWWC_LIFE_EVENTS_MISFORTUNE
+				case .BETRAYED: return "Betrayed (Ally turned Enemy)"
+				case .LOST_EVERYTHING: return "Lost everything"
+				case .IMPRISONED: return "Been Imprisoned."
+				case .LABORATORY_ACCIDENT: return "Laboratory accident."
+				case .ABDUCTED: return "Been abducted."
+				case .TRAMATIC_HORROR: return "Tramatic horror."
+				case .HORRIBLE_WOUNDED: return "Horribly wounded."
+				case .EVIL_TWIN: return "Evil twin, identity stolen."
+				case .MARKED: return "Price on your head/marked."
+				case .RESPONSIBLE: return "Responsible for death of team/family/village."
+				// SWWC_LIFE_EVENTS_WITNESS
+				case .PLAGUE: return "Plague."
+				case .NATURAL_DISASTER: return "Natural disaster."
+				case .MAN_MADE_DISASTER: return "Man made disaster."
+				case .ASTRONOMICAL_EVENT: return "Astronmical event."
+				case .FAMINE: return "Famine."
+				case .SUPERNATURAL_EVENT: return "Supernatural event."
+				case .WAR: return "War."
+				case .REVOLUTION: return "Revolution."
+				case .MAJOR_CLIMATE_CHANGE: return "Sudden Major Climatic Change"
+				case .ECONOMIC_CRASH: return "Major Economic Crash."
+			}
+		}
+	}
+
+//	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS {
+//		switch value {
+//			case 1: return .JACKPOT
+//			case 2: return .TAPPED_OUT
+//			case 3: return .LUCKY_STAR
+//			case 4: return .STAR_CROSSED
+//			case 5: return .TAKE_A_FRIEND
+//			case 6: return .MAKE_AN_ENEMY
+//			case 7: return .LIFETIME_ADVENTURE
+//			case 8: return .TRAGIC_MISFORTUNE
+//			case 9: return .WITNESS
+//			case 10: return .ROMANTIC_AFFAIR
+//			default: return .NONE
+//		}
+//	}
 
 	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS {
 		switch value {
-			case 1: return .JACKPOT
-			case 2: return .TAPPED_OUT
-			case 3: return .LUCKY_STAR
-			case 4: return .STAR_CROSSED
-			case 5: return .TAKE_A_FRIEND
-			case 6: return .MAKE_AN_ENEMY
-			case 7: return .LIFETIME_ADVENTURE
-			case 8: return .TRAGIC_MISFORTUNE
-			case 9: return .WITNESS
+			case 1: return getRandomJackpot()
+			case 2: return getRandomTappledOut()
+			case 3: return getRandomLuckyStar()
+			case 4: return getRandomStarCrossed()
+			case 5: return getRandomTakeAFriend()
+			case 6: return getRandomMakeAnEnemy()
+			case 7: return getRandomLifeAdventure()
+			case 8: return getRandomLifeMisfortune()
+			case 9: return getRandomLifeEventWitness()
 			case 10: return .ROMANTIC_AFFAIR
 			default: return .NONE
 		}
 	}
-}
 
-
-enum SWWC_LIFE_EVENTS_JACKPOT: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_JACKPOT
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case INHERITANCE = "Inheritance."
-	case HEIRLOOM = "Heirloom."
-	case FIND = "Lucky find."
-	case GAMBLE = "Gambled, and won big."
-	case RELIC = "Processes one of a kind relic.."
-	case LUCKY_TRADE = "Lucky trade (or swindle)"
-	case LOVE_TOKEN = "Token of love."
-	case SPECIAL_ITEM = "Blessed/Enchanted/Masterwork Item."
-	case FAVOR = "Favor owed to you."
-	case SETTLEMENT_TROPHY = "Settlement received (or trophy won)."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_JACKPOT {
+	static func getRandomJackpot() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 21...30)
 		switch value {
-			case 1: return .INHERITANCE
-			case 2: return .HEIRLOOM
-			case 3: return .FIND
-			case 4: return .GAMBLE
-			case 5: return .RELIC
-			case 6: return .LUCKY_TRADE
-			case 7: return .LOVE_TOKEN
-			case 8: return .SPECIAL_ITEM
-			case 9: return .FAVOR
-			case 10: return .SETTLEMENT_TROPHY
+			case 21: return .INHERITANCE
+			case 22: return .HEIRLOOM
+			case 23: return .FIND
+			case 24: return .GAMBLE_WON
+			case 25: return .RELIC
+			case 26: return .LUCKY_TRADE
+			case 27: return .LOVE_TOKEN
+			case 28: return .SPECIAL_ITEM
+			case 29: return .FAVOR_OWED_TO_YOU
+			case 30: return .SETTLEMENT_TROPHY
 			default: return .NONE
 		}
 	}
-}
 
-
-enum SWWC_LIFE_EVENTS_TAPPED_OUT: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_TAPPED_OUT
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case ROBBED = "Robbed."
-	case GAMBLE = "Gamble, lost big."
-	case DESTROYED = "Been destroyed."
-	case LOST = "Lost."
-	case DEBT = "In debt."
-	case SWINDLED = "Swindled (bad trade)."
-	case JUNK = "Junk"
-	case CURSED = "Cursed/Sabotaged Item"
-	case FAVOR = "Favor you owed."
-	case BLACKMAILED = "Blackmail (scandal)."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_TAPPED_OUT {
+	static func getRandomTappledOut() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 31...40)
 		switch value {
-			case 1: return .ROBBED
-			case 2: return .GAMBLE
-			case 3: return .DESTROYED
-			case 4: return .LOST
-			case 5: return .DEBT
-			case 6: return .SWINDLED
-			case 7: return .JUNK
-			case 8: return .CURSED
-			case 9: return .FAVOR
-			case 10: return .BLACKMAILED
+			case 31: return .ROBBED
+			case 32: return .GAMBLE_LOST
+			case 33: return .DESTROYED
+			case 34: return .LOST
+			case 35: return .DEBT
+			case 36: return .SWINDLED
+			case 37: return .JUNK
+			case 38: return .CURSED
+			case 39: return .FAVOR_YOU_OWED
+			case 40: return .BLACKMAILED
 			default: return .NONE
 		}
 	}
-}
 
-enum SWWC_LIFE_EVENTS_LUCKY_STAR: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_LUCKY_STAR
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case LUCKY = "Lucky."
-	case RICH = "Rich, or filthy rich."
-	case ALERT = "Alert."
-	case AMBIDEXTROUS = "Ambidextrous."
-	case ATTRACTIVE = "Attractive."
-	case QUICK = "Quick."
-	case NOBLE = "Noble"
-	case FAST_HEALER = "Fast Healer."
-	case BRAWNY = "Brawny."
-	case BERSERK = "Berserk."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_LUCKY_STAR {
+	static func getRandomLuckyStar() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 51...60)
 		switch value {
-			case 1: return .LUCKY
-			case 2: return .RICH
-			case 3: return .ALERT
-			case 4: return .AMBIDEXTROUS
-			case 5: return .ATTRACTIVE
-			case 6: return .QUICK
-			case 7: return .NOBLE
-			case 8: return .FAST_HEALER
-			case 9: return .BRAWNY
-			case 10: return .BERSERK
+			case 51: return .LUCKY
+			case 52: return .RICH
+			case 53: return .ALERT
+			case 54: return .AMBIDEXTROUS
+			case 55: return .ATTRACTIVE
+			case 56: return .QUICK
+			case 57: return .NOBLE
+			case 58: return .FAST_HEALER
+			case 59: return .BRAWNY
+			case 60: return .BERSERK
 			default: return .NONE
 		}
 	}
-}
 
-
-enum SWWC_LIFE_EVENTS_STAR_CROSSED: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_STAR_CROSSED
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case CRIPPLING_INJURY = "Missing limb(s)."
-	case DISFIGURED = "Disfiguring injury."
-	case ILLNESS = "Childhood illness."
-	case MENTAL_TRAUMA = "Phobia or illness, major."
-	case BAD_EYES = "Bad eyesight."
-	case ADDICTION = "Additicted."
-	case DEBILITATING_INJURY = "Debilitating Injury (Lame/Blind/Deaf)."
-	case ALL_THUMBS = "All thumbs."
-	case CLUELESS = "Clueless."
-	case QUIRK = "Has a quirk."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_STAR_CROSSED {
+	static func getRandomStarCrossed() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 61...70)
 		switch value {
-			case 1: return .CRIPPLING_INJURY
-			case 2: return .DISFIGURED
-			case 3: return .ILLNESS
-			case 4: return .MENTAL_TRAUMA
-			case 5: return .BAD_EYES
-			case 6: return .ADDICTION
-			case 7: return .DEBILITATING_INJURY
-			case 8: return .ALL_THUMBS
-			case 9: return .CLUELESS
-			case 10: return .QUIRK
+			case 61: return .CRIPPLING_INJURY
+			case 62: return .DISFIGURED
+			case 63: return .ILLNESS
+			case 64: return .MENTAL_TRAUMA
+			case 65: return .BAD_EYES
+			case 66: return .ADDICTION
+			case 67: return .DEBILITATING_INJURY
+			case 68: return .ALL_THUMBS
+			case 69: return .CLUELESS
+			case 70: return .QUIRK
 			default: return .NONE
 		}
 	}
-}
 
-
-enum SWWC_LIFE_EVENTS_TAKE_A_FRIEND: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_TAKE_A_FRIEND
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case ENEMY_RIVAL = "Old enemy or rival."
-	case UNDERWORLD = "Underworld contact."
-	case OFFICIAL = "Offical contact."
-	case COMPANION = "Non-human companion (animal/robot)."
-	case SOCIETY = "Member of group or society."
-	case MENTOR = "Mentor."
-	case RICH_RELATIVE = "Rich relative."
-	case GADGETEER = "A gadgeteer."
-	case BODY_GUARD = "Body guard."
-	case HEALER = "Medical doctor or healer."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_TAKE_A_FRIEND {
+	static func getRandomTakeAFriend() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 71...80)
 		switch value {
-			case 1: return .ENEMY_RIVAL
-			case 2: return .UNDERWORLD
-			case 3: return .OFFICIAL
-			case 4: return .COMPANION
-			case 5: return .SOCIETY
-			case 6: return .MENTOR
-			case 7: return .RICH_RELATIVE
-			case 8: return .GADGETEER
-			case 9: return .BODY_GUARD
-			case 10: return .HEALER
+			case 71: return .ENEMY_RIVAL_FRIEND
+			case 72: return .UNDERWORLD_CONTACT_FRIEND
+			case 73: return .OFFICIAL_FRIEND
+			case 74: return .COMPANION_FRIEND
+			case 75: return .SOCIETY_FRIEND
+			case 76: return .MENTOR_FRIEND
+			case 77: return .RICH_RELATIVE
+			case 78: return .GADGETEER_FRIEND
+			case 79: return .BODY_GUARD_FRIEND
+			case 80: return .HEALER_FRIEND
 			default: return .NONE
 		}
 	}
-}
 
-
-enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_MAKE_AN_ENEMY
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case FRIEND_TO_ENEMY = "An old friend becomes an enemy."
-	case CHILDHOOD_ENEMY = "Childhood enemy/rival returns."
-	case LOVER_TO_ENEMY = "An old lover becomes an enemy."
-	case ENEMY_AGENT = "Someone from the other side."
-	case TICKED_OFF = "Someone you ticked off or upset (otherwise friendly or neutral)."
-	case TEAM_MEMBER = "A team member becomes a enemy."
-	case RELATIVE = "A relative becomes a enemy."
-	case UNDERWORLD = "An underworld crime lord."
-	case POWERFUL_PERSON = "A powerful individual."
-	case GOVERNMENT_PERSON = "A government leader is an enemy."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_MAKE_AN_ENEMY {
+	static func getRandomMakeAnEnemy() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 81...90)
 		switch value {
-			case 1: return .FRIEND_TO_ENEMY
-			case 2: return .CHILDHOOD_ENEMY
-			case 3: return .LOVER_TO_ENEMY
-			case 4: return .ENEMY_AGENT
-			case 5: return .TICKED_OFF
-			case 6: return .TEAM_MEMBER
-			case 7: return .RELATIVE
-			case 8: return .UNDERWORLD
-			case 9: return .POWERFUL_PERSON
-			case 10: return .GOVERNMENT_PERSON
+			case 81: return .FRIEND_TO_ENEMY
+			case 82: return .CHILDHOOD_ENEMY
+			case 83: return .LOVER_TO_ENEMY
+			case 84: return .ENEMY_AGENT
+			case 85: return .TICKED_OFF_ENEMY
+			case 86: return .TEAM_MEMBER_ENEMY
+			case 87: return .RELATIVE_ENEMY
+			case 88: return .UNDERWORLD_CRIME_LORD_ENEMY
+			case 89: return .POWERFUL_PERSON_ENEMY
+			case 90: return .GOVERNMENT_PERSON_ENEMY
 			default: return .NONE
 		}
 	}
+
+	static func getRandomLifeAdventure() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 91...100)
+		switch value {
+			case 91: return .BATTLE
+			case 92: return .QUEST
+			case 93: return .HEIST
+			case 94: return .SURVIVOR
+			case 95: return .EXPLORATION
+			case 96: return .RESCUE
+			case 97: return .DEFEATED_RIVAL
+			case 98: return .SAFARI
+			case 99: return .DISCOVERY
+			case 100: return .SECRET_MISSION
+			default: return .NONE
+		}
+	}
+
+	static func getRandomLifeMisfortune() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 101...110)
+		switch value {
+			case 101: return .BETRAYED
+			case 102: return .LOST_EVERYTHING
+			case 103: return .IMPRISONED
+			case 104: return .LABORATORY_ACCIDENT
+			case 105: return .ABDUCTED
+			case 106: return .TRAMATIC_HORROR
+			case 107: return .HORRIBLE_WOUNDED
+			case 108: return .EVIL_TWIN
+			case 109: return .MARKED
+			case 110: return .RESPONSIBLE
+			default: return .NONE
+		}
+	}
+
+	static func getRandomLifeEventWitness() -> SWWC_LIFE_EVENTS {
+		let value = Int.random(in: 111...120)
+		switch value {
+			case 111: return .PLAGUE
+			case 112: return .NATURAL_DISASTER
+			case 113: return .MAN_MADE_DISASTER
+			case 114: return .ASTRONOMICAL_EVENT
+			case 115: return .FAMINE
+			case 116: return .SUPERNATURAL_EVENT
+			case 117: return .WAR
+			case 118: return .REVOLUTION
+			case 119: return .MAJOR_CLIMATE_CHANGE
+			case 120: return .ECONOMIC_CRASH
+			default: return .NONE
+		}
+	}
+
 }
 
+
+
+// MARK: - MAKE_AN_ENEMY
 
 enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE: String, RPG_TABLE, Codable {
 	typealias Result = SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE
@@ -1266,119 +1664,8 @@ enum SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_TOOLS: String, RPG_TABLE, Codable {
 	}
 }
 
-enum SWWC_LIFE_EVENTS_ADVENTURE: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_ADVENTURE
 
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case BATTLE = "A battle, or war."
-	case QUEST = "A quest"
-	case HEIST = "Heist (crime of the century)"
-	case SURVIVOR = "Survivor."
-	case EXPLORATION = "Exploration"
-	case RESCUE = "A rescue"
-	case DEFEATED_RIVAL = "Defeated personal rival."
-	case SAFARI = "A safari"
-	case DISCOVERY = "An Amazing Discovery"
-	case SECRET_MISSION = "A secret ,ission"
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ADVENTURE {
-		switch value {
-			case 1: return .BATTLE
-			case 2: return .QUEST
-			case 3: return .HEIST
-			case 4: return .SURVIVOR
-			case 5: return .EXPLORATION
-			case 6: return .RESCUE
-			case 7: return .DEFEATED_RIVAL
-			case 8: return .SAFARI
-			case 9: return .DISCOVERY
-			case 10: return .SECRET_MISSION
-			default: return .NONE
-		}
-	}
-}
-
-enum SWWC_LIFE_EVENTS_MISFORTUNE: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_ADVENTURE
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case BETRAYED = "Betrayed (Ally turned Enemy)"
-	case LOST_EVERYTHING = "Lost everything"
-	case IMPRISONED = "Been Imprisoned."
-	case LABORATORY_ACCIDENT = "Laboratory accident."
-	case ABDUCTED = "Been abducted."
-	case TRAMATIC_HORROR = "Tramatic horror."
-	case HORRIBLE_WOUNDED = "Horribly wounded."
-	case EVIL_TWIN = "Evil twin, identity stolen."
-	case MARKED = "Price on your head/marked."
-	case RESPONSIBLE = "Responsible for death of team/family/village."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_ADVENTURE {
-		switch value {
-			case 1: return .BATTLE
-			case 2: return .QUEST
-			case 3: return .HEIST
-			case 4: return .SURVIVOR
-			case 5: return .EXPLORATION
-			case 6: return .RESCUE
-			case 7: return .DEFEATED_RIVAL
-			case 8: return .SAFARI
-			case 9: return .DISCOVERY
-			case 10: return .SECRET_MISSION
-			default: return .NONE
-		}
-	}
-}
-
-enum SWWC_LIFE_EVENTS_WITNESS: String, RPG_TABLE, Codable {
-	typealias Result = SWWC_LIFE_EVENTS_WITNESS
-
-	static var MIN: Int = 1
-	static var MAX: Int = 10
-
-	case PLAGUE = "Plague."
-	case NATURAL_DISASTER = "Natural disaster."
-	case MAN_MADE_DISASTER = "Man made disaster."
-	case ASTRONOMICAL_EVENT = "Astronmical event."
-	case FAMINE = "Famine."
-	case SUPERNATURAL_EVENT = "Supernatural event."
-	case WAR = "War."
-	case REVOLUTION = "Revolution."
-	case MAJOR_CLIMATE_CHANGE = "Sudden Major Climatic Change"
-	case ECONOMIC_CRASH = "Major Economic Crash."
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> SWWC_LIFE_EVENTS_WITNESS {
-		switch value {
-			case 1: return .PLAGUE
-			case 2: return .NATURAL_DISASTER
-			case 3: return .MAN_MADE_DISASTER
-			case 4: return .ASTRONOMICAL_EVENT
-			case 5: return .FAMINE
-			case 6: return .SUPERNATURAL_EVENT
-			case 7: return .WAR
-			case 8: return .REVOLUTION
-			case 9: return .MAJOR_CLIMATE_CHANGE
-			case 10: return .ECONOMIC_CRASH
-			default: return .NONE
-		}
-	}
-}
+// MARK: - LIFE_EVENTS
 
 enum SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS: String, RPG_TABLE, Codable {
 	typealias Result = SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS

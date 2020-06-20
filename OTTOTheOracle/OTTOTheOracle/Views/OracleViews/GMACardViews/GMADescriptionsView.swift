@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct GMADescriptionsView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel
 	
 //	var gmaCardViewModel: GMACardViewModel
 
@@ -76,6 +76,6 @@ struct GMADescriptionsView: View {
 
 struct GMADescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-		return GMADescriptionsView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		return GMADescriptionsView(oracleViewModel: PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

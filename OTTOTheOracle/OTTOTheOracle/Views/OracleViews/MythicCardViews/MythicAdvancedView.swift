@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MythicAdvancedView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel = OracleViewModel()
 	@Environment(\.presentationMode) var presentation
 
 	@State private var difficulty: Double = 6.0
@@ -25,7 +25,7 @@ struct MythicAdvancedView: View {
 					Slider(value: $chaosFactor, in: 1...9, step: 1.0)
 				}
 				.padding(.horizontal, 40.0)
-				MythicCardOnlyView()
+				MythicCardOnlyView(oracleViewModel: oracleViewModel)
 					.environmentObject(oracleViewModel)
 					.background(Color.green)
 				Button("Calculate") {

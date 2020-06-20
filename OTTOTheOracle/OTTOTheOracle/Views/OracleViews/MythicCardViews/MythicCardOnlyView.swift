@@ -9,21 +9,21 @@
 import SwiftUI
 
 struct MythicCardOnlyView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel
 
 	var body: some View {
 		VStack {
 //			Text("\(oracleViewModel.currentMythicCardViewModel.cardFile)")
 //				.padding(.vertical)
-			MythicTopView().environmentObject(oracleViewModel)
-			MythicMidView().padding(.vertical).environmentObject(oracleViewModel)
-			MythicBottomView().environmentObject(oracleViewModel)
+			MythicTopView(oracleViewModel: oracleViewModel)
+			MythicMidView(oracleViewModel: oracleViewModel).padding(.vertical)
+			MythicBottomView(oracleViewModel: oracleViewModel)
 		}
 	}
 }
 
 struct MythicCardView_Previews: PreviewProvider {
     static var previews: some View {
-		MythicCardOnlyView().environmentObject(PreviewHelper.mockOracleWithSortedDeckUseCardIndex(0))
+		MythicCardOnlyView(oracleViewModel: OracleViewModel())
     }
 }

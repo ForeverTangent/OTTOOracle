@@ -9,15 +9,10 @@
 import SwiftUI
 
 struct ShowAdvMythicCardNavButton: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
 
 	var body: some View {
-		NavigationLink(destination: MythicAdvancedView().environmentObject(oracleViewModel)) {
+		NavigationLink(destination: MythicAdvancedView()) {
 			OTTOButton(buttonTitle: "Advanced Mythic Card")
-		}
-		.onAppear() {
-			print("Showing Advanced Mythic Card")
-			self.oracleViewModel.drawMythicCard()
 		}
 	}
 }

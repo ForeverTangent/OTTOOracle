@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MythicBottomView: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
+	@ObservedObject var oracleViewModel: OracleViewModel
 
 	var body: some View {
 		VStack {
@@ -42,6 +42,6 @@ struct MythicBottomView: View {
 
 struct MythicBottomView_Previews: PreviewProvider {
     static var previews: some View {
-		MythicBottomView().environmentObject(PreviewHelper.mockOracleWithDeckAndDrawnCard())
+		MythicBottomView(oracleViewModel: PreviewHelper.mockOracleWithDeckAndDrawnCard())
     }
 }

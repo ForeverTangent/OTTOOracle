@@ -9,21 +9,15 @@
 import SwiftUI
 
 struct ShowGMACardNavButton: View {
-	@EnvironmentObject var oracleViewModel: OracleViewModel
-
 	var body: some View {
-		NavigationLink(destination: GMAMainView().environmentObject(oracleViewModel)) {
+		NavigationLink(destination: GMAMainView()) {
 			OTTOButton(buttonTitle: "Show GMA Card")
-		}
-		.onAppear() {
-			print("Showing Mything Card")
-			self.oracleViewModel.drawGMACard()
 		}
 	}
 }
 
 struct ShowGMACardNavButton_Previews: PreviewProvider {
     static var previews: some View {
-        ShowGMACardNavButton().environmentObject(OracleViewModel())
+		ShowGMACardNavButton()
     }
 }

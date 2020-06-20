@@ -13,6 +13,7 @@ struct ShowGeneratorsNavButton: View {
 		NavigationLink(destination: GeneratorsView()) {
 			OTTOButton(buttonTitle: "Show Generators")
 		}
+		.isDetailLink(false)
 		.onAppear() {
 			print("Show Generators")
 		}
