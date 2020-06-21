@@ -10,16 +10,53 @@ import Foundation
 
 class PETGeneratorModel {
 
+	var petCharacter = PETCharacter()
+
+	func buildNewPETCharacter() {
+		let petCharacter = PETCharacter(name: "",
+										agenda: PET_AGENDA.randomWeightedElement(),
+										tags: generatePersonalityTags(),
+										seeds: generateFocusTags(),
+										focus: generateFocusTags())
+		self.petCharacter = petCharacter
+	}
+
+	private func generatePersonalityTags() -> [PET_PERSONALITY_TAGS_BASE] {
+		let numberOfTags = Int.random(in: 1...3)
+		var tags = [PET_PERSONALITY_TAGS_BASE]()
+		for _ in 1...numberOfTags {
+			tags.append(PET_PERSONALITY_TAGS_BASE.randomWeightedElement())
+		}
+		return tags
+	}
+
+	private func generateFocusTags() -> [PET_FOCUS_TAGS] {
+		var focus = [PET_FOCUS_TAGS]()
+		for _ in 1...2 {
+			focus.append(PET_FOCUS_TAGS.randomWeightedElement())
+		}
+		return focus
+	}
+
+	private func generateFocusTags() -> [PET_SEEDS] {
+		var seeds = [PET_SEEDS]()
+		for _ in 1...3 {
+			seeds.append(PET_SEEDS.randomWeightedElement())
+		}
+		return seeds
+	}
+
+	func addPersonalityTag() {
+	}
+
 }
 
 struct PETCharacter {
-	var name: String
-	var agenda: PET_AGENDA
-	var basePersonalityTags = [PET_PERSONALITY_TAGS_BASE]()
-	var advancedPersonalityTags = [PET_PERSONALITY_TAGS_ADVANCED]()
+	var name: String = ""
+	var agenda: PET_AGENDA = .NONE
+	var tags = [PET_PERSONALITY_TAGS_BASE]()
 	var seeds = [PET_SEEDS]()
 	var focus = [PET_FOCUS_TAGS]()
-	var meta: PET_META_TAGS?
 }
 
 
@@ -92,6 +129,7 @@ enum PET_PERSONALITY_TAGS_BASE: String, RPG_TABLE, Codable {
 	static var MIN: Int = 1
 	static var MAX: Int = 36
 
+	case NONE
 	case CHATTY
 	case ASOCIAL
 	case GAMBLER
@@ -128,7 +166,43 @@ enum PET_PERSONALITY_TAGS_BASE: String, RPG_TABLE, Codable {
 	case PEACEMAKER
 	case CHARISMATIC
 	case FORGETFUL
-	case NONE
+	// PET_PERSONALITY_TAGS_ADVANCED
+	case DEMANDING
+	case STUBBORN
+	case KIND
+	case ROMANTIC
+	case SENSIBLE
+	case FREE
+	case HOARDER
+	case SPENDTHRIFT
+	case ATTENTIVE
+	case PRECISE
+	case EMPATHETIC
+	case CHUMMY
+	case DEDICATED
+	case PUNS
+	case FLIGHTY
+	case FIGHTER
+	case INATTENTIVE
+	case LOUCHE
+	case VENGEFUL
+	case DETERMINED
+	case CALLOUS
+	case DEPRESSED
+	case EIDETIC
+	case DAREDEVIL
+	case DEMOCRATIC
+	case ARROGANT
+	case AVARICIOUS
+	case MANIC
+	case CARELESS
+	case SENSITIVE
+	case COMPETITIVE
+	case HIDEBOUND
+	case CONVENTIONAL
+	case QUIXOTIC
+	case CAREFUL
+	case AMORAL
 
 	var descriptionShort: String { get { return rawValue } }
 	var descriptionLong: String { get { return descriptionShort } }
@@ -174,57 +248,9 @@ enum PET_PERSONALITY_TAGS_BASE: String, RPG_TABLE, Codable {
 			default: return .NONE
 		}
 	}
-}
 
-
-enum PET_PERSONALITY_TAGS_ADVANCED: String, RPG_TABLE, Codable {
-	typealias Result = PET_PERSONALITY_TAGS_ADVANCED
-
-	static var MIN: Int = 1
-	static var MAX: Int = 36
-
-	case DEMANDING
-	case STUBBORN
-	case KIND
-	case ROMANTIC
-	case SENSIBLE
-	case FREE
-	case HOARDER
-	case SPENDTHRIFT
-	case ATTENTIVE
-	case PRECISE
-	case EMPATHETIC
-	case CHUMMY
-	case DEDICATED
-	case PUNS
-	case FLIGHTY
-	case FIGHTER
-	case INATTENTIVE
-	case LOUCHE
-	case VENGEFUL
-	case DETERMINED
-	case CALLOUS
-	case DEPRESSED
-	case EIDETIC
-	case DAREDEVIL
-	case DEMOCRATIC
-	case ARROGANT
-	case AVARICIOUS
-	case MANIC
-	case CARELESS
-	case SENSITIVE
-	case COMPETITIVE
-	case HIDEBOUND
-	case CONVENTIONAL
-	case QUIXOTIC
-	case CAREFUL
-	case AMORAL
-	case NONE
-
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
-
-	static func getElementBy(value: Int) -> PET_PERSONALITY_TAGS_ADVANCED {
+	static func getRandomAdvancedTag() -> PET_PERSONALITY_TAGS_BASE {
+		let value = Int.random(in: 1...36)
 		switch value {
 			case 1: return .DEMANDING
 			case 2: return .STUBBORN
@@ -266,6 +292,7 @@ enum PET_PERSONALITY_TAGS_ADVANCED: String, RPG_TABLE, Codable {
 		}
 	}
 }
+
 
 enum PET_META_TAGS: String, RPG_TABLE, Codable {
 	typealias Result = PET_META_TAGS
