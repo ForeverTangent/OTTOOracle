@@ -27,6 +27,7 @@ struct QuickDiceView: View {
 					.frame(width: 200.0, height: 50.0)
 			)
 		}
+		.navigationBarTitle("Quick Dice", displayMode: .inline)
     }
 }
 

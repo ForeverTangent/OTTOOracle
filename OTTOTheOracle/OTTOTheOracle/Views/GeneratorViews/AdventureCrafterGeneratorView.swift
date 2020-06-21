@@ -17,6 +17,7 @@ struct AdventureCrafterGeneratorView: View {
 			PlotPointsSubView(adventureCrafterGeneratorVM: adventureCrafterGeneratorVM)
 			CharacterSubView(adventureCrafterGeneratorVM: adventureCrafterGeneratorVM)
 		}
+		.navigationBarTitle("Adventure Crafter", displayMode: .inline)
 		.font(.headline)
 
 	}

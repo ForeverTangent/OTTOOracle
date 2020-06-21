@@ -27,6 +27,7 @@ struct UNEGeneratorView: View {
 			}
 
 		}
+		.navigationBarTitle("UNE", displayMode: .inline)
 		.font(.headline)
     }
 }

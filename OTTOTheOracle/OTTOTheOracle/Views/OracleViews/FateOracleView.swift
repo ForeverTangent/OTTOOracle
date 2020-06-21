@@ -42,6 +42,7 @@ struct FateOracleView: View {
 					.frame(width: 200.0, height: 50.0)
 			)
 		}
+		.navigationBarTitle("Fate SOLO", displayMode: .inline)
 		.frame(width: 300.0)
     }
 }

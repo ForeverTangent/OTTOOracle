@@ -38,6 +38,7 @@ struct SoloRPGOracleView: View {
 					.frame(width: 200.0, height: 50.0)
 			)
 		}
+		.navigationBarTitle("Solo RPG", displayMode: .inline)
 		.frame(width: 300.0)
 	}
 }

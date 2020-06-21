@@ -15,8 +15,12 @@ struct StartingView: View {
 	var body: some View {
 		NavigationView {
 			VStack(alignment: .center, spacing: 40.0) {
-				ShowOraclesNavButton()
-				ShowGeneratorsNavButton()
+				NavigationLink(destination: OraclesListView()) {
+					OTTOButton(buttonTitle: "Oracles")
+				}
+				NavigationLink(destination: GeneratorsView()) {
+					OTTOButton(buttonTitle: "Generators")
+				}
 			}.frame(height: 250.0)
 				.navigationBarTitle("Main", displayMode: .inline)
 		}.environmentObject(oracleManager)

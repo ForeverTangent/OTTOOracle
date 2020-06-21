@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		31180521249150D700C3812C /* MythicAdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31180520249150D700C3812C /* MythicAdvancedView.swift */; };
-		3118052324915B2600C3812C /* AdvancedOraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118052224915B2600C3812C /* AdvancedOraclesView.swift */; };
-		3118052524915B6400C3812C /* ShowAdvMythicCardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118052424915B6400C3812C /* ShowAdvMythicCardNavButton.swift */; };
 		311805292492646900C3812C /* GMAOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311805282492646900C3812C /* GMAOracleModel.swift */; };
 		312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F20162481B3E1000CEB9C /* AppDelegate.swift */; };
 		312F20192481B3E1000CEB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312F20182481B3E1000CEB9C /* SceneDelegate.swift */; };
@@ -28,18 +26,15 @@
 		3133B1AC24901C0D005FF8FD /* SWWCGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1AB24901C0D005FF8FD /* SWWCGeneratorModel.swift */; };
 		3133B1CA249047FE005FF8FD /* MythicSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */; };
 		3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1CB24904871005FF8FD /* GMAMainView.swift */; };
-		314F83F324927DE80061C1EA /* ShowQuickDiceViewNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F224927DE80061C1EA /* ShowQuickDiceViewNavButton.swift */; };
+		31342DF2249FAFDB007C4D74 /* OraclesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31342DF1249FAFDB007C4D74 /* OraclesListView.swift */; };
 		314F83F524927F180061C1EA /* FateOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F424927F180061C1EA /* FateOracleModel.swift */; };
 		314F83F7249285330061C1EA /* FateOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F6249285330061C1EA /* FateOracleView.swift */; };
 		314F83F92492AC0B0061C1EA /* FateOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F82492AC0B0061C1EA /* FateOracleViewModel.swift */; };
-		314F83FB2492B2810061C1EA /* ShowFateOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83FA2492B2810061C1EA /* ShowFateOracleNavButton.swift */; };
 		314F83FD2492B6580061C1EA /* CypherOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83FC2492B6580061C1EA /* CypherOracleView.swift */; };
 		314F83FF2492B6D40061C1EA /* CypherOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */; };
-		314F84012492BCC80061C1EA /* ShowCypherOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F84002492BCC80061C1EA /* ShowCypherOracleNavButton.swift */; };
 		314F84032492BDE00061C1EA /* AdventureCrafterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F84022492BDE00061C1EA /* AdventureCrafterModel.swift */; };
 		315407142492CB7D00EB18D5 /* CRGEOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */; };
 		315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407152492CB9100EB18D5 /* CRGEOracleView.swift */; };
-		315407182492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */; };
 		3154071A2492F65C00EB18D5 /* SoloRPGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */; };
 		3154071C2492F78100EB18D5 /* SoloRPGOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */; };
 		3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */; };
@@ -55,20 +50,12 @@
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
 		3173EE592491265E00F646A3 /* PETGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE582491265E00F646A3 /* PETGeneratorModel.swift */; };
 		3173EE5B24912CD300F646A3 /* OTTOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5A24912CD300F646A3 /* OTTOButton.swift */; };
-		3173EE5D2491340D00F646A3 /* SimpleOraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */; };
-		3173EE602491360F00F646A3 /* ShowSimpleOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */; };
-		3173EE622491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE612491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift */; };
-		3173EE64249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE63249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift */; };
-		3173EE662491425100F646A3 /* ShowMythicCardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */; };
-		3173EE682491428700F646A3 /* ShowGMACardNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */; };
 		3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE69249143C900F646A3 /* QuickDiceView.swift */; };
 		3173EE6C249144EC00F646A3 /* DiceSquareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */; };
-		317FB1AC249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1AB249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift */; };
 		317FB1AE249BFE4B00FAC0D5 /* UNEGeneratorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1AD249BFE4B00FAC0D5 /* UNEGeneratorViewModel.swift */; };
 		317FB1B0249C02F900FAC0D5 /* UNEGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1AF249C02F900FAC0D5 /* UNEGeneratorView.swift */; };
 		317FB1B4249C156800FAC0D5 /* UNEGeneratorCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1B3249C156800FAC0D5 /* UNEGeneratorCharacterView.swift */; };
 		317FB1B6249C157E00FAC0D5 /* UNEGeneratorInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1B5249C157E00FAC0D5 /* UNEGeneratorInteractionView.swift */; };
-		317FB1B8249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317FB1B7249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift */; };
 		3188CB862481C8F0001F53B5 /* GMA_CARDS.json in Resources */ = {isa = PBXBuildFile; fileRef = 3188CB852481C8F0001F53B5 /* GMA_CARDS.json */; };
 		3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */; };
 		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json */; };
@@ -87,12 +74,8 @@
 		31E9B9EB248BE6BE007B4463 /* SoloRPGOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9B9EA248BE6BE007B4463 /* SoloRPGOracleModel.swift */; };
 		31E9B9EE248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9EC248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json */; };
 		31E9B9F1248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json */; };
-		31FB75862493F40B00622969 /* OraclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75852493F40B00622969 /* OraclesView.swift */; };
 		31FB75882493F41B00622969 /* GeneratorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75872493F41B00622969 /* GeneratorsView.swift */; };
-		31FB758A2493F56100622969 /* ShowOraclesNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75892493F56100622969 /* ShowOraclesNavButton.swift */; };
-		31FB758C2493F57200622969 /* ShowGeneratorsNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */; };
 		31FB75912493F8AA00622969 /* AdventureCrafterGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */; };
-		31FB75932493F90B00622969 /* ShowAdventureCrafterGeneratorNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75922493F90B00622969 /* ShowAdventureCrafterGeneratorNavButton.swift */; };
 		31FB75952493FA6900622969 /* AdventureCrafterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75942493FA6900622969 /* AdventureCrafterViewModel.swift */; };
 		31FB759D2494451E00622969 /* OTTOTheOracleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB759C2494451E00622969 /* OTTOTheOracleTests.swift */; };
 		31FB75A52494458000622969 /* AdventureCraftModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB75A42494458000622969 /* AdventureCraftModelTests.swift */; };
@@ -110,8 +93,6 @@
 
 /* Begin PBXFileReference section */
 		31180520249150D700C3812C /* MythicAdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicAdvancedView.swift; sourceTree = "<group>"; };
-		3118052224915B2600C3812C /* AdvancedOraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOraclesView.swift; sourceTree = "<group>"; };
-		3118052424915B6400C3812C /* ShowAdvMythicCardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAdvMythicCardNavButton.swift; sourceTree = "<group>"; };
 		311805282492646900C3812C /* GMAOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAOracleModel.swift; sourceTree = "<group>"; };
 		312F20132481B3E1000CEB9C /* OTTO The Oracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTTO The Oracle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		312F20162481B3E1000CEB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,18 +113,15 @@
 		3133B1AB24901C0D005FF8FD /* SWWCGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWWCGeneratorModel.swift; sourceTree = "<group>"; };
 		3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicSimpleView.swift; sourceTree = "<group>"; };
 		3133B1CB24904871005FF8FD /* GMAMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAMainView.swift; sourceTree = "<group>"; };
-		314F83F224927DE80061C1EA /* ShowQuickDiceViewNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQuickDiceViewNavButton.swift; sourceTree = "<group>"; };
+		31342DF1249FAFDB007C4D74 /* OraclesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraclesListView.swift; sourceTree = "<group>"; };
 		314F83F424927F180061C1EA /* FateOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleModel.swift; sourceTree = "<group>"; };
 		314F83F6249285330061C1EA /* FateOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleView.swift; sourceTree = "<group>"; };
 		314F83F82492AC0B0061C1EA /* FateOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleViewModel.swift; sourceTree = "<group>"; };
-		314F83FA2492B2810061C1EA /* ShowFateOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFateOracleNavButton.swift; sourceTree = "<group>"; };
 		314F83FC2492B6580061C1EA /* CypherOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherOracleView.swift; sourceTree = "<group>"; };
 		314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherOracleViewModel.swift; sourceTree = "<group>"; };
-		314F84002492BCC80061C1EA /* ShowCypherOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCypherOracleNavButton.swift; sourceTree = "<group>"; };
 		314F84022492BDE00061C1EA /* AdventureCrafterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterModel.swift; sourceTree = "<group>"; };
 		315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleViewModel.swift; sourceTree = "<group>"; };
 		315407152492CB9100EB18D5 /* CRGEOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleView.swift; sourceTree = "<group>"; };
-		315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCRGEOracleNavButton.swift; sourceTree = "<group>"; };
 		315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGViewModel.swift; sourceTree = "<group>"; };
 		3154071B2492F78100EB18D5 /* SoloRPGOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGOracleView.swift; sourceTree = "<group>"; };
 		3168E48D2482EE7800DCCC76 /* OracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OracleViewModel.swift; sourceTree = "<group>"; };
@@ -159,20 +137,12 @@
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		3173EE582491265E00F646A3 /* PETGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETGeneratorModel.swift; sourceTree = "<group>"; };
 		3173EE5A24912CD300F646A3 /* OTTOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOButton.swift; sourceTree = "<group>"; };
-		3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleOraclesView.swift; sourceTree = "<group>"; };
-		3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSimpleOraclesNavButton.swift; sourceTree = "<group>"; };
-		3173EE612491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAdvancedOraclesNavButton.swift; sourceTree = "<group>"; };
-		3173EE63249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRPGSoloOracleNavButton.swift; sourceTree = "<group>"; };
-		3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMythicCardNavButton.swift; sourceTree = "<group>"; };
-		3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGMACardNavButton.swift; sourceTree = "<group>"; };
 		3173EE69249143C900F646A3 /* QuickDiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDiceView.swift; sourceTree = "<group>"; };
 		3173EE6B249144EC00F646A3 /* DiceSquareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSquareViewModel.swift; sourceTree = "<group>"; };
-		317FB1AB249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCypherNPCGeneratorNavButton.swift; sourceTree = "<group>"; };
 		317FB1AD249BFE4B00FAC0D5 /* UNEGeneratorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNEGeneratorViewModel.swift; sourceTree = "<group>"; };
 		317FB1AF249C02F900FAC0D5 /* UNEGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNEGeneratorView.swift; sourceTree = "<group>"; };
 		317FB1B3249C156800FAC0D5 /* UNEGeneratorCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNEGeneratorCharacterView.swift; sourceTree = "<group>"; };
 		317FB1B5249C157E00FAC0D5 /* UNEGeneratorInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNEGeneratorInteractionView.swift; sourceTree = "<group>"; };
-		317FB1B7249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUNEGenratorNavButton.swift; sourceTree = "<group>"; };
 		3188CB852481C8F0001F53B5 /* GMA_CARDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GMA_CARDS.json; sourceTree = "<group>"; };
 		3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardOnlyView.swift; sourceTree = "<group>"; };
 		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS_LONG.json; sourceTree = "<group>"; };
@@ -192,12 +162,8 @@
 		31E9B9EA248BE6BE007B4463 /* SoloRPGOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGOracleModel.swift; sourceTree = "<group>"; };
 		31E9B9EC248C5C06007B4463 /* PLOT_POINT_DESCRIPTION_LONG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PLOT_POINT_DESCRIPTION_LONG.json; sourceTree = "<group>"; };
 		31E9B9F0248E8AF7007B4463 /* RUNE_DESCRIPTIONS_LONG.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RUNE_DESCRIPTIONS_LONG.json; sourceTree = "<group>"; };
-		31FB75852493F40B00622969 /* OraclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraclesView.swift; sourceTree = "<group>"; };
 		31FB75872493F41B00622969 /* GeneratorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorsView.swift; sourceTree = "<group>"; };
-		31FB75892493F56100622969 /* ShowOraclesNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOraclesNavButton.swift; sourceTree = "<group>"; };
-		31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGeneratorsNavButton.swift; sourceTree = "<group>"; };
 		31FB75902493F8AA00622969 /* AdventureCrafterGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterGeneratorView.swift; sourceTree = "<group>"; };
-		31FB75922493F90B00622969 /* ShowAdventureCrafterGeneratorNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAdventureCrafterGeneratorNavButton.swift; sourceTree = "<group>"; };
 		31FB75942493FA6900622969 /* AdventureCrafterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterViewModel.swift; sourceTree = "<group>"; };
 		31FB759A2494451E00622969 /* OTTOTheOracleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OTTOTheOracleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB759C2494451E00622969 /* OTTOTheOracleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOTheOracleTests.swift; sourceTree = "<group>"; };
@@ -340,28 +306,6 @@
 			path = MythicCardViews;
 			sourceTree = "<group>";
 		};
-		3173EE5E249135E700F646A3 /* Navigation_Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				3173EE5F2491360F00F646A3 /* ShowSimpleOraclesNavButton.swift */,
-				3173EE612491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift */,
-				3173EE63249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift */,
-				3173EE652491425000F646A3 /* ShowMythicCardNavButton.swift */,
-				3173EE672491428700F646A3 /* ShowGMACardNavButton.swift */,
-				3118052424915B6400C3812C /* ShowAdvMythicCardNavButton.swift */,
-				314F83F224927DE80061C1EA /* ShowQuickDiceViewNavButton.swift */,
-				314F83FA2492B2810061C1EA /* ShowFateOracleNavButton.swift */,
-				314F84002492BCC80061C1EA /* ShowCypherOracleNavButton.swift */,
-				315407172492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift */,
-				31FB75892493F56100622969 /* ShowOraclesNavButton.swift */,
-				31FB758B2493F57200622969 /* ShowGeneratorsNavButton.swift */,
-				31FB75922493F90B00622969 /* ShowAdventureCrafterGeneratorNavButton.swift */,
-				317FB1AB249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift */,
-				317FB1B7249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift */,
-			);
-			path = Navigation_Buttons;
-			sourceTree = "<group>";
-		};
 		3188CB842481C8C2001F53B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,14 +354,11 @@
 			isa = PBXGroup;
 			children = (
 				312F201A2481B3E1000CEB9C /* StartingView.swift */,
-				31FB75852493F40B00622969 /* OraclesView.swift */,
+				31342DF1249FAFDB007C4D74 /* OraclesListView.swift */,
 				31FB75872493F41B00622969 /* GeneratorsView.swift */,
-				3173EE5C2491340D00F646A3 /* SimpleOraclesView.swift */,
-				3118052224915B2600C3812C /* AdvancedOraclesView.swift */,
 				3173EE5A24912CD300F646A3 /* OTTOButton.swift */,
 				31C6BC1F248F107100494CD7 /* TextPopUpView.swift */,
 				3173EE69249143C900F646A3 /* QuickDiceView.swift */,
-				3173EE5E249135E700F646A3 /* Navigation_Buttons */,
 				31FB758D2493F7FD00622969 /* OracleViews */,
 				31FB758E2493F87D00622969 /* GeneratorViews */,
 			);
@@ -566,19 +507,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				314F83FB2492B2810061C1EA /* ShowFateOracleNavButton.swift in Sources */,
-				31FB758A2493F56100622969 /* ShowOraclesNavButton.swift in Sources */,
 				3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */,
 				31E9B9EB248BE6BE007B4463 /* SoloRPGOracleModel.swift in Sources */,
-				3173EE682491428700F646A3 /* ShowGMACardNavButton.swift in Sources */,
 				31BE22952483DEE400E21C00 /* GMACard.swift in Sources */,
 				3133B199249018B3005FF8FD /* Die.swift in Sources */,
 				314F83FD2492B6580061C1EA /* CypherOracleView.swift in Sources */,
-				3118052524915B6400C3812C /* ShowAdvMythicCardNavButton.swift in Sources */,
 				317FB1B6249C157E00FAC0D5 /* UNEGeneratorInteractionView.swift in Sources */,
 				3133B1A624901A55005FF8FD /* CypherOracleModel.swift in Sources */,
 				31ACC53024969E3800454787 /* CypherNPCViewModel.swift in Sources */,
-				31FB75932493F90B00622969 /* ShowAdventureCrafterGeneratorNavButton.swift in Sources */,
 				315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */,
 				316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */,
 				316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */,
@@ -590,54 +526,42 @@
 				3133B1AA24901BB5005FF8FD /* UNEGeneratorModel.swift in Sources */,
 				312F20172481B3E1000CEB9C /* AppDelegate.swift in Sources */,
 				31FB75912493F8AA00622969 /* AdventureCrafterGeneratorView.swift in Sources */,
-				3173EE5D2491340D00F646A3 /* SimpleOraclesView.swift in Sources */,
 				3168E4932483335300DCCC76 /* GMADiceView.swift in Sources */,
 				31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */,
-				3173EE64249136B600F646A3 /* ShowRPGSoloOracleNavButton.swift in Sources */,
-				31FB75862493F40B00622969 /* OraclesView.swift in Sources */,
 				3133B1CA249047FE005FF8FD /* MythicSimpleView.swift in Sources */,
 				314F83F7249285330061C1EA /* FateOracleView.swift in Sources */,
 				316D870A24886E8A000E03E0 /* MythicMidView.swift in Sources */,
 				3133B1A12490193D005FF8FD /* Deck.swift in Sources */,
-				31FB758C2493F57200622969 /* ShowGeneratorsNavButton.swift in Sources */,
-				3173EE622491365C00F646A3 /* ShowAdvancedOraclesNavButton.swift in Sources */,
-				317FB1AC249BF3D800FAC0D5 /* ShowCypherNPCGeneratorNavButton.swift in Sources */,
 				31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */,
 				317FB1B0249C02F900FAC0D5 /* UNEGeneratorView.swift in Sources */,
+				31342DF2249FAFDB007C4D74 /* OraclesListView.swift in Sources */,
 				31C6BC20248F107100494CD7 /* TextPopUpView.swift in Sources */,
 				316D871024895889000E03E0 /* View+isHidden.swift in Sources */,
-				314F84012492BCC80061C1EA /* ShowCypherOracleNavButton.swift in Sources */,
 				31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */,
 				312F20192481B3E1000CEB9C /* SceneDelegate.swift in Sources */,
 				317FB1AE249BFE4B00FAC0D5 /* UNEGeneratorViewModel.swift in Sources */,
-				314F83F324927DE80061C1EA /* ShowQuickDiceViewNavButton.swift in Sources */,
 				3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */,
 				31FB75882493F41B00622969 /* GeneratorsView.swift in Sources */,
 				3133B19B249018D6005FF8FD /* FateDie.swift in Sources */,
 				316D870824886BB3000E03E0 /* MythicTopView.swift in Sources */,
 				3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */,
-				3118052324915B2600C3812C /* AdvancedOraclesView.swift in Sources */,
 				31FB75952493FA6900622969 /* AdventureCrafterViewModel.swift in Sources */,
 				3173EE5B24912CD300F646A3 /* OTTOButton.swift in Sources */,
 				3154071A2492F65C00EB18D5 /* SoloRPGViewModel.swift in Sources */,
 				3133B1A824901B53005FF8FD /* CRGEOracleModel.swift in Sources */,
 				3173EE592491265E00F646A3 /* PETGeneratorModel.swift in Sources */,
-				3173EE662491425100F646A3 /* ShowMythicCardNavButton.swift in Sources */,
 				31ACC5322496A23000454787 /* CypherNPCGeneratorView.swift in Sources */,
 				316D87012487D31D000E03E0 /* MythicCardOnlyView.swift in Sources */,
 				3173EE6A249143C900F646A3 /* QuickDiceView.swift in Sources */,
 				311805292492646900C3812C /* GMAOracleModel.swift in Sources */,
 				3133B19D24901901005FF8FD /* Card.swift in Sources */,
 				316D87032487D900000E03E0 /* GMACardViewModel.swift in Sources */,
-				315407182492CBB700EB18D5 /* ShowCRGEOracleNavButton.swift in Sources */,
 				3154071C2492F78100EB18D5 /* SoloRPGOracleView.swift in Sources */,
 				315407142492CB7D00EB18D5 /* CRGEOracleViewModel.swift in Sources */,
 				317FB1B4249C156800FAC0D5 /* UNEGeneratorCharacterView.swift in Sources */,
 				31BE22A124842C8400E21C00 /* OracleModel.swift in Sources */,
 				316D87052487E91D000E03E0 /* MythicCardViewModel.swift in Sources */,
-				317FB1B8249C181300FAC0D5 /* ShowUNEGenratorNavButton.swift in Sources */,
 				314F84032492BDE00061C1EA /* AdventureCrafterModel.swift in Sources */,
-				3173EE602491360F00F646A3 /* ShowSimpleOraclesNavButton.swift in Sources */,
 				312F201B2481B3E1000CEB9C /* StartingView.swift in Sources */,
 				314F83F524927F180061C1EA /* FateOracleModel.swift in Sources */,
 				3173EE6C249144EC00F646A3 /* DiceSquareViewModel.swift in Sources */,

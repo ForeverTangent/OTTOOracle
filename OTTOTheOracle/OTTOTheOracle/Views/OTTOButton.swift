@@ -17,7 +17,6 @@ struct OTTOButton: View {
 			.overlay(
 				RoundedRectangle(cornerRadius: 20)
 					.stroke(Color.blue, lineWidth: 5)
-					.frame(width: 200.0, height: 50.0)
 		)
 	}
 }

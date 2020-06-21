@@ -52,6 +52,7 @@ struct CypherOracleView: View {
 					.frame(width: 200.0, height: 50.0)
 			)
 		}
+		.navigationBarTitle("Cypher", displayMode: .inline)
 		.frame(width: 300.0)
 	}
 }

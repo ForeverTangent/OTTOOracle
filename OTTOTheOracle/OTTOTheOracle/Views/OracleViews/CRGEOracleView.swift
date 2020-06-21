@@ -68,6 +68,7 @@ struct CRGEOracleView: View {
 			}
 			.frame(width: 300.0)
 		}
+		.navigationBarTitle("Cypher", displayMode: .inline)
 		.frame(width: 300.0)
 	}
 }

@@ -55,6 +55,7 @@ struct CypherNPCGeneratorView: View {
 					.frame(width: 200.0, height: 50.0)
 			)
 		}
+		.navigationBarTitle("Cypher NPC", displayMode: .inline)
 	}
 }
 
