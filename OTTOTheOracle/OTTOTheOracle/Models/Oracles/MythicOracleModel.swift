@@ -108,7 +108,7 @@ class MythicOracleModel {
 	/**
 	Sorts the Deck and get a specific card at index.
 	*/
-	func drawMythicCardIndex(_ index: Int, forward: Bool = true) -> MythicCard? {
+	public func drawMythicCardIndex(_ index: Int, forward: Bool = true) -> MythicCard? {
 		guard
 			let theMythicDeck = mythicDeck,
 			index < theMythicDeck.cards.count else {
@@ -217,7 +217,7 @@ enum MYTHIC_ORACLE_ANSWER: String, RPG_TABLE {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -257,7 +257,7 @@ enum MYTHIC_YES_DRAW: String, RPG_TABLE {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 

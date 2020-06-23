@@ -14,15 +14,15 @@ class CypherNPCGeneratorModel {
 
 		return CypherNPCCharacter(
 			name: "",
-			description: CYPHER_CHARACTER_DESCRIPTOR.randomWeightedElement(),
-			type: CYPHER_CHARACTER_TYPE.randomWeightedElement(),
-			characterFocusA: CYPHER_CHARACTER_FOCUS_A.randomWeightedElement(),
-			characterFocusB: CYPHER_CHARACTER_FOCUS_B.randomWeightedElement(),
-			characterMotivation: CYPHER_CHARACTER_MOTIVATION.randomWeightedElement(),
-			interactionTone: CYPHER_CHARACTER_INTERACTION_EMOTIONAL_TONE.randomWeightedElement(),
-			interactionDescriptorA: CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_A.randomWeightedElement(),
-			interactionDescriptorB: CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_B.randomWeightedElement(),
-			interactionFocus: CYPHER_CHARACTER_INTERACTION_FOCUS.randomWeightedElement())
+			description: CYPHER_CHARACTER_DESCRIPTOR.getRolledRandomElement(),
+			type: CYPHER_CHARACTER_TYPE.getRolledRandomElement(),
+			characterFocusA: CYPHER_CHARACTER_FOCUS_A.getRolledRandomElement(),
+			characterFocusB: CYPHER_CHARACTER_FOCUS_B.getRolledRandomElement(),
+			characterMotivation: CYPHER_CHARACTER_MOTIVATION.getRolledRandomElement(),
+			interactionTone: CYPHER_CHARACTER_INTERACTION_EMOTIONAL_TONE.getRolledRandomElement(),
+			interactionDescriptorA: CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_A.getRolledRandomElement(),
+			interactionDescriptorB: CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_B.getRolledRandomElement(),
+			interactionFocus: CYPHER_CHARACTER_INTERACTION_FOCUS.getRolledRandomElement())
 
 	}
 
@@ -152,7 +152,7 @@ enum CYPHER_CHARACTER_DESCRIPTOR: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -381,7 +381,7 @@ enum CYPHER_CHARACTER_TYPE: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -609,7 +609,7 @@ enum CYPHER_CHARACTER_FOCUS_A: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -836,7 +836,7 @@ enum CYPHER_CHARACTER_FOCUS_B: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -982,7 +982,7 @@ enum CYPHER_CHARACTER_MOTIVATION: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1132,7 +1132,7 @@ enum CYPHER_CHARACTER_INTERACTION_EMOTIONAL_TONE: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1360,7 +1360,7 @@ enum CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_A: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1587,7 +1587,7 @@ enum CYPHER_CHARACTER_INTERACTION_DESCRIPTOR_B: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1815,7 +1815,7 @@ enum CYPHER_CHARACTER_INTERACTION_FOCUS: String, RPG_TABLE, Codable {
 	case NONE
 
 	var descriptionShort: String { get {
-		return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+		return rawValue.getEnumFormmatted()
 		}
 	}
 

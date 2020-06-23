@@ -161,7 +161,7 @@ class AdventureThemeModelBuilder {
 		var priority = 1
 
 		while priorityToTheme.count < 5 || priority < 6{
-			let randomTheme = ADVENTURE_THEME.randomWeightedElement()
+			let randomTheme = ADVENTURE_THEME.getRolledRandomElement()
 			if !getIfThemeIsInDictionary(priorityToTheme: priorityToTheme,
 										 theme: randomTheme) {
 				priorityToTheme[priority] = randomTheme
@@ -245,7 +245,7 @@ class TuringPointBuilder {
 	}
 
 	private func getActionPlotPoint() -> ADVENTURE_PLOT_POINTS {
-		let plotPoint = ADVENTURE_ACTION_PLOT_POINT.randomWeightedElement()
+		let plotPoint = ADVENTURE_ACTION_PLOT_POINT.getRolledRandomElement()
 
 		if plotPoint == .META {
 			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
@@ -255,7 +255,7 @@ class TuringPointBuilder {
 
 
 	private func getTensionPlotPoint() -> ADVENTURE_PLOT_POINTS {
-		let plotPoint = ADVENTURE_TENSION_PLOT_POINT.randomWeightedElement()
+		let plotPoint = ADVENTURE_TENSION_PLOT_POINT.getRolledRandomElement()
 
 		if plotPoint == .META {
 			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
@@ -264,7 +264,7 @@ class TuringPointBuilder {
 	}
 
 	private func getMysteryPlotPoint() -> ADVENTURE_PLOT_POINTS {
-		let plotPoint = ADVENTURE_MYSTERY_PLOT_POINT.randomWeightedElement()
+		let plotPoint = ADVENTURE_MYSTERY_PLOT_POINT.getRolledRandomElement()
 
 		if plotPoint == .META {
 			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
@@ -273,7 +273,7 @@ class TuringPointBuilder {
 	}
 
 	private func getSocialPlotPoint() -> ADVENTURE_PLOT_POINTS {
-		let plotPoint = ADVENTURE_SOCIAL_PLOT_POINT.randomWeightedElement()
+		let plotPoint = ADVENTURE_SOCIAL_PLOT_POINT.getRolledRandomElement()
 
 		if plotPoint == .META {
 			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
@@ -282,7 +282,7 @@ class TuringPointBuilder {
 	}
 
 	private func getPersonalPlotPoint() -> ADVENTURE_PLOT_POINTS {
-		let plotPoint = ADVENTURE_PERSONAL_PLOT_PLOINT.randomWeightedElement()
+		let plotPoint = ADVENTURE_PERSONAL_PLOT_PLOINT.getRolledRandomElement()
 
 		if plotPoint == .META {
 			return ADVENTURE_PLOT_POINTS.getRandomMetaPlotPoint()
@@ -314,7 +314,7 @@ class CharacterDataBuilder {
 
 	func build() -> CharacterData {
 
-		let trait = ADVENTURE_CHARACTER_TRAIT.randomWeightedElement()
+		let trait = ADVENTURE_CHARACTER_TRAIT.getRolledRandomElement()
 
 		let identities: [ADVENTURE_CHARACTER_IDENTITY] = getCharacterIdentities()
 
@@ -338,7 +338,7 @@ class CharacterDataBuilder {
 		//			listOfIdentities = theIdentities
 		//		}
 
-		let identity = ADVENTURE_CHARACTER_IDENTITY.randomWeightedElement()
+		let identity = ADVENTURE_CHARACTER_IDENTITY.getRolledRandomElement()
 
 		if identity == .ROLL_FOR_TWO_IDENTITIES {
 			var firstListOfIds = [ADVENTURE_CHARACTER_IDENTITY]()
@@ -363,7 +363,7 @@ class CharacterDataBuilder {
 		//			listOfDescriptors = theDescriptors
 		//		}
 
-		let descriptor = ADVENTURE_CHARACTER_DESCRIPTOR.randomWeightedElement()
+		let descriptor = ADVENTURE_CHARACTER_DESCRIPTOR.getRolledRandomElement()
 
 		if descriptor == .ROLL_FOR_TWO_DESCRIPTORS {
 			var firstListOfDescriptors = [ADVENTURE_CHARACTER_DESCRIPTOR]()
@@ -490,7 +490,7 @@ enum ADVENTURE_PLOTLINES: String, RPG_TABLE {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -545,7 +545,7 @@ enum ADVENTURE_CHARACTERS: String, RPG_TABLE {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -640,7 +640,7 @@ enum ADVENTURE_ACTION_PLOT_POINT: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -771,7 +771,7 @@ enum ADVENTURE_TENSION_PLOT_POINT: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -908,7 +908,7 @@ enum ADVENTURE_MYSTERY_PLOT_POINT: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1036,7 +1036,7 @@ enum ADVENTURE_SOCIAL_PLOT_POINT: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1168,7 +1168,7 @@ enum ADVENTURE_PERSONAL_PLOT_PLOINT: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1447,7 +1447,7 @@ enum ADVENTURE_PLOT_POINTS: String, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1790,7 +1790,7 @@ enum ADVENTURE_CHARACTER_DESCRIPTOR: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -1965,7 +1965,7 @@ enum ADVENTURE_CHARACTER_IDENTITY: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 
@@ -2083,7 +2083,7 @@ enum ADVENTURE_CHARACTER_TRAIT: String, RPG_TABLE, Codable {
 
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
 

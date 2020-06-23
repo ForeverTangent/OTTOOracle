@@ -15,12 +15,12 @@ class FateOracleModel {
 
 		var answerTableResult: FateAnswerTableResult
 		switch rank {
-			case .TERRIBLE: answerTableResult = FATE_ORACLE_TERRIBLE_ANSWER_TABLE.randomWeightedElement()
-			case .POOR: answerTableResult = FATE_ORACLE_POOR_ANSWER_TABLE.randomWeightedElement()
-			case .EVEN: answerTableResult = FATE_ORACLE_EVEN_ANSWER_TABLE.randomWeightedElement()
-			case .GOOD: answerTableResult = FATE_ORACLE_GOOD_ANSWER_TABLE.randomWeightedElement()
-			case .GREAT: answerTableResult = FATE_ORACLE_GREAT_ANSWER_TABLE.randomWeightedElement()
-			case .NONE: answerTableResult = FATE_ORACLE_EVEN_ANSWER_TABLE.randomWeightedElement()
+			case .TERRIBLE: answerTableResult = FATE_ORACLE_TERRIBLE_ANSWER_TABLE.getRolledRandomElement()
+			case .POOR: answerTableResult = FATE_ORACLE_POOR_ANSWER_TABLE.getRolledRandomElement()
+			case .EVEN: answerTableResult = FATE_ORACLE_EVEN_ANSWER_TABLE.getRolledRandomElement()
+			case .GOOD: answerTableResult = FATE_ORACLE_GOOD_ANSWER_TABLE.getRolledRandomElement()
+			case .GREAT: answerTableResult = FATE_ORACLE_GREAT_ANSWER_TABLE.getRolledRandomElement()
+			case .NONE: answerTableResult = FATE_ORACLE_EVEN_ANSWER_TABLE.getRolledRandomElement()
 		}
 		
 		return FateOracleResult(title: answerTableResult.title,

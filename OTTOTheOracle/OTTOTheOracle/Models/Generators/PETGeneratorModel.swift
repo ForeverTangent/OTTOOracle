@@ -14,7 +14,7 @@ class PETGeneratorModel {
 
 	func buildNewPETCharacter() {
 		let petCharacter = PETCharacter(name: "",
-										agenda: PET_AGENDA.randomWeightedElement(),
+										agenda: PET_AGENDA.getRolledRandomElement(),
 										tags: generatePersonalityTags(),
 										seeds: generateFocusTags(),
 										focus: generateFocusTags())
@@ -25,7 +25,7 @@ class PETGeneratorModel {
 		let numberOfTags = Int.random(in: 1...3)
 		var tags = [PET_PERSONALITY_TAGS_BASE]()
 		for _ in 1...numberOfTags {
-			tags.append(PET_PERSONALITY_TAGS_BASE.randomWeightedElement())
+			tags.append(PET_PERSONALITY_TAGS_BASE.getRolledRandomElement())
 		}
 		return tags
 	}
@@ -33,7 +33,7 @@ class PETGeneratorModel {
 	private func generateFocusTags() -> [PET_FOCUS_TAGS] {
 		var focus = [PET_FOCUS_TAGS]()
 		for _ in 1...2 {
-			focus.append(PET_FOCUS_TAGS.randomWeightedElement())
+			focus.append(PET_FOCUS_TAGS.getRolledRandomElement())
 		}
 		return focus
 	}
@@ -41,7 +41,7 @@ class PETGeneratorModel {
 	private func generateFocusTags() -> [PET_SEEDS] {
 		var seeds = [PET_SEEDS]()
 		for _ in 1...3 {
-			seeds.append(PET_SEEDS.randomWeightedElement())
+			seeds.append(PET_SEEDS.getRolledRandomElement())
 		}
 		return seeds
 	}
@@ -59,9 +59,70 @@ struct PETCharacter {
 	var focus = [PET_FOCUS_TAGS]()
 }
 
+enum PET_AGENDA: String, RPG_TABLE {
+	typealias EnumerationType = PET_AGENDA
 
-enum PET_AGENDA: String, RPG_TABLE, Codable {
-	typealias Result = PET_AGENDA
+	static var MIN: Int = 1
+	static var MAX: Int = 9
+
+	case TRUE_FACE
+	case INEPT
+	case FLASHBACK
+	case UNNOBLE
+	case WEAK
+	case FOCUSED
+	case SKILLED
+	case NOBLE
+	case ON_POINT
+	case NONE
+
+	var descriptionShort: String { get { return rawValue.getEnumFormmatted() } }
+	var descriptionLong: String {
+		get {
+			switch self {
+				case .TRUE_FACE:
+					return "Loves secrets and dramatic re-veals; good or bad, himself or someone else."
+				case .INEPT:
+					return "Chaotic, bored, and not paying attention. Will try to assassinate anyone who might have good loot or for laughs."
+				case .FLASHBACK:
+					return "All about backstory and character development, but focused on her own character and pet NPCs."
+				case .UNNOBLE:
+					return "Cares about keeping his character intact and about amassing something of value – name it."
+				case .WEAK:
+					return "Craves new experiences, escapism. Not chaotic but doesn’t think about her allies before acting on temptation."
+				case .FOCUSED:
+					return "Wants to play the game he signed up for, do what’s on his character sheet, and avoid too much of any one game aspect."
+				case .SKILLED:
+					return "Plays skilled or flexible characters; wants to show that off. Motto: 'if all you’ve got is a hammer, everything looks like a nail'."
+				case .NOBLE:
+					return "Wants to do the right thing and sacrifice herself for the greater good, preferably, while being recognized and suffering for it."
+				case .ON_POINT:
+					return "Brings his best game. Always pushes the story and adventure towards a dramatic and satisfying conclusion."
+				default: return "None"
+			}
+		}
+	}
+
+	static func getElementBy(value: Int) -> PET_AGENDA {
+		switch value {
+			case 1: return .TRUE_FACE
+			case 2: return .INEPT
+			case 3: return .FLASHBACK
+			case 4: return .UNNOBLE
+			case 5: return .WEAK
+			case 6: return .FOCUSED
+			case 7: return .SKILLED
+			case 8: return .NOBLE
+			case 9: return .ON_POINT
+			default: return .NONE
+		}
+	}
+
+}
+
+
+enum PET_PLAYER_MOVES: String, RPG_TABLE, RPG_TABLE_STRING_VALUE {
+	typealias Result = PET_PLAYER_MOVES
 
 	static var MIN: Int = 1
 	static var MAX: Int = 11
@@ -79,29 +140,11 @@ enum PET_AGENDA: String, RPG_TABLE, Codable {
 	case TRUE_FACE_POSITIVE
 	case NONE
 
-	static func getElementBy(value: Int) -> PET_AGENDA {
-		switch value  {
-			case 1: return .TRUE_FACE_NEGATIVE
-			case 2: return .INEPT
-			case 3: return .FLASHBACK_NEGATIVE
-			case 4: return .UNNOBLE
-			case 5: return .WEAK
-			case 6: return .FOCUSED
-			case 7: return .SKILLED
-			case 8: return .NOBLE
-			case 9: return .FLASHBACK_POSITIVE
-			case 10: return .ON_POINT
-			case 11: return .TRUE_FACE_POSITIVE
-			default: return .NONE
-		}
-	}
-
 	var descriptionShort: String {
 		get {
-			return rawValue.capitalized.replacingOccurrences(of: "_", with: " ")
+			return rawValue.getEnumFormmatted()
 		}
 	}
-
 	var descriptionLong: String {
 		get {
 			switch self {
@@ -120,6 +163,64 @@ enum PET_AGENDA: String, RPG_TABLE, Codable {
 			}
 		}
 	}
+
+	static func getElementBy(value: Int) -> PET_PLAYER_MOVES {
+		switch value  {
+			case 1: return .TRUE_FACE_NEGATIVE
+			case 2: return .INEPT
+			case 3: return .FLASHBACK_NEGATIVE
+			case 4: return .UNNOBLE
+			case 5: return .WEAK
+			case 6: return .FOCUSED
+			case 7: return .SKILLED
+			case 8: return .NOBLE
+			case 9: return .FLASHBACK_POSITIVE
+			case 10: return .ON_POINT
+			case 11: return .TRUE_FACE_POSITIVE
+			default: return .NONE
+		}
+	}
+
+	static func getRolledRandomElement() -> PET_PLAYER_MOVES {
+		let d1 = Die(maxPips: 6)
+		let d2 = Die(maxPips: 6)
+
+		let roll = d1.roll() + d2.roll()
+
+		switch roll {
+			case 2: return .TRUE_FACE_NEGATIVE
+			case 3: return .INEPT
+			case 4: return .FLASHBACK_NEGATIVE
+			case 5: return .UNNOBLE
+			case 6: return .WEAK
+			case 7: return .FOCUSED
+			case 8: return .SKILLED
+			case 9: return .NOBLE
+			case 10: return .FLASHBACK_POSITIVE
+			case 11: return .ON_POINT
+			case 12: return .TRUE_FACE_POSITIVE
+			default: return .NONE
+		}
+	}
+
+
+	func getStringEnumValue() -> Int {
+		switch self {
+			case .TRUE_FACE_NEGATIVE: return 2
+			case .INEPT: return 3
+			case .FLASHBACK_NEGATIVE: return 4
+			case .UNNOBLE: return 5
+			case .WEAK: return 6
+			case .FOCUSED: return 7
+			case .SKILLED: return 8
+			case .NOBLE: return 9
+			case .FLASHBACK_POSITIVE: return 10
+			case .ON_POINT: return 11
+			case .TRUE_FACE_POSITIVE: return 12
+			case .NONE: return 0
+		}
+	}
+
 }
 
 
@@ -314,8 +415,27 @@ enum PET_META_TAGS: String, RPG_TABLE, Codable {
 	case IN_ZONE
 	case NONE
 
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
+	var descriptionShort: String { get { return rawValue.getEnumFormmatted() } }
+
+	var descriptionLong: String {
+		get {
+			switch self {
+				case .TIRED: return "If the Move dice match, the result is 'Inept'."
+				case .LONG_DAY: return "Minor penalty (-1) to all rolls."
+				case .GRUMPY: return "-1 to all Move and Oracle rolls."
+				case .PHONE_IN: return "Adjust all Move rolls one step lower."
+				case .UNLUCKY: return "-1 to all Oracle rolls that affect her directly."
+				case .VENDETTA: return "If Move dice match, a minor Intraparty Conflict, two 1s, major."
+				case .ENRAGED: return "Adjust all Move rolls one step higher."
+				case .INVESTED: return "If the Move dice match, you pick the result."
+				case .LATE: return "Under direct GM control until any two dice on a roll match."
+				case .LUCKY: return "+1 to all Oracle rolls that affect him directly."
+				case .SYNCED: return "Pick another Player; move rolls towards that Player’s Agenda."
+				case .IN_ZONE: return "If Move dice match, the result is 'On Point'"
+				case .NONE: return "None"
+			}
+		}
+	}
 
 	static func getElementBy(value: Int) -> PET_META_TAGS {
 		switch value {
@@ -363,7 +483,7 @@ enum PET_FOCUS_TAGS: String, RPG_TABLE, Codable {
 	case INFAMY
 	case NONE
 
-	var descriptionShort: String { get { return rawValue } }
+	var descriptionShort: String { get { return rawValue.getEnumFormmatted() } }
 	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> PET_FOCUS_TAGS {
@@ -452,16 +572,39 @@ enum PET_ORACLE: String, RPG_TABLE {
 	static var MIN: Int = 2
 	static var MAX: Int = 12
 
-	case GET_WHAT_PC_WANTS = "Get what PC wants."
-	case GWYW_WITH_CONFLICT = "Get what PC want with interparty conflict."
-	case CONFLICT_DO_NOT_GET = "PC does not get what PC want, and with interparty conflict."
+	case GET_WHAT_PC_WANTS
+	case GWYW_WITH_CONFLICT
+	case CONFLICT_DO_NOT_GET
 	case NONE
 
-	var descriptionShort: String { get { return rawValue } }
-	var descriptionLong: String { get { return descriptionShort } }
+	var descriptionShort: String { get { return rawValue.getEnumFormmatted() } }
+	var descriptionLong: String {
+		get {
+			switch self {
+				case .GET_WHAT_PC_WANTS: return "Get what PC wants."
+				case .GWYW_WITH_CONFLICT: return "Get what PC want with interparty conflict."
+				case .CONFLICT_DO_NOT_GET: return "PC does not get what PC want, and with interparty conflict."
+				case .NONE: return "None"
+			}
+		}
+	}
 
 	static func getElementBy(value: Int) -> PET_ORACLE {
 		switch value {
+			case 2...6: return .CONFLICT_DO_NOT_GET
+			case 7...9: return .GWYW_WITH_CONFLICT
+			case 10...12: return .GET_WHAT_PC_WANTS
+			default: return .NONE
+		}
+	}
+
+	static func getRolledRandomElement() -> PET_ORACLE {
+		let d1 = Die(maxPips: 6)
+		let d2 = Die(maxPips: 6)
+
+		let total = d1.roll() + d2.roll()
+
+		switch total {
 			case 2...6: return .CONFLICT_DO_NOT_GET
 			case 7...9: return .GWYW_WITH_CONFLICT
 			case 10...12: return .GET_WHAT_PC_WANTS

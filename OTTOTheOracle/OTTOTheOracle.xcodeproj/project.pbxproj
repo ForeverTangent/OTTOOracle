@@ -33,6 +33,8 @@
 		314F83FD2492B6580061C1EA /* CypherOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83FC2492B6580061C1EA /* CypherOracleView.swift */; };
 		314F83FF2492B6D40061C1EA /* CypherOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */; };
 		314F84032492BDE00061C1EA /* AdventureCrafterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F84022492BDE00061C1EA /* AdventureCrafterModel.swift */; };
+		31538E1F24A10880003EC247 /* PETGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31538E1E24A10880003EC247 /* PETGeneratorView.swift */; };
+		31538E2124A1094F003EC247 /* PETGeneratorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31538E2024A1094F003EC247 /* PETGeneratorViewModel.swift */; };
 		315407142492CB7D00EB18D5 /* CRGEOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */; };
 		315407162492CB9100EB18D5 /* CRGEOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407152492CB9100EB18D5 /* CRGEOracleView.swift */; };
 		3154071A2492F65C00EB18D5 /* SoloRPGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */; };
@@ -60,6 +62,7 @@
 		3188CB882481CD1F001F53B5 /* GMACardOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */; };
 		31A994EB248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json */; };
 		31A994ED248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json */; };
+		31AC78BC24A1269500BA01B8 /* String+GetEnumFormmatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AC78BB24A1269500BA01B8 /* String+GetEnumFormmatted.swift */; };
 		31ACC52E249655A600454787 /* CypherNPCGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC52D249655A600454787 /* CypherNPCGeneratorModel.swift */; };
 		31ACC53024969E3800454787 /* CypherNPCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */; };
 		31ACC5322496A23000454787 /* CypherNPCGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC5312496A23000454787 /* CypherNPCGeneratorView.swift */; };
@@ -120,6 +123,8 @@
 		314F83FC2492B6580061C1EA /* CypherOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherOracleView.swift; sourceTree = "<group>"; };
 		314F83FE2492B6D40061C1EA /* CypherOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherOracleViewModel.swift; sourceTree = "<group>"; };
 		314F84022492BDE00061C1EA /* AdventureCrafterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureCrafterModel.swift; sourceTree = "<group>"; };
+		31538E1E24A10880003EC247 /* PETGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETGeneratorView.swift; sourceTree = "<group>"; };
+		31538E2024A1094F003EC247 /* PETGeneratorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETGeneratorViewModel.swift; sourceTree = "<group>"; };
 		315407132492CB7D00EB18D5 /* CRGEOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleViewModel.swift; sourceTree = "<group>"; };
 		315407152492CB9100EB18D5 /* CRGEOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRGEOracleView.swift; sourceTree = "<group>"; };
 		315407192492F65C00EB18D5 /* SoloRPGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloRPGViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +152,7 @@
 		3188CB872481CD1F001F53B5 /* GMACardOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMACardOnlyView.swift; sourceTree = "<group>"; };
 		31A994EA248EA53C00EFA9A3 /* ELEMENT_DESCRIPTIONS_LONG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ELEMENT_DESCRIPTIONS_LONG.json; sourceTree = "<group>"; };
 		31A994EC248EA9F400EFA9A3 /* TAG_DESCRIPTIONS_LONG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TAG_DESCRIPTIONS_LONG.json; sourceTree = "<group>"; };
+		31AC78BB24A1269500BA01B8 /* String+GetEnumFormmatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetEnumFormmatted.swift"; sourceTree = "<group>"; };
 		31ACC52D249655A600454787 /* CypherNPCGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCGeneratorModel.swift; sourceTree = "<group>"; };
 		31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCViewModel.swift; sourceTree = "<group>"; };
 		31ACC5312496A23000454787 /* CypherNPCGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CypherNPCGeneratorView.swift; sourceTree = "<group>"; };
@@ -223,6 +229,7 @@
 				312F20212481B3E2000CEB9C /* LaunchScreen.storyboard */,
 				312F20242481B3E2000CEB9C /* Info.plist */,
 				312F201E2481B3E2000CEB9C /* Preview Content */,
+				31AC78BB24A1269500BA01B8 /* String+GetEnumFormmatted.swift */,
 			);
 			path = OTTOTheOracle;
 			sourceTree = "<group>";
@@ -346,6 +353,7 @@
 				31FB75942493FA6900622969 /* AdventureCrafterViewModel.swift */,
 				31ACC52F24969E3800454787 /* CypherNPCViewModel.swift */,
 				317FB1AD249BFE4B00FAC0D5 /* UNEGeneratorViewModel.swift */,
+				31538E2024A1094F003EC247 /* PETGeneratorViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -386,6 +394,7 @@
 				317FB1AF249C02F900FAC0D5 /* UNEGeneratorView.swift */,
 				317FB1B3249C156800FAC0D5 /* UNEGeneratorCharacterView.swift */,
 				317FB1B5249C157E00FAC0D5 /* UNEGeneratorInteractionView.swift */,
+				31538E1E24A10880003EC247 /* PETGeneratorView.swift */,
 			);
 			path = GeneratorViews;
 			sourceTree = "<group>";
@@ -519,6 +528,7 @@
 				316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */,
 				316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */,
 				314F83FF2492B6D40061C1EA /* CypherOracleViewModel.swift in Sources */,
+				31538E1F24A10880003EC247 /* PETGeneratorView.swift in Sources */,
 				31180521249150D700C3812C /* MythicAdvancedView.swift in Sources */,
 				31ACC52E249655A600454787 /* CypherNPCGeneratorModel.swift in Sources */,
 				314F83F92492AC0B0061C1EA /* FateOracleViewModel.swift in Sources */,
@@ -530,6 +540,7 @@
 				31BE22932483DE8B00E21C00 /* MythicCard.swift in Sources */,
 				3133B1CA249047FE005FF8FD /* MythicSimpleView.swift in Sources */,
 				314F83F7249285330061C1EA /* FateOracleView.swift in Sources */,
+				31AC78BC24A1269500BA01B8 /* String+GetEnumFormmatted.swift in Sources */,
 				316D870A24886E8A000E03E0 /* MythicMidView.swift in Sources */,
 				3133B1A12490193D005FF8FD /* Deck.swift in Sources */,
 				31BE22A524843EE600E21C00 /* GMATopView.swift in Sources */,
@@ -565,6 +576,7 @@
 				312F201B2481B3E1000CEB9C /* StartingView.swift in Sources */,
 				314F83F524927F180061C1EA /* FateOracleModel.swift in Sources */,
 				3173EE6C249144EC00F646A3 /* DiceSquareViewModel.swift in Sources */,
+				31538E2124A1094F003EC247 /* PETGeneratorViewModel.swift in Sources */,
 				3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */,
 				31BE22A724843F9300E21C00 /* GMADescriptionsView.swift in Sources */,
 				3133B1AC24901C0D005FF8FD /* SWWCGeneratorModel.swift in Sources */,

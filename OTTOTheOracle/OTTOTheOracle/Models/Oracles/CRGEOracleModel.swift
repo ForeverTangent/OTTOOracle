@@ -39,7 +39,7 @@ class CRGEOracleModel {
 
 		print("surgeReturn: \(surgeReturn)")
 
-		let unexpectedResults = CRGE_UNEXPECTEDLY.randomWeightedElement()
+		let unexpectedResults = CRGE_UNEXPECTEDLY.getRolledRandomElement()
 
 		return CRGEOracleResult(surge: surgeReturn,
 								answer: answer,

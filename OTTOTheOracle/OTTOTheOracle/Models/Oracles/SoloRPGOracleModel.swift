@@ -12,7 +12,7 @@ class SoloRPGOracleModel {
 
 	public func getResults() -> SoloRPGOracleResult {
 
-		let answer = RPG_SOLO_ORACLE.randomWeightedElement()
+		let answer = RPG_SOLO_ORACLE.getRolledRandomElement()
 		let twist = getTwist()
 
 		return SoloRPGOracleResult(answer: answer,
@@ -27,7 +27,7 @@ class SoloRPGOracleModel {
 			return (RPG_SOLO_TWIST_1.NONE, RPG_SOLO_TWIST_2.NONE)
 		}
 
-		return (RPG_SOLO_TWIST_1.randomWeightedElement(), RPG_SOLO_TWIST_2.randomWeightedElement())
+		return (RPG_SOLO_TWIST_1.getRolledRandomElement(), RPG_SOLO_TWIST_2.getRolledRandomElement())
 	}
 
 }

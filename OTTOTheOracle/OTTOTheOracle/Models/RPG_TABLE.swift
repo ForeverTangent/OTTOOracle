@@ -22,8 +22,20 @@ protocol RPG_TABLE: CaseIterable, Codable {
 	static func getElementBy(value: Int) -> EnumerationType
 	static func randomElement() -> Self
 	static func randomIntInRange() -> Int
-	static func randomWeightedElement() -> EnumerationType
+	static func getRolledRandomElement() -> EnumerationType
+
 }
+
+//protocol RPG_TABLE_ROLLED {
+//	associatedtype EnumerationType
+//	static func getRolledResult() -> EnumerationType
+//}
+
+protocol RPG_TABLE_STRING_VALUE {
+	func getStringEnumValue() -> Int
+}
+
+
 
 /**
 Extention fro RPG_TABLE Protocol.
@@ -39,7 +51,7 @@ extension RPG_TABLE {
 		return Self.allCases.randomElement(using: &SRNG)!
 	}
 
-	static func randomWeightedElement() -> EnumerationType {
+	static func getRolledRandomElement() -> EnumerationType {
 		let index = randomIntInRange()
 		return getElementBy(value: index)
 	}

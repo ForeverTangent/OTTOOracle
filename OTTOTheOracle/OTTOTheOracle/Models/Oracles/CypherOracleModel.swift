@@ -23,7 +23,7 @@ class CypherOracleModel {
 		let oracleModifierAnswer: CYPHER_ANSWER = developerRoll < (adventureStatus.rawValue * 3) ? .YES : .NO
 
 		if oracleModifierAnswer == .YES {
-			return CypherResult(oracleAnswer: oracleAnswer, developer: CYPHER_DEVELOPER.randomWeightedElement())
+			return CypherResult(oracleAnswer: oracleAnswer, developer: CYPHER_DEVELOPER.getRolledRandomElement())
 		}
 
 		return CypherResult(oracleAnswer: oracleAnswer, developer: .NONE)

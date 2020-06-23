@@ -27,15 +27,15 @@ class SWWCGeneratorModel {
 
 	private func buildFamilyHistoryUsingBackgroundModel(_ backgroundModel: inout WildCardBackgroundModel) {
 
-		backgroundModel.familyRanking = SWWC_FAMILY_RANKING.randomWeightedElement()
-		backgroundModel.familyStatus = SWWC_FAMILY_STATUS.randomWeightedElement()
+		backgroundModel.familyRanking = SWWC_FAMILY_RANKING.getRolledRandomElement()
+		backgroundModel.familyStatus = SWWC_FAMILY_STATUS.getRolledRandomElement()
 
 		if backgroundModel.familyStatus == .DANGER_OF_LOSING_EVERYTHING {
-			backgroundModel.familyTradegies = SWWC_FAMILY_TRAGEDY.randomWeightedElement()
+			backgroundModel.familyTradegies = SWWC_FAMILY_TRAGEDY.getRolledRandomElement()
 		}
 
-		backgroundModel.parentsStatus = SWWC_PARENTAL_STATUS.randomWeightedElement()
-		backgroundModel.familyEvents = SWWC_FAMILY_EVENT.randomWeightedElement()
+		backgroundModel.parentsStatus = SWWC_PARENTAL_STATUS.getRolledRandomElement()
+		backgroundModel.familyEvents = SWWC_FAMILY_EVENT.getRolledRandomElement()
 
 	}
 
@@ -45,19 +45,19 @@ class SWWCGeneratorModel {
 
 		switch value {
 			case 1,3,5,7: // Fortunre
-				backgroundModel.childhoodFortune = SWWC_CHILDHOOD_FOURTUNATE_EVENTS.randomWeightedElement()
+				backgroundModel.childhoodFortune = SWWC_CHILDHOOD_FOURTUNATE_EVENTS.getRolledRandomElement()
 			case 2,4,6,8: // Tradegy
-				backgroundModel.childhoodTrauma = SWWC_CHILDHOOD_TRAUMA_EVENTS.randomWeightedElement()
+				backgroundModel.childhoodTrauma = SWWC_CHILDHOOD_TRAUMA_EVENTS.getRolledRandomElement()
 			case 9, 10: // One of each
-				backgroundModel.childhoodFortune = SWWC_CHILDHOOD_FOURTUNATE_EVENTS.randomWeightedElement()
-				backgroundModel.childhoodTrauma = SWWC_CHILDHOOD_TRAUMA_EVENTS.randomWeightedElement()
+				backgroundModel.childhoodFortune = SWWC_CHILDHOOD_FOURTUNATE_EVENTS.getRolledRandomElement()
+				backgroundModel.childhoodTrauma = SWWC_CHILDHOOD_TRAUMA_EVENTS.getRolledRandomElement()
 			default:
 				break
 		}
 	}
 
 	private func buildPersonalityAndPhilosophy(_ backgroundModel: inout WildCardBackgroundModel) {
-		backgroundModel.personalityType = SWWC_PERSONALITY_TYPE.randomWeightedElement()
+		backgroundModel.personalityType = SWWC_PERSONALITY_TYPE.getRolledRandomElement()
 		backgroundModel.philosophyType = SWWC_PHILOSPHY_TYPE.getPhilosophyWithPersonality(backgroundModel.personalityType)
 
 		// Drivers
@@ -103,7 +103,7 @@ class SWWCGeneratorModel {
 
 	private func buildLifeEvents(_ backgroundModel: inout WildCardBackgroundModel) {
 
-		backgroundModel.age = SWWC_AGE_RANGE.randomWeightedElement()
+		backgroundModel.age = SWWC_AGE_RANGE.getRolledRandomElement()
 
 		var numberOfLifeEvents = 0
 
@@ -115,18 +115,18 @@ class SWWCGeneratorModel {
 		}
 
 		for _ in 1...numberOfLifeEvents {
-			backgroundModel.lifeEvents.append(SWWC_LIFE_EVENTS.randomWeightedElement())
+			backgroundModel.lifeEvents.append(SWWC_LIFE_EVENTS.getRolledRandomElement())
 		}
 
 		for _ in 1...getEnemyLifeEventsCount(&backgroundModel) {
-			backgroundModel.enemies.append(EnemyDetails(cause: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE.randomWeightedElement(),
-														direction: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_DIRECTION.randomWeightedElement(),
-														action: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_ACTION.randomWeightedElement(),
-														tools: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_TOOLS.randomWeightedElement()))
+			backgroundModel.enemies.append(EnemyDetails(cause: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_CAUSE.getRolledRandomElement(),
+														direction: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_DIRECTION.getRolledRandomElement(),
+														action: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_ACTION.getRolledRandomElement(),
+														tools: SWWC_LIFE_EVENTS_MAKE_AN_ENEMY_TOOLS.getRolledRandomElement()))
 		}
 
 		for _ in 1...getRomanticEventsCount(&backgroundModel) {
-			let howItWorkedOut = SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS.randomWeightedElement()
+			let howItWorkedOut = SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS.getRolledRandomElement()
 			switch howItWorkedOut {
 				case .HAPPY_LOVE_AFFAIR:
 					backgroundModel.romances.append(RomanceDetails(tone: howItWorkedOut,
@@ -136,21 +136,21 @@ class SWWCGeneratorModel {
 				case .TRAGIC_LOVE_AFFAIR:
 					backgroundModel.romances.append(
 						RomanceDetails(tone: howItWorkedOut,
-									   tradegy: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_TRAGIC.randomWeightedElement(),
+									   tradegy: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_TRAGIC.getRolledRandomElement(),
 									   problem: .NONE,
 									   currentFeeling: .NONE))
 				case .LOVE_AFFAIR_WITH_PROBLEMS:
 					backgroundModel.romances.append(
 						RomanceDetails(tone: howItWorkedOut,
 									   tradegy: .NONE,
-									   problem: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_WITH_PROBLEMS.randomWeightedElement(),
-									   currentFeeling: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS.randomWeightedElement()))
+									   problem: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_WITH_PROBLEMS.getRolledRandomElement(),
+									   currentFeeling: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS.getRolledRandomElement()))
 				case .FAST_AFFAIR:
 					backgroundModel.romances.append(
 						RomanceDetails(tone: howItWorkedOut,
 									   tradegy: .NONE,
 									   problem: .NONE,
-									   currentFeeling: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS.randomWeightedElement()))
+									   currentFeeling: SWWC_LIFE_EVENTS_ROMANTIC_AFFAIRS_MUTUAL_FEELINGS.getRolledRandomElement()))
 				case .NONE:
 					break
 			}
@@ -1233,7 +1233,7 @@ enum SWWC_LIFE_EVENTS: String, RPG_TABLE, Codable {
 	
 
 
-	var descriptionShort: String { get { return rawValue.capitalized.replacingOccurrences(of: "_", with: " ") } }
+	var descriptionShort: String { get { return rawValue.getEnumFormmatted() } }
 	var descriptionLong: String {
 		get {
 			switch self {

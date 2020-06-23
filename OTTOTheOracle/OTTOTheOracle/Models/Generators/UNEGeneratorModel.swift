@@ -12,10 +12,10 @@ class UNEGeneratorModel {
 
 	func getRandomCharacter() -> UNECharacter {
 		return UNECharacter(name: "",
-							modifier: UNE_NPC_MODIFIER.randomWeightedElement(),
-							noun: UNE_NPC_NOUN.randomWeightedElement(),
-							motivationVerb: UNE_NPC_MOTIVATION_VERB.randomWeightedElement(),
-							motivationNoun: UNE_NPC_MOTIVATION_NOUN.randomWeightedElement())
+							modifier: UNE_NPC_MODIFIER.getRolledRandomElement(),
+							noun: UNE_NPC_NOUN.getRolledRandomElement(),
+							motivationVerb: UNE_NPC_MOTIVATION_VERB.getRolledRandomElement(),
+							motivationNoun: UNE_NPC_MOTIVATION_NOUN.getRolledRandomElement())
 	}
 
 
@@ -24,7 +24,7 @@ class UNEGeneratorModel {
 
 		let conversationMood = getConversationMoodFrom(relationshipStatus: status)
 		let bearing = getBearingFrom(demeanor: demeanor)
-		let focus: UNE_NPC_FOCUS = UNE_NPC_FOCUS.randomWeightedElement()
+		let focus: UNE_NPC_FOCUS = UNE_NPC_FOCUS.getRolledRandomElement()
 
 		return UNEInteraction(relationshipStatus: status,
 							  conversationMood: conversationMood,
@@ -36,13 +36,13 @@ class UNEGeneratorModel {
 
 	private func getConversationMoodFrom(relationshipStatus status: UNE_NPC_RELATIONSHIP_STATUS) -> UNE_NPC_CONVERSATION_MOOD {
 		switch status {
-			case .LOVED: return UNE_NPC_COVERSATION_MOOD_LOVED.randomWeightedElement()
-			case .FRIENDLY: return UNE_NPC_COVERSATION_MOOD_FRIENDLY.randomWeightedElement()
-			case .PEACEFUL: return UNE_NPC_COVERSATION_MOOD_PEACEFUL.randomWeightedElement()
-			case .NEUTRAL: return UNE_NPC_COVERSATION_MOOD_NEUTRAL.randomWeightedElement()
-			case .DISTRUSTFUL: return UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL.randomWeightedElement()
-			case .HOSTILE: return UNE_NPC_COVERSATION_MOOD_HOSTILE.randomWeightedElement()
-			case .HATED: return UNE_NPC_COVERSATION_MOOD_HATED.randomWeightedElement()
+			case .LOVED: return UNE_NPC_COVERSATION_MOOD_LOVED.getRolledRandomElement()
+			case .FRIENDLY: return UNE_NPC_COVERSATION_MOOD_FRIENDLY.getRolledRandomElement()
+			case .PEACEFUL: return UNE_NPC_COVERSATION_MOOD_PEACEFUL.getRolledRandomElement()
+			case .NEUTRAL: return UNE_NPC_COVERSATION_MOOD_NEUTRAL.getRolledRandomElement()
+			case .DISTRUSTFUL: return UNE_NPC_COVERSATION_MOOD_DISTRUSTFUL.getRolledRandomElement()
+			case .HOSTILE: return UNE_NPC_COVERSATION_MOOD_HOSTILE.getRolledRandomElement()
+			case .HATED: return UNE_NPC_COVERSATION_MOOD_HATED.getRolledRandomElement()
 			case .NONE: return UNE_NPC_CONVERSATION_MOOD.NONE
 		}
 	}
@@ -50,14 +50,14 @@ class UNEGeneratorModel {
 
 	private func getBearingFrom(demeanor: UNE_NPC_DEMEANOR) -> UNE_NPC_BEARING {
 		switch demeanor {
-			case .SCHEMING: return UNE_NPC_DEMEANOR_SCHEMING.randomWeightedElement()
-			case .INSANE: return UNE_NPC_DEMEANOR_INSANE.randomWeightedElement()
-			case .FRIENDLY: return UNE_NPC_DEMEANOR_FRIENDLY.randomWeightedElement()
-			case .HOSTILE: return UNE_NPC_DEMEANOR_HOSTILE.randomWeightedElement()
-			case .INQUISITIVE: return UNE_NPC_DEMEANOR_INQUISITIVE.randomWeightedElement()
-			case .KNOWNING: return UNE_NPC_DEMEANOR_KNOWING.randomWeightedElement()
-			case .MYSTERIOUS: return UNE_NPC_DEMEANOR_MYSTERIOUS.randomWeightedElement()
-			case .PREJUDICED: return UNE_NPC_DEMEANOR_PREJUDICED.randomWeightedElement()
+			case .SCHEMING: return UNE_NPC_DEMEANOR_SCHEMING.getRolledRandomElement()
+			case .INSANE: return UNE_NPC_DEMEANOR_INSANE.getRolledRandomElement()
+			case .FRIENDLY: return UNE_NPC_DEMEANOR_FRIENDLY.getRolledRandomElement()
+			case .HOSTILE: return UNE_NPC_DEMEANOR_HOSTILE.getRolledRandomElement()
+			case .INQUISITIVE: return UNE_NPC_DEMEANOR_INQUISITIVE.getRolledRandomElement()
+			case .KNOWNING: return UNE_NPC_DEMEANOR_KNOWING.getRolledRandomElement()
+			case .MYSTERIOUS: return UNE_NPC_DEMEANOR_MYSTERIOUS.getRolledRandomElement()
+			case .PREJUDICED: return UNE_NPC_DEMEANOR_PREJUDICED.getRolledRandomElement()
 			case .NONE: return UNE_NPC_BEARING.NONE
 		}
 	}
