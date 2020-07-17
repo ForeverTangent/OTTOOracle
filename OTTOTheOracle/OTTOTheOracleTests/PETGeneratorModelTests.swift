@@ -1,18 +1,19 @@
 //
-//  AdventureCraftModelTests.swift
+//  PETGeneratorModelTests.swift
 //  OTTOTheOracleTests
 //
-//  Created by Stanley Rosenbaum on 6/12/20.
+//  Created by Stanley Rosenbaum on 7/17/20.
 //  Copyright © 2020 STAQUE. All rights reserved.
 //
 
 import XCTest
 @testable import OTTO_The_Oracle
 
-class AdventureCraftModelTests: XCTestCase {
+class PETGeneratorModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+
     }
 
     override func tearDownWithError() throws {
@@ -31,9 +32,14 @@ class AdventureCraftModelTests: XCTestCase {
         }
     }
 
-	func test1() throws {
 
+	func testBuildPETCharacter() throws {
+		let petGeneratorModel = PETGeneratorModel()
+		petGeneratorModel.buildNewPETCharacter()
+
+		print(petGeneratorModel.petCharacter)
 
 	}
+
 
 }

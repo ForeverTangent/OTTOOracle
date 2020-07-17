@@ -10,7 +10,6 @@ import SwiftUI
 import os
 
 struct StartingView: View {
-	@EnvironmentObject var oracleManager: OracleViewModel
 
 	var body: some View {
 		NavigationView {
@@ -23,12 +22,12 @@ struct StartingView: View {
 				}
 			}.frame(height: 250.0)
 				.navigationBarTitle("Main", displayMode: .inline)
-		}.environmentObject(oracleManager)
+		}
 	}
 }
 
 struct StartingView_Previews: PreviewProvider {
 	static var previews: some View {
-		StartingView().environmentObject(OracleViewModel())
+		StartingView()
 	}
 }

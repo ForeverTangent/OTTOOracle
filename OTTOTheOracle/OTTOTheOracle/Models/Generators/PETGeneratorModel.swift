@@ -7,17 +7,19 @@
 //
 
 import Foundation
+import GameplayKit.GKStateMachine
+import GameplayKit.GKState
 
 class PETGeneratorModel {
 
 	var petCharacter = PETCharacter()
 
-	func buildNewPETCharacter() {
+	public func buildNewPETCharacter() {
 		let petCharacter = PETCharacter(name: "",
 										agenda: PET_AGENDA.getRolledRandomElement(),
-										tags: generatePersonalityTags(),
+										personalityTags: generatePersonalityTags(),
 										seeds: generateFocusTags(),
-										focus: generateFocusTags())
+										focusTags: generateFocusTags())
 		self.petCharacter = petCharacter
 	}
 
@@ -51,13 +53,53 @@ class PETGeneratorModel {
 
 }
 
+
+class PETAPMStateMachine: GKStateMachine {
+//	func canEnterState(AnyClass) -> Bool
+//	Returns a Boolean value indicating whether it is valid for the state machine to transition from its current state to a state of the specified class.
+//	func enter(AnyClass) -> Bool
+//	Attempts to transition the state machine from its current state to a state of the specified class.
+//	func update(deltaTime: TimeInterval)
+//	Tells the current state object to perform per-frame updates.
+
+}
+
+class PETAPMState: GKState {
+//	func isValidNextState(AnyClass) -> Bool
+//	Returns a Boolean value indicating whether a state machine currently in this state is allowed to transition into the specified state.
+//	Transitions and Updates
+//	func didEnter(from: GKState?)
+//	Performs custom actions when a state machine transitions into this state.
+//	func update(deltaTime: TimeInterval)
+//	Performs custom actions when a state machine updates while in this state.
+//	func willExit(to: GKState)
+//	Performs custom actions when a state machine transitions out of this state.
+}
+
 struct PETCharacter {
 	var name: String = ""
 	var agenda: PET_AGENDA = .NONE
-	var tags = [PET_PERSONALITY_TAGS_BASE]()
+	var personalityTags = [PET_PERSONALITY_TAGS_BASE]()
 	var seeds = [PET_SEEDS]()
-	var focus = [PET_FOCUS_TAGS]()
+	var focusTags = [PET_FOCUS_TAGS]()
 }
+
+extension PETCharacter: CustomStringConvertible {
+
+	var description: String {
+		get {
+			return """
+			\tname: \(self.name)
+			\tagenda: \(self.agenda)
+			\tPersonality Tags: \(self.personalityTags)
+			\tFocus Tags: \(self.focusTags)
+			\tseeds: \(self.seeds)
+			"""
+		}
+	}
+
+}
+
 
 enum PET_AGENDA: String, RPG_TABLE {
 	typealias EnumerationType = PET_AGENDA
@@ -305,7 +347,7 @@ enum PET_PERSONALITY_TAGS_BASE: String, RPG_TABLE, Codable {
 	case CAREFUL
 	case AMORAL
 
-	var descriptionShort: String { get { return rawValue } }
+	var descriptionShort: String { get { return rawValue.getEnumFormmatted() } }
 	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> PET_PERSONALITY_TAGS_BASE {
@@ -537,7 +579,7 @@ enum PET_SEEDS: String, RPG_TABLE, Codable {
 	case GOAL
 	case NONE
 
-	var descriptionShort: String { get { return rawValue } }
+	var descriptionShort: String { get { return rawValue.getEnumFormmatted() } }
 	var descriptionLong: String { get { return descriptionShort } }
 
 	static func getElementBy(value: Int) -> PET_SEEDS {

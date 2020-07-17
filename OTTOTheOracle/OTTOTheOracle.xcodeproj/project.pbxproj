@@ -49,6 +49,7 @@
 		316D870C24887188000E03E0 /* MythicBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870B24887188000E03E0 /* MythicBottomView.swift */; };
 		316D871024895889000E03E0 /* View+isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D870F24895889000E03E0 /* View+isHidden.swift */; };
 		316D8716248AB756000E03E0 /* MythicOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D8715248AB756000E03E0 /* MythicOracleModel.swift */; };
+		316E4D8B24C1FCA900CE9860 /* PETGeneratorModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316E4D8A24C1FCA900CE9860 /* PETGeneratorModelTests.swift */; };
 		3173649A2485CD4A00D8C26B /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317364992485CD4A00D8C26B /* PreviewHelper.swift */; };
 		3173EE592491265E00F646A3 /* PETGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE582491265E00F646A3 /* PETGeneratorModel.swift */; };
 		3173EE5B24912CD300F646A3 /* OTTOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173EE5A24912CD300F646A3 /* OTTOButton.swift */; };
@@ -139,6 +140,7 @@
 		316D870B24887188000E03E0 /* MythicBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicBottomView.swift; sourceTree = "<group>"; };
 		316D870F24895889000E03E0 /* View+isHidden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+isHidden.swift"; sourceTree = "<group>"; };
 		316D8715248AB756000E03E0 /* MythicOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicOracleModel.swift; sourceTree = "<group>"; };
+		316E4D8A24C1FCA900CE9860 /* PETGeneratorModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETGeneratorModelTests.swift; sourceTree = "<group>"; };
 		317364992485CD4A00D8C26B /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		3173EE582491265E00F646A3 /* PETGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETGeneratorModel.swift; sourceTree = "<group>"; };
 		3173EE5A24912CD300F646A3 /* OTTOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOButton.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				31FB75A42494458000622969 /* AdventureCraftModelTests.swift */,
+				316E4D8A24C1FCA900CE9860 /* PETGeneratorModelTests.swift */,
 				31FB759C2494451E00622969 /* OTTOTheOracleTests.swift */,
 				31FB759E2494451E00622969 /* Info.plist */,
 			);
@@ -588,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31FB759D2494451E00622969 /* OTTOTheOracleTests.swift in Sources */,
+				316E4D8B24C1FCA900CE9860 /* PETGeneratorModelTests.swift in Sources */,
 				31FB75A52494458000622969 /* AdventureCraftModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,7 +794,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTTOTheOracle.app/OTTOTheOracle";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTTO The Oracle.app/OTTO The Oracle";
 			};
 			name = Debug;
 		};
@@ -810,7 +814,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTTOTheOracle.app/OTTOTheOracle";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OTTO The Oracle.app/OTTO The Oracle";
 			};
 			name = Release;
 		};
