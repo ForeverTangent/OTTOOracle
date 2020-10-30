@@ -20,6 +20,9 @@ struct GeneratorsView: View {
 			NavigationLink(destination: UNEGeneratorView()) {
 				OTTOButton(buttonTitle: "UNE NPC Generator")
 			}
+			NavigationLink(destination: PETGeneratorView()) {
+				OTTOButton(buttonTitle: "PET Generator")
+			}
 		}.frame(height: 250.0)
 			.navigationBarTitle("Generators", displayMode: .inline)
 	}

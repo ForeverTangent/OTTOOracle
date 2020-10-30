@@ -16,7 +16,8 @@ class FateOracleViewModel: ObservableObject {
 	func getFateOracleAnswerWithRank(_ rank: FATE_ORACLE_RANK) {
 		let results = FateOracleModel.getFateOracleResultForRank(rank)
 
-		surprise = results.oracleAnswer.descriptionShort
+		answer = results.oracleAnswer.descriptionShort
+		surprise = results.suprise.descriptionShort
 	}
 
 

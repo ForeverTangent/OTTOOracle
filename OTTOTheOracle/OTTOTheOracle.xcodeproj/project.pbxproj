@@ -27,6 +27,7 @@
 		3133B1CA249047FE005FF8FD /* MythicSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */; };
 		3133B1CC24904871005FF8FD /* GMAMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B1CB24904871005FF8FD /* GMAMainView.swift */; };
 		31342DF2249FAFDB007C4D74 /* OraclesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31342DF1249FAFDB007C4D74 /* OraclesListView.swift */; };
+		314A57CC24C35FF5003BD4BB /* OTTOBuildCharacterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A57CB24C35FF5003BD4BB /* OTTOBuildCharacterProtocol.swift */; };
 		314F83F524927F180061C1EA /* FateOracleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F424927F180061C1EA /* FateOracleModel.swift */; };
 		314F83F7249285330061C1EA /* FateOracleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F6249285330061C1EA /* FateOracleView.swift */; };
 		314F83F92492AC0B0061C1EA /* FateOracleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F83F82492AC0B0061C1EA /* FateOracleViewModel.swift */; };
@@ -118,6 +119,7 @@
 		3133B1C9249047FE005FF8FD /* MythicSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicSimpleView.swift; sourceTree = "<group>"; };
 		3133B1CB24904871005FF8FD /* GMAMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAMainView.swift; sourceTree = "<group>"; };
 		31342DF1249FAFDB007C4D74 /* OraclesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraclesListView.swift; sourceTree = "<group>"; };
+		314A57CB24C35FF5003BD4BB /* OTTOBuildCharacterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOBuildCharacterProtocol.swift; sourceTree = "<group>"; };
 		314F83F424927F180061C1EA /* FateOracleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleModel.swift; sourceTree = "<group>"; };
 		314F83F6249285330061C1EA /* FateOracleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleView.swift; sourceTree = "<group>"; };
 		314F83F82492AC0B0061C1EA /* FateOracleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateOracleViewModel.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				3133B19F24901921005FF8FD /* Cards */,
 				3133B1A224901959005FF8FD /* RPG_TABLE.swift */,
 				31BE22A024842C8400E21C00 /* OracleModel.swift */,
+				314A57CB24C35FF5003BD4BB /* OTTOBuildCharacterProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -457,7 +460,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = STAQUE;
 				TargetAttributes = {
 					312F20122481B3E1000CEB9C = {
@@ -552,6 +555,7 @@
 				31C6BC20248F107100494CD7 /* TextPopUpView.swift in Sources */,
 				316D871024895889000E03E0 /* View+isHidden.swift in Sources */,
 				31BE22AA2484405300E21C00 /* GMATagBottonView.swift in Sources */,
+				314A57CC24C35FF5003BD4BB /* OTTOBuildCharacterProtocol.swift in Sources */,
 				312F20192481B3E1000CEB9C /* SceneDelegate.swift in Sources */,
 				317FB1AE249BFE4B00FAC0D5 /* UNEGeneratorViewModel.swift in Sources */,
 				3168E48E2482EE7800DCCC76 /* OracleViewModel.swift in Sources */,
@@ -644,6 +648,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -704,6 +709,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

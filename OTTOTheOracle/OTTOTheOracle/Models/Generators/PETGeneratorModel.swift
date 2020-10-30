@@ -53,6 +53,14 @@ class PETGeneratorModel {
 
 }
 
+extension PETGeneratorModel: OTTOBuildCharacter {
+	typealias CharacterType = PETCharacter
+
+	func buildNewCharacter() -> PETCharacter {
+		return petCharacter
+	}
+}
+
 
 class PETAPMStateMachine: GKStateMachine {
 //	func canEnterState(AnyClass) -> Bool

@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol OTTOBuildCharacter {
+	associatedtype CharacterType
+	func buildNewCharacter() -> CharacterType
+}
