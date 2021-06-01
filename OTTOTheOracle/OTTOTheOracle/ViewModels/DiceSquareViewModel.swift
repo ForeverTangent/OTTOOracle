@@ -25,7 +25,7 @@ class DiceSquareViewModel: ObservableObject {
 	private var d20Die = Die(maxPips: 20)
 	private var d10TensDie = Die(maxPips: 10)
 	private var d10OnesDie = Die(maxPips: 10)
-	private var fateDice = FateDice()
+	private var fateDice = FateDieRoll()
 
 	@Published var d4: String = "#"
 	@Published var d6: String = "#"

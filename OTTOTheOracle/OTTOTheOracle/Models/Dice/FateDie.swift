@@ -30,7 +30,7 @@ class FateDie: Die {
 }
 
 
-class FateDice {
+class FateDieRoll {
 
 	private static let subsystem = Bundle.main.bundleIdentifier!
 	private static let catagory = "FateDie"
